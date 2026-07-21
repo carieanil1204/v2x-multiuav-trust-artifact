@@ -1,0 +1,101 @@
+================================================================
+ EDGE AI SERVER v90-multiuav -- Zone 2
+================================================================
+[EDGE-Z2] Port              : 9995
+[EDGE-Z2] Coordinator       : 127.0.0.1:9997
+[EDGE-Z2] ZONE_SAFE=0.15  ZONE_MALICIOUS=0.30  NASH_P*=0.4000
+[EDGE-Z2] Weights: W1=0.27 W2=0.18 W3=0.23 W4=0.18 W5=0.14
+[EDGE-Z2] LEARNING_RATE=0.000  W_MIN=0.05  NASH_BAN_CONFIRM_K=1
+[CLOUD-DELAY] RTT=400ms  pre-cloud-pkts=4
+[EDGE-AI] Config snapshot saved -> logs/edge_ai_z2_config_20260720_133455.json
+[EDGE-Z2] Ready on port 9995
+
+[EDGE-Z2] HANDOVER_LOAD  CID:0     from_Z1  safe_wins_raw=2 decayed=1 decay=0.30 probationK=8  ban_str=1  warn_str=0  verdict=BAN  spd_seeded=10  ts_seeded=10
+[EDGE-Z2] HANDOVER_LOAD  CID:1     from_Z1  safe_wins_raw=2 decayed=1 decay=0.30 probationK=8  ban_str=1  warn_str=0  verdict=BAN  spd_seeded=10  ts_seeded=10
+[EDGE-Z2] HANDOVER_LOAD  CID:2     from_Z1  safe_wins_raw=2 decayed=1 decay=0.30 probationK=8  ban_str=1  warn_str=0  verdict=BAN  spd_seeded=10  ts_seeded=10
+[EDGE-Z2] HANDOVER_LOAD  CID:3     from_Z1  safe_wins_raw=1 decayed=0 decay=0.30 probationK=8  ban_str=0  warn_str=0  verdict=SAFE  spd_seeded=10  ts_seeded=10
+[EDGE-Z2] HANDOVER_LOAD  CID:4     from_Z1  safe_wins_raw=0 decayed=0 decay=0.30 probationK=8  ban_str=0  warn_str=2  verdict=WARN  spd_seeded=10  ts_seeded=10
+[EDGE-Z2] HANDOVER_LOAD  CID:5     from_Z1  safe_wins_raw=2 decayed=1 decay=0.30 probationK=8  ban_str=1  warn_str=0  verdict=BAN  spd_seeded=10  ts_seeded=10
+[EDGE-Z2] HANDOVER_LOAD  CID:6     from_Z1  safe_wins_raw=7 decayed=2 decay=0.30 probationK=8  ban_str=0  warn_str=0  verdict=SAFE  spd_seeded=10  ts_seeded=10
+[EDGE-Z2] HANDOVER_LOAD  CID:7     from_Z1  safe_wins_raw=3 decayed=1 decay=0.30 probationK=8  ban_str=0  warn_str=0  verdict=SAFE  spd_seeded=10  ts_seeded=10
+[EDGE-Z2] HANDOVER_LOAD  CID:8     from_Z1  safe_wins_raw=2 decayed=1 decay=0.30 probationK=8  ban_str=1  warn_str=0  verdict=BAN  spd_seeded=10  ts_seeded=10
+[EDGE-Z2] HANDOVER_LOAD  CID:9     from_Z1  safe_wins_raw=0 decayed=0 decay=0.30 probationK=8  ban_str=0  warn_str=19  verdict=WARN  spd_seeded=10  ts_seeded=10
+[EDGE-Z2-ENSEMBLE] CID:6 m1=0.000 m2=0.020 m3=0.000 m4=0.000 m5=0.000 p=0.000 cloud=PRE overlap=YES -> SAFE
+[EDGE-Z2-ENSEMBLE] CID:9 m1=0.685 m2=0.020 m3=0.000 m4=0.000 m5=0.112 p=0.206 cloud=PRE overlap=YES -> WARN
+[EDGE-Z2-ENSEMBLE] CID:7 m1=0.000 m2=0.020 m3=0.000 m4=0.000 m5=0.000 p=0.000 cloud=PRE overlap=YES -> SAFE
+[EDGE-Z2-ENSEMBLE] CID:3 m1=0.000 m2=0.020 m3=0.000 m4=0.000 m5=0.000 p=0.001 cloud=PRE overlap=YES -> SAFE
+[EDGE-Z2-ENSEMBLE] CID:6 m1=0.000 m2=0.020 m3=0.000 m4=0.000 m5=0.000 p=0.000 cloud=PRE overlap=YES -> SAFE
+[EDGE-Z2-ENSEMBLE] CID:9 m1=0.684 m2=0.020 m3=0.000 m4=0.000 m5=0.113 p=0.206 cloud=PRE overlap=YES -> WARN
+[EDGE-Z2-ENSEMBLE] CID:7 m1=0.000 m2=0.020 m3=0.000 m4=0.000 m5=0.000 p=0.000 cloud=PRE overlap=YES -> SAFE
+[EDGE-Z2-ENSEMBLE] CID:3 m1=0.000 m2=0.020 m3=0.000 m4=0.000 m5=0.000 p=0.000 cloud=PRE overlap=YES -> SAFE
+[EDGE-Z2-ENSEMBLE] CID:4 m1=0.000 m2=0.020 m3=0.000 m4=0.000 m5=0.000 p=0.002 cloud=PRE overlap=YES -> SAFE
+[EDGE-Z2-ENSEMBLE] CID:6 m1=0.000 m2=0.020 m3=0.040 m4=0.000 m5=0.000 p=0.000 cloud=PRE overlap=YES -> SAFE
+[EDGE-Z2-ENSEMBLE] CID:9 m1=0.687 m2=0.020 m3=0.000 m4=0.000 m5=0.114 p=0.206 cloud=PRE overlap=YES -> WARN
+[EDGE-Z2-ENSEMBLE] CID:7 m1=0.000 m2=0.020 m3=0.040 m4=0.000 m5=0.000 p=0.004 cloud=PRE overlap=YES -> SAFE
+[VEREMI-EVIDENCE] Z2 CID:3 mode=shadow old_p=0.263 p_veremi=0.350 p_edge=0.263 streak=1 reasons=ts_nonmonotonic details={'ts': 31.27, 'max_ts': 31.27}
+[EDGE-Z2-ENSEMBLE] CID:3 m1=0.000 m2=0.768 m3=0.550 m4=0.000 m5=0.000 p=0.263 cloud=PRE overlap=YES -> WARN
+[EDGE-Z2-ENSEMBLE] CID:4 m1=0.000 m2=0.020 m3=0.000 m4=0.000 m5=0.000 p=0.001 cloud=PRE overlap=YES -> SAFE
+[EDGE-Z2-ENSEMBLE] CID:6 m1=0.000 m2=0.020 m3=0.000 m4=0.000 m5=0.000 p=0.000 cloud=PRE overlap=YES -> SAFE
+[EDGE-Z2-ENSEMBLE] CID:9 m1=0.000 m2=0.020 m3=0.000 m4=0.000 m5=0.059 p=0.012 cloud=PRE overlap=YES -> SAFE
+[EDGE-Z2-ENSEMBLE] CID:7 m1=0.000 m2=0.020 m3=0.000 m4=0.000 m5=0.000 p=0.000 cloud=PRE overlap=YES -> SAFE
+[VEREMI-EVIDENCE] Z2 CID:3 mode=shadow old_p=0.129 p_veremi=0.950 p_edge=0.129 streak=2 reasons=pos_pred_claimed,speed_pos_claimed details={'pos_err': 105.2, 'speed_err': 105.2, 'derived_speed': 125.2}
+[EDGE-Z2-ENSEMBLE] CID:3 m1=0.000 m2=0.020 m3=0.550 m4=0.000 m5=0.000 p=0.129 cloud=PRE overlap=YES -> SAFE
+[VEREMI-EVIDENCE] Z2 CID:4 mode=shadow old_p=0.290 p_veremi=0.350 p_edge=0.290 streak=1 reasons=ts_nonmonotonic details={'ts': 31.82, 'max_ts': 31.82}
+[EDGE-Z2-ENSEMBLE] CID:4 m1=0.000 m2=0.766 m3=0.550 m4=0.000 m5=0.200 p=0.290 cloud=PRE overlap=YES -> WARN
+[EDGE-Z2-ENSEMBLE] CID:6 m1=0.000 m2=0.020 m3=0.000 m4=0.000 m5=0.000 p=0.000 cloud=PRE overlap=YES -> SAFE
+[EDGE-Z2-ENSEMBLE] CID:9 m1=0.000 m2=0.020 m3=0.000 m4=0.000 m5=0.005 p=0.003 cloud=PRE overlap=YES -> SAFE
+[EDGE-Z2-ENSEMBLE] CID:7 m1=0.000 m2=0.020 m3=0.000 m4=0.000 m5=0.000 p=0.000 cloud=PRE overlap=YES -> SAFE
+[EDGE-Z2-ENSEMBLE] CID:3 m1=0.000 m2=0.020 m3=0.550 m4=0.000 m5=0.000 p=0.127 cloud=PRE overlap=YES -> SAFE
+[VEREMI-EVIDENCE] Z2 CID:4 mode=shadow old_p=0.129 p_veremi=0.950 p_edge=0.129 streak=2 reasons=pos_pred_claimed,speed_pos_claimed details={'pos_err': 119.3, 'speed_err': 119.3, 'derived_speed': 139.3}
+[EDGE-Z2-ENSEMBLE] CID:4 m1=0.000 m2=0.020 m3=0.550 m4=0.000 m5=0.000 p=0.129 cloud=PRE overlap=YES -> SAFE
+[EDGE-Z2-ENSEMBLE] CID:6 m1=0.000 m2=0.020 m3=0.000 m4=0.000 m5=0.000 p=0.000 cloud=PRE overlap=YES -> SAFE
+[EDGE-Z2-ENSEMBLE] CID:9 m1=0.000 m2=0.020 m3=0.000 m4=0.000 m5=0.000 p=0.001 cloud=PRE overlap=YES -> SAFE
+[EDGE-Z2-ENSEMBLE] CID:7 m1=0.000 m2=0.020 m3=0.000 m4=0.000 m5=0.000 p=0.000 cloud=PRE overlap=YES -> SAFE
+[VEREMI-EVIDENCE] Z2 CID:3 mode=shadow old_p=0.291 p_veremi=0.350 p_edge=0.291 streak=1 reasons=ts_nonmonotonic details={'ts': 32.77, 'max_ts': 32.77}
+[EDGE-Z2-ENSEMBLE] CID:3 m1=0.000 m2=0.768 m3=0.550 m4=0.000 m5=0.200 p=0.291 cloud=PRE overlap=YES -> WARN
+[EDGE-Z2-ENSEMBLE] CID:4 m1=0.000 m2=0.020 m3=0.550 m4=0.000 m5=0.000 p=0.127 cloud=PRE overlap=YES -> SAFE
+[EDGE-Z2-ENSEMBLE] CID:6 m1=0.000 m2=0.020 m3=0.000 m4=0.000 m5=0.000 p=0.000 cloud=PRE overlap=YES -> SAFE
+[EDGE-Z2-ENSEMBLE] CID:9 m1=0.000 m2=0.020 m3=0.000 m4=0.000 m5=0.000 p=0.000 cloud=PRE overlap=YES -> SAFE
+[EDGE-Z2-ENSEMBLE] CID:7 m1=0.000 m2=0.020 m3=0.000 m4=0.000 m5=0.000 p=0.000 cloud=PRE overlap=YES -> SAFE
+[VEREMI-EVIDENCE] Z2 CID:3 mode=shadow old_p=0.156 p_veremi=0.950 p_edge=0.156 streak=2 reasons=pos_pred_claimed,speed_pos_claimed details={'pos_err': 127.5, 'speed_err': 127.5, 'derived_speed': 147.5}
+[EDGE-Z2-ENSEMBLE] CID:3 m1=0.000 m2=0.020 m3=0.550 m4=0.000 m5=0.200 p=0.156 cloud=PRE overlap=YES -> WARN
+[EDGE-Z2-ENSEMBLE] CID:4 m1=0.000 m2=0.020 m3=0.040 m4=0.000 m5=0.000 p=0.010 cloud=PRE overlap=YES -> SAFE
+[EDGE-Z2-ENSEMBLE] CID:6 m1=0.000 m2=0.020 m3=0.000 m4=0.000 m5=0.000 p=0.000 cloud=PRE overlap=YES -> SAFE
+[EDGE-Z2-ENSEMBLE] CID:9 m1=0.000 m2=0.020 m3=0.000 m4=0.000 m5=0.000 p=0.000 cloud=PRE overlap=YES -> SAFE
+[EDGE-Z2-ENSEMBLE] CID:7 m1=0.000 m2=0.020 m3=0.000 m4=0.000 m5=0.000 p=0.000 cloud=PRE overlap=YES -> SAFE
+[EDGE-Z2-ENSEMBLE] CID:3 m1=0.000 m2=0.020 m3=0.550 m4=0.000 m5=0.000 p=0.129 cloud=PRE overlap=YES -> SAFE
+[EDGE-Z2-ENSEMBLE] CID:4 m1=0.000 m2=0.020 m3=0.000 m4=0.000 m5=0.000 p=0.000 cloud=PRE overlap=YES -> SAFE
+[EDGE-Z2-ENSEMBLE] CID:6 m1=0.000 m2=0.020 m3=0.000 m4=0.000 m5=0.000 p=0.000 cloud=PRE overlap=YES -> SAFE
+[EDGE-Z2-ENSEMBLE] CID:9 m1=0.000 m2=0.020 m3=0.000 m4=0.000 m5=0.000 p=0.000 cloud=PRE overlap=YES -> SAFE
+[EDGE-Z2-ENSEMBLE] CID:7 m1=0.000 m2=0.020 m3=0.000 m4=0.000 m5=0.000 p=0.000 cloud=PRE overlap=YES -> SAFE
+[EDGE-Z2-ENSEMBLE] CID:3 m1=0.000 m2=0.020 m3=0.040 m4=0.000 m5=0.000 p=0.008 cloud=PRE overlap=YES -> SAFE
+[EDGE-Z2-ENSEMBLE] CID:4 m1=0.000 m2=0.020 m3=0.000 m4=0.000 m5=0.000 p=0.000 cloud=PRE overlap=YES -> SAFE
+[EDGE-Z2-ENSEMBLE] CID:6 m1=0.000 m2=0.020 m3=0.000 m4=0.000 m5=0.000 p=0.000 cloud=PRE overlap=YES -> SAFE
+[EDGE-Z2-ENSEMBLE] CID:9 m1=0.000 m2=0.020 m3=0.000 m4=0.000 m5=0.000 p=0.000 cloud=PRE overlap=YES -> SAFE
+[EDGE-Z2-ENSEMBLE] CID:7 m1=0.000 m2=0.020 m3=0.000 m4=0.000 m5=0.000 p=0.000 cloud=PRE overlap=YES -> SAFE
+[EDGE-Z2-ENSEMBLE] CID:3 m1=0.000 m2=0.020 m3=0.040 m4=0.000 m5=0.000 p=0.003 cloud=PRE overlap=YES -> SAFE
+[EDGE-Z2-ENSEMBLE] CID:4 m1=0.000 m2=0.020 m3=0.000 m4=0.000 m5=0.000 p=0.000 cloud=PRE overlap=YES -> SAFE
+[EDGE-Z2-ENSEMBLE] CID:6 m1=0.000 m2=0.020 m3=0.000 m4=0.000 m5=0.000 p=0.000 cloud=PRE overlap=YES -> SAFE
+[EDGE-Z2-ENSEMBLE] CID:9 m1=0.000 m2=0.020 m3=0.000 m4=0.000 m5=0.000 p=0.000 cloud=PRE overlap=YES -> SAFE
+[EDGE-Z2-ENSEMBLE] CID:7 m1=0.000 m2=0.020 m3=0.000 m4=0.000 m5=0.000 p=0.000 cloud=PRE overlap=YES -> SAFE
+[EDGE-Z2-ENSEMBLE] CID:3 m1=0.000 m2=0.020 m3=0.000 m4=0.000 m5=0.000 p=0.000 cloud=PRE overlap=YES -> SAFE
+[EDGE-Z2-ENSEMBLE] CID:4 m1=0.000 m2=0.020 m3=0.000 m4=0.000 m5=0.000 p=0.000 cloud=PRE overlap=YES -> SAFE
+[EDGE-Z2] Signal 15 — shutting down...
+[EDGE-Z2] Saving metrics before exit...
+
+================================================================
+ EDGE-AI METRICS v90-multiuav  ZONE:2  V2X-EXP-MULTIUAV
+================================================================
+ Packets processed    : 54
+ SAFE / WARN / BAN    : 47 / 7 / 0
+ Confirmed banned CIDs: [0, 1, 2, 5, 8]
+ Handover state loaded: 10 CIDs
+----------------------------------------------------------------
+  CID3   first flagged at sim_ts=31.784s
+  CID4   first flagged at sim_ts=32.332s
+  CID9   first flagged at sim_ts=30.656s
+----------------------------------------------------------------
+ Final weights: W1=0.273 W2=0.182 W3=0.227 W4=0.182 W5=0.136
+================================================================
+
+[EDGE-AI] Metrics saved -> logs/edge_ai_z2_metrics_20260720_133613.json

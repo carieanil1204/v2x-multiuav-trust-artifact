@@ -1,0 +1,95 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+PROJECT_ROOT="$(cd "$(dirname "$0")/.." && pwd)"
+
+SEED="${SEED:-1}"
+NCARS="${NCARS:-10}"
+ATTACK_RATE="${ATTACK_RATE:-50}"
+
+LATE_FLIP="${LATE_FLIP:-360}"
+ATTACK_X0="${ATTACK_X0:-560}"
+ATTACK_X1="${ATTACK_X1:-640}"
+SIMTIME="${SIMTIME:-32}"
+DISABLE_CUSUM="${DISABLE_CUSUM:-false}"
+VEREMI_MODE="${VEREMI_MODE:-guarded}"
+CUSUM_INPUT_MODE="${CUSUM_INPUT_MODE:-edge}"
+VEREMI_GATE="${VEREMI_GATE:-0.10}"
+CUSUM_MU0="${CUSUM_MU0:-0.20}"
+CUSUM_H="${CUSUM_H:-2.5}"
+CUSUM_WARMUP="${CUSUM_WARMUP:-5}"
+CUSUM_MIN_OBS="${CUSUM_MIN_OBS:-15}"
+
+MODE="${MODE:-ON}"
+
+if [ "$MODE" = "ON" ]; then
+  DISABLE=false
+elif [ "$MODE" = "OFF" ]; then
+  DISABLE=true
+else
+  echo "MODE must be ON or OFF"
+  exit 1
+fi
+
+OUTDIR="${OUTDIR:-results/handover_tunable_$(date +%Y%m%d_%H%M%S)}"
+
+# Convert relative OUTDIR to absolute path inside project root.
+if [[ "$OUTDIR" != /* ]]; then
+  OUTDIR="$PROJECT_ROOT/$OUTDIR"
+fi
+
+mkdir -p "$OUTDIR"
+
+echo "PROJECT_ROOT=$PROJECT_ROOT"
+echo "MODE=$MODE"
+echo "SEED=$SEED"
+echo "NCARS=$NCARS"
+echo "ATTACK_RATE=$ATTACK_RATE"
+echo "LATE_FLIP=$LATE_FLIP"
+echo "ATTACK_X0=$ATTACK_X0"
+echo "ATTACK_X1=$ATTACK_X1"
+echo "SIMTIME=$SIMTIME"
+echo "DISABLE_CUSUM=$DISABLE_CUSUM"
+echo "VEREMI_MODE=$VEREMI_MODE"
+echo "CUSUM_INPUT_MODE=$CUSUM_INPUT_MODE"
+echo "CUSUM_MU0=$CUSUM_MU0"
+echo "CUSUM_H=$CUSUM_H"
+echo "CUSUM_WARMUP=$CUSUM_WARMUP"
+echo "CUSUM_MIN_OBS=$CUSUM_MIN_OBS"
+echo "OUTDIR=$OUTDIR"
+
+cd "$PROJECT_ROOT"
+
+bash scripts/stop_pipeline_workstation.sh || true
+
+VEREMI_EVIDENCE_MODE=$VEREMI_MODE VEREMI_SOFT_OLDP_GATE=$VEREMI_GATE CUSUM_INPUT_MODE=$CUSUM_INPUT_MODE \
+  bash scripts/launch_pipeline_workstation_hybrid_veremi.sh
+
+sleep 10
+
+cd "$PROJECT_ROOT/ns-allinone-3.41/ns-3.41"
+
+LOGFILE="$OUTDIR/${MODE}_seed${SEED}_x${ATTACK_X0}_${ATTACK_X1}_t${SIMTIME}.log"
+
+./ns3 run "unified_v91_multiuav_handover_defense \
+  --nCars=$NCARS --attackRate=$ATTACK_RATE --attackType=5 --RngRun=$SEED \
+  --LateFlipThresholdM=$LATE_FLIP \
+  --AttackStartTime=999 --AttackEndTime=-1 \
+  --AttackStartX=$ATTACK_X0 --AttackEndX=$ATTACK_X1 \
+  --PktDropRate=1 --EdgeAddr=127.0.0.1 --EdgePort=9998 \
+  --EdgePortZ2=9996 --InternalCloud=0 --CloudAddr=127.0.0.1 \
+  --CloudPort=6666 --simTime=$SIMTIME --nUAVs=2 \
+  --ZoneLength=900.0 --HTDZoneBoundary=900.0 \
+  --ZoneOverlapM=200.0 --HandoverLeadM=300.0 \
+  --CoordAddr=127.0.0.1 --CoordPort=9997 \
+  --DisableHandover=$DISABLE --DisableCUSUM=$DISABLE_CUSUM \
+  --HandoverTrustDiscount=0.30 \
+  --CusumMu0=$CUSUM_MU0 --CusumH=$CUSUM_H --CusumWarmupK=$CUSUM_WARMUP --CusumMinObsBeforeBan=$CUSUM_MIN_OBS \
+  --PostHandoverProbationPkts=10 --PostHandoverCreditFactor=0.15 \
+  --PostHandoverDisableUpgrade=1" \
+  2>&1 | tee "$LOGFILE"
+
+cd "$PROJECT_ROOT"
+bash scripts/stop_pipeline_workstation.sh || true
+
+echo "Saved log: $LOGFILE"

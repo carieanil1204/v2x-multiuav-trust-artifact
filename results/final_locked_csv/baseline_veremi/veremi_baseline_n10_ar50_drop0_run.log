@@ -1,0 +1,16 @@
+Saved:
+results/final_locked_csv/baseline_veremi/veremi_baseline_n10_ar50_drop0_per_seed_raw.csv
+results/final_locked_csv/baseline_veremi/veremi_baseline_n10_ar50_drop0_aggregate_summary.csv
+results/final_locked_csv/baseline_veremi/proposed_vs_veremi_n10_ar50_drop0_comparison.csv
+results/final_locked_csv/baseline_veremi/proposed_vs_veremi_n10_ar50_drop0_overlap.csv
+
+Aggregate baseline results:
+{'baseline_variant': 'Full_VeReMi_window_K1_W5', 'valid_seeds': 15, 'caught': '101/105', 'pooled_DR_percent': 96.19, 'DR_mean_percent': 96.19, 'DR_std': 6.54, 'false_positive': '44/45', 'pooled_FPR_percent': 97.78, 'FPR_mean_percent': 97.78, 'FPR_std': 8.61, 'F1_mean': 0.81, 'F1_std': 0.04, 'raw_csv_path': '/home/srmap/research/projects/v2x-multiuav-trust/results/final_locked_csv/baseline_veremi/veremi_baseline_n10_ar50_drop0_per_seed_raw.csv'}
+{'baseline_variant': 'Full_VeReMi_window_K2_W5', 'valid_seeds': 15, 'caught': '101/105', 'pooled_DR_percent': 96.19, 'DR_mean_percent': 96.19, 'DR_std': 6.54, 'false_positive': '44/45', 'pooled_FPR_percent': 97.78, 'FPR_mean_percent': 97.78, 'FPR_std': 8.61, 'F1_mean': 0.81, 'F1_std': 0.04, 'raw_csv_path': '/home/srmap/research/projects/v2x-multiuav-trust/results/final_locked_csv/baseline_veremi/veremi_baseline_n10_ar50_drop0_per_seed_raw.csv'}
+{'baseline_variant': 'Full_VeReMi_window_K3_W5', 'valid_seeds': 15, 'caught': '101/105', 'pooled_DR_percent': 96.19, 'DR_mean_percent': 96.19, 'DR_std': 6.54, 'false_positive': '0/45', 'pooled_FPR_percent': 0.0, 'FPR_mean_percent': 0.0, 'FPR_std': 0.0, 'F1_mean': 0.98, 'F1_std': 0.04, 'raw_csv_path': '/home/srmap/research/projects/v2x-multiuav-trust/results/final_locked_csv/baseline_veremi/veremi_baseline_n10_ar50_drop0_per_seed_raw.csv'}
+
+Comparison:
+{'method': 'Proposed_UAV_Edge_Trust_Framework', 'caught': '101/105', 'pooled_DR_percent': 96.19, 'DR_mean_percent': 96.19, 'DR_std': 6.54, 'false_positive': '0/45', 'pooled_FPR_percent': 0.0}
+{'method': 'Full_VeReMi_window_K1_W5', 'caught': '101/105', 'pooled_DR_percent': 96.19, 'DR_mean_percent': 96.19, 'DR_std': 6.54, 'false_positive': '44/45', 'pooled_FPR_percent': 97.78}
+{'method': 'Full_VeReMi_window_K2_W5', 'caught': '101/105', 'pooled_DR_percent': 96.19, 'DR_mean_percent': 96.19, 'DR_std': 6.54, 'false_positive': '44/45', 'pooled_FPR_percent': 97.78}
+{'method': 'Full_VeReMi_window_K3_W5', 'caught': '101/105', 'pooled_DR_percent': 96.19, 'DR_mean_percent': 96.19, 'DR_std': 6.54, 'false_positive': '0/45', 'pooled_FPR_percent': 0.0}

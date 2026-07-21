@@ -1,0 +1,31 @@
+============ HANDOVER PILOT FINAL SUMMARY ============
+
+MODE=on
+Caught counts: [18, 18, 18, 18, 18]
+FP counts: [0, 0, 0, 0, 0]
+Total caught: 90/95
+Total FP: 0/55
+DR mean ± std: 94.74% ± 0.00%
+FPR mean: 0.00%
+Missed by rep: ['[2]', '[2]', '[2]', '[2]', '[2]']
+FPs by rep: ['[]', '[]', '[]', '[]', '[]']
+handover_hits: [30, 30, 30, 30, 30]
+htd_hits: [12, 12, 12, 12, 12]
+cusum_mentions: [1179, 1067, 1076, 1042, 1017]
+veremi_hits: [18, 18, 18, 18, 18]
+
+MODE=off
+Caught counts: [18, 18, 18, 18, 18]
+FP counts: [0, 0, 0, 0, 0]
+Total caught: 90/95
+Total FP: 0/55
+DR mean ± std: 94.74% ± 0.00%
+FPR mean: 0.00%
+Missed by rep: ['[2]', '[2]', '[2]', '[2]', '[2]']
+FPs by rep: ['[]', '[]', '[]', '[]', '[]']
+handover_hits: [0, 0, 0, 0, 0]
+htd_hits: [0, 0, 0, 0, 0]
+cusum_mentions: [0, 0, 0, 0, 0]
+veremi_hits: [18, 18, 18, 18, 18]
+
+Output dir: /home/srmap/research/projects/v2x-multiuav-trust/results/handover_pilot_guarded_20260715_105131

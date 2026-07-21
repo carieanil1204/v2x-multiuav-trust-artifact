@@ -1,0 +1,32 @@
+{
+  "timestamp": "2026-07-17T14:09:36.487876",
+  "version": "v90-multiuav",
+  "zone_id": 2,
+  "exp": "V2X-EXP-MULTIUAV",
+  "stats": {},
+  "confirmed_banned_cids": [
+    1,
+    2,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    17,
+    18
+  ],
+  "detection_latency": {},
+  "precloud_verdicts": {},
+  "postcloud_verdicts": {},
+  "final_weights": {
+    "W1": 0.2727,
+    "W2": 0.1818,
+    "W3": 0.2273,
+    "W4": 0.1818,
+    "W5": 0.1364
+  }
+}

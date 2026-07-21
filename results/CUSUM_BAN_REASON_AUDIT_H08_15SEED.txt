@@ -1,0 +1,180 @@
+
+===== seed=01 =====
+
+CUSUM_BAN seed=01 CID=4 malicious=True
+[CUSUM-BAN] CID:4 change-point detected S=0.900 > h=0.800 pEdge=0.129 (post-handover behavioral change)
+3412: [CUSUM-BAN] CID:4 change-point detected S=0.900 > h=0.800 pEdge=0.129 (post-handover behavioral change)
+3414: [ECON-CLAWBACK] CID:4 ACT=BAN prior_payoff=-43.841 extra_penalty=5.000 new_payoff=-49.341
+3415: [FORGIVENESS] CID:4 BAN#1 excused (first confirmed offence) honest_wins=0 (preserved)
+
+===== seed=02 =====
+
+CUSUM_BAN seed=02 CID=3 malicious=True
+[CUSUM-BAN] CID:3 change-point detected S=0.900 > h=0.800 pEdge=0.129 (post-handover behavioral change)
+3691: [CUSUM-BAN] CID:3 change-point detected S=0.900 > h=0.800 pEdge=0.129 (post-handover behavioral change)
+3692: [ECON-CLAWBACK] CID:3 ACT=BAN prior_payoff=-60.130 extra_penalty=5.000 new_payoff=-65.630
+3693: [FORGIVENESS] CID:3 BAN#1 excused (first confirmed offence) honest_wins=0 (preserved)
+
+CUSUM_BAN seed=02 CID=4 malicious=True
+[CUSUM-BAN] CID:4 change-point detected S=0.900 > h=0.800 pEdge=0.129 (post-handover behavioral change)
+3732: [CUSUM-BAN] CID:4 change-point detected S=0.900 > h=0.800 pEdge=0.129 (post-handover behavioral change)
+3734: [ECON-CLAWBACK] CID:4 ACT=BAN prior_payoff=-43.773 extra_penalty=5.000 new_payoff=-49.273
+3735: [FORGIVENESS] CID:4 BAN#1 excused (first confirmed offence) honest_wins=0 (preserved)
+
+===== seed=03 =====
+
+CUSUM_BAN seed=03 CID=3 malicious=True
+[CUSUM-BAN] CID:3 change-point detected S=0.900 > h=0.800 pEdge=0.129 (post-handover behavioral change)
+3671: [CUSUM-BAN] CID:3 change-point detected S=0.900 > h=0.800 pEdge=0.129 (post-handover behavioral change)
+3673: [ECON-CLAWBACK] CID:3 ACT=BAN prior_payoff=-54.490 extra_penalty=5.000 new_payoff=-59.990
+3674: [FORGIVENESS] CID:3 BAN#1 excused (first confirmed offence) honest_wins=0 (preserved)
+
+CUSUM_BAN seed=03 CID=4 malicious=True
+[CUSUM-BAN] CID:4 change-point detected S=0.900 > h=0.800 pEdge=0.129 (post-handover behavioral change)
+3735: [CUSUM-BAN] CID:4 change-point detected S=0.900 > h=0.800 pEdge=0.129 (post-handover behavioral change)
+3737: [ECON-CLAWBACK] CID:4 ACT=BAN prior_payoff=-38.919 extra_penalty=5.000 new_payoff=-44.419
+3738: [FORGIVENESS] CID:4 BAN#1 excused (first confirmed offence) honest_wins=0 (preserved)
+
+===== seed=04 =====
+
+CUSUM_BAN seed=04 CID=3 malicious=True
+[CUSUM-BAN] CID:3 change-point detected S=0.900 > h=0.800 pEdge=0.129 (post-handover behavioral change)
+3377: [CUSUM-BAN] CID:3 change-point detected S=0.900 > h=0.800 pEdge=0.129 (post-handover behavioral change)
+
+===== seed=05 =====
+
+CUSUM_BAN seed=05 CID=3 malicious=True
+[CUSUM-BAN] CID:3 change-point detected S=0.900 > h=0.800 pEdge=0.129 (post-handover behavioral change)
+3663: [CUSUM-BAN] CID:3 change-point detected S=0.900 > h=0.800 pEdge=0.129 (post-handover behavioral change)
+3664: [ECON-CLAWBACK] CID:3 ACT=BAN prior_payoff=-60.204 extra_penalty=5.000 new_payoff=-65.704
+3665: [FORGIVENESS] CID:3 BAN#1 excused (first confirmed offence) honest_wins=0 (preserved)
+
+CUSUM_BAN seed=05 CID=4 malicious=True
+[CUSUM-BAN] CID:4 change-point detected S=0.900 > h=0.800 pEdge=0.129 (post-handover behavioral change)
+3718: [CUSUM-BAN] CID:4 change-point detected S=0.900 > h=0.800 pEdge=0.129 (post-handover behavioral change)
+3719: [ECON-CLAWBACK] CID:4 ACT=BAN prior_payoff=-48.989 extra_penalty=5.000 new_payoff=-54.489
+3720: [FORGIVENESS] CID:4 BAN#1 excused (first confirmed offence) honest_wins=0 (preserved)
+
+===== seed=06 =====
+
+CUSUM_BAN seed=06 CID=3 malicious=True
+[CUSUM-BAN] CID:3 change-point detected S=0.900 > h=0.800 pEdge=0.129 (post-handover behavioral change)
+3645: [CUSUM-BAN] CID:3 change-point detected S=0.900 > h=0.800 pEdge=0.129 (post-handover behavioral change)
+
+CUSUM_BAN seed=06 CID=4 malicious=True
+[CUSUM-BAN] CID:4 change-point detected S=0.900 > h=0.800 pEdge=0.129 (post-handover behavioral change)
+3711: [CUSUM-BAN] CID:4 change-point detected S=0.900 > h=0.800 pEdge=0.129 (post-handover behavioral change)
+3712: [ECON-CLAWBACK] CID:4 ACT=BAN prior_payoff=-43.777 extra_penalty=5.000 new_payoff=-49.277
+3713: [FORGIVENESS] CID:4 BAN#1 excused (first confirmed offence) honest_wins=0 (preserved)
+
+===== seed=07 =====
+
+CUSUM_BAN seed=07 CID=0 malicious=True
+[CUSUM-BAN] CID:0 change-point detected S=0.900 > h=0.800 pEdge=0.156 (post-handover behavioral change)
+3662: [CUSUM-BAN] CID:0 change-point detected S=0.900 > h=0.800 pEdge=0.156 (post-handover behavioral change)
+3663: [ECON-CLAWBACK] CID:0 ACT=BAN prior_payoff=-122.575 extra_penalty=5.000 new_payoff=-128.075
+3664: [FORGIVENESS] CID:0 BAN#1 excused (first confirmed offence) honest_wins=0 (preserved)
+
+CUSUM_BAN seed=07 CID=9 malicious=True
+[CUSUM-BAN] CID:9 change-point detected S=0.900 > h=0.800 pEdge=0.129 (post-handover behavioral change)
+3681: [CUSUM-BAN] CID:9 change-point detected S=0.900 > h=0.800 pEdge=0.129 (post-handover behavioral change)
+3682: [ECON-CLAWBACK] CID:9 ACT=BAN prior_payoff=-39.100 extra_penalty=5.000 new_payoff=-44.600
+3683: [FORGIVENESS] CID:9 BAN#1 excused (first confirmed offence) honest_wins=0 (preserved)
+
+CUSUM_BAN seed=07 CID=3 malicious=True
+[CUSUM-BAN] CID:3 change-point detected S=0.900 > h=0.800 pEdge=0.129 (post-handover behavioral change)
+3711: [CUSUM-BAN] CID:3 change-point detected S=0.900 > h=0.800 pEdge=0.129 (post-handover behavioral change)
+3712: [ECON-CLAWBACK] CID:3 ACT=BAN prior_payoff=-60.123 extra_penalty=5.000 new_payoff=-65.623
+3713: [FORGIVENESS] CID:3 BAN#1 excused (first confirmed offence) honest_wins=0 (preserved)
+
+===== seed=08 =====
+
+CUSUM_BAN seed=08 CID=2 malicious=True
+[CUSUM-BAN] CID:2 change-point detected S=0.900 > h=0.800 pEdge=0.129 (post-handover behavioral change)
+3370: [CUSUM-BAN] CID:2 change-point detected S=0.900 > h=0.800 pEdge=0.129 (post-handover behavioral change)
+3372: [ECON-CLAWBACK] CID:2 ACT=BAN prior_payoff=-85.397 extra_penalty=5.000 new_payoff=-90.897
+3373: [FORGIVENESS] CID:2 BAN#1 excused (first confirmed offence) honest_wins=0 (preserved)
+
+CUSUM_BAN seed=08 CID=9 malicious=True
+[CUSUM-BAN] CID:9 change-point detected S=0.900 > h=0.800 pEdge=0.129 (post-handover behavioral change)
+3379: [CUSUM-BAN] CID:9 change-point detected S=0.900 > h=0.800 pEdge=0.129 (post-handover behavioral change)
+3380: [ECON-CLAWBACK] CID:9 ACT=BAN prior_payoff=-30.054 extra_penalty=5.000 new_payoff=-35.554
+3381: [FORGIVENESS] CID:9 BAN#1 excused (first confirmed offence) honest_wins=0 (preserved)
+
+===== seed=09 =====
+
+CUSUM_BAN seed=09 CID=3 malicious=True
+[CUSUM-BAN] CID:3 change-point detected S=0.900 > h=0.800 pEdge=0.129 (post-handover behavioral change)
+3607: [CUSUM-BAN] CID:3 change-point detected S=0.900 > h=0.800 pEdge=0.129 (post-handover behavioral change)
+3608: [ECON-CLAWBACK] CID:3 ACT=BAN prior_payoff=-66.094 extra_penalty=5.000 new_payoff=-71.594
+3609: [FORGIVENESS] CID:3 BAN#1 excused (first confirmed offence) honest_wins=0 (preserved)
+
+===== seed=10 =====
+
+CUSUM_BAN seed=10 CID=3 malicious=True
+[CUSUM-BAN] CID:3 change-point detected S=0.900 > h=0.800 pEdge=0.129 (post-handover behavioral change)
+3705: [CUSUM-BAN] CID:3 change-point detected S=0.900 > h=0.800 pEdge=0.129 (post-handover behavioral change)
+3706: [ECON-CLAWBACK] CID:3 ACT=BAN prior_payoff=-72.138 extra_penalty=5.000 new_payoff=-77.638
+3707: [FORGIVENESS] CID:3 BAN#1 excused (first confirmed offence) honest_wins=0 (preserved)
+
+CUSUM_BAN seed=10 CID=4 malicious=True
+[CUSUM-BAN] CID:4 change-point detected S=0.900 > h=0.800 pEdge=0.129 (post-handover behavioral change)
+3716: [CUSUM-BAN] CID:4 change-point detected S=0.900 > h=0.800 pEdge=0.129 (post-handover behavioral change)
+3717: [ECON-CLAWBACK] CID:4 ACT=BAN prior_payoff=-38.921 extra_penalty=5.000 new_payoff=-44.421
+3718: [FORGIVENESS] CID:4 BAN#1 excused (first confirmed offence) honest_wins=0 (preserved)
+
+===== seed=11 =====
+
+CUSUM_BAN seed=11 CID=9 malicious=True
+[CUSUM-BAN] CID:9 change-point detected S=0.900 > h=0.800 pEdge=0.129 (post-handover behavioral change)
+3354: [CUSUM-BAN] CID:9 change-point detected S=0.900 > h=0.800 pEdge=0.129 (post-handover behavioral change)
+3355: [ECON-CLAWBACK] CID:9 ACT=BAN prior_payoff=-38.979 extra_penalty=5.000 new_payoff=-44.479
+3356: [FORGIVENESS] CID:9 BAN#1 excused (first confirmed offence) honest_wins=0 (preserved)
+
+===== seed=12 =====
+
+CUSUM_BAN seed=12 CID=2 malicious=True
+[CUSUM-BAN] CID:2 change-point detected S=0.900 > h=0.800 pEdge=0.129 (post-handover behavioral change)
+3635: [CUSUM-BAN] CID:2 change-point detected S=0.900 > h=0.800 pEdge=0.129 (post-handover behavioral change)
+3636: [ECON-CLAWBACK] CID:2 ACT=BAN prior_payoff=-78.757 extra_penalty=5.000 new_payoff=-84.257
+3637: [FORGIVENESS] CID:2 BAN#1 excused (first confirmed offence) honest_wins=0 (preserved)
+
+CUSUM_BAN seed=12 CID=3 malicious=True
+[CUSUM-BAN] CID:3 change-point detected S=0.900 > h=0.800 pEdge=0.129 (post-handover behavioral change)
+3675: [CUSUM-BAN] CID:3 change-point detected S=0.900 > h=0.800 pEdge=0.129 (post-handover behavioral change)
+3677: [ECON-CLAWBACK] CID:3 ACT=BAN prior_payoff=-60.206 extra_penalty=5.000 new_payoff=-65.706
+3678: [FORGIVENESS] CID:3 BAN#1 excused (first confirmed offence) honest_wins=0 (preserved)
+
+CUSUM_BAN seed=12 CID=4 malicious=False
+[CUSUM-BAN] CID:4 change-point detected S=1.600 > h=0.800 pEdge=1.000 (post-handover behavioral change)
+3688: [CUSUM-BAN] CID:4 change-point detected S=1.600 > h=0.800 pEdge=1.000 (post-handover behavioral change)
+3689: [ECON-CLAWBACK] CID:4 ACT=BAN prior_payoff=-99.218 extra_penalty=5.000 new_payoff=-104.718
+3690: [FORGIVENESS] CID:4 BAN#1 excused (first confirmed offence) honest_wins=0 (preserved)
+
+===== seed=13 =====
+
+CUSUM_BAN seed=13 CID=3 malicious=True
+[CUSUM-BAN] CID:3 change-point detected S=0.900 > h=0.800 pEdge=0.129 (post-handover behavioral change)
+3650: [CUSUM-BAN] CID:3 change-point detected S=0.900 > h=0.800 pEdge=0.129 (post-handover behavioral change)
+3651: [ECON-CLAWBACK] CID:3 ACT=BAN prior_payoff=-60.136 extra_penalty=5.000 new_payoff=-65.636
+3652: [FORGIVENESS] CID:3 BAN#1 excused (first confirmed offence) honest_wins=0 (preserved)
+
+CUSUM_BAN seed=13 CID=4 malicious=True
+[CUSUM-BAN] CID:4 change-point detected S=0.900 > h=0.800 pEdge=0.129 (post-handover behavioral change)
+3693: [CUSUM-BAN] CID:4 change-point detected S=0.900 > h=0.800 pEdge=0.129 (post-handover behavioral change)
+3694: [ECON-CLAWBACK] CID:4 ACT=BAN prior_payoff=-43.838 extra_penalty=5.000 new_payoff=-49.338
+3695: [FORGIVENESS] CID:4 BAN#1 excused (first confirmed offence) honest_wins=0 (preserved)
+
+===== seed=14 =====
+
+CUSUM_BAN seed=14 CID=3 malicious=True
+[CUSUM-BAN] CID:3 change-point detected S=0.900 > h=0.800 pEdge=0.129 (post-handover behavioral change)
+3677: [CUSUM-BAN] CID:3 change-point detected S=0.900 > h=0.800 pEdge=0.129 (post-handover behavioral change)
+
+CUSUM_BAN seed=14 CID=4 malicious=True
+[CUSUM-BAN] CID:4 change-point detected S=0.900 > h=0.800 pEdge=0.129 (post-handover behavioral change)
+3717: [CUSUM-BAN] CID:4 change-point detected S=0.900 > h=0.800 pEdge=0.129 (post-handover behavioral change)
+3718: [ECON-CLAWBACK] CID:4 ACT=BAN prior_payoff=-49.036 extra_penalty=5.000 new_payoff=-54.536
+3719: [FORGIVENESS] CID:4 BAN#1 excused (first confirmed offence) honest_wins=0 (preserved)
+
+===== seed=15 =====

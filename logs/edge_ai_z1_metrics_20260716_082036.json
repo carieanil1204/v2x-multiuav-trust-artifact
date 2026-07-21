@@ -1,0 +1,158 @@
+{
+  "timestamp": "2026-07-16T08:20:36.139312",
+  "version": "v90-multiuav",
+  "zone_id": 1,
+  "exp": "V2X-EXP-MULTIUAV",
+  "stats": {
+    "6": {
+      "safe": 48,
+      "warn": 3,
+      "ban": 2,
+      "pkt": 53
+    },
+    "9": {
+      "safe": 17,
+      "warn": 0,
+      "ban": 0,
+      "pkt": 17
+    },
+    "7": {
+      "safe": 52,
+      "warn": 0,
+      "ban": 2,
+      "pkt": 54
+    },
+    "8": {
+      "safe": 55,
+      "warn": 2,
+      "ban": 0,
+      "pkt": 57
+    },
+    "4": {
+      "safe": 53,
+      "warn": 0,
+      "ban": 2,
+      "pkt": 55
+    },
+    "0": {
+      "safe": 42,
+      "warn": 13,
+      "ban": 0,
+      "pkt": 55
+    },
+    "5": {
+      "safe": 44,
+      "warn": 6,
+      "ban": 2,
+      "pkt": 52
+    },
+    "3": {
+      "safe": 53,
+      "warn": 3,
+      "ban": 0,
+      "pkt": 56
+    },
+    "1": {
+      "safe": 47,
+      "warn": 5,
+      "ban": 2,
+      "pkt": 54
+    },
+    "2": {
+      "safe": 49,
+      "warn": 7,
+      "ban": 0,
+      "pkt": 56
+    }
+  },
+  "confirmed_banned_cids": [
+    1,
+    4,
+    5,
+    6,
+    7
+  ],
+  "detection_latency": {
+    "5": 23.593868,
+    "0": 24.024993,
+    "1": 25.384493,
+    "6": 25.586493,
+    "2": 27.424368,
+    "7": 28.346493,
+    "3": 29.344493,
+    "4": 29.506993,
+    "8": 29.936493
+  },
+  "precloud_verdicts": {
+    "5": [
+      "WARN",
+      "WARN",
+      "WARN",
+      "WARN",
+      "WARN",
+      "WARN",
+      "BAN"
+    ],
+    "0": [
+      "WARN",
+      "WARN",
+      "WARN",
+      "WARN",
+      "WARN",
+      "WARN",
+      "WARN",
+      "WARN",
+      "WARN",
+      "WARN",
+      "WARN",
+      "WARN",
+      "WARN"
+    ],
+    "1": [
+      "WARN",
+      "WARN",
+      "WARN",
+      "WARN",
+      "WARN",
+      "BAN"
+    ],
+    "6": [
+      "WARN",
+      "WARN",
+      "WARN",
+      "BAN"
+    ],
+    "2": [
+      "WARN",
+      "WARN",
+      "WARN",
+      "WARN",
+      "WARN",
+      "WARN",
+      "WARN"
+    ],
+    "7": [
+      "BAN"
+    ],
+    "3": [
+      "WARN",
+      "WARN",
+      "WARN"
+    ],
+    "4": [
+      "BAN"
+    ],
+    "8": [
+      "WARN",
+      "WARN"
+    ]
+  },
+  "postcloud_verdicts": {},
+  "final_weights": {
+    "W1": 0.2727,
+    "W2": 0.1818,
+    "W3": 0.2273,
+    "W4": 0.1818,
+    "W5": 0.1364
+  }
+}

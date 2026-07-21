@@ -1,0 +1,5 @@
+condition,method,state_model,honest,false_positive,overall_FPR_percent,FPR_mean_percent,FPR_std
+CLEAN_HONEST,Proposed_UAV_Edge_Trust_Framework,trust_state_transferred_across_handover_with_guarded_confirmation,150,0/150,0.0,0.0,0.0
+CLEAN_HONEST,Local_CID_RXUAV_SEGMENT_RESET_OBS_K1_W5,memory_resets_at_each_contiguous_RXUAV_segment,150,144/150,96.0,96.0,5.07
+CLEAN_HONEST,Local_CID_RXUAV_SEGMENT_RESET_OBS_K2_W5,memory_resets_at_each_contiguous_RXUAV_segment,150,0/150,0.0,0.0,0.0
+CLEAN_HONEST,Local_CID_RXUAV_SEGMENT_RESET_OBS_K3_W5,memory_resets_at_each_contiguous_RXUAV_segment,150,0/150,0.0,0.0,0.0

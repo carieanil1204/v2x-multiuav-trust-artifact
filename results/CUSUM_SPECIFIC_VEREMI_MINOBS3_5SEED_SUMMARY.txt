@@ -1,0 +1,27 @@
+
+===== CUSUM_ON =====
+seed=01 caught=7/7 DR=100.00% FP=0/3 FPR=0.00% CUSUM_BAN=1 confirmed=6 missed=[] fps=[] falsified=133
+seed=02 caught=7/7 DR=100.00% FP=0/3 FPR=0.00% CUSUM_BAN=2 confirmed=5 missed=[] fps=[] falsified=127
+seed=03 caught=7/7 DR=100.00% FP=0/3 FPR=0.00% CUSUM_BAN=2 confirmed=5 missed=[] fps=[] falsified=117
+seed=04 caught=6/7 DR=85.71% FP=0/3 FPR=0.00% CUSUM_BAN=1 confirmed=5 missed=[5] fps=[] falsified=127
+seed=05 caught=7/7 DR=100.00% FP=0/3 FPR=0.00% CUSUM_BAN=2 confirmed=5 missed=[] fps=[] falsified=126
+SUMMARY
+DR mean: 97.14 std: 6.39
+FPR mean: 0.0 std: 0.0
+CUSUM_BAN mean: 1.6 std: 0.55
+
+===== CUSUM_OFF =====
+seed=01 caught=6/7 DR=85.71% FP=0/3 FPR=0.00% CUSUM_BAN=0 confirmed=6 missed=[4] fps=[] falsified=133
+seed=02 caught=5/7 DR=71.43% FP=0/3 FPR=0.00% CUSUM_BAN=0 confirmed=5 missed=[3, 4] fps=[] falsified=127
+seed=03 caught=5/7 DR=71.43% FP=0/3 FPR=0.00% CUSUM_BAN=0 confirmed=5 missed=[3, 4] fps=[] falsified=117
+seed=04 caught=5/7 DR=71.43% FP=0/3 FPR=0.00% CUSUM_BAN=0 confirmed=5 missed=[3, 5] fps=[] falsified=127
+seed=05 caught=5/7 DR=71.43% FP=0/3 FPR=0.00% CUSUM_BAN=0 confirmed=5 missed=[3, 4] fps=[] falsified=126
+SUMMARY
+DR mean: 74.29 std: 6.39
+FPR mean: 0.0 std: 0.0
+CUSUM_BAN mean: 0 std: 0.0
+
+===== CUSUM_ON - CUSUM_OFF =====
+Per-seed DR gains: [14.29, 28.57, 28.57, 14.29, 28.57]
+Mean DR gain: 22.86
+Gain std: 7.82

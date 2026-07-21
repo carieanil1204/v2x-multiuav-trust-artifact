@@ -1,0 +1,3 @@
+experiment,condition,valid_seeds,caught,pooled_DR_percent,DR_mean_percent,DR_std,false_positive,pooled_FPR_percent,FPR_mean_percent,FPR_std,CUSUM_BAN_total,CUSUM_HOLD_total,PKT_DROP_LOGS_total,source_summary_path
+guarded_cusum_onoff,ON,15,101/105,96.19,96.19,6.54,0/45,0.0,0.0,0.0,25,7,0,/home/srmap/research/projects/v2x-multiuav-trust/results/CUSUM_H08_MINOBS3_EDGEMAX05_15SEED_SUMMARY.txt
+guarded_cusum_onoff,OFF,15,75/105,71.43,71.43,7.64,0/45,0.0,0.0,0.0,0,0,0,/home/srmap/research/projects/v2x-multiuav-trust/results/CUSUM_H08_MINOBS3_EDGEMAX05_15SEED_SUMMARY.txt

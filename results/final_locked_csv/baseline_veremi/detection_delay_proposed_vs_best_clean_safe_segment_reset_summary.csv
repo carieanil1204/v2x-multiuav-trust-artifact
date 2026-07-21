@@ -1,0 +1,5 @@
+condition,selected_baseline_K,malicious_total,proposed_detected,baseline_detected,common_detected_for_delay,proposed_delay_mean_sec,proposed_delay_median_sec,proposed_delay_std_sec,baseline_delay_mean_sec,baseline_delay_median_sec,baseline_delay_std_sec,proposed_minus_baseline_delay_mean_sec,proposed_minus_baseline_delay_median_sec,proposed_faster_count,baseline_faster_count,tie_count,interpretation
+DROP0,2,105,101,101,101,0.119,0.0,0.214,10.495,10.5,2.182,-10.376,-10.5,101,0,0,negative difference means proposed WARN/enforcement is earlier than local segment-reset baseline
+DROP5,2,105,101,94,94,-0.777,0.0,2.899,10.277,10.5,4.261,-11.053,-11.499,93,0,1,negative difference means proposed WARN/enforcement is earlier than local segment-reset baseline
+DROP10,2,105,101,89,89,-1.258,0.0,3.789,10.275,11.0,5.381,-11.534,-11.5,89,0,0,negative difference means proposed WARN/enforcement is earlier than local segment-reset baseline
+DROP20,2,105,101,83,83,-0.524,0.0,6.087,10.711,11.0,6.916,-11.235,-11.501,80,2,1,negative difference means proposed WARN/enforcement is earlier than local segment-reset baseline

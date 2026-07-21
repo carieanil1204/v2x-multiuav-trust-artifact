@@ -1,0 +1,11 @@
+method,scope,K,W,caught,pooled_DR_percent,DR_mean_percent,DR_std,false_positive,pooled_FPR_percent,F1_mean
+Proposed_UAV_Edge_Trust_Framework,handover_state_transfer,,,101/105,96.19,96.19,6.54,0/45,0.0,
+Centralized_CID_K1_W5,Centralized_CID,1,5,101/105,96.19,96.19,6.54,44/45,97.78,0.81
+Centralized_CID_K2_W5,Centralized_CID,2,5,101/105,96.19,96.19,6.54,44/45,97.78,0.81
+Centralized_CID_K3_W5,Centralized_CID,3,5,101/105,96.19,96.19,6.54,0/45,0.0,0.98
+Local_CID_RXUAV_K1_W5,Local_CID_RXUAV,1,5,101/105,96.19,96.19,6.54,44/45,97.78,0.81
+Local_CID_RXUAV_K2_W5,Local_CID_RXUAV,2,5,101/105,96.19,96.19,6.54,13/45,28.89,0.92
+Local_CID_RXUAV_K3_W5,Local_CID_RXUAV,3,5,101/105,96.19,96.19,6.54,0/45,0.0,0.98
+Local_CID_ZONE_K1_W5,Local_CID_ZONE,1,5,101/105,96.19,96.19,6.54,44/45,97.78,0.81
+Local_CID_ZONE_K2_W5,Local_CID_ZONE,2,5,101/105,96.19,96.19,6.54,13/45,28.89,0.92
+Local_CID_ZONE_K3_W5,Local_CID_ZONE,3,5,101/105,96.19,96.19,6.54,0/45,0.0,0.98

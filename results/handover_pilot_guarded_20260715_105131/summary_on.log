@@ -1,0 +1,21 @@
+=== Handover pilot mode=on DisableHandover=false reps=5 ===
+================ on REP 1 / 5 ================
+on REP 1: caught 18/19, FP 0/11, missed=[2], fps=[]
+on REP 1: handover_hits=30, htd_hits=12, cusum_mentions=1179, veremi_hits=18
+
+================ on REP 2 / 5 ================
+on REP 2: caught 18/19, FP 0/11, missed=[2], fps=[]
+on REP 2: handover_hits=30, htd_hits=12, cusum_mentions=1067, veremi_hits=18
+
+================ on REP 3 / 5 ================
+on REP 3: caught 18/19, FP 0/11, missed=[2], fps=[]
+on REP 3: handover_hits=30, htd_hits=12, cusum_mentions=1076, veremi_hits=18
+
+================ on REP 4 / 5 ================
+on REP 4: caught 18/19, FP 0/11, missed=[2], fps=[]
+on REP 4: handover_hits=30, htd_hits=12, cusum_mentions=1042, veremi_hits=18
+
+================ on REP 5 / 5 ================
+on REP 5: caught 18/19, FP 0/11, missed=[2], fps=[]
+on REP 5: handover_hits=30, htd_hits=12, cusum_mentions=1017, veremi_hits=18
+

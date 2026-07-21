@@ -1,0 +1,62 @@
+nohup: ignoring input
+===== RUN exp=handover_smoke_ON mode=ON seed=1 disable_cusum=false x=560-640 t=32 =====
+Pipeline stopped.
+Saved: results/patched_sensitive_ablation_smoke/handover_smoke_ON/ON_seed1_x560_640_t32_cusumfalse.log
+===== RUN exp=handover_smoke_OFF mode=OFF seed=1 disable_cusum=false x=560-640 t=32 =====
+Pipeline stopped.
+Saved: results/patched_sensitive_ablation_smoke/handover_smoke_OFF/OFF_seed1_x560_640_t32_cusumfalse.log
+===== RUN exp=handover_smoke_ON mode=ON seed=2 disable_cusum=false x=560-640 t=32 =====
+Pipeline stopped.
+Saved: results/patched_sensitive_ablation_smoke/handover_smoke_ON/ON_seed2_x560_640_t32_cusumfalse.log
+===== RUN exp=handover_smoke_OFF mode=OFF seed=2 disable_cusum=false x=560-640 t=32 =====
+Pipeline stopped.
+Saved: results/patched_sensitive_ablation_smoke/handover_smoke_OFF/OFF_seed2_x560_640_t32_cusumfalse.log
+===== RUN exp=handover_smoke_ON mode=ON seed=3 disable_cusum=false x=560-640 t=32 =====
+Pipeline stopped.
+Saved: results/patched_sensitive_ablation_smoke/handover_smoke_ON/ON_seed3_x560_640_t32_cusumfalse.log
+===== RUN exp=handover_smoke_OFF mode=OFF seed=3 disable_cusum=false x=560-640 t=32 =====
+Pipeline stopped.
+Saved: results/patched_sensitive_ablation_smoke/handover_smoke_OFF/OFF_seed3_x560_640_t32_cusumfalse.log
+===== RUN exp=handover_smoke_ON mode=ON seed=4 disable_cusum=false x=560-640 t=32 =====
+Pipeline stopped.
+Saved: results/patched_sensitive_ablation_smoke/handover_smoke_ON/ON_seed4_x560_640_t32_cusumfalse.log
+===== RUN exp=handover_smoke_OFF mode=OFF seed=4 disable_cusum=false x=560-640 t=32 =====
+Pipeline stopped.
+Saved: results/patched_sensitive_ablation_smoke/handover_smoke_OFF/OFF_seed4_x560_640_t32_cusumfalse.log
+===== RUN exp=handover_smoke_ON mode=ON seed=5 disable_cusum=false x=560-640 t=32 =====
+Pipeline stopped.
+Saved: results/patched_sensitive_ablation_smoke/handover_smoke_ON/ON_seed5_x560_640_t32_cusumfalse.log
+===== RUN exp=handover_smoke_OFF mode=OFF seed=5 disable_cusum=false x=560-640 t=32 =====
+Pipeline stopped.
+Saved: results/patched_sensitive_ablation_smoke/handover_smoke_OFF/OFF_seed5_x560_640_t32_cusumfalse.log
+===== RUN exp=cusum_smoke_ON mode=ON seed=1 disable_cusum=false x=560-720 t=36 =====
+Pipeline stopped.
+Saved: results/patched_sensitive_ablation_smoke/cusum_smoke_ON/ON_seed1_x560_720_t36_cusumfalse.log
+===== RUN exp=cusum_smoke_OFF mode=ON seed=1 disable_cusum=true x=560-720 t=36 =====
+Pipeline stopped.
+Saved: results/patched_sensitive_ablation_smoke/cusum_smoke_OFF/ON_seed1_x560_720_t36_cusumtrue.log
+===== RUN exp=cusum_smoke_ON mode=ON seed=2 disable_cusum=false x=560-720 t=36 =====
+Pipeline stopped.
+Saved: results/patched_sensitive_ablation_smoke/cusum_smoke_ON/ON_seed2_x560_720_t36_cusumfalse.log
+===== RUN exp=cusum_smoke_OFF mode=ON seed=2 disable_cusum=true x=560-720 t=36 =====
+Pipeline stopped.
+Saved: results/patched_sensitive_ablation_smoke/cusum_smoke_OFF/ON_seed2_x560_720_t36_cusumtrue.log
+===== RUN exp=cusum_smoke_ON mode=ON seed=3 disable_cusum=false x=560-720 t=36 =====
+Pipeline stopped.
+Saved: results/patched_sensitive_ablation_smoke/cusum_smoke_ON/ON_seed3_x560_720_t36_cusumfalse.log
+===== RUN exp=cusum_smoke_OFF mode=ON seed=3 disable_cusum=true x=560-720 t=36 =====
+Pipeline stopped.
+Saved: results/patched_sensitive_ablation_smoke/cusum_smoke_OFF/ON_seed3_x560_720_t36_cusumtrue.log
+===== RUN exp=cusum_smoke_ON mode=ON seed=4 disable_cusum=false x=560-720 t=36 =====
+Pipeline stopped.
+Saved: results/patched_sensitive_ablation_smoke/cusum_smoke_ON/ON_seed4_x560_720_t36_cusumfalse.log
+===== RUN exp=cusum_smoke_OFF mode=ON seed=4 disable_cusum=true x=560-720 t=36 =====
+Pipeline stopped.
+Saved: results/patched_sensitive_ablation_smoke/cusum_smoke_OFF/ON_seed4_x560_720_t36_cusumtrue.log
+===== RUN exp=cusum_smoke_ON mode=ON seed=5 disable_cusum=false x=560-720 t=36 =====
+Pipeline stopped.
+Saved: results/patched_sensitive_ablation_smoke/cusum_smoke_ON/ON_seed5_x560_720_t36_cusumfalse.log
+===== RUN exp=cusum_smoke_OFF mode=ON seed=5 disable_cusum=true x=560-720 t=36 =====
+Pipeline stopped.
+Saved: results/patched_sensitive_ablation_smoke/cusum_smoke_OFF/ON_seed5_x560_720_t36_cusumtrue.log
+PATCHED SENSITIVE ABLATION SMOKE COMPLETE

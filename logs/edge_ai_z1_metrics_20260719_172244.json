@@ -1,0 +1,262 @@
+{
+  "timestamp": "2026-07-19T17:22:44.568408",
+  "version": "v90-multiuav",
+  "zone_id": 1,
+  "exp": "V2X-EXP-MULTIUAV",
+  "stats": {
+    "6": {
+      "safe": 27,
+      "warn": 18,
+      "ban": 0,
+      "pkt": 45
+    },
+    "7": {
+      "safe": 26,
+      "warn": 20,
+      "ban": 0,
+      "pkt": 46
+    },
+    "1": {
+      "safe": 22,
+      "warn": 18,
+      "ban": 2,
+      "pkt": 42
+    },
+    "0": {
+      "safe": 23,
+      "warn": 19,
+      "ban": 2,
+      "pkt": 44
+    },
+    "4": {
+      "safe": 29,
+      "warn": 17,
+      "ban": 0,
+      "pkt": 46
+    },
+    "5": {
+      "safe": 7,
+      "warn": 0,
+      "ban": 0,
+      "pkt": 7
+    },
+    "2": {
+      "safe": 27,
+      "warn": 13,
+      "ban": 2,
+      "pkt": 42
+    },
+    "9": {
+      "safe": 31,
+      "warn": 8,
+      "ban": 2,
+      "pkt": 41
+    },
+    "8": {
+      "safe": 24,
+      "warn": 14,
+      "ban": 2,
+      "pkt": 40
+    },
+    "3": {
+      "safe": 23,
+      "warn": 14,
+      "ban": 2,
+      "pkt": 39
+    }
+  },
+  "confirmed_banned_cids": [
+    0,
+    1,
+    2,
+    3,
+    8,
+    9
+  ],
+  "detection_latency": {
+    "0": 12.234493,
+    "1": 14.234493,
+    "6": 14.536493,
+    "2": 16.384493,
+    "7": 16.646493,
+    "8": 18.006493,
+    "3": 18.034493,
+    "9": 19.996493,
+    "4": 20.304493
+  },
+  "precloud_verdicts": {
+    "0": [
+      "WARN",
+      "WARN",
+      "WARN",
+      "WARN",
+      "WARN",
+      "WARN",
+      "WARN",
+      "WARN",
+      "WARN",
+      "WARN",
+      "WARN",
+      "WARN",
+      "WARN",
+      "WARN",
+      "WARN",
+      "WARN",
+      "WARN",
+      "WARN",
+      "WARN",
+      "BAN"
+    ],
+    "1": [
+      "WARN",
+      "WARN",
+      "WARN",
+      "WARN",
+      "WARN",
+      "WARN",
+      "WARN",
+      "WARN",
+      "WARN",
+      "WARN",
+      "WARN",
+      "WARN",
+      "WARN",
+      "WARN",
+      "WARN",
+      "WARN",
+      "WARN",
+      "WARN",
+      "BAN"
+    ],
+    "6": [
+      "WARN",
+      "WARN",
+      "WARN",
+      "WARN",
+      "WARN",
+      "WARN",
+      "WARN",
+      "WARN",
+      "WARN",
+      "WARN",
+      "WARN",
+      "WARN",
+      "WARN",
+      "WARN",
+      "WARN",
+      "WARN",
+      "WARN",
+      "WARN"
+    ],
+    "2": [
+      "WARN",
+      "WARN",
+      "WARN",
+      "WARN",
+      "WARN",
+      "WARN",
+      "WARN",
+      "WARN",
+      "WARN",
+      "WARN",
+      "WARN",
+      "WARN",
+      "WARN",
+      "BAN"
+    ],
+    "7": [
+      "WARN",
+      "WARN",
+      "WARN",
+      "WARN",
+      "WARN",
+      "WARN",
+      "WARN",
+      "WARN",
+      "WARN",
+      "WARN",
+      "WARN",
+      "WARN",
+      "WARN",
+      "WARN",
+      "WARN",
+      "WARN",
+      "WARN",
+      "WARN",
+      "WARN",
+      "WARN"
+    ],
+    "8": [
+      "WARN",
+      "WARN",
+      "WARN",
+      "WARN",
+      "WARN",
+      "WARN",
+      "WARN",
+      "WARN",
+      "WARN",
+      "WARN",
+      "WARN",
+      "WARN",
+      "WARN",
+      "WARN",
+      "BAN"
+    ],
+    "3": [
+      "WARN",
+      "WARN",
+      "WARN",
+      "WARN",
+      "WARN",
+      "WARN",
+      "WARN",
+      "WARN",
+      "WARN",
+      "WARN",
+      "WARN",
+      "WARN",
+      "WARN",
+      "WARN",
+      "BAN"
+    ],
+    "9": [
+      "WARN",
+      "WARN",
+      "WARN",
+      "WARN",
+      "WARN",
+      "WARN",
+      "WARN",
+      "WARN",
+      "BAN"
+    ],
+    "4": [
+      "WARN",
+      "WARN",
+      "WARN",
+      "WARN",
+      "WARN",
+      "WARN",
+      "WARN",
+      "WARN",
+      "WARN",
+      "WARN",
+      "WARN",
+      "WARN",
+      "WARN",
+      "WARN",
+      "WARN",
+      "WARN",
+      "WARN"
+    ]
+  },
+  "postcloud_verdicts": {},
+  "final_weights": {
+    "W1": 0.2727,
+    "W2": 0.1818,
+    "W3": 0.2273,
+    "W4": 0.1818,
+    "W5": 0.1364
+  }
+}

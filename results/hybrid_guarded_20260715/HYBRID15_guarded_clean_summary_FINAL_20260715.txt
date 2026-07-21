@@ -1,0 +1,52 @@
+FINAL CLEAN HYBRID-GUARDED15 SUMMARY
+
+Mode:
+VEREMI_EVIDENCE_MODE=guarded
+VEREMI_SOFT_OLDP_GATE=0.10
+
+Clean logs used:
+Rep 1  = /tmp/HYBRID15_guarded_clean_rep1.log
+Rep 2-14 = /tmp/HYBRID15_guarded_seed1_rep2.log ... /tmp/HYBRID15_guarded_seed1_rep14.log
+Rep 15 = /tmp/HYBRID15_guarded_seed1_rep15_retry.log
+
+Caught counts:
+[18, 16, 18, 17, 15, 17, 16, 15, 16, 18, 17, 16, 17, 15, 17]
+
+FP counts:
+[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+
+Total caught:
+248/285
+
+Total FP:
+0/165
+
+DR mean ± std:
+87.02% ± 5.58%
+
+FPR mean:
+0.00%
+
+Per-CID malicious stability:
+CID 0: 15/15
+CID 1: 15/15
+CID 2: 0/15
+CID 3: 15/15
+CID 4: 8/15
+CID 5: 6/15
+CID 6: 9/15
+CID 7: 15/15
+CID 11: 15/15
+CID 12: 15/15
+CID 13: 15/15
+CID 14: 15/15
+CID 18: 15/15
+CID 19: 15/15
+CID 20: 15/15
+CID 23: 15/15
+CID 24: 15/15
+CID 25: 15/15
+CID 26: 15/15
+
+Bad/incomplete reps:
+[]

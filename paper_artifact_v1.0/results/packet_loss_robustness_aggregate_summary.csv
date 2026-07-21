@@ -1,0 +1,5 @@
+experiment,condition,valid_seeds,caught,pooled_DR_percent,DR_mean_percent,DR_std,false_positive,pooled_FPR_percent,FPR_mean_percent,FPR_std,CUSUM_BAN_total,CUSUM_HOLD_total,PKT_DROP_LOGS_total,source_summary_path
+packet_loss_robustness,DROP0,15,101/105,96.19,96.19,6.54,0/45,0.0,0.0,0.0,24,0,0,/home/srmap/research/projects/v2x-multiuav-trust/results/PACKET_LOSS_ROBUSTNESS_GUARDED_CUSUM_15SEED_SUMMARY.txt
+packet_loss_robustness,DROP5,15,99/105,94.29,94.28,9.04,0/45,0.0,0.0,0.0,33,0,530,/home/srmap/research/projects/v2x-multiuav-trust/results/PACKET_LOSS_ROBUSTNESS_GUARDED_CUSUM_15SEED_SUMMARY.txt
+packet_loss_robustness,DROP10,15,96/105,91.43,91.43,10.53,0/45,0.0,0.0,0.0,42,0,994,/home/srmap/research/projects/v2x-multiuav-trust/results/PACKET_LOSS_ROBUSTNESS_GUARDED_CUSUM_15SEED_SUMMARY.txt
+packet_loss_robustness,DROP20,15,96/105,91.43,91.43,9.04,0/45,0.0,0.0,0.0,61,0,1943,/home/srmap/research/projects/v2x-multiuav-trust/results/PACKET_LOSS_ROBUSTNESS_GUARDED_CUSUM_15SEED_SUMMARY.txt

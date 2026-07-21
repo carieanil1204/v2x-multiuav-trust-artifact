@@ -1,0 +1,144 @@
+================================================================
+ V2X EDGE-CLOUD BRIDGE v8-handover-passthrough  --  Zone 2
+================================================================
+[BRIDGE-Z2] Edge   : 127.0.0.1:9995
+[BRIDGE-Z2] Cloud  : 127.0.0.1:6666
+[BRIDGE-Z2] Listen : 0.0.0.0:9996
+[BRIDGE-Z2] Trigger F: zone-entry baseline at 8s
+[BRIDGE-Z2] Trigger G: heartbeat every 30s
+[BRIDGE-Z2] Multi-zone: TRUST_HANDOVER_TRIGGER passthrough enabled
+
+[BRIDGE-Z2] Edge server reachable OK
+[BRIDGE-Z2] Cloud server reachable OK
+[BRIDGE-Z2-CALIB] Trigger G heartbeat started (every 30s)
+[BRIDGE-Z2] Ready -- listening on port 9996
+
+[BRIDGE-Z2-CALIB] First packet — Trigger F armed (fires in 8s)
+[BRIDGE-Z2-CALIB] Trigger F: zone-entry baseline n=3 sim_ts=66.2
+[BRIDGE-Z2-CALIB] CALIBRATE n=3 (W=0 S=3) sep=0.00 reason=F_zone_entry_baseline
+[BRIDGE-Z2-CALIB] Trigger B: window elapsed but not balanced
+[BRIDGE-Z2-CALIB] Trigger B: window elapsed but not balanced
+[BRIDGE-Z2-CALIB] Got LLM-backed CALIBRATION_RESULT [F_zone_entry_baseline] — forwarding to edge
+[BRIDGE-Z2-CALIB] Edge accepted calibration: CALIB_APPLIED changes=2 sep_before=0.00 sep_after=0.00
+[BRIDGE-Z2-CALIB] Trigger G: heartbeat SAFE-only n=3
+[BRIDGE-Z2-CALIB] CALIBRATE n=3 (W=0 S=3) sep=0.00 reason=G_heartbeat_safe_only
+[BRIDGE-Z2-CALIB] Trigger E: rate floor 5.0s, only 1.4s elapsed [A_batch_full(n=4)]
+[BRIDGE-Z2-CALIB] Got LLM-backed CALIBRATION_RESULT [G_heartbeat_safe_only] — forwarding to edge
+[BRIDGE-Z2-CALIB] Edge accepted calibration: CALIB_IGNORED low_confidence
+[BRIDGE-Z2-CALIB] Trigger D: dominant shifted timestamp_replay -> none
+[BRIDGE-Z2-CALIB] Trigger D: dominant changed
+[BRIDGE-Z2-CALIB] sep=0.00 < 1.00 — skipping [A_batch_full(n=4)]
+[BRIDGE-Z2-CALIB] Trigger E: rate floor 5.0s, only 3.2s elapsed [A_batch_full(n=4)]
+[BRIDGE-Z2-CALIB] sep=0.00 < 1.00 — skipping [A_batch_full(n=4)]
+[BRIDGE-Z2-CALIB] Trigger E: rate floor 5.0s, only 3.6s elapsed [A_batch_full(n=4)]
+[BRIDGE-Z2-CALIB] sep=0.00 < 1.00 — skipping [A_batch_full(n=4)]
+[BRIDGE-Z2-CALIB] Trigger E: rate floor 5.0s, only 3.5s elapsed [A_batch_full(n=4)]
+[BRIDGE-Z2-CALIB] sep=0.00 < 1.00 — skipping [A_batch_full(n=4)]
+[BRIDGE-Z2-CALIB] Trigger E: rate floor 5.0s, only 2.3s elapsed [A_batch_full(n=4)]
+[BRIDGE-Z2-CALIB] sep=0.00 < 1.00 — skipping [A_batch_full(n=4)]
+[BRIDGE-Z2-CALIB] sep=0.00 < 1.00 — skipping [A_batch_full(n=4)]
+[BRIDGE-Z2-CALIB] Trigger E: rate floor 5.0s, only 2.2s elapsed [A_batch_full(n=4)]
+[BRIDGE-Z2-CALIB] sep=0.00 < 1.00 — skipping [A_batch_full(n=4)]
+[BRIDGE-Z2-CALIB] sep=0.00 < 1.00 — skipping [A_batch_full(n=4)]
+[BRIDGE-Z2-CALIB] Trigger E: rate floor 5.0s, only 3.2s elapsed [A_batch_full(n=4)]
+[BRIDGE-Z2-CALIB] sep=0.00 < 1.00 — skipping [A_batch_full(n=4)]
+[BRIDGE-Z2-CALIB] sep=0.00 < 1.00 — skipping [A_batch_full(n=4)]
+[BRIDGE-Z2-CALIB] Trigger E: rate floor 5.0s, only 2.2s elapsed [A_batch_full(n=4)]
+[BRIDGE-Z2-CALIB] Trigger E: rate floor 5.0s, only 4.0s elapsed [A_batch_full(n=4)]
+[BRIDGE-Z2-CALIB] sep=0.00 < 1.00 — skipping [A_batch_full(n=4)]
+[BRIDGE-Z2-CALIB] Trigger E: rate floor 5.0s, only 2.2s elapsed [A_batch_full(n=4)]
+[BRIDGE-Z2-CALIB] Trigger E: rate floor 5.0s, only 4.4s elapsed [A_batch_full(n=4)]
+[BRIDGE-Z2-CALIB] sep=0.00 < 1.00 — skipping [A_batch_full(n=4)]
+[BRIDGE-Z2-CALIB] Trigger E: rate floor 5.0s, only 2.4s elapsed [A_batch_full(n=4)]
+[BRIDGE-Z2-CALIB] sep=0.00 < 1.00 — skipping [A_batch_full(n=4)]
+[BRIDGE-Z2-CALIB] Trigger E: rate floor 5.0s, only 2.7s elapsed [A_batch_full(n=4)]
+[BRIDGE-Z2-CALIB] sep=0.00 < 1.00 — skipping [A_batch_full(n=4)]
+[BRIDGE-Z2-CALIB] Trigger E: rate floor 5.0s, only 2.6s elapsed [A_batch_full(n=4)]
+[BRIDGE-Z2-CALIB] Trigger E: rate floor 5.0s, only 4.8s elapsed [A_batch_full(n=4)]
+[BRIDGE-Z2-CALIB] sep=0.00 < 1.00 — skipping [A_batch_full(n=4)]
+[BRIDGE-Z2-CALIB] Trigger E: rate floor 5.0s, only 2.5s elapsed [A_batch_full(n=4)]
+[BRIDGE-Z2-CALIB] Trigger E: rate floor 5.0s, only 3.7s elapsed [A_batch_full(n=4)]
+[BRIDGE-Z2-CALIB] sep=0.00 < 1.00 — skipping [A_batch_full(n=4)]
+[BRIDGE-Z2-CALIB] Trigger E: rate floor 5.0s, only 2.0s elapsed [A_batch_full(n=4)]
+[BRIDGE-Z2-CALIB] Trigger E: rate floor 5.0s, only 4.3s elapsed [A_batch_full(n=4)]
+[BRIDGE-Z2-CALIB] sep=0.00 < 1.00 — skipping [A_batch_full(n=4)]
+[BRIDGE-Z2-CALIB] Trigger E: rate floor 5.0s, only 2.4s elapsed [A_batch_full(n=4)]
+[BRIDGE-Z2-CALIB] Trigger E: rate floor 5.0s, only 4.5s elapsed [A_batch_full(n=4)]
+[BRIDGE-Z2-CALIB] CALIBRATE n=4 (W=2 S=2) sep=48.45 reason=A_batch_full(n=4)
+[BRIDGE-Z2-CALIB] Got LLM-backed CALIBRATION_RESULT [A_batch_full(n=4)] — forwarding to edge
+[BRIDGE-Z2-CALIB] Edge accepted calibration: CALIB_APPLIED changes=2 sep_before=48.45 sep_after=55.72
+[BRIDGE-Z2-CALIB] Trigger D: dominant shifted none -> speed_attack
+[BRIDGE-Z2-CALIB] Trigger D: dominant changed
+[BRIDGE-Z2-CALIB] sep=0.00 < 1.00 — skipping [A_batch_full(n=4)]
+[BRIDGE-Z2-CALIB] Trigger E: rate floor 5.0s, only 1.9s elapsed [A_batch_full(n=4)]
+[BRIDGE-Z2-CALIB] CALIBRATE n=4 (W=2 S=2) sep=11.32 reason=A_batch_full(n=4)
+[BRIDGE-Z2-CALIB] Got LLM-backed CALIBRATION_RESULT [A_batch_full(n=4)] — forwarding to edge
+[BRIDGE-Z2-CALIB] Edge accepted calibration: CALIB_APPLIED changes=2 sep_before=11.32 sep_after=13.02
+[BRIDGE-Z2-CALIB] sep=0.00 < 1.00 — skipping [A_batch_full(n=4)]
+[BRIDGE-Z2-CALIB] Trigger E: rate floor 5.0s, only 2.2s elapsed [A_batch_full(n=4)]
+[BRIDGE-Z2-CALIB] Trigger E: rate floor 5.0s, only 3.4s elapsed [A_batch_full(n=4)]
+[BRIDGE-Z2-CALIB] sep=0.00 < 1.00 — skipping [A_batch_full(n=4)]
+[BRIDGE-Z2-CALIB] Trigger E: rate floor 5.0s, only 2.7s elapsed [A_batch_full(n=4)]
+[BRIDGE-Z2-CALIB] Trigger E: rate floor 5.0s, only 3.8s elapsed [A_batch_full(n=4)]
+[BRIDGE-Z2-CALIB] sep=0.00 < 1.00 — skipping [A_batch_full(n=4)]
+[BRIDGE-Z2-CALIB] Trigger E: rate floor 5.0s, only 1.7s elapsed [A_batch_full(n=4)]
+[BRIDGE-Z2-CALIB] Trigger E: rate floor 5.0s, only 3.9s elapsed [A_batch_full(n=4)]
+[BRIDGE-Z2-CALIB] sep=0.00 < 1.00 — skipping [A_batch_full(n=4)]
+[BRIDGE-Z2-CALIB] sep=0.00 < 1.00 — skipping [A_batch_full(n=4)]
+[BRIDGE-Z2-CALIB] Trigger E: rate floor 5.0s, only 1.2s elapsed [A_batch_full(n=4)]
+[BRIDGE-Z2-CALIB] sep=0.00 < 1.00 — skipping [A_batch_full(n=4)]
+[BRIDGE-Z2-CALIB] Trigger E: rate floor 5.0s, only 2.5s elapsed [A_batch_full(n=4)]
+[BRIDGE-Z2-CALIB] Trigger E: rate floor 5.0s, only 4.6s elapsed [A_batch_full(n=4)]
+[BRIDGE-Z2-CALIB] sep=0.00 < 1.00 — skipping [A_batch_full(n=4)]
+[BRIDGE-Z2-CALIB] Trigger E: rate floor 5.0s, only 2.6s elapsed [A_batch_full(n=4)]
+[BRIDGE-Z2-CALIB] Trigger E: rate floor 5.0s, only 4.7s elapsed [A_batch_full(n=4)]
+[BRIDGE-Z2-CALIB] sep=0.00 < 1.00 — skipping [A_batch_full(n=4)]
+[BRIDGE-Z2-CALIB] Trigger E: rate floor 5.0s, only 2.3s elapsed [A_batch_full(n=4)]
+[BRIDGE-Z2-CALIB] Trigger E: rate floor 5.0s, only 4.8s elapsed [A_batch_full(n=4)]
+[BRIDGE-Z2-CALIB] sep=0.00 < 1.00 — skipping [A_batch_full(n=4)]
+[BRIDGE-Z2-CALIB] Trigger E: rate floor 5.0s, only 2.6s elapsed [A_batch_full(n=4)]
+[BRIDGE-Z2-CALIB] sep=0.00 < 1.00 — skipping [A_batch_full(n=4)]
+[BRIDGE-Z2-CALIB] sep=0.00 < 1.00 — skipping [A_batch_full(n=4)]
+[BRIDGE-Z2-CALIB] Trigger E: rate floor 5.0s, only 2.6s elapsed [A_batch_full(n=4)]
+[BRIDGE-Z2-CALIB] Trigger E: rate floor 5.0s, only 4.8s elapsed [A_batch_full(n=4)]
+[BRIDGE-Z2-CALIB] sep=0.00 < 1.00 — skipping [A_batch_full(n=4)]
+[BRIDGE-Z2-CALIB] Trigger E: rate floor 5.0s, only 2.5s elapsed [A_batch_full(n=4)]
+[BRIDGE-Z2-CALIB] Trigger E: rate floor 5.0s, only 4.6s elapsed [A_batch_full(n=4)]
+[BRIDGE-Z2-CALIB] sep=0.00 < 1.00 — skipping [A_batch_full(n=4)]
+[BRIDGE-Z2-CALIB] Trigger E: rate floor 5.0s, only 2.3s elapsed [A_batch_full(n=4)]
+[BRIDGE-Z2-CALIB] Trigger E: rate floor 5.0s, only 4.8s elapsed [A_batch_full(n=4)]
+[BRIDGE-Z2-CALIB] sep=0.00 < 1.00 — skipping [A_batch_full(n=4)]
+[BRIDGE-Z2-CALIB] sep=0.00 < 1.00 — skipping [A_batch_full(n=4)]
+[BRIDGE-Z2-CALIB] Trigger E: rate floor 5.0s, only 2.4s elapsed [A_batch_full(n=4)]
+[BRIDGE-Z2-CALIB] sep=0.00 < 1.00 — skipping [A_batch_full(n=4)]
+[BRIDGE-Z2-CALIB] Trigger E: rate floor 5.0s, only 2.2s elapsed [A_batch_full(n=4)]
+[BRIDGE-Z2-CALIB] Trigger E: rate floor 5.0s, only 4.3s elapsed [A_batch_full(n=4)]
+[BRIDGE-Z2-CALIB] CALIBRATE n=4 (W=2 S=2) sep=6.21 reason=A_batch_full(n=4)
+[BRIDGE-Z2-CALIB] Got LLM-backed CALIBRATION_RESULT [A_batch_full(n=4)] — forwarding to edge
+[BRIDGE-Z2-CALIB] Edge accepted calibration: CALIB_APPLIED changes=2 sep_before=6.21 sep_after=7.14
+[BRIDGE-Z2-CALIB] Trigger D: dominant shifted speed_attack -> ts_replay
+[BRIDGE-Z2-CALIB] Trigger D: dominant changed
+[BRIDGE-Z2-CALIB] Trigger E: rate floor 5.0s, only 4.2s elapsed [A_batch_full(n=4)]
+[BRIDGE-Z2-CALIB] CALIBRATE n=4 (W=2 S=2) sep=7.20 reason=A_batch_full(n=4)
+[BRIDGE-Z2-CALIB] Got LLM-backed CALIBRATION_RESULT [A_batch_full(n=4)] — forwarding to edge
+[BRIDGE-Z2-CALIB] Edge accepted calibration: CALIB_APPLIED changes=3 sep_before=7.20 sep_after=8.28
+[BRIDGE-Z2-CALIB] sep=0.00 < 1.00 — skipping [A_batch_full(n=4)]
+[BRIDGE-Z2-CALIB] Trigger E: rate floor 5.0s, only 2.3s elapsed [A_batch_full(n=4)]
+[BRIDGE-Z2-CALIB] sep=0.00 < 1.00 — skipping [A_batch_full(n=4)]
+[BRIDGE-Z2-CALIB] Trigger E: rate floor 5.0s, only 2.5s elapsed [A_batch_full(n=4)]
+[BRIDGE-Z2-CALIB] Trigger E: rate floor 5.0s, only 4.5s elapsed [A_batch_full(n=4)]
+[BRIDGE-Z2-CALIB] sep=0.00 < 1.00 — skipping [A_batch_full(n=4)]
+[BRIDGE-Z2-CALIB] Trigger E: rate floor 5.0s, only 3.2s elapsed [A_batch_full(n=4)]
+[BRIDGE-Z2-CALIB] sep=0.00 < 1.00 — skipping [A_batch_full(n=4)]
+[BRIDGE-Z2-CALIB] Trigger E: rate floor 5.0s, only 2.3s elapsed [A_batch_full(n=4)]
+[BRIDGE-Z2-CALIB] sep=0.00 < 1.00 — skipping [A_batch_full(n=4)]
+[BRIDGE-Z2-CALIB] sep=0.00 < 1.00 — skipping [A_batch_full(n=4)]
+[BRIDGE-Z2-CALIB] sep=0.00 < 1.00 — skipping [A_batch_full(n=4)]
+[BRIDGE-Z2-CALIB] Trigger E: rate floor 5.0s, only 3.6s elapsed [A_batch_full(n=4)]
+[BRIDGE-Z2-CALIB] sep=0.00 < 1.00 — skipping [A_batch_full(n=4)]
+[BRIDGE-Z2-CALIB] Trigger E: rate floor 5.0s, only 2.4s elapsed [A_batch_full(n=4)]
+[BRIDGE-Z2-CALIB] sep=0.00 < 1.00 — skipping [A_batch_full(n=4)]
+[BRIDGE-Z2-CALIB] sep=0.00 < 1.00 — skipping [A_batch_full(n=4)]
+[BRIDGE-Z2-CALIB] Trigger E: rate floor 5.0s, only 3.2s elapsed [A_batch_full(n=4)]
+[BRIDGE-Z2-CALIB] Trigger G: heartbeat balanced n=14
+[BRIDGE-Z2-CALIB] sep=0.00 < 1.00 — skipping [G_heartbeat_balanced]

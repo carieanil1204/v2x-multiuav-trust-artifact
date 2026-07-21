@@ -1,0 +1,5 @@
+nCars,valid_seeds,caught,pooled_DR_percent,DR_mean_percent,DR_std,false_positive,pooled_FPR_percent,FPR_mean_percent,FPR_std,CUSUM_BAN_total,CUSUM_HOLD_total,NASH_GATE_total,HANDOVER_HTD_LOGS_total,runtime_mean_sec,runtime_std_sec
+10,15/15,101/105,96.19,96.19,6.54,0/45,0.0,0.0,0.0,24,0,178,233,86.73,2.15
+20,15/15,162/195,83.08,83.08,10.16,0/105,0.0,0.0,0.0,21,0,303,427,218.53,6.94
+30,15/15,206/285,72.28,72.28,10.61,0/165,0.0,0.0,0.0,17,0,395,615,438.6,8.21
+50,15/15,251/480,52.29,52.29,8.64,0/270,0.0,0.0,0.0,11,0,491,956,1189.4,108.95

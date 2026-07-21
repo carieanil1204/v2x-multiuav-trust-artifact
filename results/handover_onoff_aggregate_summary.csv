@@ -1,0 +1,3 @@
+experiment,condition,valid_rows,valid_seeds,caught,pooled_DR_percent,DR_mean_percent,DR_std,false_positive,pooled_FPR_percent,FPR_mean_percent,FPR_std,CUSUM_BAN_total,CUSUM_HOLD_total,NASH_GATE_total,HANDOVER_HTD_LOGS_total,runtime_mean_sec,runtime_std_sec,raw_csv_path
+handover_onoff,OFF,16,15,47/112,41.96,41.96,12.2,0/48,0.0,0.0,0.0,0,0,762,176,,,/home/srmap/research/projects/v2x-multiuav-trust/results/handover_onoff_per_seed_raw.csv
+handover_onoff,ON,16,15,108/112,96.43,96.43,6.39,0/48,0.0,0.0,0.0,0,0,216,222,,,/home/srmap/research/projects/v2x-multiuav-trust/results/handover_onoff_per_seed_raw.csv

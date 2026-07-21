@@ -1,0 +1,9 @@
+section,condition,method,main_result,interpretation
+threshold_policy,CLEAN_HONEST,Local_Segment_Reset_VeReMi_K1_W5,"clean_FP=144/150, clean_FPR=96.0%",excluded_due_to_clean_false_positives
+threshold_policy,CLEAN_HONEST,Local_Segment_Reset_VeReMi_K2_W5,"clean_FP=0/150, clean_FPR=0.0%",eligible_for_fair_attack_comparison
+threshold_policy,CLEAN_HONEST,Local_Segment_Reset_VeReMi_K3_W5,"clean_FP=0/150, clean_FPR=0.0%",eligible_for_fair_attack_comparison
+fair_packet_loss_comparison,DROP0,Proposed_vs_Best_Clean_Safe_Local_Segment_Reset_VeReMi,"Proposed 101/105 DR=96.19%, FPR=0.0%; Baseline 101/105 DR=96.19%, FPR=0.0%; DR_gain=0.0pp",proposed maintains handover trust continuity; local baseline resets memory at each contiguous RXUAV segment
+fair_packet_loss_comparison,DROP5,Proposed_vs_Best_Clean_Safe_Local_Segment_Reset_VeReMi,"Proposed 99/105 DR=94.29%, FPR=0.0%; Baseline 94/105 DR=89.52%, FPR=0.0%; DR_gain=4.77pp",proposed maintains handover trust continuity; local baseline resets memory at each contiguous RXUAV segment
+fair_packet_loss_comparison,DROP10,Proposed_vs_Best_Clean_Safe_Local_Segment_Reset_VeReMi,"Proposed 96/105 DR=91.43%, FPR=0.0%; Baseline 89/105 DR=84.76%, FPR=2.22%; DR_gain=6.67pp",proposed maintains handover trust continuity; local baseline resets memory at each contiguous RXUAV segment
+fair_packet_loss_comparison,DROP20,Proposed_vs_Best_Clean_Safe_Local_Segment_Reset_VeReMi,"Proposed 96/105 DR=91.43%, FPR=0.0%; Baseline 83/105 DR=79.05%, FPR=6.67%; DR_gain=12.38pp",proposed maintains handover trust continuity; local baseline resets memory at each contiguous RXUAV segment
+fragmented_case_study,DROP0,Proposed_vs_Local_Segment_Reset_VeReMi,12 malicious fragmented cases: proposed/central detect while local segment-reset misses,direct evidence that cross-handover trust continuity closes the fragmentation gap

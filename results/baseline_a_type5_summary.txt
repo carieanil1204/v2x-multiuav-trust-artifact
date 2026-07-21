@@ -1,0 +1,28 @@
+Baseline A: Corrected VeReMi-style consistency detector
+Dataset: N=30, attackType=5, attackRate=50%, seeds 1-5
+Results dir: results/clean_multiseed_v91_20260705_220415
+
+Configuration:
+  min_violations=1
+  pos_tolerance=15.0
+  speed_tolerance=8.0
+  max_speed=35.0
+  max_gap=3.0
+
+Result:
+  DR=8.4% (8/95 malicious caught)
+  FPR=0.0% (0/55 honest falsely flagged)
+
+Position tolerance sensitivity:
+  pos_tolerance=13: DR=8.4%, FPR=0.0%
+  pos_tolerance=15: DR=8.4%, FPR=0.0%
+  pos_tolerance=17: DR=8.4%, FPR=0.0%
+  pos_tolerance=20: DR=8.4%, FPR=0.0%
+
+Proposed Paper 2 system:
+  DR=96.9%
+  FPR=0.0%
+
+Improvement:
+  +88.5 percentage points DR
+  same FPR

@@ -1,0 +1,13 @@
+seed,cid,proposed_detected,beacons,total_violating_observations,central_detected,central_max_window_violations,rxuav_memory_detected,rxuav_memory_max_window_violations,rxuav_segment_detected,rxuav_segment_max_window_violations,zone_segment_detected,zone_segment_max_window_violations,rxuav_changes,zone_changes,source_log_path
+1,2,YES,67,19,YES,5,YES,5,NO,3,NO,3,11,11,/home/srmap/research/projects/v2x-multiuav-trust/results/scalability_N10_AR50_guarded_cusum_15seed/ON_seed1_x560_720_t36.log
+2,2,YES,67,19,YES,5,YES,5,NO,3,NO,3,11,11,/home/srmap/research/projects/v2x-multiuav-trust/results/scalability_N10_AR50_guarded_cusum_15seed/ON_seed2_x560_720_t36.log
+3,2,YES,68,19,YES,5,YES,5,NO,3,NO,3,11,11,/home/srmap/research/projects/v2x-multiuav-trust/results/scalability_N10_AR50_guarded_cusum_15seed/ON_seed3_x560_720_t36.log
+4,2,YES,67,19,YES,5,YES,5,NO,3,NO,3,11,11,/home/srmap/research/projects/v2x-multiuav-trust/results/scalability_N10_AR50_guarded_cusum_15seed/ON_seed4_x560_720_t36.log
+5,2,YES,67,19,YES,5,YES,5,NO,3,NO,3,11,11,/home/srmap/research/projects/v2x-multiuav-trust/results/scalability_N10_AR50_guarded_cusum_15seed/ON_seed5_x560_720_t36.log
+6,2,YES,68,19,YES,5,YES,5,NO,3,NO,3,11,11,/home/srmap/research/projects/v2x-multiuav-trust/results/scalability_N10_AR50_guarded_cusum_15seed/ON_seed6_x560_720_t36.log
+8,2,YES,67,17,YES,5,YES,5,NO,2,NO,2,11,11,/home/srmap/research/projects/v2x-multiuav-trust/results/scalability_N10_AR50_guarded_cusum_15seed/ON_seed8_x560_720_t36.log
+9,2,YES,68,19,YES,5,YES,5,NO,3,NO,3,11,11,/home/srmap/research/projects/v2x-multiuav-trust/results/scalability_N10_AR50_guarded_cusum_15seed/ON_seed9_x560_720_t36.log
+10,2,YES,68,19,YES,5,YES,5,NO,3,NO,3,11,11,/home/srmap/research/projects/v2x-multiuav-trust/results/scalability_N10_AR50_guarded_cusum_15seed/ON_seed10_x560_720_t36.log
+12,2,YES,66,17,YES,5,YES,5,NO,2,NO,2,11,11,/home/srmap/research/projects/v2x-multiuav-trust/results/scalability_N10_AR50_guarded_cusum_15seed/ON_seed12_x560_720_t36.log
+13,2,YES,68,19,YES,5,YES,5,NO,3,NO,3,11,11,/home/srmap/research/projects/v2x-multiuav-trust/results/scalability_N10_AR50_guarded_cusum_15seed/ON_seed13_x560_720_t36.log
+14,2,YES,67,19,YES,5,YES,5,NO,3,NO,3,11,11,/home/srmap/research/projects/v2x-multiuav-trust/results/scalability_N10_AR50_guarded_cusum_15seed/ON_seed14_x560_720_t36.log

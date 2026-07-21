@@ -1,0 +1,2785 @@
+[0/2] Re-checking globbed directories...
+ninja: no work to do.
+[TEMPTATION-T] CID:2 T_i=2.106 break-even_p*=0.192
+[TEMPTATION-T] CID:3 T_i=2.187 break-even_p*=0.186
+[TEMPTATION-T] CID:4 T_i=1.928 break-even_p*=0.206
+[LATE-ATTACK] CID:0 position-aware flip armed ZoneLen=1800.000m threshold=200.000m
+[LATE-ATTACK] Scheduled 1 position-aware late-entry attackers ZoneLen=1800.000m ThreshM=200.000m
+[HANDOVER] Armed 6 triggers for Z1->Z2 at t=70.000 s (zoneEndX=1800.000, leadM=400.000)
+
+--------------------------------------------------
+ UNIFIED SIMULATION v90-multiUAV (adaptive edge-cloud, bridge mode only)
+--------------------------------------------------
+ Cars      : 6 (5 lanes x 2)
+ RngRun    : 3
+ Attack    : 50%  (3 malicious) [2,3,4]
+ AttackType: 5 (0=composite,1=TS-only,2=GPS-only,3=speed-only,4=stealthy,5=adaptive)
+ TsOffset  : -0.500s
+ SpdFactor : 1.100x
+ Nash p*   : 0.400 (BAN_REWARD=1.500)
+ ZONE_SAFE : 0.150
+ ZONE_MALICIOUS : 0.300
+ LEGACY_WIRE_ALIASES : 0
+ SCR_ALERT : 0.620
+ GAME_Cf   : 3.000
+ CloudTrig : [unused in bridge mode] SCR<0.620 && >=4 | TIME>=3.000s | COUNT>=10
+ EdgePortZ1: 127.0.0.1:9998
+ EdgePortZ2: 127.0.0.1:9996
+ Cloud     : 127.0.0.1:6666
+ CloudMode : BRIDGE (adaptive batch calibration — cloud tunes edge params only)
+ LedgerFile: blockchain_ledger.jsonl
+ EdgeLatencyMs : 10.000 ms
+ CloudLatencyMs: 150.000 ms
+ NashP* mode   : adaptive (warmup=5 pkts, rho_hat-driven)
+ S1uDelay      : 5 ms  |  PGW-rHost delay: 5 ms
+ PktDropRate   : 1%  |  EdgeJitter: 30%  |  LateAttackers: 25% of mal
+ BgTraffic     : 6 cars x 500 kbps UDP
+ Mobility      : WaypointMobility (3-phase speed profile per lane)
+ Duration  : 180.000s
+--------------------------------------------------
+
+[BG-TRAFFIC] 6 cars x 500 kbps UDP background flow to rHost installed
+[ZONE-ROUTE] CID:1 zone=1 edge_port=9998
+[EDGE-RTT] CID:1 wall=1.7 ms  sim_delay=10.0 ms
+>>> [UAV->CLOUD] BLK:1e7a|TX:7.0.0.5|CID:1|TS:2.060|SPD:20.3|HDG:1.6|PX:40.9|PY:-20.0|LAN...
+✓ [CAR 1] ACT=OK REP=0.720 RWD=0.996 PNL=0.000 CREDIT=0
+[ZONE-ROUTE] CID:5 zone=1 edge_port=9998
+[EDGE-RTT] CID:5 wall=1.4 ms  sim_delay=10.0 ms
+>>> [UAV->CLOUD] BLK:355f|TX:7.0.0.9|CID:5|TS:2.252|SPD:20.4|HDG:1.9|PX:65.0|PY:-10.0|LAN...
+✓ [CAR 5] ACT=OK REP=0.772 RWD=0.996 PNL=0.000 CREDIT=0
+[ZONE-ROUTE] CID:3 zone=1 edge_port=9998
+[EDGE-RTT] CID:3 wall=1.4 ms  sim_delay=10.0 ms
+>>> [UAV->CLOUD] BLK:aae2|TX:7.0.0.7|CID:3|TS:2.300|SPD:20.0|HDG:0.0|PX:46.0|PY:-40.0|LAN...
+✓ [CAR 3] ACT=OK REP=0.700 RWD=0.996 PNL=0.000 CREDIT=0
+[ZONE-ROUTE] CID:2 zone=1 edge_port=9998
+[EDGE-RTT] CID:2 wall=1.2 ms  sim_delay=10.0 ms
+>>> [UAV->CLOUD] BLK:db99|TX:7.0.0.6|CID:2|TS:2.390|SPD:20.0|HDG:0.0|PX:47.8|PY:-30.0|LAN...
+✓ [CAR 2] ACT=OK REP=0.806 RWD=0.996 PNL=0.000 CREDIT=0
+[ZONE-ROUTE] CID:4 zone=1 edge_port=9998
+[EDGE-RTT] CID:4 wall=1.5 ms  sim_delay=10.0 ms
+>>> [UAV->CLOUD] BLK:fcd5|TX:7.0.0.8|CID:4|TS:2.530|SPD:20.0|HDG:0.0|PX:50.6|PY:-50.0|LAN...
+✓ [CAR 4] ACT=OK REP=0.629 RWD=0.996 PNL=0.000 CREDIT=0
+[ZONE-ROUTE] CID:1 zone=1 edge_port=9998
+[EDGE-RTT] CID:1 wall=1.2 ms  sim_delay=10.0 ms
+>>> [UAV->CLOUD] BLK:adc8|TX:7.0.0.5|CID:1|TS:2.560|SPD:20.4|HDG:2.0|PX:50.9|PY:-20.0|LAN...
+✓ [CAR 1] ACT=OK REP=0.498 RWD=1.000 PNL=0.000 CREDIT=1
+[ZONE-ROUTE] CID:0 zone=1 edge_port=9998
+[EDGE-RTT] CID:0 wall=1.2 ms  sim_delay=10.0 ms
+>>> [UAV->CLOUD] BLK:b701|TX:7.0.0.4|CID:0|TS:2.690|SPD:20.3|HDG:1.6|PX:53.2|PY:-10.0|LAN...
+✓ [CAR 0] ACT=OK REP=0.545 RWD=0.996 PNL=0.000 CREDIT=0
+[ZONE-ROUTE] CID:5 zone=1 edge_port=9998
+[EDGE-RTT] CID:5 wall=1.3 ms  sim_delay=10.0 ms
+>>> [UAV->CLOUD] BLK:558e|TX:7.0.0.9|CID:5|TS:2.752|SPD:19.8|HDG:0.0|PX:74.8|PY:-10.0|LAN...
+✓ [CAR 5] ACT=OK REP=0.750 RWD=1.000 PNL=0.000 CREDIT=1
+[ZONE-ROUTE] CID:3 zone=1 edge_port=9998
+[EDGE-RTT] CID:3 wall=1.1 ms  sim_delay=10.0 ms
+>>> [UAV->CLOUD] BLK:9a19|TX:7.0.0.7|CID:3|TS:2.800|SPD:20.0|HDG:0.0|PX:56.0|PY:-40.0|LAN...
+✓ [CAR 3] ACT=OK REP=0.639 RWD=1.000 PNL=0.000 CREDIT=1
+[ZONE-ROUTE] CID:2 zone=1 edge_port=9998
+[EDGE-RTT] CID:2 wall=1.4 ms  sim_delay=10.0 ms
+>>> [UAV->CLOUD] BLK:fe60|TX:7.0.0.6|CID:2|TS:2.890|SPD:20.0|HDG:0.0|PX:57.8|PY:-30.0|LAN...
+✓ [CAR 2] ACT=OK REP=0.677 RWD=1.000 PNL=0.000 CREDIT=1
+[ZONE-ROUTE] CID:4 zone=1 edge_port=9998
+[EDGE-RTT] CID:4 wall=1.3 ms  sim_delay=10.0 ms
+>>> [UAV->CLOUD] BLK:5c19|TX:7.0.0.8|CID:4|TS:3.030|SPD:20.0|HDG:0.0|PX:60.6|PY:-50.0|LAN...
+✓ [CAR 4] ACT=OK REP=0.673 RWD=1.000 PNL=0.000 CREDIT=1
+[ZONE-ROUTE] CID:1 zone=1 edge_port=9998
+[EDGE-RTT] CID:1 wall=1.4 ms  sim_delay=10.0 ms
+>>> [UAV->CLOUD] BLK:7916|TX:7.0.0.5|CID:1|TS:3.060|SPD:19.6|HDG:-0.9|PX:61.5|PY:-20.0|LA...
+✓ [CAR 1] ACT=OK REP=0.633 RWD=1.000 PNL=0.000 CREDIT=2
+[ZONE-ROUTE] CID:0 zone=1 edge_port=9998
+[EDGE-RTT] CID:0 wall=1.3 ms  sim_delay=10.0 ms
+>>> [UAV->CLOUD] BLK:eb2f|TX:7.0.0.4|CID:0|TS:3.190|SPD:20.3|HDG:-1.6|PX:63.5|PY:-10.0|LA...
+✓ [CAR 0] ACT=OK REP=0.868 RWD=1.000 PNL=0.000 CREDIT=1
+[ZONE-ROUTE] CID:5 zone=1 edge_port=9998
+[EDGE-RTT] CID:5 wall=1.4 ms  sim_delay=10.0 ms
+>>> [UAV->CLOUD] BLK:dcb8|TX:7.0.0.9|CID:5|TS:3.252|SPD:19.6|HDG:1.5|PX:84.8|PY:-10.0|LAN...
+✓ [CAR 5] ACT=OK REP=0.854 RWD=1.000 PNL=0.000 CREDIT=2
+[ZONE-ROUTE] CID:3 zone=1 edge_port=9998
+[EDGE-RTT] CID:3 wall=1.5 ms  sim_delay=10.0 ms
+[NASH-GATE] CID:3 p=0.5 p*=0.3 rho_hat=0.2 Nash=BAN windowHits=1/4 -> WARN (pending confirmation)
+[ECON-CLAWBACK] CID:3 ACT=WARN prior_payoff=2.0 extra_penalty=2.5 new_payoff=-0.8
+[FORGIVENESS] CID:3 WARN #1 — streak reset, benefits revoked
+⚠ [CAR 3] ACT=WARN REP=0.161 RWD=0.000 PNL=2.757 CREDIT=0
+[ZONE-ROUTE] CID:2 zone=1 edge_port=9998
+[EDGE-RTT] CID:2 wall=1.4 ms  sim_delay=10.0 ms
+[NASH-GATE] CID:2 p=0.5 p*=0.3 rho_hat=0.3 Nash=BAN windowHits=1/4 -> WARN (pending confirmation)
+[ECON-CLAWBACK] CID:2 ACT=WARN prior_payoff=2.0 extra_penalty=2.5 new_payoff=-0.8
+[FORGIVENESS] CID:2 WARN #1 — streak reset, benefits revoked
+⚠ [CAR 2] ACT=WARN REP=0.445 RWD=0.000 PNL=2.757 CREDIT=0
+[ZONE-ROUTE] CID:4 zone=1 edge_port=9998
+[EDGE-RTT] CID:4 wall=1.3 ms  sim_delay=10.0 ms
+[NASH-GATE] CID:4 p=0.5 p*=0.3 rho_hat=0.3 Nash=BAN windowHits=1/4 -> WARN (pending confirmation)
+[ECON-CLAWBACK] CID:4 ACT=WARN prior_payoff=2.0 extra_penalty=2.5 new_payoff=-0.8
+[FORGIVENESS] CID:4 WARN #1 — streak reset, benefits revoked
+⚠ [CAR 4] ACT=WARN REP=0.338 RWD=0.000 PNL=2.757 CREDIT=0
+[ZONE-ROUTE] CID:1 zone=1 edge_port=9998
+[EDGE-RTT] CID:1 wall=1.2 ms  sim_delay=10.0 ms
+>>> [UAV->CLOUD] BLK:c9a7|TX:7.0.0.5|CID:1|TS:3.560|SPD:20.1|HDG:-0.6|PX:71.9|PY:-20.0|LA...
+✓ [CAR 1] ACT=OK REP=0.780 RWD=1.000 PNL=0.000 CREDIT=3
+[ZONE-ROUTE] CID:0 zone=1 edge_port=9998
+[EDGE-RTT] CID:0 wall=1.2 ms  sim_delay=10.0 ms
+>>> [UAV->CLOUD] BLK:7ec1|TX:7.0.0.4|CID:0|TS:3.690|SPD:19.5|HDG:0.7|PX:74.3|PY:-10.0|LAN...
+✓ [CAR 0] ACT=OK REP=0.888 RWD=1.000 PNL=0.000 CREDIT=2
+[ZONE-ROUTE] CID:5 zone=1 edge_port=9998
+[EDGE-RTT] CID:5 wall=1.2 ms  sim_delay=10.0 ms
+>>> [UAV->CLOUD] BLK:6fbc|TX:7.0.0.9|CID:5|TS:3.752|SPD:19.7|HDG:1.2|PX:94.3|PY:-10.0|LAN...
+✓ [CAR 5] ACT=OK REP=0.784 RWD=1.000 PNL=0.000 CREDIT=3
+[ZONE-ROUTE] CID:3 zone=1 edge_port=9998
+[EDGE-RTT] CID:3 wall=0.8 ms  sim_delay=10.0 ms
+[NASH-GATE] CID:3 p=1.0 p*=0.3 EDGE=BAN nashConfirms=Y windowConfirms=Y obs=4/15 p_car=0.700 -> WARN (insufficient evidence)
+[ECON-CLAWBACK] CID:3 ACT=WARN prior_payoff=-0.761 extra_penalty=1.250 new_payoff=-2.511
+[FORGIVENESS] CID:3 WARN #2 — streak reset, benefits revoked
+⚠ [CAR 3] ACT=WARN REP=0.178 RWD=0.000 PNL=1.750 CREDIT=0
+[ZONE-ROUTE] CID:2 zone=1 edge_port=9998
+[EDGE-RTT] CID:2 wall=1.2 ms  sim_delay=10.0 ms
+[NASH-GATE] CID:2 p=1.0 p*=0.3 EDGE=BAN nashConfirms=Y windowConfirms=Y obs=4/15 p_car=0.700 -> WARN (insufficient evidence)
+[ECON-CLAWBACK] CID:2 ACT=WARN prior_payoff=-0.761 extra_penalty=1.250 new_payoff=-2.511
+[FORGIVENESS] CID:2 WARN #2 — streak reset, benefits revoked
+⚠ [CAR 2] ACT=WARN REP=0.160 RWD=0.000 PNL=1.750 CREDIT=0
+[ZONE-ROUTE] CID:4 zone=1 edge_port=9998
+[EDGE-RTT] CID:4 wall=1.1 ms  sim_delay=10.0 ms
+[NASH-GATE] CID:4 p=1.0 p*=0.3 EDGE=BAN nashConfirms=Y windowConfirms=Y obs=4/15 p_car=0.700 -> WARN (insufficient evidence)
+[ECON-CLAWBACK] CID:4 ACT=WARN prior_payoff=-0.761 extra_penalty=1.250 new_payoff=-2.511
+[FORGIVENESS] CID:4 WARN #2 — streak reset, benefits revoked
+⚠ [CAR 4] ACT=WARN REP=0.209 RWD=0.000 PNL=1.750 CREDIT=0
+[ZONE-ROUTE] CID:1 zone=1 edge_port=9998
+[EDGE-RTT] CID:1 wall=1.3 ms  sim_delay=10.0 ms
+>>> [UAV->CLOUD] BLK:53d8|TX:7.0.0.5|CID:1|TS:4.060|SPD:19.5|HDG:-0.8|PX:80.7|PY:-20.0|LA...
+✓ [CAR 1] ACT=OK REP=0.662 RWD=1.000 PNL=0.000 CREDIT=4
+[ZONE-ROUTE] CID:0 zone=1 edge_port=9998
+[EDGE-RTT] CID:0 wall=1.2 ms  sim_delay=10.0 ms
+>>> [UAV->CLOUD] BLK:3f49|TX:7.0.0.4|CID:0|TS:4.190|SPD:20.4|HDG:1.2|PX:83.7|PY:-10.0|LAN...
+✓ [CAR 0] ACT=OK REP=1.000 RWD=1.000 PNL=0.000 CREDIT=3
+[ZONE-ROUTE] CID:5 zone=1 edge_port=9998
+[EDGE-RTT] CID:5 wall=1.2 ms  sim_delay=10.0 ms
+>>> [UAV->CLOUD] BLK:105c|TX:7.0.0.9|CID:5|TS:4.252|SPD:20.5|HDG:1.5|PX:104.5|PY:-10.0|LA...
+✓ [CAR 5] ACT=OK REP=0.872 RWD=1.000 PNL=0.000 CREDIT=4
+[ZONE-ROUTE] CID:3 zone=1 edge_port=9998
+[EDGE-RTT] CID:3 wall=1.1 ms  sim_delay=10.0 ms
+[NASH-GATE] CID:3 p=1.0 p*=0.3 EDGE=BAN nashConfirms=Y windowConfirms=Y obs=5/15 p_car=0.769 -> WARN (insufficient evidence)
+[ECON-CLAWBACK] CID:3 ACT=WARN prior_payoff=-2.511 extra_penalty=1.500 new_payoff=-4.511
+[FORGIVENESS] CID:3 WARN #3 — streak reset, benefits revoked
+⚠ [CAR 3] ACT=WARN REP=0.200 RWD=0.000 PNL=2.000 CREDIT=0
+[ZONE-ROUTE] CID:2 zone=1 edge_port=9998
+[EDGE-RTT] CID:2 wall=1.1 ms  sim_delay=10.0 ms
+[NASH-GATE] CID:2 p=1.0 p*=0.3 EDGE=BAN nashConfirms=Y windowConfirms=Y obs=5/15 p_car=0.769 -> WARN (insufficient evidence)
+[ECON-CLAWBACK] CID:2 ACT=WARN prior_payoff=-2.511 extra_penalty=1.500 new_payoff=-4.511
+[FORGIVENESS] CID:2 WARN #3 — streak reset, benefits revoked
+⚠ [CAR 2] ACT=WARN REP=0.373 RWD=0.000 PNL=2.000 CREDIT=0
+[ZONE-ROUTE] CID:4 zone=1 edge_port=9998
+[EDGE-RTT] CID:4 wall=1.1 ms  sim_delay=10.0 ms
+[NASH-GATE] CID:4 p=1.0 p*=0.3 EDGE=BAN nashConfirms=Y windowConfirms=Y obs=5/15 p_car=0.769 -> WARN (insufficient evidence)
+[ECON-CLAWBACK] CID:4 ACT=WARN prior_payoff=-2.511 extra_penalty=1.500 new_payoff=-4.511
+[FORGIVENESS] CID:4 WARN #3 — streak reset, benefits revoked
+⚠ [CAR 4] ACT=WARN REP=0.236 RWD=0.000 PNL=2.000 CREDIT=0
+[ZONE-ROUTE] CID:1 zone=1 edge_port=9998
+[EDGE-RTT] CID:1 wall=1.1 ms  sim_delay=10.0 ms
+>>> [UAV->CLOUD] BLK:514d|TX:7.0.0.5|CID:1|TS:4.560|SPD:20.0|HDG:-0.6|PX:91.4|PY:-20.0|LA...
+✓ [CAR 1] ACT=OK REP=0.708 RWD=1.000 PNL=0.000 CREDIT=5
+[ZONE-ROUTE] CID:0 zone=1 edge_port=9998
+[EDGE-RTT] CID:0 wall=1.1 ms  sim_delay=10.0 ms
+>>> [UAV->CLOUD] BLK:0ddd|TX:7.0.0.4|CID:0|TS:4.690|SPD:19.9|HDG:0.7|PX:93.9|PY:-10.0|LAN...
+✓ [CAR 0] ACT=OK REP=0.885 RWD=1.000 PNL=0.000 CREDIT=4
+[ZONE-ROUTE] CID:5 zone=1 edge_port=9998
+[EDGE-RTT] CID:5 wall=1.0 ms  sim_delay=10.0 ms
+>>> [UAV->CLOUD] BLK:1a32|TX:7.0.0.9|CID:5|TS:4.752|SPD:20.1|HDG:0.1|PX:115.0|PY:-10.0|LA...
+✓ [CAR 5] ACT=OK REP=0.950 RWD=1.000 PNL=0.000 CREDIT=5
+[ZONE-ROUTE] CID:3 zone=1 edge_port=9998
+[EDGE-RTT] CID:3 wall=1.1 ms  sim_delay=10.0 ms
+[NASH-GATE] CID:3 p=1.0 p*=0.3 EDGE=BAN nashConfirms=Y windowConfirms=Y obs=6/15 p_car=0.813 -> WARN (insufficient evidence)
+[ECON-CLAWBACK] CID:3 ACT=WARN prior_payoff=-4.511 extra_penalty=1.750 new_payoff=-6.761
+[FORGIVENESS] CID:3 WARN #4 — streak reset, benefits revoked
+⚠ [CAR 3] ACT=WARN REP=0.241 RWD=0.000 PNL=2.250 CREDIT=0
+[ZONE-ROUTE] CID:2 zone=1 edge_port=9998
+[EDGE-RTT] CID:2 wall=1.2 ms  sim_delay=10.0 ms
+[NASH-GATE] CID:2 p=1.0 p*=0.3 EDGE=BAN nashConfirms=Y windowConfirms=Y obs=6/15 p_car=0.813 -> WARN (insufficient evidence)
+[ECON-CLAWBACK] CID:2 ACT=WARN prior_payoff=-4.511 extra_penalty=1.750 new_payoff=-6.761
+[FORGIVENESS] CID:2 WARN #4 — streak reset, benefits revoked
+⚠ [CAR 2] ACT=WARN REP=0.000 RWD=0.000 PNL=2.250 CREDIT=0
+[ZONE-ROUTE] CID:4 zone=1 edge_port=9998
+[EDGE-RTT] CID:4 wall=1.1 ms  sim_delay=10.0 ms
+[NASH-GATE] CID:4 p=1.0 p*=0.3 EDGE=BAN nashConfirms=Y windowConfirms=Y obs=6/15 p_car=0.813 -> WARN (insufficient evidence)
+[ECON-CLAWBACK] CID:4 ACT=WARN prior_payoff=-4.511 extra_penalty=1.750 new_payoff=-6.761
+[FORGIVENESS] CID:4 WARN #4 — streak reset, benefits revoked
+⚠ [CAR 4] ACT=WARN REP=0.133 RWD=0.000 PNL=2.250 CREDIT=0
+[ZONE-ROUTE] CID:1 zone=1 edge_port=9998
+[EDGE-RTT] CID:1 wall=1.1 ms  sim_delay=10.0 ms
+>>> [UAV->CLOUD] BLK:f0af|TX:7.0.0.5|CID:1|TS:5.060|SPD:19.7|HDG:0.9|PX:101.7|PY:-20.0|LA...
+✓ [CAR 1] ACT=OK REP=0.624 RWD=1.000 PNL=0.000 CREDIT=6
+[ZONE-ROUTE] CID:0 zone=1 edge_port=9998
+[EDGE-RTT] CID:0 wall=1.0 ms  sim_delay=10.0 ms
+>>> [UAV->CLOUD] BLK:6feb|TX:7.0.0.4|CID:0|TS:5.190|SPD:19.5|HDG:0.0|PX:103.2|PY:-10.0|LA...
+✓ [CAR 0] ACT=OK REP=0.982 RWD=1.000 PNL=0.000 CREDIT=5
+[ZONE-ROUTE] CID:5 zone=1 edge_port=9998
+[EDGE-RTT] CID:5 wall=1.1 ms  sim_delay=10.0 ms
+>>> [UAV->CLOUD] BLK:2206|TX:7.0.0.9|CID:5|TS:5.252|SPD:20.3|HDG:1.1|PX:124.9|PY:-10.0|LA...
+✓ [CAR 5] ACT=OK REP=0.875 RWD=1.000 PNL=0.000 CREDIT=6
+[ZONE-ROUTE] CID:3 zone=1 edge_port=9998
+[EDGE-RTT] CID:3 wall=1.1 ms  sim_delay=10.0 ms
+[NASH-GATE] CID:3 p=1.0 p*=0.3 EDGE=BAN nashConfirms=Y windowConfirms=Y obs=7/15 p_car=0.842 -> WARN (insufficient evidence)
+[ECON-CLAWBACK] CID:3 ACT=WARN prior_payoff=-6.761 extra_penalty=2.000 new_payoff=-9.261
+[FORGIVENESS] CID:3 WARN #5 — streak reset, benefits revoked
+⚠ [CAR 3] ACT=WARN REP=0.189 RWD=0.000 PNL=2.500 CREDIT=0
+[ZONE-ROUTE] CID:2 zone=1 edge_port=9998
+[EDGE-RTT] CID:2 wall=1.1 ms  sim_delay=10.0 ms
+[NASH-GATE] CID:2 p=1.0 p*=0.3 EDGE=BAN nashConfirms=Y windowConfirms=Y obs=7/15 p_car=0.842 -> WARN (insufficient evidence)
+[ECON-CLAWBACK] CID:2 ACT=WARN prior_payoff=-6.761 extra_penalty=2.000 new_payoff=-9.261
+[FORGIVENESS] CID:2 WARN #5 — streak reset, benefits revoked
+⚠ [CAR 2] ACT=WARN REP=0.071 RWD=0.000 PNL=2.500 CREDIT=0
+[ZONE-ROUTE] CID:4 zone=1 edge_port=9998
+[EDGE-RTT] CID:4 wall=1.0 ms  sim_delay=10.0 ms
+[NASH-GATE] CID:4 p=1.0 p*=0.3 EDGE=BAN nashConfirms=Y windowConfirms=Y obs=7/15 p_car=0.842 -> WARN (insufficient evidence)
+[ECON-CLAWBACK] CID:4 ACT=WARN prior_payoff=-6.761 extra_penalty=2.000 new_payoff=-9.261
+[FORGIVENESS] CID:4 WARN #5 — streak reset, benefits revoked
+⚠ [CAR 4] ACT=WARN REP=0.421 RWD=0.000 PNL=2.500 CREDIT=0
+[ZONE-ROUTE] CID:1 zone=1 edge_port=9998
+[EDGE-RTT] CID:1 wall=1.1 ms  sim_delay=10.0 ms
+>>> [UAV->CLOUD] BLK:5686|TX:7.0.0.5|CID:1|TS:5.560|SPD:19.9|HDG:1.5|PX:110.6|PY:-20.0|LA...
+✓ [CAR 1] ACT=OK REP=0.658 RWD=1.000 PNL=0.000 CREDIT=7
+[ZONE-ROUTE] CID:0 zone=1 edge_port=9998
+[EDGE-RTT] CID:0 wall=1.3 ms  sim_delay=10.0 ms
+>>> [UAV->CLOUD] BLK:c04a|TX:7.0.0.4|CID:0|TS:5.690|SPD:19.6|HDG:0.4|PX:114.3|PY:-10.0|LA...
+✓ [CAR 0] ACT=OK REP=0.905 RWD=1.000 PNL=0.000 CREDIT=6
+[ZONE-ROUTE] CID:5 zone=1 edge_port=9998
+[EDGE-RTT] CID:5 wall=1.2 ms  sim_delay=10.0 ms
+>>> [UAV->CLOUD] BLK:a721|TX:7.0.0.9|CID:5|TS:5.752|SPD:20.4|HDG:0.4|PX:134.8|PY:-10.0|LA...
+✓ [CAR 5] ACT=OK REP=1.000 RWD=1.000 PNL=0.000 CREDIT=7
+[ZONE-ROUTE] CID:3 zone=1 edge_port=9998
+[EDGE-RTT] CID:3 wall=0.8 ms  sim_delay=10.0 ms
+[NASH-GATE] CID:3 p=1.0 p*=0.3 EDGE=BAN nashConfirms=Y windowConfirms=Y obs=8/15 p_car=0.864 -> WARN (insufficient evidence)
+[ECON-CLAWBACK] CID:3 ACT=WARN prior_payoff=-9.261 extra_penalty=2.250 new_payoff=-12.011
+[FORGIVENESS] CID:3 WARN #6 — streak reset, benefits revoked
+⚠ [CAR 3] ACT=WARN REP=0.200 RWD=0.000 PNL=2.750 CREDIT=0
+[ZONE-ROUTE] CID:2 zone=1 edge_port=9998
+[EDGE-RTT] CID:2 wall=0.8 ms  sim_delay=10.0 ms
+[NASH-GATE] CID:2 p=1.0 p*=0.3 EDGE=BAN nashConfirms=Y windowConfirms=Y obs=8/15 p_car=0.864 -> WARN (insufficient evidence)
+[ECON-CLAWBACK] CID:2 ACT=WARN prior_payoff=-9.261 extra_penalty=2.250 new_payoff=-12.011
+[FORGIVENESS] CID:2 WARN #6 — streak reset, benefits revoked
+⚠ [CAR 2] ACT=WARN REP=0.000 RWD=0.000 PNL=2.750 CREDIT=0
+[ZONE-ROUTE] CID:4 zone=1 edge_port=9998
+[EDGE-RTT] CID:4 wall=1.0 ms  sim_delay=10.0 ms
+[NASH-GATE] CID:4 p=1.0 p*=0.3 EDGE=BAN nashConfirms=Y windowConfirms=Y obs=8/15 p_car=0.864 -> WARN (insufficient evidence)
+[ECON-CLAWBACK] CID:4 ACT=WARN prior_payoff=-9.261 extra_penalty=2.250 new_payoff=-12.011
+[FORGIVENESS] CID:4 WARN #6 — streak reset, benefits revoked
+⚠ [CAR 4] ACT=WARN REP=0.356 RWD=0.000 PNL=2.750 CREDIT=0
+[ZONE-ROUTE] CID:1 zone=1 edge_port=9998
+[EDGE-RTT] CID:1 wall=0.8 ms  sim_delay=10.0 ms
+>>> [UAV->CLOUD] BLK:3da7|TX:7.0.0.5|CID:1|TS:6.060|SPD:20.0|HDG:1.2|PX:121.3|PY:-20.0|LA...
+✓ [CAR 1] ACT=OK REP=0.576 RWD=1.000 PNL=0.000 CREDIT=8
+[ZONE-ROUTE] CID:0 zone=1 edge_port=9998
+[EDGE-RTT] CID:0 wall=0.9 ms  sim_delay=10.0 ms
+>>> [UAV->CLOUD] BLK:3143|TX:7.0.0.4|CID:0|TS:6.190|SPD:19.6|HDG:1.8|PX:123.4|PY:-10.0|LA...
+✓ [CAR 0] ACT=OK REP=0.786 RWD=1.000 PNL=0.000 CREDIT=7
+[ZONE-ROUTE] CID:5 zone=1 edge_port=9998
+[EDGE-RTT] CID:5 wall=1.1 ms  sim_delay=10.0 ms
+>>> [UAV->CLOUD] BLK:3a08|TX:7.0.0.9|CID:5|TS:6.252|SPD:20.0|HDG:1.8|PX:145.5|PY:-10.0|LA...
+✓ [CAR 5] ACT=OK REP=0.677 RWD=1.000 PNL=0.000 CREDIT=8
+[ZONE-ROUTE] CID:3 zone=1 edge_port=9998
+[EDGE-RTT] CID:3 wall=0.6 ms  sim_delay=10.0 ms
+[NASH-GATE] CID:3 p=1.0 p*=0.3 EDGE=BAN nashConfirms=Y windowConfirms=Y obs=9/15 p_car=0.880 -> WARN (insufficient evidence)
+[ECON-CLAWBACK] CID:3 ACT=WARN prior_payoff=-12.011 extra_penalty=2.500 new_payoff=-15.011
+[FORGIVENESS] CID:3 WARN #7 — streak reset, benefits revoked
+⚠ [CAR 3] ACT=WARN REP=0.043 RWD=0.000 PNL=3.000 CREDIT=0
+[ZONE-ROUTE] CID:2 zone=1 edge_port=9998
+[EDGE-RTT] CID:2 wall=0.9 ms  sim_delay=10.0 ms
+[NASH-GATE] CID:2 p=1.0 p*=0.3 EDGE=BAN nashConfirms=Y windowConfirms=Y obs=9/15 p_car=0.880 -> WARN (insufficient evidence)
+[ECON-CLAWBACK] CID:2 ACT=WARN prior_payoff=-12.011 extra_penalty=2.500 new_payoff=-15.011
+[FORGIVENESS] CID:2 WARN #7 — streak reset, benefits revoked
+⚠ [CAR 2] ACT=WARN REP=0.180 RWD=0.000 PNL=3.000 CREDIT=0
+[ZONE-ROUTE] CID:4 zone=1 edge_port=9998
+[EDGE-RTT] CID:4 wall=0.9 ms  sim_delay=10.0 ms
+[NASH-GATE] CID:4 p=1.0 p*=0.3 EDGE=BAN nashConfirms=Y windowConfirms=Y obs=9/15 p_car=0.880 -> WARN (insufficient evidence)
+[ECON-CLAWBACK] CID:4 ACT=WARN prior_payoff=-12.011 extra_penalty=2.500 new_payoff=-15.011
+[FORGIVENESS] CID:4 WARN #7 — streak reset, benefits revoked
+⚠ [CAR 4] ACT=WARN REP=0.095 RWD=0.000 PNL=3.000 CREDIT=0
+[ZONE-ROUTE] CID:1 zone=1 edge_port=9998
+[EDGE-RTT] CID:1 wall=0.9 ms  sim_delay=10.0 ms
+>>> [UAV->CLOUD] BLK:26c9|TX:7.0.0.5|CID:1|TS:6.560|SPD:20.4|HDG:-1.6|PX:130.8|PY:-20.0|L...
+✓ [CAR 1] ACT=OK REP=0.868 RWD=1.000 PNL=0.000 CREDIT=9
+[ZONE-ROUTE] CID:0 zone=1 edge_port=9998
+[EDGE-RTT] CID:0 wall=1.1 ms  sim_delay=10.0 ms
+>>> [UAV->CLOUD] BLK:b5bd|TX:7.0.0.4|CID:0|TS:6.690|SPD:20.3|HDG:-0.0|PX:133.3|PY:-10.0|L...
+✓ [CAR 0] ACT=OK REP=1.000 RWD=1.000 PNL=0.000 CREDIT=8
+[ZONE-ROUTE] CID:5 zone=1 edge_port=9998
+[EDGE-RTT] CID:5 wall=1.0 ms  sim_delay=10.0 ms
+>>> [UAV->CLOUD] BLK:1b9f|TX:7.0.0.9|CID:5|TS:6.752|SPD:20.4|HDG:-1.6|PX:154.6|PY:-10.0|L...
+✓ [CAR 5] ACT=OK REP=0.783 RWD=1.000 PNL=0.000 CREDIT=9
+[ZONE-ROUTE] CID:3 zone=1 edge_port=9998
+[EDGE-RTT] CID:3 wall=0.8 ms  sim_delay=10.0 ms
+[NASH-GATE] CID:3 p=1.0 p*=0.3 EDGE=BAN nashConfirms=Y windowConfirms=Y obs=10/15 p_car=0.893 -> WARN (insufficient evidence)
+[ECON-CLAWBACK] CID:3 ACT=WARN prior_payoff=-15.011 extra_penalty=2.750 new_payoff=-18.261
+[FORGIVENESS] CID:3 WARN #8 — streak reset, benefits revoked
+⚠ [CAR 3] ACT=WARN REP=0.267 RWD=0.000 PNL=3.250 CREDIT=0
+[ZONE-ROUTE] CID:2 zone=1 edge_port=9998
+[EDGE-RTT] CID:2 wall=1.1 ms  sim_delay=10.0 ms
+[NASH-GATE] CID:2 p=1.0 p*=0.3 EDGE=BAN nashConfirms=Y windowConfirms=Y obs=10/15 p_car=0.893 -> WARN (insufficient evidence)
+[ECON-CLAWBACK] CID:2 ACT=WARN prior_payoff=-15.011 extra_penalty=2.750 new_payoff=-18.261
+[FORGIVENESS] CID:2 WARN #8 — streak reset, benefits revoked
+⚠ [CAR 2] ACT=WARN REP=0.000 RWD=0.000 PNL=3.250 CREDIT=0
+[ZONE-ROUTE] CID:4 zone=1 edge_port=9998
+[EDGE-RTT] CID:4 wall=0.8 ms  sim_delay=10.0 ms
+[NASH-GATE] CID:4 p=1.0 p*=0.3 EDGE=BAN nashConfirms=Y windowConfirms=Y obs=10/15 p_car=0.893 -> WARN (insufficient evidence)
+[ECON-CLAWBACK] CID:4 ACT=WARN prior_payoff=-15.011 extra_penalty=2.750 new_payoff=-18.261
+[FORGIVENESS] CID:4 WARN #8 — streak reset, benefits revoked
+⚠ [CAR 4] ACT=WARN REP=0.257 RWD=0.000 PNL=3.250 CREDIT=0
+[ZONE-ROUTE] CID:1 zone=1 edge_port=9998
+[EDGE-RTT] CID:1 wall=0.8 ms  sim_delay=10.0 ms
+>>> [UAV->CLOUD] BLK:a774|TX:7.0.0.5|CID:1|TS:7.060|SPD:20.5|HDG:-1.7|PX:141.3|PY:-20.0|L...
+✓ [CAR 1] ACT=OK REP=0.944 RWD=1.000 PNL=0.000 CREDIT=10
+[ZONE-ROUTE] CID:0 zone=1 edge_port=9998
+[EDGE-RTT] CID:0 wall=1.1 ms  sim_delay=10.0 ms
+>>> [UAV->CLOUD] BLK:b474|TX:7.0.0.4|CID:0|TS:7.190|SPD:20.4|HDG:-1.9|PX:143.3|PY:-10.0|L...
+✓ [CAR 0] ACT=OK REP=0.749 RWD=1.000 PNL=0.000 CREDIT=9
+[ZONE-ROUTE] CID:5 zone=1 edge_port=9998
+[EDGE-RTT] CID:5 wall=0.8 ms  sim_delay=10.0 ms
+>>> [UAV->CLOUD] BLK:a39e|TX:7.0.0.9|CID:5|TS:7.252|SPD:20.3|HDG:1.7|PX:165.5|PY:-10.0|LA...
+✓ [CAR 5] ACT=OK REP=0.838 RWD=1.000 PNL=0.000 CREDIT=10
+[PKT-DROP] UAV dropped telemetry from 7.0.0.7 (drop_rate=1%)
+[ZONE-ROUTE] CID:2 zone=1 edge_port=9998
+[EDGE-RTT] CID:2 wall=0.9 ms  sim_delay=10.0 ms
+[NASH-GATE] CID:2 p=1.0 p*=0.3 EDGE=BAN nashConfirms=Y windowConfirms=Y obs=11/15 p_car=0.903 -> WARN (insufficient evidence)
+[ECON-CLAWBACK] CID:2 ACT=WARN prior_payoff=-18.261 extra_penalty=3.000 new_payoff=-21.761
+[FORGIVENESS] CID:2 WARN #9 — streak reset, benefits revoked
+⚠ [CAR 2] ACT=WARN REP=0.123 RWD=0.000 PNL=3.500 CREDIT=0
+[ZONE-ROUTE] CID:4 zone=1 edge_port=9998
+[EDGE-RTT] CID:4 wall=0.9 ms  sim_delay=10.0 ms
+[NASH-GATE] CID:4 p=1.0 p*=0.3 EDGE=BAN nashConfirms=Y windowConfirms=Y obs=11/15 p_car=0.903 -> WARN (insufficient evidence)
+[ECON-CLAWBACK] CID:4 ACT=WARN prior_payoff=-18.261 extra_penalty=3.000 new_payoff=-21.761
+[FORGIVENESS] CID:4 WARN #9 — streak reset, benefits revoked
+⚠ [CAR 4] ACT=WARN REP=0.101 RWD=0.000 PNL=3.500 CREDIT=0
+[ZONE-ROUTE] CID:1 zone=1 edge_port=9998
+[EDGE-RTT] CID:1 wall=0.9 ms  sim_delay=10.0 ms
+>>> [UAV->CLOUD] BLK:003e|TX:7.0.0.5|CID:1|TS:7.560|SPD:20.2|HDG:-0.5|PX:151.7|PY:-20.0|L...
+✓ [CAR 1] ACT=OK REP=0.718 RWD=1.000 PNL=0.000 CREDIT=11
+[ZONE-ROUTE] CID:0 zone=1 edge_port=9998
+[EDGE-RTT] CID:0 wall=0.9 ms  sim_delay=10.0 ms
+>>> [UAV->CLOUD] BLK:3f80|TX:7.0.0.4|CID:0|TS:7.690|SPD:20.4|HDG:-1.7|PX:153.1|PY:-10.0|L...
+✓ [CAR 0] ACT=OK REP=1.000 RWD=1.000 PNL=0.000 CREDIT=10
+[ZONE-ROUTE] CID:5 zone=1 edge_port=9998
+[EDGE-RTT] CID:5 wall=0.6 ms  sim_delay=10.0 ms
+>>> [UAV->CLOUD] BLK:afab|TX:7.0.0.9|CID:5|TS:7.752|SPD:19.8|HDG:-1.9|PX:174.7|PY:-10.0|L...
+✓ [CAR 5] ACT=OK REP=0.870 RWD=1.000 PNL=0.000 CREDIT=11
+[ZONE-ROUTE] CID:3 zone=1 edge_port=9998
+[EDGE-RTT] CID:3 wall=0.8 ms  sim_delay=10.0 ms
+[NASH-GATE] CID:3 p=1.0 p*=0.3 EDGE=BAN nashConfirms=Y windowConfirms=Y obs=11/15 p_car=0.903 -> WARN (insufficient evidence)
+[ECON-CLAWBACK] CID:3 ACT=WARN prior_payoff=-18.261 extra_penalty=3.000 new_payoff=-21.761
+[FORGIVENESS] CID:3 WARN #9 — streak reset, benefits revoked
+⚠ [CAR 3] ACT=WARN REP=0.000 RWD=0.000 PNL=3.500 CREDIT=0
+[ZONE-ROUTE] CID:2 zone=1 edge_port=9998
+[EDGE-RTT] CID:2 wall=0.8 ms  sim_delay=10.0 ms
+[NASH-GATE] CID:2 p=1.0 p*=0.3 EDGE=BAN nashConfirms=Y windowConfirms=Y obs=12/15 p_car=0.912 -> WARN (insufficient evidence)
+[ECON-CLAWBACK] CID:2 ACT=WARN prior_payoff=-21.761 extra_penalty=3.250 new_payoff=-25.511
+[FORGIVENESS] CID:2 WARN #10 — streak reset, benefits revoked
+⚠ [CAR 2] ACT=WARN REP=0.000 RWD=0.000 PNL=3.750 CREDIT=0
+[ZONE-ROUTE] CID:4 zone=1 edge_port=9998
+[EDGE-RTT] CID:4 wall=1.0 ms  sim_delay=10.0 ms
+[NASH-GATE] CID:4 p=1.0 p*=0.3 EDGE=BAN nashConfirms=Y windowConfirms=Y obs=12/15 p_car=0.912 -> WARN (insufficient evidence)
+[ECON-CLAWBACK] CID:4 ACT=WARN prior_payoff=-21.761 extra_penalty=3.250 new_payoff=-25.511
+[FORGIVENESS] CID:4 WARN #10 — streak reset, benefits revoked
+⚠ [CAR 4] ACT=WARN REP=0.047 RWD=0.000 PNL=3.750 CREDIT=0
+[ZONE-ROUTE] CID:1 zone=1 edge_port=9998
+[EDGE-RTT] CID:1 wall=0.8 ms  sim_delay=10.0 ms
+>>> [UAV->CLOUD] BLK:ca9c|TX:7.0.0.5|CID:1|TS:8.060|SPD:19.7|HDG:1.1|PX:161.8|PY:-20.0|LA...
+✓ [CAR 1] ACT=OK REP=0.817 RWD=1.000 PNL=0.000 CREDIT=12
+[ZONE-ROUTE] CID:0 zone=1 edge_port=9998
+[EDGE-RTT] CID:0 wall=0.9 ms  sim_delay=10.0 ms
+>>> [UAV->CLOUD] BLK:b195|TX:7.0.0.4|CID:0|TS:8.190|SPD:20.4|HDG:-0.2|PX:164.5|PY:-10.0|L...
+✓ [CAR 0] ACT=OK REP=0.796 RWD=1.000 PNL=0.000 CREDIT=11
+[ZONE-ROUTE] CID:5 zone=1 edge_port=9998
+[EDGE-RTT] CID:5 wall=1.0 ms  sim_delay=10.0 ms
+>>> [UAV->CLOUD] BLK:6085|TX:7.0.0.9|CID:5|TS:8.252|SPD:20.5|HDG:0.1|PX:185.6|PY:-10.0|LA...
+✓ [CAR 5] ACT=OK REP=0.901 RWD=1.000 PNL=0.000 CREDIT=12
+[ZONE-ROUTE] CID:3 zone=1 edge_port=9998
+[EDGE-RTT] CID:3 wall=0.9 ms  sim_delay=10.0 ms
+[NASH-GATE] CID:3 p=1.0 p*=0.3 EDGE=BAN nashConfirms=Y windowConfirms=Y obs=12/15 p_car=0.912 -> WARN (insufficient evidence)
+[ECON-CLAWBACK] CID:3 ACT=WARN prior_payoff=-21.761 extra_penalty=3.250 new_payoff=-25.511
+[FORGIVENESS] CID:3 WARN #10 — streak reset, benefits revoked
+⚠ [CAR 3] ACT=WARN REP=0.000 RWD=0.000 PNL=3.750 CREDIT=0
+[ZONE-ROUTE] CID:2 zone=1 edge_port=9998
+[EDGE-RTT] CID:2 wall=0.7 ms  sim_delay=10.0 ms
+[NASH-GATE] CID:2 p=1.0 p*=0.3 EDGE=BAN nashConfirms=Y windowConfirms=Y obs=13/15 p_car=0.919 -> WARN (insufficient evidence)
+[ECON-CLAWBACK] CID:2 ACT=WARN prior_payoff=-25.511 extra_penalty=3.500 new_payoff=-29.511
+[FORGIVENESS] CID:2 WARN #11 — streak reset, benefits revoked
+⚠ [CAR 2] ACT=WARN REP=0.122 RWD=0.000 PNL=4.000 CREDIT=0
+[ZONE-ROUTE] CID:4 zone=1 edge_port=9998
+[EDGE-RTT] CID:4 wall=0.7 ms  sim_delay=10.0 ms
+[NASH-GATE] CID:4 p=1.0 p*=0.3 EDGE=BAN nashConfirms=Y windowConfirms=Y obs=13/15 p_car=0.919 -> WARN (insufficient evidence)
+[ECON-CLAWBACK] CID:4 ACT=WARN prior_payoff=-25.511 extra_penalty=3.500 new_payoff=-29.511
+[FORGIVENESS] CID:4 WARN #11 — streak reset, benefits revoked
+⚠ [CAR 4] ACT=WARN REP=0.177 RWD=0.000 PNL=4.000 CREDIT=0
+[ZONE-ROUTE] CID:1 zone=1 edge_port=9998
+[EDGE-RTT] CID:1 wall=0.6 ms  sim_delay=10.0 ms
+>>> [UAV->CLOUD] BLK:d44c|TX:7.0.0.5|CID:1|TS:8.560|SPD:19.8|HDG:0.4|PX:171.0|PY:-20.0|LA...
+✓ [CAR 1] ACT=OK REP=0.675 RWD=1.000 PNL=0.000 CREDIT=13
+[ZONE-ROUTE] CID:0 zone=1 edge_port=9998
+[EDGE-RTT] CID:0 wall=1.0 ms  sim_delay=10.0 ms
+>>> [UAV->CLOUD] BLK:1196|TX:7.0.0.4|CID:0|TS:8.690|SPD:20.0|HDG:-0.8|PX:173.5|PY:-10.0|L...
+✓ [CAR 0] ACT=OK REP=1.000 RWD=1.000 PNL=0.000 CREDIT=12
+[ZONE-ROUTE] CID:5 zone=1 edge_port=9998
+[EDGE-RTT] CID:5 wall=1.0 ms  sim_delay=10.0 ms
+>>> [UAV->CLOUD] BLK:aec3|TX:7.0.0.9|CID:5|TS:8.752|SPD:20.3|HDG:1.1|PX:194.3|PY:-10.0|LA...
+✓ [CAR 5] ACT=OK REP=1.000 RWD=1.000 PNL=0.000 CREDIT=13
+[ZONE-ROUTE] CID:3 zone=1 edge_port=9998
+[EDGE-RTT] CID:3 wall=0.8 ms  sim_delay=10.0 ms
+[NASH-GATE] CID:3 p=1.0 p*=0.3 EDGE=BAN nashConfirms=Y windowConfirms=Y obs=13/15 p_car=0.919 -> WARN (insufficient evidence)
+[ECON-CLAWBACK] CID:3 ACT=WARN prior_payoff=-25.511 extra_penalty=3.500 new_payoff=-29.511
+[FORGIVENESS] CID:3 WARN #11 — streak reset, benefits revoked
+⚠ [CAR 3] ACT=WARN REP=0.000 RWD=0.000 PNL=4.000 CREDIT=0
+[ZONE-ROUTE] CID:2 zone=1 edge_port=9998
+[EDGE-RTT] CID:2 wall=1.0 ms  sim_delay=10.0 ms
+[NASH-GATE] CID:2 p=1.0 p*=0.3 EDGE=BAN nashConfirms=Y windowConfirms=Y obs=14/15 p_car=0.925 -> WARN (insufficient evidence)
+[ECON-CLAWBACK] CID:2 ACT=WARN prior_payoff=-29.511 extra_penalty=3.750 new_payoff=-33.761
+[FORGIVENESS] CID:2 WARN #12 — streak reset, benefits revoked
+⚠ [CAR 2] ACT=WARN REP=0.000 RWD=0.000 PNL=4.250 CREDIT=0
+[ZONE-ROUTE] CID:4 zone=1 edge_port=9998
+[EDGE-RTT] CID:4 wall=0.9 ms  sim_delay=10.0 ms
+[NASH-GATE] CID:4 p=1.0 p*=0.3 EDGE=BAN nashConfirms=Y windowConfirms=Y obs=14/15 p_car=0.925 -> WARN (insufficient evidence)
+[ECON-CLAWBACK] CID:4 ACT=WARN prior_payoff=-29.511 extra_penalty=3.750 new_payoff=-33.761
+[FORGIVENESS] CID:4 WARN #12 — streak reset, benefits revoked
+⚠ [CAR 4] ACT=WARN REP=0.000 RWD=0.000 PNL=4.250 CREDIT=0
+[ZONE-ROUTE] CID:1 zone=1 edge_port=9998
+[EDGE-RTT] CID:1 wall=0.7 ms  sim_delay=10.0 ms
+[TRUST-UPGRADE] CID:1 earned LANE_UPGRADE after 15 clean packets → lane 0 + 2.0 m/s
+>>> [UAV->CLOUD] BLK:9da1|TX:7.0.0.5|CID:1|TS:9.060|SPD:20.4|HDG:-1.7|PX:181.4|PY:-20.0|L...
+[TRUST-APPLIED] CID:1 LANE_UPGRADE → logical reward only; telemetry lane unchanged lane=2 speed unchanged=20.0 m/s [reward-speed disabled to avoid M1 false positive]
+✓ [CAR 1] ACT=OK REP=0.500 RWD=1.500 PNL=0.000 CREDIT=15
+✓ [CAR 1] ACT=OK REP=0.982 RWD=1.000 PNL=0.000 CREDIT=14
+[ZONE-ROUTE] CID:0 zone=1 edge_port=9998
+[EDGE-RTT] CID:0 wall=0.9 ms  sim_delay=10.0 ms
+>>> [UAV->CLOUD] BLK:78fc|TX:7.0.0.4|CID:0|TS:9.190|SPD:20.1|HDG:0.6|PX:183.4|PY:-10.0|LA...
+✓ [CAR 0] ACT=OK REP=0.862 RWD=1.000 PNL=0.000 CREDIT=13
+[ZONE-ROUTE] CID:5 zone=1 edge_port=9998
+[EDGE-RTT] CID:5 wall=1.3 ms  sim_delay=10.0 ms
+[TRUST-UPGRADE] CID:5 earned LANE_UPGRADE after 15 clean packets → lane 0 + 2.0 m/s
+>>> [UAV->CLOUD] BLK:c4fb|TX:7.0.0.9|CID:5|TS:9.252|SPD:20.3|HDG:1.0|PX:204.4|PY:-10.0|LA...
+[TRUST-APPLIED] CID:5 LANE_UPGRADE → logical reward only; telemetry lane unchanged lane=1 speed unchanged=20.0 m/s [reward-speed disabled to avoid M1 false positive]
+✓ [CAR 5] ACT=OK REP=0.500 RWD=1.500 PNL=0.000 CREDIT=15
+✓ [CAR 5] ACT=OK REP=0.881 RWD=1.000 PNL=0.000 CREDIT=14
+[ZONE-ROUTE] CID:3 zone=1 edge_port=9998
+[EDGE-RTT] CID:3 wall=0.7 ms  sim_delay=10.0 ms
+[NASH-GATE] CID:3 p=1.0 p*=0.3 EDGE=BAN nashConfirms=Y windowConfirms=Y obs=14/15 p_car=0.925 -> WARN (insufficient evidence)
+[ECON-CLAWBACK] CID:3 ACT=WARN prior_payoff=-29.511 extra_penalty=3.750 new_payoff=-33.761
+[FORGIVENESS] CID:3 WARN #12 — streak reset, benefits revoked
+⚠ [CAR 3] ACT=WARN REP=0.251 RWD=0.000 PNL=4.250 CREDIT=0
+[ZONE-ROUTE] CID:2 zone=1 edge_port=9998
+[EDGE-RTT] CID:2 wall=1.0 ms  sim_delay=10.0 ms
+[NASH-GATE] CID:2 p=1.000 p*=0.306 rho_hat=0.511 streak=13 windowHits=4/4 EU_ban=1.500 -> CONFIRMED BAN (SLOW_LANE punishment sent)
+[ECON-CLAWBACK] CID:2 ACT=BAN prior_payoff=-33.761 extra_penalty=5.000 new_payoff=-39.261
+[FORGIVENESS] CID:2 BAN#1 excused (first confirmed offence) honest_wins=0 (preserved)
+[BAN-PUNISH] CID:2 SLOW_LANE EXILE → LAN=99 speed=20.000 m/s  return_threshold=60
+✗ [CAR 2] ACT=BAN REP=0.070 RWD=0.000 PNL=5.500 CREDIT=-8
+[ZONE-ROUTE] CID:4 zone=1 edge_port=9998
+[EDGE-RTT] CID:4 wall=0.8 ms  sim_delay=10.0 ms
+[NASH-GATE] CID:4 p=1.000 p*=0.306 rho_hat=0.512 streak=13 windowHits=4/4 EU_ban=1.500 -> CONFIRMED BAN (SLOW_LANE punishment sent)
+[ECON-CLAWBACK] CID:4 ACT=BAN prior_payoff=-33.761 extra_penalty=5.000 new_payoff=-39.261
+[FORGIVENESS] CID:4 BAN#1 excused (first confirmed offence) honest_wins=0 (preserved)
+[BAN-PUNISH] CID:4 SLOW_LANE EXILE → LAN=99 speed=20.000 m/s  return_threshold=60
+✗ [CAR 4] ACT=BAN REP=0.070 RWD=0.000 PNL=5.500 CREDIT=-8
+[ZONE-ROUTE] CID:1 zone=1 edge_port=9998
+[EDGE-RTT] CID:1 wall=1.2 ms  sim_delay=10.0 ms
+>>> [UAV->CLOUD] BLK:7cde|TX:7.0.0.5|CID:1|TS:9.560|SPD:20.4|HDG:-0.5|PX:191.6|PY:-20.0|L...
+✓ [CAR 1] ACT=OK REP=0.791 RWD=1.000 PNL=0.000 CREDIT=15
+[ZONE-ROUTE] CID:0 zone=1 edge_port=9998
+[EDGE-RTT] CID:0 wall=1.3 ms  sim_delay=10.0 ms
+[TRUST-UPGRADE] CID:0 earned LANE_UPGRADE after 15 clean packets → lane 0 + 2.0 m/s
+>>> [UAV->CLOUD] BLK:49be|TX:7.0.0.4|CID:0|TS:9.690|SPD:20.2|HDG:1.4|PX:193.7|PY:-10.0|LA...
+[TRUST-APPLIED] CID:0 LANE_UPGRADE → logical reward only; telemetry lane unchanged lane=1 speed unchanged=20.0 m/s [reward-speed disabled to avoid M1 false positive]
+✓ [CAR 0] ACT=OK REP=0.500 RWD=1.500 PNL=0.000 CREDIT=15
+✓ [CAR 0] ACT=OK REP=1.000 RWD=1.000 PNL=0.000 CREDIT=14
+[ZONE-ROUTE] CID:5 zone=1 edge_port=9998
+[EDGE-RTT] CID:5 wall=1.1 ms  sim_delay=10.0 ms
+>>> [UAV->CLOUD] BLK:1559|TX:7.0.0.9|CID:5|TS:9.752|SPD:20.4|HDG:-1.8|PX:215.5|PY:-10.0|L...
+✓ [CAR 5] ACT=OK REP=0.956 RWD=1.000 PNL=0.000 CREDIT=15
+[ZONE-ROUTE] CID:3 zone=1 edge_port=9998
+[EDGE-RTT] CID:3 wall=1.1 ms  sim_delay=10.0 ms
+[NASH-GATE] CID:3 p=1.000 p*=0.306 rho_hat=0.510 streak=13 windowHits=4/4 EU_ban=1.500 -> CONFIRMED BAN (SLOW_LANE punishment sent)
+[ECON-CLAWBACK] CID:3 ACT=BAN prior_payoff=-33.761 extra_penalty=5.000 new_payoff=-39.261
+[FORGIVENESS] CID:3 BAN#1 excused (first confirmed offence) honest_wins=0 (preserved)
+[BAN-PUNISH] CID:3 SLOW_LANE EXILE → LAN=99 speed=20.000 m/s  return_threshold=60
+✗ [CAR 3] ACT=BAN REP=0.070 RWD=0.000 PNL=5.500 CREDIT=-8
+[ZONE-ROUTE] CID:1 zone=1 edge_port=9998
+[EDGE-RTT] CID:1 wall=0.9 ms  sim_delay=10.0 ms
+>>> [UAV->CLOUD] BLK:1c86|TX:7.0.0.5|CID:1|TS:10.060|SPD:19.9|HDG:1.0|PX:200.7|PY:-20.0|L...
+✓ [CAR 1] ACT=OK REP=0.963 RWD=1.000 PNL=0.000 CREDIT=16
+[ZONE-ROUTE] CID:0 zone=1 edge_port=9998
+[EDGE-RTT] CID:0 wall=1.3 ms  sim_delay=10.0 ms
+>>> [UAV->CLOUD] BLK:bc37|TX:7.0.0.4|CID:0|TS:10.190|SPD:19.8|HDG:-1.8|PX:204.1|PY:-10.0|...
+✓ [CAR 0] ACT=OK REP=0.831 RWD=1.000 PNL=0.000 CREDIT=15
+[ZONE-ROUTE] CID:5 zone=1 edge_port=9998
+[EDGE-RTT] CID:5 wall=0.9 ms  sim_delay=10.0 ms
+>>> [UAV->CLOUD] BLK:b9dc|TX:7.0.0.9|CID:5|TS:10.252|SPD:20.2|HDG:1.4|PX:225.7|PY:-10.0|L...
+✓ [CAR 5] ACT=OK REP=1.000 RWD=1.000 PNL=0.000 CREDIT=16
+[ZONE-ROUTE] CID:1 zone=1 edge_port=9998
+[EDGE-RTT] CID:1 wall=0.8 ms  sim_delay=10.0 ms
+>>> [UAV->CLOUD] BLK:6598|TX:7.0.0.5|CID:1|TS:10.560|SPD:20.1|HDG:0.8|PX:210.7|PY:-20.0|L...
+✓ [CAR 1] ACT=OK REP=0.914 RWD=1.000 PNL=0.000 CREDIT=17
+[ZONE-ROUTE] CID:0 zone=1 edge_port=9998
+[EDGE-RTT] CID:0 wall=1.0 ms  sim_delay=10.0 ms
+>>> [UAV->CLOUD] BLK:1fe8|TX:7.0.0.4|CID:0|TS:10.690|SPD:20.4|HDG:-1.4|PX:213.7|PY:-10.0|...
+✓ [CAR 0] ACT=OK REP=1.000 RWD=1.000 PNL=0.000 CREDIT=16
+[ZONE-ROUTE] CID:5 zone=1 edge_port=9998
+[EDGE-RTT] CID:5 wall=0.9 ms  sim_delay=10.0 ms
+>>> [UAV->CLOUD] BLK:d66b|TX:7.0.0.9|CID:5|TS:10.752|SPD:20.1|HDG:1.2|PX:234.9|PY:-10.0|L...
+✓ [CAR 5] ACT=OK REP=0.927 RWD=1.000 PNL=0.000 CREDIT=17
+[ZONE-ROUTE] CID:1 zone=1 edge_port=9998
+[EDGE-RTT] CID:1 wall=0.8 ms  sim_delay=10.0 ms
+>>> [UAV->CLOUD] BLK:c89e|TX:7.0.0.5|CID:1|TS:11.060|SPD:19.8|HDG:1.0|PX:220.9|PY:-20.0|L...
+✓ [CAR 1] ACT=OK REP=0.808 RWD=1.000 PNL=0.000 CREDIT=18
+[ZONE-ROUTE] CID:0 zone=1 edge_port=9998
+[EDGE-RTT] CID:0 wall=0.9 ms  sim_delay=10.0 ms
+>>> [UAV->CLOUD] BLK:0f76|TX:7.0.0.4|CID:0|TS:11.190|SPD:20.1|HDG:-1.6|PX:223.8|PY:-10.0|...
+✓ [CAR 0] ACT=OK REP=1.000 RWD=1.000 PNL=0.000 CREDIT=17
+[ZONE-ROUTE] CID:5 zone=1 edge_port=9998
+[EDGE-RTT] CID:5 wall=1.1 ms  sim_delay=10.0 ms
+>>> [UAV->CLOUD] BLK:3b09|TX:7.0.0.9|CID:5|TS:11.252|SPD:20.1|HDG:-0.4|PX:245.8|PY:-10.0|...
+✓ [CAR 5] ACT=OK REP=0.797 RWD=1.000 PNL=0.000 CREDIT=18
+[ZONE-ROUTE] CID:1 zone=1 edge_port=9998
+[EDGE-RTT] CID:1 wall=1.2 ms  sim_delay=10.0 ms
+[TRUST-UPGRADE] CID:1 earned REDUCE_SCRUTINY after 20 clean packets → latency × 0.5
+>>> [UAV->CLOUD] BLK:3822|TX:7.0.0.5|CID:1|TS:11.560|SPD:19.8|HDG:0.6|PX:231.1|PY:-20.0|L...
+[TRUST-APPLIED] CID:1 REDUCE_SCRUTINY → latency=5.0ms (was 10.0ms)
+✓ [CAR 1] ACT=OK REP=0.500 RWD=1.500 PNL=0.000 CREDIT=20
+✓ [CAR 1] ACT=OK REP=0.740 RWD=1.000 PNL=0.000 CREDIT=19
+[ZONE-ROUTE] CID:0 zone=1 edge_port=9998
+[EDGE-RTT] CID:0 wall=1.1 ms  sim_delay=10.0 ms
+>>> [UAV->CLOUD] BLK:c839|TX:7.0.0.4|CID:0|TS:11.690|SPD:20.3|HDG:0.4|PX:234.5|PY:-10.0|L...
+✓ [CAR 0] ACT=OK REP=1.000 RWD=1.000 PNL=0.000 CREDIT=18
+[ZONE-ROUTE] CID:5 zone=1 edge_port=9998
+[EDGE-RTT] CID:5 wall=0.8 ms  sim_delay=10.0 ms
+[TRUST-UPGRADE] CID:5 earned REDUCE_SCRUTINY after 20 clean packets → latency × 0.5
+>>> [UAV->CLOUD] BLK:7de8|TX:7.0.0.9|CID:5|TS:11.752|SPD:19.7|HDG:1.4|PX:255.7|PY:-10.0|L...
+[TRUST-APPLIED] CID:5 REDUCE_SCRUTINY → latency=5.0ms (was 10.0ms)
+✓ [CAR 5] ACT=OK REP=0.500 RWD=1.500 PNL=0.000 CREDIT=20
+✓ [CAR 5] ACT=OK REP=0.849 RWD=1.000 PNL=0.000 CREDIT=19
+[ZONE-ROUTE] CID:1 zone=1 edge_port=9998
+[EDGE-RTT] CID:1 wall=1.1 ms  sim_delay=5.0 ms
+>>> [UAV->CLOUD] BLK:c1f8|TX:7.0.0.5|CID:1|TS:12.060|SPD:20.5|HDG:-1.4|PX:241.2|PY:-20.0|...
+✓ [CAR 1] ACT=OK REP=1.000 RWD=1.000 PNL=0.000 CREDIT=20
+[ZONE-ROUTE] CID:0 zone=1 edge_port=9998
+[EDGE-RTT] CID:0 wall=1.2 ms  sim_delay=10.0 ms
+[TRUST-UPGRADE] CID:0 earned REDUCE_SCRUTINY after 20 clean packets → latency × 0.5
+>>> [UAV->CLOUD] BLK:7df6|TX:7.0.0.4|CID:0|TS:12.190|SPD:20.1|HDG:-1.5|PX:243.5|PY:-10.0|...
+[TRUST-APPLIED] CID:0 REDUCE_SCRUTINY → latency=5.0ms (was 10.0ms)
+✓ [CAR 0] ACT=OK REP=0.500 RWD=1.500 PNL=0.000 CREDIT=20
+✓ [CAR 0] ACT=OK REP=0.807 RWD=1.000 PNL=0.000 CREDIT=19
+[ZONE-ROUTE] CID:5 zone=1 edge_port=9998
+[EDGE-RTT] CID:5 wall=1.3 ms  sim_delay=5.0 ms
+>>> [UAV->CLOUD] BLK:96d1|TX:7.0.0.9|CID:5|TS:12.252|SPD:19.7|HDG:-1.7|PX:264.3|PY:-10.0|...
+✓ [CAR 5] ACT=OK REP=0.978 RWD=1.000 PNL=0.000 CREDIT=20
+[ZONE-ROUTE] CID:1 zone=1 edge_port=9998
+[EDGE-RTT] CID:1 wall=1.2 ms  sim_delay=5.0 ms
+>>> [UAV->CLOUD] BLK:1963|TX:7.0.0.5|CID:1|TS:12.560|SPD:20.0|HDG:0.3|PX:250.9|PY:-20.0|L...
+✓ [CAR 1] ACT=OK REP=0.806 RWD=1.000 PNL=0.000 CREDIT=21
+[ZONE-ROUTE] CID:0 zone=1 edge_port=9998
+[EDGE-RTT] CID:0 wall=1.0 ms  sim_delay=5.0 ms
+>>> [UAV->CLOUD] BLK:4713|TX:7.0.0.4|CID:0|TS:12.690|SPD:20.4|HDG:1.1|PX:254.5|PY:-10.0|L...
+✓ [CAR 0] ACT=OK REP=0.793 RWD=1.000 PNL=0.000 CREDIT=20
+[ZONE-ROUTE] CID:5 zone=1 edge_port=9998
+[EDGE-RTT] CID:5 wall=1.4 ms  sim_delay=5.0 ms
+>>> [UAV->CLOUD] BLK:1ea1|TX:7.0.0.9|CID:5|TS:12.752|SPD:19.7|HDG:-1.4|PX:274.9|PY:-10.0|...
+✓ [CAR 5] ACT=OK REP=0.647 RWD=1.000 PNL=0.000 CREDIT=21
+[ZONE-ROUTE] CID:1 zone=1 edge_port=9998
+[EDGE-RTT] CID:1 wall=1.3 ms  sim_delay=5.0 ms
+>>> [UAV->CLOUD] BLK:6cb1|TX:7.0.0.5|CID:1|TS:13.060|SPD:20.0|HDG:-0.8|PX:261.5|PY:-20.0|...
+✓ [CAR 1] ACT=OK REP=1.000 RWD=1.000 PNL=0.000 CREDIT=22
+[ZONE-ROUTE] CID:0 zone=1 edge_port=9998
+[EDGE-RTT] CID:0 wall=1.0 ms  sim_delay=5.0 ms
+>>> [UAV->CLOUD] BLK:cfbf|TX:7.0.0.4|CID:0|TS:13.190|SPD:20.0|HDG:-0.2|PX:263.4|PY:-10.0|...
+✓ [CAR 0] ACT=OK REP=1.000 RWD=1.000 PNL=0.000 CREDIT=21
+[ZONE-ROUTE] CID:5 zone=1 edge_port=9998
+[EDGE-RTT] CID:5 wall=1.3 ms  sim_delay=5.0 ms
+>>> [UAV->CLOUD] BLK:f9d4|TX:7.0.0.9|CID:5|TS:13.252|SPD:19.9|HDG:1.5|PX:285.4|PY:-10.0|L...
+✓ [CAR 5] ACT=OK REP=0.686 RWD=1.000 PNL=0.000 CREDIT=22
+[PKT-DROP] UAV dropped telemetry from 7.0.0.6 (drop_rate=1%)
+[ZONE-ROUTE] CID:1 zone=1 edge_port=9998
+[EDGE-RTT] CID:1 wall=1.3 ms  sim_delay=5.0 ms
+>>> [UAV->CLOUD] BLK:6265|TX:7.0.0.5|CID:1|TS:13.560|SPD:20.0|HDG:-0.3|PX:270.8|PY:-20.0|...
+✓ [CAR 1] ACT=OK REP=0.972 RWD=1.000 PNL=0.000 CREDIT=23
+[ZONE-ROUTE] CID:0 zone=1 edge_port=9998
+[EDGE-RTT] CID:0 wall=1.2 ms  sim_delay=5.0 ms
+>>> [UAV->CLOUD] BLK:abce|TX:7.0.0.4|CID:0|TS:13.690|SPD:19.8|HDG:1.9|PX:273.6|PY:-10.0|L...
+✓ [CAR 0] ACT=OK REP=0.977 RWD=1.000 PNL=0.000 CREDIT=22
+[ZONE-ROUTE] CID:5 zone=1 edge_port=9998
+[EDGE-RTT] CID:5 wall=1.1 ms  sim_delay=5.0 ms
+>>> [UAV->CLOUD] BLK:4875|TX:7.0.0.9|CID:5|TS:13.752|SPD:19.7|HDG:-1.4|PX:295.1|PY:-10.0|...
+✓ [CAR 5] ACT=OK REP=1.000 RWD=1.000 PNL=0.000 CREDIT=23
+[ZONE-ROUTE] CID:1 zone=1 edge_port=9998
+[EDGE-RTT] CID:1 wall=1.2 ms  sim_delay=5.0 ms
+>>> [UAV->CLOUD] BLK:bde2|TX:7.0.0.5|CID:1|TS:14.060|SPD:20.3|HDG:1.7|PX:280.8|PY:-20.0|L...
+✓ [CAR 1] ACT=OK REP=0.753 RWD=1.000 PNL=0.000 CREDIT=24
+[ZONE-ROUTE] CID:0 zone=1 edge_port=9998
+[EDGE-RTT] CID:0 wall=1.0 ms  sim_delay=5.0 ms
+>>> [UAV->CLOUD] BLK:e85d|TX:7.0.0.4|CID:0|TS:14.190|SPD:20.1|HDG:-1.4|PX:284.0|PY:-10.0|...
+✓ [CAR 0] ACT=OK REP=1.000 RWD=1.000 PNL=0.000 CREDIT=23
+[ZONE-ROUTE] CID:5 zone=1 edge_port=9998
+[EDGE-RTT] CID:5 wall=1.0 ms  sim_delay=5.0 ms
+>>> [UAV->CLOUD] BLK:360a|TX:7.0.0.9|CID:5|TS:14.252|SPD:19.7|HDG:-0.3|PX:305.2|PY:-10.0|...
+✓ [CAR 5] ACT=OK REP=0.911 RWD=1.000 PNL=0.000 CREDIT=24
+[ZONE-ROUTE] CID:1 zone=1 edge_port=9998
+[EDGE-RTT] CID:1 wall=1.0 ms  sim_delay=5.0 ms
+>>> [UAV->CLOUD] BLK:f893|TX:7.0.0.5|CID:1|TS:14.560|SPD:20.2|HDG:0.1|PX:291.2|PY:-20.0|L...
+✓ [CAR 1] ACT=OK REP=1.000 RWD=1.000 PNL=0.000 CREDIT=25
+[ZONE-ROUTE] CID:0 zone=1 edge_port=9998
+[EDGE-RTT] CID:0 wall=0.8 ms  sim_delay=5.0 ms
+>>> [UAV->CLOUD] BLK:d2c9|TX:7.0.0.4|CID:0|TS:14.690|SPD:19.6|HDG:-1.2|PX:293.6|PY:-10.0|...
+✓ [CAR 0] ACT=OK REP=0.859 RWD=1.000 PNL=0.000 CREDIT=24
+[ZONE-ROUTE] CID:5 zone=1 edge_port=9998
+[EDGE-RTT] CID:5 wall=0.8 ms  sim_delay=5.0 ms
+>>> [UAV->CLOUD] BLK:e318|TX:7.0.0.9|CID:5|TS:14.752|SPD:20.1|HDG:0.1|PX:315.6|PY:-10.0|L...
+✓ [CAR 5] ACT=OK REP=1.000 RWD=1.000 PNL=0.000 CREDIT=25
+[ZONE-ROUTE] CID:1 zone=1 edge_port=9998
+[EDGE-RTT] CID:1 wall=1.0 ms  sim_delay=5.0 ms
+>>> [UAV->CLOUD] BLK:6907|TX:7.0.0.5|CID:1|TS:15.060|SPD:20.0|HDG:-1.9|PX:301.0|PY:-20.0|...
+✓ [CAR 1] ACT=OK REP=0.956 RWD=1.000 PNL=0.000 CREDIT=26
+[ZONE-ROUTE] CID:0 zone=1 edge_port=9998
+[EDGE-RTT] CID:0 wall=0.8 ms  sim_delay=5.0 ms
+>>> [UAV->CLOUD] BLK:cbdd|TX:7.0.0.4|CID:0|TS:15.190|SPD:19.6|HDG:-1.0|PX:303.2|PY:-10.0|...
+✓ [CAR 0] ACT=OK REP=0.966 RWD=1.000 PNL=0.000 CREDIT=25
+[ZONE-ROUTE] CID:5 zone=1 edge_port=9998
+[EDGE-RTT] CID:5 wall=1.0 ms  sim_delay=5.0 ms
+>>> [UAV->CLOUD] BLK:0cc4|TX:7.0.0.9|CID:5|TS:15.252|SPD:20.0|HDG:1.4|PX:325.0|PY:-10.0|L...
+✓ [CAR 5] ACT=OK REP=1.000 RWD=1.000 PNL=0.000 CREDIT=26
+[ZONE-ROUTE] CID:1 zone=1 edge_port=9998
+[EDGE-RTT] CID:1 wall=1.0 ms  sim_delay=5.0 ms
+>>> [UAV->CLOUD] BLK:09d0|TX:7.0.0.5|CID:1|TS:15.560|SPD:20.4|HDG:0.0|PX:311.8|PY:-20.0|L...
+✓ [CAR 1] ACT=OK REP=1.000 RWD=1.000 PNL=0.000 CREDIT=27
+[ZONE-ROUTE] CID:0 zone=1 edge_port=9998
+[EDGE-RTT] CID:0 wall=1.3 ms  sim_delay=5.0 ms
+>>> [UAV->CLOUD] BLK:1bbf|TX:7.0.0.4|CID:0|TS:15.690|SPD:19.8|HDG:-0.7|PX:313.6|PY:-10.0|...
+✓ [CAR 0] ACT=OK REP=1.000 RWD=1.000 PNL=0.000 CREDIT=26
+[ZONE-ROUTE] CID:5 zone=1 edge_port=9998
+[EDGE-RTT] CID:5 wall=1.1 ms  sim_delay=5.0 ms
+>>> [UAV->CLOUD] BLK:048e|TX:7.0.0.9|CID:5|TS:15.752|SPD:19.8|HDG:1.7|PX:335.6|PY:-10.0|L...
+✓ [CAR 5] ACT=OK REP=0.743 RWD=1.000 PNL=0.000 CREDIT=27
+[ZONE-ROUTE] CID:1 zone=1 edge_port=9998
+[EDGE-RTT] CID:1 wall=1.1 ms  sim_delay=5.0 ms
+>>> [UAV->CLOUD] BLK:8f98|TX:7.0.0.5|CID:1|TS:16.060|SPD:19.7|HDG:-1.8|PX:321.4|PY:-20.0|...
+✓ [CAR 1] ACT=OK REP=1.000 RWD=1.000 PNL=0.000 CREDIT=28
+[ZONE-ROUTE] CID:0 zone=1 edge_port=9998
+[EDGE-RTT] CID:0 wall=1.0 ms  sim_delay=5.0 ms
+>>> [UAV->CLOUD] BLK:232e|TX:7.0.0.4|CID:0|TS:16.190|SPD:20.4|HDG:1.2|PX:323.2|PY:-10.0|L...
+✓ [CAR 0] ACT=OK REP=0.820 RWD=1.000 PNL=0.000 CREDIT=27
+[ZONE-ROUTE] CID:5 zone=1 edge_port=9998
+[EDGE-RTT] CID:5 wall=1.0 ms  sim_delay=5.0 ms
+>>> [UAV->CLOUD] BLK:d10b|TX:7.0.0.9|CID:5|TS:16.252|SPD:20.5|HDG:-0.3|PX:344.4|PY:-10.0|...
+✓ [CAR 5] ACT=OK REP=0.802 RWD=1.000 PNL=0.000 CREDIT=28
+[PKT-DROP] UAV dropped telemetry from 7.0.0.8 (drop_rate=1%)
+[ZONE-ROUTE] CID:1 zone=1 edge_port=9998
+[EDGE-RTT] CID:1 wall=1.0 ms  sim_delay=5.0 ms
+>>> [UAV->CLOUD] BLK:493f|TX:7.0.0.5|CID:1|TS:16.560|SPD:19.6|HDG:1.0|PX:331.5|PY:-20.0|L...
+✓ [CAR 1] ACT=OK REP=0.826 RWD=1.000 PNL=0.000 CREDIT=29
+[ZONE-ROUTE] CID:0 zone=1 edge_port=9998
+[EDGE-RTT] CID:0 wall=1.1 ms  sim_delay=5.0 ms
+>>> [UAV->CLOUD] BLK:4c0f|TX:7.0.0.4|CID:0|TS:16.690|SPD:19.6|HDG:-0.0|PX:334.4|PY:-10.0|...
+✓ [CAR 0] ACT=OK REP=0.860 RWD=1.000 PNL=0.000 CREDIT=28
+[ZONE-ROUTE] CID:5 zone=1 edge_port=9998
+[EDGE-RTT] CID:5 wall=1.0 ms  sim_delay=5.0 ms
+>>> [UAV->CLOUD] BLK:e3d7|TX:7.0.0.9|CID:5|TS:16.752|SPD:20.3|HDG:0.9|PX:355.6|PY:-10.0|L...
+✓ [CAR 5] ACT=OK REP=0.868 RWD=1.000 PNL=0.000 CREDIT=29
+[ZONE-ROUTE] CID:1 zone=1 edge_port=9998
+[EDGE-RTT] CID:1 wall=1.3 ms  sim_delay=5.0 ms
+>>> [UAV->CLOUD] BLK:98e8|TX:7.0.0.5|CID:1|TS:17.060|SPD:20.5|HDG:-1.8|PX:341.6|PY:-20.0|...
+✓ [CAR 1] ACT=OK REP=0.982 RWD=1.000 PNL=0.000 CREDIT=30
+[ZONE-ROUTE] CID:0 zone=1 edge_port=9998
+[EDGE-RTT] CID:0 wall=1.0 ms  sim_delay=5.0 ms
+>>> [UAV->CLOUD] BLK:918e|TX:7.0.0.4|CID:0|TS:17.190|SPD:19.9|HDG:1.5|PX:343.2|PY:-10.0|L...
+✓ [CAR 0] ACT=OK REP=1.000 RWD=1.000 PNL=0.000 CREDIT=29
+[ZONE-ROUTE] CID:5 zone=1 edge_port=9998
+[EDGE-RTT] CID:5 wall=0.9 ms  sim_delay=5.0 ms
+>>> [UAV->CLOUD] BLK:b92e|TX:7.0.0.9|CID:5|TS:17.252|SPD:19.7|HDG:-2.0|PX:365.4|PY:-10.0|...
+✓ [CAR 5] ACT=OK REP=0.770 RWD=1.000 PNL=0.000 CREDIT=30
+[ZONE-ROUTE] CID:1 zone=1 edge_port=9998
+[EDGE-RTT] CID:1 wall=1.0 ms  sim_delay=5.0 ms
+>>> [UAV->CLOUD] BLK:3b8f|TX:7.0.0.5|CID:1|TS:17.560|SPD:20.4|HDG:-1.4|PX:351.4|PY:-20.0|...
+✓ [CAR 1] ACT=OK REP=0.903 RWD=1.000 PNL=0.000 CREDIT=31
+[ZONE-ROUTE] CID:0 zone=1 edge_port=9998
+[EDGE-RTT] CID:0 wall=0.8 ms  sim_delay=5.0 ms
+>>> [UAV->CLOUD] BLK:180d|TX:7.0.0.4|CID:0|TS:17.690|SPD:20.4|HDG:-0.6|PX:353.5|PY:-10.0|...
+✓ [CAR 0] ACT=OK REP=0.800 RWD=1.000 PNL=0.000 CREDIT=30
+[ZONE-ROUTE] CID:5 zone=1 edge_port=9998
+[EDGE-RTT] CID:5 wall=1.0 ms  sim_delay=5.0 ms
+>>> [UAV->CLOUD] BLK:a182|TX:7.0.0.9|CID:5|TS:17.752|SPD:20.5|HDG:0.5|PX:374.5|PY:-10.0|L...
+✓ [CAR 5] ACT=OK REP=1.000 RWD=1.000 PNL=0.000 CREDIT=31
+[ZONE-ROUTE] CID:1 zone=1 edge_port=9998
+[EDGE-RTT] CID:1 wall=1.1 ms  sim_delay=5.0 ms
+>>> [UAV->CLOUD] BLK:868b|TX:7.0.0.5|CID:1|TS:18.060|SPD:19.6|HDG:-0.8|PX:360.5|PY:-20.0|...
+✓ [CAR 1] ACT=OK REP=0.817 RWD=1.000 PNL=0.000 CREDIT=32
+[ZONE-ROUTE] CID:0 zone=1 edge_port=9998
+[EDGE-RTT] CID:0 wall=0.9 ms  sim_delay=5.0 ms
+>>> [UAV->CLOUD] BLK:1896|TX:7.0.0.4|CID:0|TS:18.190|SPD:19.9|HDG:-1.9|PX:363.8|PY:-10.0|...
+✓ [CAR 0] ACT=OK REP=1.000 RWD=1.000 PNL=0.000 CREDIT=31
+[ZONE-ROUTE] CID:5 zone=1 edge_port=9998
+[EDGE-RTT] CID:5 wall=0.7 ms  sim_delay=5.0 ms
+>>> [UAV->CLOUD] BLK:f2f7|TX:7.0.0.9|CID:5|TS:18.252|SPD:19.9|HDG:1.7|PX:385.2|PY:-10.0|L...
+✓ [CAR 5] ACT=OK REP=0.875 RWD=1.000 PNL=0.000 CREDIT=32
+[ZONE-ROUTE] CID:1 zone=1 edge_port=9998
+[EDGE-RTT] CID:1 wall=1.1 ms  sim_delay=5.0 ms
+>>> [UAV->CLOUD] BLK:b212|TX:7.0.0.5|CID:1|TS:18.560|SPD:20.0|HDG:-1.8|PX:371.9|PY:-20.0|...
+✓ [CAR 1] ACT=OK REP=0.867 RWD=1.000 PNL=0.000 CREDIT=33
+[ZONE-ROUTE] CID:0 zone=1 edge_port=9998
+[EDGE-RTT] CID:0 wall=0.8 ms  sim_delay=5.0 ms
+>>> [UAV->CLOUD] BLK:c29d|TX:7.0.0.4|CID:0|TS:18.690|SPD:20.0|HDG:1.1|PX:373.3|PY:-10.0|L...
+✓ [CAR 0] ACT=OK REP=0.925 RWD=1.000 PNL=0.000 CREDIT=32
+[ZONE-ROUTE] CID:5 zone=1 edge_port=9998
+[EDGE-RTT] CID:5 wall=1.0 ms  sim_delay=5.0 ms
+>>> [UAV->CLOUD] BLK:77be|TX:7.0.0.9|CID:5|TS:18.752|SPD:20.1|HDG:0.7|PX:394.9|PY:-10.0|L...
+✓ [CAR 5] ACT=OK REP=1.000 RWD=1.000 PNL=0.000 CREDIT=33
+[PKT-DROP] UAV dropped telemetry from 7.0.0.8 (drop_rate=1%)
+[ZONE-ROUTE] CID:1 zone=1 edge_port=9998
+[EDGE-RTT] CID:1 wall=0.8 ms  sim_delay=5.0 ms
+>>> [UAV->CLOUD] BLK:6893|TX:7.0.0.5|CID:1|TS:19.060|SPD:20.3|HDG:1.9|PX:381.8|PY:-20.0|L...
+✓ [CAR 1] ACT=OK REP=0.836 RWD=1.000 PNL=0.000 CREDIT=34
+[ZONE-ROUTE] CID:0 zone=1 edge_port=9998
+[EDGE-RTT] CID:0 wall=0.9 ms  sim_delay=5.0 ms
+>>> [UAV->CLOUD] BLK:9166|TX:7.0.0.4|CID:0|TS:19.190|SPD:20.4|HDG:-0.6|PX:383.5|PY:-10.0|...
+✓ [CAR 0] ACT=OK REP=1.000 RWD=1.000 PNL=0.000 CREDIT=33
+[ZONE-ROUTE] CID:5 zone=1 edge_port=9998
+[EDGE-RTT] CID:5 wall=1.0 ms  sim_delay=5.0 ms
+>>> [UAV->CLOUD] BLK:0d81|TX:7.0.0.9|CID:5|TS:19.252|SPD:20.3|HDG:-1.6|PX:405.0|PY:-10.0|...
+✓ [CAR 5] ACT=OK REP=1.000 RWD=1.000 PNL=0.000 CREDIT=34
+[ZONE-ROUTE] CID:1 zone=1 edge_port=9998
+[EDGE-RTT] CID:1 wall=0.8 ms  sim_delay=5.0 ms
+>>> [UAV->CLOUD] BLK:11ee|TX:7.0.0.5|CID:1|TS:19.560|SPD:19.7|HDG:-0.3|PX:391.9|PY:-20.0|...
+✓ [CAR 1] ACT=OK REP=1.000 RWD=1.000 PNL=0.000 CREDIT=35
+[ZONE-ROUTE] CID:0 zone=1 edge_port=9998
+[EDGE-RTT] CID:0 wall=1.0 ms  sim_delay=5.0 ms
+>>> [UAV->CLOUD] BLK:3578|TX:7.0.0.4|CID:0|TS:19.690|SPD:20.1|HDG:-0.2|PX:393.4|PY:-10.0|...
+✓ [CAR 0] ACT=OK REP=1.000 RWD=1.000 PNL=0.000 CREDIT=34
+[ZONE-ROUTE] CID:5 zone=1 edge_port=9998
+[EDGE-RTT] CID:5 wall=1.0 ms  sim_delay=5.0 ms
+>>> [UAV->CLOUD] BLK:7c72|TX:7.0.0.9|CID:5|TS:19.752|SPD:19.8|HDG:1.9|PX:415.4|PY:-10.0|L...
+✓ [CAR 5] ACT=OK REP=0.987 RWD=1.000 PNL=0.000 CREDIT=35
+[ZONE-ROUTE] CID:1 zone=1 edge_port=9998
+[EDGE-RTT] CID:1 wall=0.8 ms  sim_delay=5.0 ms
+>>> [UAV->CLOUD] BLK:0490|TX:7.0.0.5|CID:1|TS:20.060|SPD:19.6|HDG:2.0|PX:401.1|PY:-20.0|L...
+✓ [CAR 1] ACT=OK REP=0.957 RWD=1.000 PNL=0.000 CREDIT=36
+[ZONE-ROUTE] CID:0 zone=1 edge_port=9998
+[EDGE-RTT] CID:0 wall=0.8 ms  sim_delay=5.0 ms
+>>> [UAV->CLOUD] BLK:d82b|TX:7.0.0.4|CID:0|TS:20.190|SPD:19.7|HDG:-0.1|PX:403.1|PY:-10.0|...
+✓ [CAR 0] ACT=OK REP=0.839 RWD=1.000 PNL=0.000 CREDIT=35
+[ZONE-ROUTE] CID:5 zone=1 edge_port=9998
+[EDGE-RTT] CID:5 wall=1.1 ms  sim_delay=5.0 ms
+>>> [UAV->CLOUD] BLK:3f39|TX:7.0.0.9|CID:5|TS:20.252|SPD:19.6|HDG:0.5|PX:425.7|PY:-10.0|L...
+✓ [CAR 5] ACT=OK REP=0.914 RWD=1.000 PNL=0.000 CREDIT=36
+[ZONE-ROUTE] CID:1 zone=1 edge_port=9998
+[EDGE-RTT] CID:1 wall=1.0 ms  sim_delay=5.0 ms
+>>> [UAV->CLOUD] BLK:3e6b|TX:7.0.0.5|CID:1|TS:20.560|SPD:20.4|HDG:0.6|PX:410.8|PY:-20.0|L...
+✓ [CAR 1] ACT=OK REP=0.988 RWD=1.000 PNL=0.000 CREDIT=37
+[ZONE-ROUTE] CID:0 zone=1 edge_port=9998
+[EDGE-RTT] CID:0 wall=1.1 ms  sim_delay=5.0 ms
+>>> [UAV->CLOUD] BLK:be6e|TX:7.0.0.4|CID:0|TS:20.690|SPD:20.0|HDG:-0.5|PX:414.1|PY:-10.0|...
+✓ [CAR 0] ACT=OK REP=0.883 RWD=1.000 PNL=0.000 CREDIT=36
+[ZONE-ROUTE] CID:5 zone=1 edge_port=9998
+[EDGE-RTT] CID:5 wall=1.1 ms  sim_delay=5.0 ms
+>>> [UAV->CLOUD] BLK:437d|TX:7.0.0.9|CID:5|TS:20.752|SPD:20.3|HDG:1.2|PX:435.5|PY:-10.0|L...
+✓ [CAR 5] ACT=OK REP=1.000 RWD=1.000 PNL=0.000 CREDIT=37
+[ZONE-ROUTE] CID:1 zone=1 edge_port=9998
+[EDGE-RTT] CID:1 wall=0.8 ms  sim_delay=5.0 ms
+>>> [UAV->CLOUD] BLK:1c40|TX:7.0.0.5|CID:1|TS:21.060|SPD:19.8|HDG:-0.4|PX:421.2|PY:-20.0|...
+✓ [CAR 1] ACT=OK REP=0.947 RWD=1.000 PNL=0.000 CREDIT=38
+[ZONE-ROUTE] CID:0 zone=1 edge_port=9998
+[EDGE-RTT] CID:0 wall=1.0 ms  sim_delay=5.0 ms
+>>> [UAV->CLOUD] BLK:e5f6|TX:7.0.0.4|CID:0|TS:21.190|SPD:20.1|HDG:-0.7|PX:423.5|PY:-10.0|...
+✓ [CAR 0] ACT=OK REP=1.000 RWD=1.000 PNL=0.000 CREDIT=37
+[ZONE-ROUTE] CID:5 zone=1 edge_port=9998
+[EDGE-RTT] CID:5 wall=1.0 ms  sim_delay=5.0 ms
+>>> [UAV->CLOUD] BLK:ab0e|TX:7.0.0.9|CID:5|TS:21.252|SPD:20.1|HDG:0.3|PX:445.1|PY:-10.0|L...
+✓ [CAR 5] ACT=OK REP=0.740 RWD=1.000 PNL=0.000 CREDIT=38
+[ZONE-ROUTE] CID:1 zone=1 edge_port=9998
+[EDGE-RTT] CID:1 wall=0.9 ms  sim_delay=5.0 ms
+>>> [UAV->CLOUD] BLK:094b|TX:7.0.0.5|CID:1|TS:21.560|SPD:19.5|HDG:-1.8|PX:430.6|PY:-20.0|...
+✓ [CAR 1] ACT=OK REP=0.775 RWD=1.000 PNL=0.000 CREDIT=39
+[ZONE-ROUTE] CID:0 zone=1 edge_port=9998
+[EDGE-RTT] CID:0 wall=0.9 ms  sim_delay=5.0 ms
+>>> [UAV->CLOUD] BLK:812b|TX:7.0.0.4|CID:0|TS:21.690|SPD:20.5|HDG:-0.3|PX:434.4|PY:-10.0|...
+✓ [CAR 0] ACT=OK REP=1.000 RWD=1.000 PNL=0.000 CREDIT=38
+[ZONE-ROUTE] CID:5 zone=1 edge_port=9998
+[EDGE-RTT] CID:5 wall=0.8 ms  sim_delay=5.0 ms
+>>> [UAV->CLOUD] BLK:8ba9|TX:7.0.0.9|CID:5|TS:21.752|SPD:20.4|HDG:-0.6|PX:454.9|PY:-10.0|...
+✓ [CAR 5] ACT=OK REP=1.000 RWD=1.000 PNL=0.000 CREDIT=39
+[ZONE-ROUTE] CID:1 zone=1 edge_port=9998
+[EDGE-RTT] CID:1 wall=0.9 ms  sim_delay=5.0 ms
+>>> [UAV->CLOUD] BLK:0cee|TX:7.0.0.5|CID:1|TS:22.060|SPD:20.2|HDG:-0.9|PX:441.4|PY:-20.0|...
+✓ [CAR 1] ACT=OK REP=0.929 RWD=1.000 PNL=0.000 CREDIT=40
+[ZONE-ROUTE] CID:0 zone=1 edge_port=9998
+[EDGE-RTT] CID:0 wall=0.9 ms  sim_delay=5.0 ms
+>>> [UAV->CLOUD] BLK:9e96|TX:7.0.0.4|CID:0|TS:22.190|SPD:20.3|HDG:-1.4|PX:443.1|PY:-10.0|...
+✓ [CAR 0] ACT=OK REP=0.892 RWD=1.000 PNL=0.000 CREDIT=39
+[ZONE-ROUTE] CID:5 zone=1 edge_port=9998
+[EDGE-RTT] CID:5 wall=0.7 ms  sim_delay=5.0 ms
+>>> [UAV->CLOUD] BLK:c090|TX:7.0.0.9|CID:5|TS:22.252|SPD:20.1|HDG:0.9|PX:465.5|PY:-10.0|L...
+✓ [CAR 5] ACT=OK REP=1.000 RWD=1.000 PNL=0.000 CREDIT=40
+[ZONE-ROUTE] CID:1 zone=1 edge_port=9998
+[EDGE-RTT] CID:1 wall=1.1 ms  sim_delay=5.0 ms
+>>> [UAV->CLOUD] BLK:8d96|TX:7.0.0.5|CID:1|TS:22.560|SPD:19.7|HDG:1.1|PX:451.6|PY:-20.0|L...
+✓ [CAR 1] ACT=OK REP=1.000 RWD=1.000 PNL=0.000 CREDIT=41
+[ZONE-ROUTE] CID:0 zone=1 edge_port=9998
+[EDGE-RTT] CID:0 wall=1.0 ms  sim_delay=5.0 ms
+>>> [UAV->CLOUD] BLK:5047|TX:7.0.0.4|CID:0|TS:22.690|SPD:19.8|HDG:-1.4|PX:453.7|PY:-10.0|...
+✓ [CAR 0] ACT=OK REP=0.909 RWD=1.000 PNL=0.000 CREDIT=40
+[ZONE-ROUTE] CID:5 zone=1 edge_port=9998
+[EDGE-RTT] CID:5 wall=1.2 ms  sim_delay=5.0 ms
+>>> [UAV->CLOUD] BLK:4098|TX:7.0.0.9|CID:5|TS:22.752|SPD:19.7|HDG:-1.0|PX:474.5|PY:-10.0|...
+✓ [CAR 5] ACT=OK REP=0.772 RWD=1.000 PNL=0.000 CREDIT=41
+[ZONE-ROUTE] CID:1 zone=1 edge_port=9998
+[EDGE-RTT] CID:1 wall=1.0 ms  sim_delay=5.0 ms
+>>> [UAV->CLOUD] BLK:7e95|TX:7.0.0.5|CID:1|TS:23.060|SPD:20.5|HDG:-1.0|PX:460.6|PY:-20.0|...
+✓ [CAR 1] ACT=OK REP=0.908 RWD=1.000 PNL=0.000 CREDIT=42
+[ZONE-ROUTE] CID:0 zone=1 edge_port=9998
+[EDGE-RTT] CID:0 wall=0.9 ms  sim_delay=5.0 ms
+>>> [UAV->CLOUD] BLK:2f94|TX:7.0.0.4|CID:0|TS:23.190|SPD:20.5|HDG:-0.4|PX:464.1|PY:-10.0|...
+✓ [CAR 0] ACT=OK REP=0.966 RWD=1.000 PNL=0.000 CREDIT=41
+[ZONE-ROUTE] CID:5 zone=1 edge_port=9998
+[EDGE-RTT] CID:5 wall=0.9 ms  sim_delay=5.0 ms
+>>> [UAV->CLOUD] BLK:9e00|TX:7.0.0.9|CID:5|TS:23.252|SPD:20.2|HDG:-0.4|PX:485.2|PY:-10.0|...
+✓ [CAR 5] ACT=OK REP=0.728 RWD=1.000 PNL=0.000 CREDIT=42
+[ZONE-ROUTE] CID:1 zone=1 edge_port=9998
+[EDGE-RTT] CID:1 wall=1.0 ms  sim_delay=5.0 ms
+>>> [UAV->CLOUD] BLK:cc0d|TX:7.0.0.5|CID:1|TS:23.560|SPD:19.8|HDG:1.6|PX:471.4|PY:-20.0|L...
+✓ [CAR 1] ACT=OK REP=0.883 RWD=1.000 PNL=0.000 CREDIT=43
+[ZONE-ROUTE] CID:0 zone=1 edge_port=9998
+[EDGE-RTT] CID:0 wall=0.8 ms  sim_delay=5.0 ms
+>>> [UAV->CLOUD] BLK:ef83|TX:7.0.0.4|CID:0|TS:23.690|SPD:20.0|HDG:0.4|PX:474.4|PY:-10.0|L...
+✓ [CAR 0] ACT=OK REP=1.000 RWD=1.000 PNL=0.000 CREDIT=42
+[ZONE-ROUTE] CID:5 zone=1 edge_port=9998
+[EDGE-RTT] CID:5 wall=1.0 ms  sim_delay=5.0 ms
+>>> [UAV->CLOUD] BLK:c26d|TX:7.0.0.9|CID:5|TS:23.752|SPD:19.8|HDG:0.7|PX:494.9|PY:-10.0|L...
+✓ [CAR 5] ACT=OK REP=0.795 RWD=1.000 PNL=0.000 CREDIT=43
+[ZONE-ROUTE] CID:1 zone=1 edge_port=9998
+[EDGE-RTT] CID:1 wall=0.9 ms  sim_delay=5.0 ms
+>>> [UAV->CLOUD] BLK:0270|TX:7.0.0.5|CID:1|TS:24.060|SPD:20.0|HDG:1.8|PX:480.5|PY:-20.0|L...
+✓ [CAR 1] ACT=OK REP=1.000 RWD=1.000 PNL=0.000 CREDIT=44
+[ZONE-ROUTE] CID:0 zone=1 edge_port=9998
+[EDGE-RTT] CID:0 wall=1.2 ms  sim_delay=5.0 ms
+>>> [UAV->CLOUD] BLK:9d0d|TX:7.0.0.4|CID:0|TS:24.190|SPD:19.9|HDG:0.3|PX:483.5|PY:-10.0|L...
+✓ [CAR 0] ACT=OK REP=0.763 RWD=1.000 PNL=0.000 CREDIT=43
+[ZONE-ROUTE] CID:5 zone=1 edge_port=9998
+[EDGE-RTT] CID:5 wall=0.8 ms  sim_delay=5.0 ms
+>>> [UAV->CLOUD] BLK:6288|TX:7.0.0.9|CID:5|TS:24.252|SPD:19.5|HDG:-1.2|PX:504.4|PY:-10.0|...
+✓ [CAR 5] ACT=OK REP=0.950 RWD=1.000 PNL=0.000 CREDIT=44
+[ZONE-ROUTE] CID:1 zone=1 edge_port=9998
+[EDGE-RTT] CID:1 wall=1.1 ms  sim_delay=5.0 ms
+>>> [UAV->CLOUD] BLK:59e3|TX:7.0.0.5|CID:1|TS:24.560|SPD:19.8|HDG:-0.9|PX:490.6|PY:-20.0|...
+✓ [CAR 1] ACT=OK REP=0.656 RWD=1.000 PNL=0.000 CREDIT=45
+[ZONE-ROUTE] CID:0 zone=1 edge_port=9998
+[EDGE-RTT] CID:0 wall=1.0 ms  sim_delay=5.0 ms
+>>> [UAV->CLOUD] BLK:c04d|TX:7.0.0.4|CID:0|TS:24.690|SPD:20.3|HDG:1.6|PX:493.5|PY:-10.0|L...
+✓ [CAR 0] ACT=OK REP=1.000 RWD=1.000 PNL=0.000 CREDIT=44
+[ZONE-ROUTE] CID:5 zone=1 edge_port=9998
+[EDGE-RTT] CID:5 wall=1.0 ms  sim_delay=5.0 ms
+>>> [UAV->CLOUD] BLK:5772|TX:7.0.0.9|CID:5|TS:24.752|SPD:19.9|HDG:0.4|PX:515.7|PY:-10.0|L...
+✓ [CAR 5] ACT=OK REP=1.000 RWD=1.000 PNL=0.000 CREDIT=45
+[ZONE-ROUTE] CID:1 zone=1 edge_port=9998
+[EDGE-RTT] CID:1 wall=0.9 ms  sim_delay=5.0 ms
+>>> [UAV->CLOUD] BLK:c0cb|TX:7.0.0.5|CID:1|TS:25.060|SPD:19.7|HDG:1.5|PX:501.8|PY:-20.0|L...
+✓ [CAR 1] ACT=OK REP=1.000 RWD=1.000 PNL=0.000 CREDIT=46
+[ZONE-ROUTE] CID:0 zone=1 edge_port=9998
+[EDGE-RTT] CID:0 wall=1.0 ms  sim_delay=5.0 ms
+>>> [UAV->CLOUD] BLK:9585|TX:7.0.0.4|CID:0|TS:25.190|SPD:20.1|HDG:-1.7|PX:503.9|PY:-10.0|...
+✓ [CAR 0] ACT=OK REP=0.890 RWD=1.000 PNL=0.000 CREDIT=45
+[ZONE-ROUTE] CID:5 zone=1 edge_port=9998
+[EDGE-RTT] CID:5 wall=1.0 ms  sim_delay=5.0 ms
+>>> [UAV->CLOUD] BLK:7f6b|TX:7.0.0.9|CID:5|TS:25.252|SPD:19.7|HDG:1.0|PX:525.7|PY:-10.0|L...
+✓ [CAR 5] ACT=OK REP=0.972 RWD=1.000 PNL=0.000 CREDIT=46
+[ZONE-ROUTE] CID:1 zone=1 edge_port=9998
+[EDGE-RTT] CID:1 wall=1.0 ms  sim_delay=5.0 ms
+>>> [UAV->CLOUD] BLK:81fc|TX:7.0.0.5|CID:1|TS:25.560|SPD:20.4|HDG:-0.4|PX:510.9|PY:-20.0|...
+✓ [CAR 1] ACT=OK REP=0.669 RWD=1.000 PNL=0.000 CREDIT=47
+[ZONE-ROUTE] CID:0 zone=1 edge_port=9998
+[EDGE-RTT] CID:0 wall=0.9 ms  sim_delay=5.0 ms
+>>> [UAV->CLOUD] BLK:5f81|TX:7.0.0.4|CID:0|TS:25.690|SPD:20.4|HDG:-1.8|PX:513.5|PY:-10.0|...
+✓ [CAR 0] ACT=OK REP=0.728 RWD=1.000 PNL=0.000 CREDIT=46
+[ZONE-ROUTE] CID:5 zone=1 edge_port=9998
+[EDGE-RTT] CID:5 wall=1.0 ms  sim_delay=5.0 ms
+>>> [UAV->CLOUD] BLK:e47c|TX:7.0.0.9|CID:5|TS:25.752|SPD:20.3|HDG:-1.7|PX:534.4|PY:-10.0|...
+✓ [CAR 5] ACT=OK REP=0.879 RWD=1.000 PNL=0.000 CREDIT=47
+[ZONE-ROUTE] CID:1 zone=1 edge_port=9998
+[EDGE-RTT] CID:1 wall=1.0 ms  sim_delay=5.0 ms
+>>> [UAV->CLOUD] BLK:091d|TX:7.0.0.5|CID:1|TS:26.060|SPD:19.9|HDG:1.6|PX:521.9|PY:-20.0|L...
+✓ [CAR 1] ACT=OK REP=1.000 RWD=1.000 PNL=0.000 CREDIT=48
+[ZONE-ROUTE] CID:0 zone=1 edge_port=9998
+[EDGE-RTT] CID:0 wall=0.7 ms  sim_delay=5.0 ms
+>>> [UAV->CLOUD] BLK:d402|TX:7.0.0.4|CID:0|TS:26.190|SPD:20.0|HDG:0.0|PX:524.3|PY:-10.0|L...
+✓ [CAR 0] ACT=OK REP=1.000 RWD=1.000 PNL=0.000 CREDIT=47
+[ZONE-ROUTE] CID:5 zone=1 edge_port=9998
+[EDGE-RTT] CID:5 wall=1.0 ms  sim_delay=5.0 ms
+>>> [UAV->CLOUD] BLK:eaed|TX:7.0.0.9|CID:5|TS:26.252|SPD:20.2|HDG:-0.2|PX:545.0|PY:-10.0|...
+✓ [CAR 5] ACT=OK REP=1.000 RWD=1.000 PNL=0.000 CREDIT=48
+[ZONE-ROUTE] CID:1 zone=1 edge_port=9998
+[EDGE-RTT] CID:1 wall=0.9 ms  sim_delay=5.0 ms
+>>> [UAV->CLOUD] BLK:fbba|TX:7.0.0.5|CID:1|TS:26.560|SPD:19.7|HDG:-1.1|PX:530.9|PY:-20.0|...
+✓ [CAR 1] ACT=OK REP=0.758 RWD=1.000 PNL=0.000 CREDIT=49
+[ZONE-ROUTE] CID:0 zone=1 edge_port=9998
+[EDGE-RTT] CID:0 wall=1.0 ms  sim_delay=5.0 ms
+>>> [UAV->CLOUD] BLK:67e9|TX:7.0.0.4|CID:0|TS:26.690|SPD:19.6|HDG:-1.2|PX:534.3|PY:-10.0|...
+✓ [CAR 0] ACT=OK REP=0.764 RWD=1.000 PNL=0.000 CREDIT=48
+[ZONE-ROUTE] CID:5 zone=1 edge_port=9998
+[EDGE-RTT] CID:5 wall=1.0 ms  sim_delay=5.0 ms
+>>> [UAV->CLOUD] BLK:5570|TX:7.0.0.9|CID:5|TS:26.752|SPD:20.3|HDG:-1.6|PX:554.5|PY:-10.0|...
+✓ [CAR 5] ACT=OK REP=1.000 RWD=1.000 PNL=0.000 CREDIT=49
+[ZONE-ROUTE] CID:1 zone=1 edge_port=9998
+[EDGE-RTT] CID:1 wall=0.8 ms  sim_delay=5.0 ms
+>>> [UAV->CLOUD] BLK:7d35|TX:7.0.0.5|CID:1|TS:27.060|SPD:20.2|HDG:1.4|PX:541.4|PY:-20.0|L...
+✓ [CAR 1] ACT=OK REP=1.000 RWD=1.000 PNL=0.000 CREDIT=50
+[ZONE-ROUTE] CID:0 zone=1 edge_port=9998
+[EDGE-RTT] CID:0 wall=1.1 ms  sim_delay=5.0 ms
+>>> [UAV->CLOUD] BLK:bb39|TX:7.0.0.4|CID:0|TS:27.190|SPD:20.2|HDG:-1.9|PX:544.2|PY:-10.0|...
+✓ [CAR 0] ACT=OK REP=0.913 RWD=1.000 PNL=0.000 CREDIT=49
+[ZONE-ROUTE] CID:5 zone=1 edge_port=9998
+[EDGE-RTT] CID:5 wall=1.0 ms  sim_delay=5.0 ms
+>>> [UAV->CLOUD] BLK:3dc3|TX:7.0.0.9|CID:5|TS:27.252|SPD:20.0|HDG:-1.4|PX:564.9|PY:-10.0|...
+✓ [CAR 5] ACT=OK REP=1.000 RWD=1.000 PNL=0.000 CREDIT=50
+[ZONE-ROUTE] CID:1 zone=1 edge_port=9998
+[EDGE-RTT] CID:1 wall=1.0 ms  sim_delay=5.0 ms
+>>> [UAV->CLOUD] BLK:d561|TX:7.0.0.5|CID:1|TS:27.560|SPD:20.1|HDG:0.4|PX:551.8|PY:-20.0|L...
+✓ [CAR 1] ACT=OK REP=0.937 RWD=1.000 PNL=0.000 CREDIT=51
+[PKT-DROP] UAV dropped telemetry from 7.0.0.4 (drop_rate=1%)
+[ZONE-ROUTE] CID:5 zone=1 edge_port=9998
+[EDGE-RTT] CID:5 wall=0.9 ms  sim_delay=5.0 ms
+>>> [UAV->CLOUD] BLK:b21b|TX:7.0.0.9|CID:5|TS:27.752|SPD:19.5|HDG:-0.4|PX:575.2|PY:-10.0|...
+✓ [CAR 5] ACT=OK REP=1.000 RWD=1.000 PNL=0.000 CREDIT=51
+[ZONE-ROUTE] CID:1 zone=1 edge_port=9998
+[EDGE-RTT] CID:1 wall=1.0 ms  sim_delay=5.0 ms
+>>> [UAV->CLOUD] BLK:cf20|TX:7.0.0.5|CID:1|TS:28.060|SPD:19.8|HDG:-0.6|PX:561.0|PY:-20.0|...
+✓ [CAR 1] ACT=OK REP=0.785 RWD=1.000 PNL=0.000 CREDIT=52
+[ZONE-ROUTE] CID:0 zone=1 edge_port=9998
+[EDGE-RTT] CID:0 wall=1.0 ms  sim_delay=5.0 ms
+>>> [UAV->CLOUD] BLK:983a|TX:7.0.0.4|CID:0|TS:28.190|SPD:19.8|HDG:0.7|PX:564.0|PY:-10.0|L...
+✓ [CAR 0] ACT=OK REP=0.939 RWD=1.000 PNL=0.000 CREDIT=50
+[ZONE-ROUTE] CID:5 zone=1 edge_port=9998
+[EDGE-RTT] CID:5 wall=0.9 ms  sim_delay=5.0 ms
+>>> [UAV->CLOUD] BLK:0707|TX:7.0.0.9|CID:5|TS:28.252|SPD:19.6|HDG:0.2|PX:585.4|PY:-10.0|L...
+✓ [CAR 5] ACT=OK REP=1.000 RWD=1.000 PNL=0.000 CREDIT=52
+[ZONE-ROUTE] CID:1 zone=1 edge_port=9998
+[EDGE-RTT] CID:1 wall=1.3 ms  sim_delay=5.0 ms
+>>> [UAV->CLOUD] BLK:3d4b|TX:7.0.0.5|CID:1|TS:28.560|SPD:20.3|HDG:0.2|PX:571.2|PY:-20.0|L...
+✓ [CAR 1] ACT=OK REP=0.831 RWD=1.000 PNL=0.000 CREDIT=53
+[ZONE-ROUTE] CID:0 zone=1 edge_port=9998
+[EDGE-RTT] CID:0 wall=0.9 ms  sim_delay=5.0 ms
+>>> [UAV->CLOUD] BLK:7701|TX:7.0.0.4|CID:0|TS:28.690|SPD:19.6|HDG:0.4|PX:574.1|PY:-10.0|L...
+✓ [CAR 0] ACT=OK REP=0.997 RWD=1.000 PNL=0.000 CREDIT=51
+[ZONE-ROUTE] CID:5 zone=1 edge_port=9998
+[EDGE-RTT] CID:5 wall=1.0 ms  sim_delay=5.0 ms
+>>> [UAV->CLOUD] BLK:a31a|TX:7.0.0.9|CID:5|TS:28.752|SPD:19.6|HDG:-0.7|PX:595.7|PY:-10.0|...
+✓ [CAR 5] ACT=OK REP=1.000 RWD=1.000 PNL=0.000 CREDIT=53
+[ZONE-ROUTE] CID:1 zone=1 edge_port=9998
+[EDGE-RTT] CID:1 wall=1.0 ms  sim_delay=5.0 ms
+>>> [UAV->CLOUD] BLK:d340|TX:7.0.0.5|CID:1|TS:29.060|SPD:20.1|HDG:1.9|PX:581.2|PY:-20.0|L...
+✓ [CAR 1] ACT=OK REP=1.000 RWD=1.000 PNL=0.000 CREDIT=54
+[ZONE-ROUTE] CID:0 zone=1 edge_port=9998
+[EDGE-RTT] CID:0 wall=1.0 ms  sim_delay=5.0 ms
+>>> [UAV->CLOUD] BLK:5ba9|TX:7.0.0.4|CID:0|TS:29.190|SPD:19.5|HDG:0.6|PX:583.5|PY:-10.0|L...
+✓ [CAR 0] ACT=OK REP=0.896 RWD=1.000 PNL=0.000 CREDIT=52
+[ZONE-ROUTE] CID:5 zone=1 edge_port=9998
+[EDGE-RTT] CID:5 wall=1.0 ms  sim_delay=5.0 ms
+>>> [UAV->CLOUD] BLK:fca5|TX:7.0.0.9|CID:5|TS:29.252|SPD:19.6|HDG:0.9|PX:605.1|PY:-10.0|L...
+✓ [CAR 5] ACT=OK REP=0.988 RWD=1.000 PNL=0.000 CREDIT=54
+[ZONE-ROUTE] CID:1 zone=1 edge_port=9998
+[EDGE-RTT] CID:1 wall=0.8 ms  sim_delay=5.0 ms
+>>> [UAV->CLOUD] BLK:a732|TX:7.0.0.5|CID:1|TS:29.560|SPD:20.4|HDG:-1.4|PX:591.5|PY:-20.0|...
+✓ [CAR 1] ACT=OK REP=0.951 RWD=1.000 PNL=0.000 CREDIT=55
+[ZONE-ROUTE] CID:0 zone=1 edge_port=9998
+[EDGE-RTT] CID:0 wall=1.1 ms  sim_delay=5.0 ms
+>>> [UAV->CLOUD] BLK:b799|TX:7.0.0.4|CID:0|TS:29.690|SPD:20.4|HDG:-0.3|PX:593.5|PY:-10.0|...
+✓ [CAR 0] ACT=OK REP=1.000 RWD=1.000 PNL=0.000 CREDIT=53
+[ZONE-ROUTE] CID:5 zone=1 edge_port=9998
+[EDGE-RTT] CID:5 wall=0.9 ms  sim_delay=5.0 ms
+>>> [UAV->CLOUD] BLK:a45f|TX:7.0.0.9|CID:5|TS:29.752|SPD:20.2|HDG:-0.3|PX:615.5|PY:-10.0|...
+✓ [CAR 5] ACT=OK REP=0.851 RWD=1.000 PNL=0.000 CREDIT=55
+[ZONE-ROUTE] CID:1 zone=1 edge_port=9998
+[EDGE-RTT] CID:1 wall=1.1 ms  sim_delay=5.0 ms
+>>> [UAV->CLOUD] BLK:54ef|TX:7.0.0.5|CID:1|TS:30.060|SPD:20.1|HDG:-1.4|PX:601.2|PY:-20.0|...
+✓ [CAR 1] ACT=OK REP=0.909 RWD=1.000 PNL=0.000 CREDIT=56
+[ZONE-ROUTE] CID:0 zone=1 edge_port=9998
+[EDGE-RTT] CID:0 wall=1.2 ms  sim_delay=5.0 ms
+>>> [UAV->CLOUD] BLK:6dd3|TX:7.0.0.4|CID:0|TS:30.190|SPD:20.1|HDG:-0.1|PX:604.2|PY:-10.0|...
+✓ [CAR 0] ACT=OK REP=1.000 RWD=1.000 PNL=0.000 CREDIT=54
+[ZONE-ROUTE] CID:5 zone=1 edge_port=9998
+[EDGE-RTT] CID:5 wall=0.9 ms  sim_delay=5.0 ms
+>>> [UAV->CLOUD] BLK:7ce4|TX:7.0.0.9|CID:5|TS:30.252|SPD:19.8|HDG:-0.6|PX:625.2|PY:-10.0|...
+✓ [CAR 5] ACT=OK REP=1.000 RWD=1.000 PNL=0.000 CREDIT=56
+[ZONE-ROUTE] CID:1 zone=1 edge_port=9998
+[EDGE-RTT] CID:1 wall=1.0 ms  sim_delay=5.0 ms
+>>> [UAV->CLOUD] BLK:f68d|TX:7.0.0.5|CID:1|TS:30.560|SPD:20.2|HDG:0.6|PX:610.6|PY:-20.0|L...
+✓ [CAR 1] ACT=OK REP=1.000 RWD=1.000 PNL=0.000 CREDIT=57
+[ZONE-ROUTE] CID:0 zone=1 edge_port=9998
+[EDGE-RTT] CID:0 wall=1.3 ms  sim_delay=5.0 ms
+>>> [UAV->CLOUD] BLK:d3d2|TX:7.0.0.4|CID:0|TS:30.690|SPD:20.4|HDG:0.3|PX:613.1|PY:-10.0|L...
+✓ [CAR 0] ACT=OK REP=0.851 RWD=1.000 PNL=0.000 CREDIT=55
+[ZONE-ROUTE] CID:5 zone=1 edge_port=9998
+[EDGE-RTT] CID:5 wall=1.0 ms  sim_delay=5.0 ms
+>>> [UAV->CLOUD] BLK:1310|TX:7.0.0.9|CID:5|TS:30.752|SPD:19.5|HDG:-1.0|PX:635.5|PY:-10.0|...
+✓ [CAR 5] ACT=OK REP=0.987 RWD=1.000 PNL=0.000 CREDIT=57
+[ZONE-ROUTE] CID:1 zone=1 edge_port=9998
+[EDGE-RTT] CID:1 wall=0.9 ms  sim_delay=5.0 ms
+>>> [UAV->CLOUD] BLK:faaf|TX:7.0.0.5|CID:1|TS:31.060|SPD:19.9|HDG:1.0|PX:620.7|PY:-20.0|L...
+✓ [CAR 1] ACT=OK REP=0.958 RWD=1.000 PNL=0.000 CREDIT=58
+[ZONE-ROUTE] CID:0 zone=1 edge_port=9998
+[EDGE-RTT] CID:0 wall=1.0 ms  sim_delay=5.0 ms
+>>> [UAV->CLOUD] BLK:a839|TX:7.0.0.4|CID:0|TS:31.190|SPD:19.7|HDG:-0.3|PX:623.9|PY:-10.0|...
+✓ [CAR 0] ACT=OK REP=1.000 RWD=1.000 PNL=0.000 CREDIT=56
+[ZONE-ROUTE] CID:5 zone=1 edge_port=9998
+[EDGE-RTT] CID:5 wall=1.0 ms  sim_delay=5.0 ms
+>>> [UAV->CLOUD] BLK:407a|TX:7.0.0.9|CID:5|TS:31.252|SPD:19.6|HDG:-0.5|PX:645.1|PY:-10.0|...
+✓ [CAR 5] ACT=OK REP=1.000 RWD=1.000 PNL=0.000 CREDIT=58
+[ZONE-ROUTE] CID:1 zone=1 edge_port=9998
+[EDGE-RTT] CID:1 wall=1.0 ms  sim_delay=5.0 ms
+>>> [UAV->CLOUD] BLK:a75d|TX:7.0.0.5|CID:1|TS:31.560|SPD:20.3|HDG:-0.6|PX:631.7|PY:-20.0|...
+✓ [CAR 1] ACT=OK REP=1.000 RWD=1.000 PNL=0.000 CREDIT=59
+[ZONE-ROUTE] CID:0 zone=1 edge_port=9998
+[EDGE-RTT] CID:0 wall=1.2 ms  sim_delay=5.0 ms
+>>> [UAV->CLOUD] BLK:3930|TX:7.0.0.4|CID:0|TS:31.690|SPD:19.7|HDG:-1.4|PX:633.6|PY:-10.0|...
+✓ [CAR 0] ACT=OK REP=1.000 RWD=1.000 PNL=0.000 CREDIT=57
+[ZONE-ROUTE] CID:5 zone=1 edge_port=9998
+[EDGE-RTT] CID:5 wall=0.9 ms  sim_delay=5.0 ms
+>>> [UAV->CLOUD] BLK:6fdb|TX:7.0.0.9|CID:5|TS:31.752|SPD:20.3|HDG:-1.1|PX:654.3|PY:-10.0|...
+✓ [CAR 5] ACT=OK REP=0.942 RWD=1.000 PNL=0.000 CREDIT=59
+[ZONE-ROUTE] CID:1 zone=1 edge_port=9998
+[EDGE-RTT] CID:1 wall=1.1 ms  sim_delay=5.0 ms
+>>> [UAV->CLOUD] BLK:2942|TX:7.0.0.5|CID:1|TS:32.060|SPD:19.7|HDG:1.1|PX:640.9|PY:-20.0|L...
+✓ [CAR 1] ACT=OK REP=0.830 RWD=1.000 PNL=0.000 CREDIT=60
+[ZONE-ROUTE] CID:0 zone=1 edge_port=9998
+[EDGE-RTT] CID:0 wall=0.8 ms  sim_delay=5.0 ms
+>>> [UAV->CLOUD] BLK:06ea|TX:7.0.0.4|CID:0|TS:32.190|SPD:20.5|HDG:-2.0|PX:644.4|PY:-10.0|...
+✓ [CAR 0] ACT=OK REP=0.962 RWD=1.000 PNL=0.000 CREDIT=58
+[ZONE-ROUTE] CID:5 zone=1 edge_port=9998
+[EDGE-RTT] CID:5 wall=1.1 ms  sim_delay=5.0 ms
+>>> [UAV->CLOUD] BLK:cf52|TX:7.0.0.9|CID:5|TS:32.252|SPD:19.6|HDG:0.8|PX:665.5|PY:-10.0|L...
+✓ [CAR 5] ACT=OK REP=0.933 RWD=1.000 PNL=0.000 CREDIT=60
+[ZONE-ROUTE] CID:1 zone=1 edge_port=9998
+[EDGE-RTT] CID:1 wall=1.1 ms  sim_delay=5.0 ms
+>>> [UAV->CLOUD] BLK:4634|TX:7.0.0.5|CID:1|TS:32.560|SPD:19.5|HDG:1.6|PX:651.7|PY:-20.0|L...
+✓ [CAR 1] ACT=OK REP=1.000 RWD=1.000 PNL=0.000 CREDIT=61
+[ZONE-ROUTE] CID:0 zone=1 edge_port=9998
+[EDGE-RTT] CID:0 wall=1.0 ms  sim_delay=5.0 ms
+>>> [UAV->CLOUD] BLK:70e1|TX:7.0.0.4|CID:0|TS:32.690|SPD:20.3|HDG:1.0|PX:654.5|PY:-10.0|L...
+✓ [CAR 0] ACT=OK REP=0.708 RWD=1.000 PNL=0.000 CREDIT=59
+[ZONE-ROUTE] CID:5 zone=1 edge_port=9998
+[EDGE-RTT] CID:5 wall=0.9 ms  sim_delay=5.0 ms
+>>> [UAV->CLOUD] BLK:4444|TX:7.0.0.9|CID:5|TS:32.752|SPD:19.9|HDG:0.7|PX:675.5|PY:-10.0|L...
+✓ [CAR 5] ACT=OK REP=0.718 RWD=1.000 PNL=0.000 CREDIT=61
+[ZONE-ROUTE] CID:1 zone=1 edge_port=9998
+[EDGE-RTT] CID:1 wall=1.0 ms  sim_delay=5.0 ms
+>>> [UAV->CLOUD] BLK:edc6|TX:7.0.0.5|CID:1|TS:33.060|SPD:20.4|HDG:-1.8|PX:661.5|PY:-20.0|...
+✓ [CAR 1] ACT=OK REP=1.000 RWD=1.000 PNL=0.000 CREDIT=62
+[ZONE-ROUTE] CID:0 zone=1 edge_port=9998
+[EDGE-RTT] CID:0 wall=1.0 ms  sim_delay=5.0 ms
+>>> [UAV->CLOUD] BLK:e78b|TX:7.0.0.4|CID:0|TS:33.190|SPD:19.5|HDG:-1.1|PX:664.1|PY:-10.0|...
+✓ [CAR 0] ACT=OK REP=0.982 RWD=1.000 PNL=0.000 CREDIT=60
+[ZONE-ROUTE] CID:5 zone=1 edge_port=9998
+[EDGE-RTT] CID:5 wall=0.9 ms  sim_delay=5.0 ms
+>>> [UAV->CLOUD] BLK:57de|TX:7.0.0.9|CID:5|TS:33.252|SPD:19.7|HDG:1.1|PX:685.0|PY:-10.0|L...
+✓ [CAR 5] ACT=OK REP=0.979 RWD=1.000 PNL=0.000 CREDIT=62
+[ZONE-ROUTE] CID:1 zone=1 edge_port=9998
+[EDGE-RTT] CID:1 wall=1.0 ms  sim_delay=5.0 ms
+>>> [UAV->CLOUD] BLK:b8b3|TX:7.0.0.5|CID:1|TS:33.560|SPD:20.1|HDG:1.8|PX:671.5|PY:-20.0|L...
+✓ [CAR 1] ACT=OK REP=1.000 RWD=1.000 PNL=0.000 CREDIT=63
+[ZONE-ROUTE] CID:0 zone=1 edge_port=9998
+[EDGE-RTT] CID:0 wall=1.1 ms  sim_delay=5.0 ms
+>>> [UAV->CLOUD] BLK:84fc|TX:7.0.0.4|CID:0|TS:33.690|SPD:19.8|HDG:1.9|PX:673.9|PY:-10.0|L...
+✓ [CAR 0] ACT=OK REP=1.000 RWD=1.000 PNL=0.000 CREDIT=61
+[ZONE-ROUTE] CID:5 zone=1 edge_port=9998
+[EDGE-RTT] CID:5 wall=0.9 ms  sim_delay=5.0 ms
+>>> [UAV->CLOUD] BLK:49c4|TX:7.0.0.9|CID:5|TS:33.752|SPD:20.0|HDG:1.3|PX:695.3|PY:-10.0|L...
+✓ [CAR 5] ACT=OK REP=0.774 RWD=1.000 PNL=0.000 CREDIT=63
+[ZONE-ROUTE] CID:1 zone=1 edge_port=9998
+[EDGE-RTT] CID:1 wall=0.8 ms  sim_delay=5.0 ms
+>>> [UAV->CLOUD] BLK:db10|TX:7.0.0.5|CID:1|TS:34.060|SPD:20.0|HDG:0.9|PX:681.2|PY:-20.0|L...
+✓ [CAR 1] ACT=OK REP=0.942 RWD=1.000 PNL=0.000 CREDIT=64
+[ZONE-ROUTE] CID:0 zone=1 edge_port=9998
+[EDGE-RTT] CID:0 wall=0.8 ms  sim_delay=5.0 ms
+>>> [UAV->CLOUD] BLK:6e04|TX:7.0.0.4|CID:0|TS:34.190|SPD:20.1|HDG:-1.6|PX:684.0|PY:-10.0|...
+✓ [CAR 0] ACT=OK REP=0.744 RWD=1.000 PNL=0.000 CREDIT=62
+[ZONE-ROUTE] CID:5 zone=1 edge_port=9998
+[EDGE-RTT] CID:5 wall=1.0 ms  sim_delay=5.0 ms
+>>> [UAV->CLOUD] BLK:04c4|TX:7.0.0.9|CID:5|TS:34.252|SPD:20.3|HDG:2.0|PX:704.3|PY:-10.0|L...
+✓ [CAR 5] ACT=OK REP=1.000 RWD=1.000 PNL=0.000 CREDIT=64
+[ZONE-ROUTE] CID:1 zone=1 edge_port=9998
+[EDGE-RTT] CID:1 wall=1.0 ms  sim_delay=5.0 ms
+>>> [UAV->CLOUD] BLK:2ba4|TX:7.0.0.5|CID:1|TS:34.560|SPD:19.6|HDG:0.8|PX:691.7|PY:-20.0|L...
+✓ [CAR 1] ACT=OK REP=0.925 RWD=1.000 PNL=0.000 CREDIT=65
+[ZONE-ROUTE] CID:0 zone=1 edge_port=9998
+[EDGE-RTT] CID:0 wall=1.3 ms  sim_delay=5.0 ms
+>>> [UAV->CLOUD] BLK:6e75|TX:7.0.0.4|CID:0|TS:34.690|SPD:20.2|HDG:0.8|PX:694.5|PY:-10.0|L...
+✓ [CAR 0] ACT=OK REP=0.939 RWD=1.000 PNL=0.000 CREDIT=63
+[ZONE-ROUTE] CID:5 zone=1 edge_port=9998
+[EDGE-RTT] CID:5 wall=1.0 ms  sim_delay=5.0 ms
+>>> [UAV->CLOUD] BLK:42c2|TX:7.0.0.9|CID:5|TS:34.752|SPD:20.3|HDG:-1.7|PX:715.3|PY:-10.0|...
+✓ [CAR 5] ACT=OK REP=1.000 RWD=1.000 PNL=0.000 CREDIT=65
+[ZONE-ROUTE] CID:1 zone=1 edge_port=9998
+[EDGE-RTT] CID:1 wall=1.2 ms  sim_delay=5.0 ms
+>>> [UAV->CLOUD] BLK:9dff|TX:7.0.0.5|CID:1|TS:35.060|SPD:20.2|HDG:0.5|PX:701.4|PY:-20.0|L...
+✓ [CAR 1] ACT=OK REP=0.754 RWD=1.000 PNL=0.000 CREDIT=66
+[ZONE-ROUTE] CID:0 zone=1 edge_port=9998
+[EDGE-RTT] CID:0 wall=1.0 ms  sim_delay=5.0 ms
+>>> [UAV->CLOUD] BLK:ea41|TX:7.0.0.4|CID:0|TS:35.190|SPD:20.0|HDG:1.2|PX:704.3|PY:-10.0|L...
+✓ [CAR 0] ACT=OK REP=0.930 RWD=1.000 PNL=0.000 CREDIT=64
+[ZONE-ROUTE] CID:5 zone=1 edge_port=9998
+[EDGE-RTT] CID:5 wall=0.7 ms  sim_delay=5.0 ms
+>>> [UAV->CLOUD] BLK:b5e6|TX:7.0.0.9|CID:5|TS:35.252|SPD:20.1|HDG:1.0|PX:724.6|PY:-10.0|L...
+✓ [CAR 5] ACT=OK REP=0.877 RWD=1.000 PNL=0.000 CREDIT=66
+[ZONE-ROUTE] CID:1 zone=1 edge_port=9998
+[EDGE-RTT] CID:1 wall=1.0 ms  sim_delay=5.0 ms
+>>> [UAV->CLOUD] BLK:3103|TX:7.0.0.5|CID:1|TS:35.560|SPD:20.1|HDG:-0.9|PX:711.6|PY:-20.0|...
+✓ [CAR 1] ACT=OK REP=0.796 RWD=1.000 PNL=0.000 CREDIT=67
+[ZONE-ROUTE] CID:0 zone=1 edge_port=9998
+[EDGE-RTT] CID:0 wall=0.9 ms  sim_delay=5.0 ms
+>>> [UAV->CLOUD] BLK:6bdf|TX:7.0.0.4|CID:0|TS:35.690|SPD:19.9|HDG:-0.3|PX:714.1|PY:-10.0|...
+✓ [CAR 0] ACT=OK REP=0.673 RWD=1.000 PNL=0.000 CREDIT=65
+[ZONE-ROUTE] CID:5 zone=1 edge_port=9998
+[EDGE-RTT] CID:5 wall=0.8 ms  sim_delay=5.0 ms
+>>> [UAV->CLOUD] BLK:e028|TX:7.0.0.9|CID:5|TS:35.752|SPD:20.4|HDG:1.5|PX:734.4|PY:-10.0|L...
+✓ [CAR 5] ACT=OK REP=0.882 RWD=1.000 PNL=0.000 CREDIT=67
+[ZONE-ROUTE] CID:1 zone=1 edge_port=9998
+[EDGE-RTT] CID:1 wall=0.8 ms  sim_delay=5.0 ms
+>>> [UAV->CLOUD] BLK:3bbe|TX:7.0.0.5|CID:1|TS:36.060|SPD:20.3|HDG:1.7|PX:721.8|PY:-20.0|L...
+✓ [CAR 1] ACT=OK REP=0.721 RWD=1.000 PNL=0.000 CREDIT=68
+[ZONE-ROUTE] CID:0 zone=1 edge_port=9998
+[EDGE-RTT] CID:0 wall=0.6 ms  sim_delay=5.0 ms
+>>> [UAV->CLOUD] BLK:1fdf|TX:7.0.0.4|CID:0|TS:36.190|SPD:19.9|HDG:-1.4|PX:723.9|PY:-10.0|...
+✓ [CAR 0] ACT=OK REP=0.896 RWD=1.000 PNL=0.000 CREDIT=66
+[ZONE-ROUTE] CID:5 zone=1 edge_port=9998
+[EDGE-RTT] CID:5 wall=1.0 ms  sim_delay=5.0 ms
+>>> [UAV->CLOUD] BLK:c0d9|TX:7.0.0.9|CID:5|TS:36.252|SPD:19.7|HDG:0.4|PX:744.9|PY:-10.0|L...
+✓ [CAR 5] ACT=OK REP=1.000 RWD=1.000 PNL=0.000 CREDIT=68
+[ZONE-ROUTE] CID:1 zone=1 edge_port=9998
+[EDGE-RTT] CID:1 wall=1.1 ms  sim_delay=5.0 ms
+>>> [UAV->CLOUD] BLK:bc47|TX:7.0.0.5|CID:1|TS:36.560|SPD:20.3|HDG:1.2|PX:731.9|PY:-20.0|L...
+✓ [CAR 1] ACT=OK REP=1.000 RWD=1.000 PNL=0.000 CREDIT=69
+[ZONE-ROUTE] CID:0 zone=1 edge_port=9998
+[EDGE-RTT] CID:0 wall=0.9 ms  sim_delay=5.0 ms
+>>> [UAV->CLOUD] BLK:8ab1|TX:7.0.0.4|CID:0|TS:36.690|SPD:20.3|HDG:0.5|PX:733.6|PY:-10.0|L...
+✓ [CAR 0] ACT=OK REP=0.958 RWD=1.000 PNL=0.000 CREDIT=67
+[ZONE-ROUTE] CID:5 zone=1 edge_port=9998
+[EDGE-RTT] CID:5 wall=1.1 ms  sim_delay=5.0 ms
+>>> [UAV->CLOUD] BLK:d9f4|TX:7.0.0.9|CID:5|TS:36.752|SPD:20.5|HDG:0.3|PX:754.5|PY:-10.0|L...
+✓ [CAR 5] ACT=OK REP=1.000 RWD=1.000 PNL=0.000 CREDIT=69
+[ZONE-ROUTE] CID:1 zone=1 edge_port=9998
+[EDGE-RTT] CID:1 wall=0.7 ms  sim_delay=5.0 ms
+>>> [UAV->CLOUD] BLK:08f5|TX:7.0.0.5|CID:1|TS:37.060|SPD:20.0|HDG:1.6|PX:741.0|PY:-20.0|L...
+✓ [CAR 1] ACT=OK REP=0.637 RWD=1.000 PNL=0.000 CREDIT=70
+[ZONE-ROUTE] CID:0 zone=1 edge_port=9998
+[EDGE-RTT] CID:0 wall=1.0 ms  sim_delay=5.0 ms
+>>> [UAV->CLOUD] BLK:2ab4|TX:7.0.0.4|CID:0|TS:37.190|SPD:20.2|HDG:1.9|PX:743.4|PY:-10.0|L...
+✓ [CAR 0] ACT=OK REP=0.954 RWD=1.000 PNL=0.000 CREDIT=68
+[ZONE-ROUTE] CID:5 zone=1 edge_port=9998
+[EDGE-RTT] CID:5 wall=1.0 ms  sim_delay=5.0 ms
+>>> [UAV->CLOUD] BLK:5c10|TX:7.0.0.9|CID:5|TS:37.252|SPD:20.5|HDG:1.8|PX:764.8|PY:-10.0|L...
+✓ [CAR 5] ACT=OK REP=0.908 RWD=1.000 PNL=0.000 CREDIT=70
+[PKT-DROP] UAV dropped telemetry from 7.0.0.7 (drop_rate=1%)
+[ZONE-ROUTE] CID:1 zone=1 edge_port=9998
+[EDGE-RTT] CID:1 wall=1.1 ms  sim_delay=5.0 ms
+>>> [UAV->CLOUD] BLK:d09d|TX:7.0.0.5|CID:1|TS:37.560|SPD:20.1|HDG:-1.2|PX:750.8|PY:-20.0|...
+✓ [CAR 1] ACT=OK REP=0.910 RWD=1.000 PNL=0.000 CREDIT=71
+[ZONE-ROUTE] CID:0 zone=1 edge_port=9998
+[EDGE-RTT] CID:0 wall=1.1 ms  sim_delay=5.0 ms
+>>> [UAV->CLOUD] BLK:8ca8|TX:7.0.0.4|CID:0|TS:37.690|SPD:20.0|HDG:-1.5|PX:753.4|PY:-10.0|...
+✓ [CAR 0] ACT=OK REP=0.914 RWD=1.000 PNL=0.000 CREDIT=69
+[ZONE-ROUTE] CID:5 zone=1 edge_port=9998
+[EDGE-RTT] CID:5 wall=1.0 ms  sim_delay=5.0 ms
+>>> [UAV->CLOUD] BLK:dc89|TX:7.0.0.9|CID:5|TS:37.752|SPD:19.7|HDG:0.2|PX:775.3|PY:-10.0|L...
+✓ [CAR 5] ACT=OK REP=1.000 RWD=1.000 PNL=0.000 CREDIT=71
+[ZONE-ROUTE] CID:1 zone=1 edge_port=9998
+[EDGE-RTT] CID:1 wall=1.1 ms  sim_delay=5.0 ms
+>>> [UAV->CLOUD] BLK:a9d3|TX:7.0.0.5|CID:1|TS:38.060|SPD:20.1|HDG:-1.7|PX:761.7|PY:-20.0|...
+✓ [CAR 1] ACT=OK REP=1.000 RWD=1.000 PNL=0.000 CREDIT=72
+[ZONE-ROUTE] CID:0 zone=1 edge_port=9998
+[EDGE-RTT] CID:0 wall=0.8 ms  sim_delay=5.0 ms
+>>> [UAV->CLOUD] BLK:c853|TX:7.0.0.4|CID:0|TS:38.190|SPD:20.0|HDG:1.5|PX:763.8|PY:-10.0|L...
+✓ [CAR 0] ACT=OK REP=0.965 RWD=1.000 PNL=0.000 CREDIT=70
+[ZONE-ROUTE] CID:5 zone=1 edge_port=9998
+[EDGE-RTT] CID:5 wall=0.7 ms  sim_delay=5.0 ms
+>>> [UAV->CLOUD] BLK:5b51|TX:7.0.0.9|CID:5|TS:38.252|SPD:20.2|HDG:0.8|PX:785.5|PY:-10.0|L...
+✓ [CAR 5] ACT=OK REP=0.978 RWD=1.000 PNL=0.000 CREDIT=72
+[ZONE-ROUTE] CID:1 zone=1 edge_port=9998
+[EDGE-RTT] CID:1 wall=0.9 ms  sim_delay=5.0 ms
+>>> [UAV->CLOUD] BLK:f383|TX:7.0.0.5|CID:1|TS:38.560|SPD:20.0|HDG:0.6|PX:770.8|PY:-20.0|L...
+✓ [CAR 1] ACT=OK REP=0.992 RWD=1.000 PNL=0.000 CREDIT=73
+[ZONE-ROUTE] CID:0 zone=1 edge_port=9998
+[EDGE-RTT] CID:0 wall=0.9 ms  sim_delay=5.0 ms
+>>> [UAV->CLOUD] BLK:32ad|TX:7.0.0.4|CID:0|TS:38.690|SPD:19.8|HDG:1.5|PX:773.8|PY:-10.0|L...
+✓ [CAR 0] ACT=OK REP=0.857 RWD=1.000 PNL=0.000 CREDIT=71
+[ZONE-ROUTE] CID:5 zone=1 edge_port=9998
+[EDGE-RTT] CID:5 wall=1.1 ms  sim_delay=5.0 ms
+>>> [UAV->CLOUD] BLK:8bb2|TX:7.0.0.9|CID:5|TS:38.752|SPD:20.4|HDG:0.0|PX:794.7|PY:-10.0|L...
+✓ [CAR 5] ACT=OK REP=1.000 RWD=1.000 PNL=0.000 CREDIT=73
+[ZONE-ROUTE] CID:1 zone=1 edge_port=9998
+[EDGE-RTT] CID:1 wall=0.9 ms  sim_delay=5.0 ms
+>>> [UAV->CLOUD] BLK:86b4|TX:7.0.0.5|CID:1|TS:39.060|SPD:20.4|HDG:1.5|PX:781.1|PY:-20.0|L...
+✓ [CAR 1] ACT=OK REP=0.850 RWD=1.000 PNL=0.000 CREDIT=74
+[ZONE-ROUTE] CID:0 zone=1 edge_port=9998
+[EDGE-RTT] CID:0 wall=1.2 ms  sim_delay=5.0 ms
+>>> [UAV->CLOUD] BLK:bb2d|TX:7.0.0.4|CID:0|TS:39.190|SPD:20.0|HDG:1.9|PX:784.2|PY:-10.0|L...
+✓ [CAR 0] ACT=OK REP=0.979 RWD=1.000 PNL=0.000 CREDIT=72
+[ZONE-ROUTE] CID:5 zone=1 edge_port=9998
+[EDGE-RTT] CID:5 wall=0.9 ms  sim_delay=5.0 ms
+>>> [UAV->CLOUD] BLK:e2b8|TX:7.0.0.9|CID:5|TS:39.252|SPD:20.2|HDG:1.3|PX:804.6|PY:-10.0|L...
+✓ [CAR 5] ACT=OK REP=1.000 RWD=1.000 PNL=0.000 CREDIT=74
+[ZONE-ROUTE] CID:1 zone=1 edge_port=9998
+[EDGE-RTT] CID:1 wall=1.1 ms  sim_delay=5.0 ms
+>>> [UAV->CLOUD] BLK:ab85|TX:7.0.0.5|CID:1|TS:39.560|SPD:19.6|HDG:0.3|PX:790.6|PY:-20.0|L...
+✓ [CAR 1] ACT=OK REP=1.000 RWD=1.000 PNL=0.000 CREDIT=75
+[ZONE-ROUTE] CID:0 zone=1 edge_port=9998
+[EDGE-RTT] CID:0 wall=1.1 ms  sim_delay=5.0 ms
+>>> [UAV->CLOUD] BLK:17ed|TX:7.0.0.4|CID:0|TS:39.690|SPD:20.1|HDG:-1.7|PX:794.1|PY:-10.0|...
+✓ [CAR 0] ACT=OK REP=1.000 RWD=1.000 PNL=0.000 CREDIT=73
+[ZONE-ROUTE] CID:5 zone=1 edge_port=9998
+[EDGE-RTT] CID:5 wall=1.1 ms  sim_delay=5.0 ms
+>>> [UAV->CLOUD] BLK:2ac7|TX:7.0.0.9|CID:5|TS:39.752|SPD:19.9|HDG:1.7|PX:814.6|PY:-10.0|L...
+✓ [CAR 5] ACT=OK REP=0.885 RWD=1.000 PNL=0.000 CREDIT=75
+[ZONE-ROUTE] CID:1 zone=1 edge_port=9998
+[EDGE-RTT] CID:1 wall=0.8 ms  sim_delay=5.0 ms
+>>> [UAV->CLOUD] BLK:ecfa|TX:7.0.0.5|CID:1|TS:40.060|SPD:19.9|HDG:0.4|PX:800.6|PY:-20.0|L...
+✓ [CAR 1] ACT=OK REP=0.802 RWD=1.000 PNL=0.000 CREDIT=76
+[ZONE-ROUTE] CID:0 zone=1 edge_port=9998
+[EDGE-RTT] CID:0 wall=1.1 ms  sim_delay=5.0 ms
+>>> [UAV->CLOUD] BLK:adcf|TX:7.0.0.4|CID:0|TS:40.190|SPD:20.2|HDG:-1.8|PX:804.3|PY:-10.0|...
+✓ [CAR 0] ACT=OK REP=0.701 RWD=1.000 PNL=0.000 CREDIT=74
+[ZONE-ROUTE] CID:5 zone=1 edge_port=9998
+[EDGE-RTT] CID:5 wall=0.9 ms  sim_delay=5.0 ms
+>>> [UAV->CLOUD] BLK:2f92|TX:7.0.0.9|CID:5|TS:40.252|SPD:20.1|HDG:-2.0|PX:825.7|PY:-10.0|...
+✓ [CAR 5] ACT=OK REP=1.000 RWD=1.000 PNL=0.000 CREDIT=76
+[ZONE-ROUTE] CID:1 zone=1 edge_port=9998
+[EDGE-RTT] CID:1 wall=1.0 ms  sim_delay=5.0 ms
+>>> [UAV->CLOUD] BLK:8957|TX:7.0.0.5|CID:1|TS:40.560|SPD:20.0|HDG:1.9|PX:811.7|PY:-20.0|L...
+✓ [CAR 1] ACT=OK REP=0.748 RWD=1.000 PNL=0.000 CREDIT=77
+[ZONE-ROUTE] CID:0 zone=1 edge_port=9998
+[EDGE-RTT] CID:0 wall=0.9 ms  sim_delay=5.0 ms
+>>> [UAV->CLOUD] BLK:cdef|TX:7.0.0.4|CID:0|TS:40.690|SPD:19.9|HDG:0.9|PX:813.2|PY:-10.0|L...
+✓ [CAR 0] ACT=OK REP=0.796 RWD=1.000 PNL=0.000 CREDIT=75
+[ZONE-ROUTE] CID:5 zone=1 edge_port=9998
+[EDGE-RTT] CID:5 wall=1.0 ms  sim_delay=5.0 ms
+>>> [UAV->CLOUD] BLK:5737|TX:7.0.0.9|CID:5|TS:40.752|SPD:19.9|HDG:-0.7|PX:835.1|PY:-10.0|...
+✓ [CAR 5] ACT=OK REP=0.740 RWD=1.000 PNL=0.000 CREDIT=77
+[ZONE-ROUTE] CID:1 zone=1 edge_port=9998
+[EDGE-RTT] CID:1 wall=1.3 ms  sim_delay=5.0 ms
+>>> [UAV->CLOUD] BLK:c0b9|TX:7.0.0.5|CID:1|TS:41.060|SPD:20.3|HDG:0.9|PX:821.0|PY:-20.0|L...
+✓ [CAR 1] ACT=OK REP=0.879 RWD=1.000 PNL=0.000 CREDIT=78
+[ZONE-ROUTE] CID:0 zone=1 edge_port=9998
+[EDGE-RTT] CID:0 wall=1.1 ms  sim_delay=5.0 ms
+>>> [UAV->CLOUD] BLK:02df|TX:7.0.0.4|CID:0|TS:41.190|SPD:19.9|HDG:0.4|PX:823.5|PY:-10.0|L...
+✓ [CAR 0] ACT=OK REP=0.925 RWD=1.000 PNL=0.000 CREDIT=76
+[ZONE-ROUTE] CID:5 zone=1 edge_port=9998
+[EDGE-RTT] CID:5 wall=1.1 ms  sim_delay=5.0 ms
+>>> [UAV->CLOUD] BLK:6be7|TX:7.0.0.9|CID:5|TS:41.252|SPD:20.4|HDG:-1.7|PX:844.9|PY:-10.0|...
+✓ [CAR 5] ACT=OK REP=0.809 RWD=1.000 PNL=0.000 CREDIT=78
+[PKT-DROP] UAV dropped telemetry from 7.0.0.7 (drop_rate=1%)
+[ZONE-ROUTE] CID:1 zone=1 edge_port=9998
+[EDGE-RTT] CID:1 wall=1.0 ms  sim_delay=5.0 ms
+>>> [UAV->CLOUD] BLK:fe99|TX:7.0.0.5|CID:1|TS:41.560|SPD:19.8|HDG:-0.6|PX:831.5|PY:-20.0|...
+✓ [CAR 1] ACT=OK REP=1.000 RWD=1.000 PNL=0.000 CREDIT=79
+[ZONE-ROUTE] CID:0 zone=1 edge_port=9998
+[EDGE-RTT] CID:0 wall=1.0 ms  sim_delay=5.0 ms
+>>> [UAV->CLOUD] BLK:d276|TX:7.0.0.4|CID:0|TS:41.690|SPD:20.4|HDG:0.5|PX:833.6|PY:-10.0|L...
+✓ [CAR 0] ACT=OK REP=0.842 RWD=1.000 PNL=0.000 CREDIT=77
+[ZONE-ROUTE] CID:5 zone=1 edge_port=9998
+[EDGE-RTT] CID:5 wall=1.0 ms  sim_delay=5.0 ms
+>>> [UAV->CLOUD] BLK:3f4c|TX:7.0.0.9|CID:5|TS:41.752|SPD:20.1|HDG:0.0|PX:855.6|PY:-10.0|L...
+✓ [CAR 5] ACT=OK REP=0.919 RWD=1.000 PNL=0.000 CREDIT=79
+[ZONE-ROUTE] CID:1 zone=1 edge_port=9998
+[EDGE-RTT] CID:1 wall=1.0 ms  sim_delay=5.0 ms
+>>> [UAV->CLOUD] BLK:e3fa|TX:7.0.0.5|CID:1|TS:42.060|SPD:19.6|HDG:-1.7|PX:841.4|PY:-20.0|...
+✓ [CAR 1] ACT=OK REP=1.000 RWD=1.000 PNL=0.000 CREDIT=80
+[ZONE-ROUTE] CID:0 zone=1 edge_port=9998
+[EDGE-RTT] CID:0 wall=1.1 ms  sim_delay=5.0 ms
+>>> [UAV->CLOUD] BLK:3ad8|TX:7.0.0.4|CID:0|TS:42.190|SPD:20.4|HDG:1.9|PX:844.1|PY:-10.0|L...
+✓ [CAR 0] ACT=OK REP=1.000 RWD=1.000 PNL=0.000 CREDIT=78
+[ZONE-ROUTE] CID:5 zone=1 edge_port=9998
+[EDGE-RTT] CID:5 wall=1.0 ms  sim_delay=5.0 ms
+>>> [UAV->CLOUD] BLK:9d91|TX:7.0.0.9|CID:5|TS:42.252|SPD:20.5|HDG:-1.8|PX:864.8|PY:-10.0|...
+✓ [CAR 5] ACT=OK REP=1.000 RWD=1.000 PNL=0.000 CREDIT=80
+[ZONE-ROUTE] CID:1 zone=1 edge_port=9998
+[EDGE-RTT] CID:1 wall=1.2 ms  sim_delay=5.0 ms
+>>> [UAV->CLOUD] BLK:c55d|TX:7.0.0.5|CID:1|TS:42.560|SPD:20.1|HDG:-1.4|PX:851.1|PY:-20.0|...
+✓ [CAR 1] ACT=OK REP=1.000 RWD=1.000 PNL=0.000 CREDIT=81
+[ZONE-ROUTE] CID:0 zone=1 edge_port=9998
+[EDGE-RTT] CID:0 wall=1.0 ms  sim_delay=5.0 ms
+>>> [UAV->CLOUD] BLK:15b4|TX:7.0.0.4|CID:0|TS:42.690|SPD:20.0|HDG:1.8|PX:853.1|PY:-10.0|L...
+✓ [CAR 0] ACT=OK REP=0.834 RWD=1.000 PNL=0.000 CREDIT=79
+[ZONE-ROUTE] CID:5 zone=1 edge_port=9998
+[EDGE-RTT] CID:5 wall=1.1 ms  sim_delay=5.0 ms
+>>> [UAV->CLOUD] BLK:de2e|TX:7.0.0.9|CID:5|TS:42.752|SPD:20.1|HDG:0.5|PX:874.9|PY:-10.0|L...
+✓ [CAR 5] ACT=OK REP=0.859 RWD=1.000 PNL=0.000 CREDIT=81
+[ZONE-ROUTE] CID:1 zone=1 edge_port=9998
+[EDGE-RTT] CID:1 wall=1.2 ms  sim_delay=5.0 ms
+>>> [UAV->CLOUD] BLK:4744|TX:7.0.0.5|CID:1|TS:43.060|SPD:20.3|HDG:0.4|PX:861.9|PY:-20.0|L...
+✓ [CAR 1] ACT=OK REP=0.808 RWD=1.000 PNL=0.000 CREDIT=82
+[ZONE-ROUTE] CID:0 zone=1 edge_port=9998
+[EDGE-RTT] CID:0 wall=1.1 ms  sim_delay=5.0 ms
+>>> [UAV->CLOUD] BLK:90e6|TX:7.0.0.4|CID:0|TS:43.190|SPD:20.3|HDG:-0.2|PX:864.4|PY:-10.0|...
+✓ [CAR 0] ACT=OK REP=1.000 RWD=1.000 PNL=0.000 CREDIT=80
+[ZONE-ROUTE] CID:5 zone=1 edge_port=9998
+[EDGE-RTT] CID:5 wall=1.3 ms  sim_delay=5.0 ms
+>>> [UAV->CLOUD] BLK:4080|TX:7.0.0.9|CID:5|TS:43.252|SPD:20.1|HDG:-1.0|PX:885.2|PY:-10.0|...
+✓ [CAR 5] ACT=OK REP=0.960 RWD=1.000 PNL=0.000 CREDIT=82
+[ZONE-ROUTE] CID:1 zone=1 edge_port=9998
+[EDGE-RTT] CID:1 wall=0.9 ms  sim_delay=5.0 ms
+>>> [UAV->CLOUD] BLK:c0b8|TX:7.0.0.5|CID:1|TS:43.560|SPD:20.3|HDG:0.4|PX:870.7|PY:-20.0|L...
+✓ [CAR 1] ACT=OK REP=1.000 RWD=1.000 PNL=0.000 CREDIT=83
+[ZONE-ROUTE] CID:0 zone=1 edge_port=9998
+[EDGE-RTT] CID:0 wall=1.1 ms  sim_delay=5.0 ms
+>>> [UAV->CLOUD] BLK:75a8|TX:7.0.0.4|CID:0|TS:43.690|SPD:20.3|HDG:1.1|PX:874.5|PY:-10.0|L...
+✓ [CAR 0] ACT=OK REP=1.000 RWD=1.000 PNL=0.000 CREDIT=81
+[ZONE-ROUTE] CID:5 zone=1 edge_port=9998
+[EDGE-RTT] CID:5 wall=1.1 ms  sim_delay=5.0 ms
+>>> [UAV->CLOUD] BLK:3264|TX:7.0.0.9|CID:5|TS:43.752|SPD:19.9|HDG:1.0|PX:895.1|PY:-10.0|L...
+✓ [CAR 5] ACT=OK REP=1.000 RWD=1.000 PNL=0.000 CREDIT=83
+[ZONE-ROUTE] CID:1 zone=1 edge_port=9998
+[EDGE-RTT] CID:1 wall=1.1 ms  sim_delay=5.0 ms
+>>> [UAV->CLOUD] BLK:e5db|TX:7.0.0.5|CID:1|TS:44.060|SPD:19.5|HDG:0.7|PX:880.6|PY:-20.0|L...
+✓ [CAR 1] ACT=OK REP=1.000 RWD=1.000 PNL=0.000 CREDIT=84
+[ZONE-ROUTE] CID:0 zone=1 edge_port=9998
+[EDGE-RTT] CID:0 wall=1.0 ms  sim_delay=5.0 ms
+>>> [UAV->CLOUD] BLK:7019|TX:7.0.0.4|CID:0|TS:44.190|SPD:20.5|HDG:0.5|PX:884.5|PY:-10.0|L...
+✓ [CAR 0] ACT=OK REP=0.834 RWD=1.000 PNL=0.000 CREDIT=82
+[ZONE-ROUTE] CID:5 zone=1 edge_port=9998
+[EDGE-RTT] CID:5 wall=1.0 ms  sim_delay=5.0 ms
+>>> [UAV->CLOUD] BLK:14ce|TX:7.0.0.9|CID:5|TS:44.252|SPD:19.9|HDG:1.4|PX:904.7|PY:-10.0|L...
+✓ [CAR 5] ACT=OK REP=0.903 RWD=1.000 PNL=0.000 CREDIT=84
+[ZONE-ROUTE] CID:1 zone=1 edge_port=9998
+[EDGE-RTT] CID:1 wall=1.2 ms  sim_delay=5.0 ms
+>>> [UAV->CLOUD] BLK:4014|TX:7.0.0.5|CID:1|TS:44.560|SPD:20.4|HDG:-0.1|PX:891.8|PY:-20.0|...
+✓ [CAR 1] ACT=OK REP=1.000 RWD=1.000 PNL=0.000 CREDIT=85
+[ZONE-ROUTE] CID:0 zone=1 edge_port=9998
+[EDGE-RTT] CID:0 wall=1.0 ms  sim_delay=5.0 ms
+>>> [UAV->CLOUD] BLK:bbe0|TX:7.0.0.4|CID:0|TS:44.690|SPD:19.8|HDG:0.8|PX:893.4|PY:-10.0|L...
+✓ [CAR 0] ACT=OK REP=1.000 RWD=1.000 PNL=0.000 CREDIT=83
+[ZONE-ROUTE] CID:5 zone=1 edge_port=9998
+[EDGE-RTT] CID:5 wall=1.1 ms  sim_delay=5.0 ms
+>>> [UAV->CLOUD] BLK:0a51|TX:7.0.0.9|CID:5|TS:44.752|SPD:20.0|HDG:1.2|PX:915.1|PY:-10.0|L...
+✓ [CAR 5] ACT=OK REP=0.970 RWD=1.000 PNL=0.000 CREDIT=85
+[ZONE-ROUTE] CID:1 zone=1 edge_port=9998
+[EDGE-RTT] CID:1 wall=1.1 ms  sim_delay=5.0 ms
+>>> [UAV->CLOUD] BLK:bafe|TX:7.0.0.5|CID:1|TS:45.060|SPD:19.9|HDG:-0.2|PX:901.5|PY:-20.0|...
+✓ [CAR 1] ACT=OK REP=0.963 RWD=1.000 PNL=0.000 CREDIT=86
+[ZONE-ROUTE] CID:0 zone=1 edge_port=9998
+[EDGE-RTT] CID:0 wall=1.2 ms  sim_delay=5.0 ms
+>>> [UAV->CLOUD] BLK:6c5d|TX:7.0.0.4|CID:0|TS:45.190|SPD:20.0|HDG:1.9|PX:903.3|PY:-10.0|L...
+✓ [CAR 0] ACT=OK REP=1.000 RWD=1.000 PNL=0.000 CREDIT=84
+[ZONE-ROUTE] CID:5 zone=1 edge_port=9998
+[EDGE-RTT] CID:5 wall=1.0 ms  sim_delay=5.0 ms
+>>> [UAV->CLOUD] BLK:952a|TX:7.0.0.9|CID:5|TS:45.252|SPD:20.3|HDG:0.6|PX:924.5|PY:-10.0|L...
+✓ [CAR 5] ACT=OK REP=1.000 RWD=1.000 PNL=0.000 CREDIT=86
+[ZONE-ROUTE] CID:1 zone=1 edge_port=9998
+[EDGE-RTT] CID:1 wall=1.3 ms  sim_delay=5.0 ms
+>>> [UAV->CLOUD] BLK:5dfe|TX:7.0.0.5|CID:1|TS:45.560|SPD:20.4|HDG:1.8|PX:910.6|PY:-20.0|L...
+✓ [CAR 1] ACT=OK REP=0.850 RWD=1.000 PNL=0.000 CREDIT=87
+[ZONE-ROUTE] CID:0 zone=1 edge_port=9998
+[EDGE-RTT] CID:0 wall=0.9 ms  sim_delay=5.0 ms
+>>> [UAV->CLOUD] BLK:c393|TX:7.0.0.4|CID:0|TS:45.690|SPD:20.5|HDG:0.8|PX:913.7|PY:-10.0|L...
+✓ [CAR 0] ACT=OK REP=0.916 RWD=1.000 PNL=0.000 CREDIT=85
+[ZONE-ROUTE] CID:5 zone=1 edge_port=9998
+[EDGE-RTT] CID:5 wall=1.0 ms  sim_delay=5.0 ms
+>>> [UAV->CLOUD] BLK:a80d|TX:7.0.0.9|CID:5|TS:45.752|SPD:19.7|HDG:-0.4|PX:935.5|PY:-10.0|...
+✓ [CAR 5] ACT=OK REP=1.000 RWD=1.000 PNL=0.000 CREDIT=87
+[ZONE-ROUTE] CID:1 zone=1 edge_port=9998
+[EDGE-RTT] CID:1 wall=1.2 ms  sim_delay=5.0 ms
+>>> [UAV->CLOUD] BLK:5025|TX:7.0.0.5|CID:1|TS:46.060|SPD:20.1|HDG:1.0|PX:921.0|PY:-20.0|L...
+✓ [CAR 1] ACT=OK REP=1.000 RWD=1.000 PNL=0.000 CREDIT=88
+[ZONE-ROUTE] CID:0 zone=1 edge_port=9998
+[EDGE-RTT] CID:0 wall=0.8 ms  sim_delay=5.0 ms
+>>> [UAV->CLOUD] BLK:ef8d|TX:7.0.0.4|CID:0|TS:46.190|SPD:19.8|HDG:-0.7|PX:924.3|PY:-10.0|...
+✓ [CAR 0] ACT=OK REP=0.864 RWD=1.000 PNL=0.000 CREDIT=86
+[ZONE-ROUTE] CID:5 zone=1 edge_port=9998
+[EDGE-RTT] CID:5 wall=1.0 ms  sim_delay=5.0 ms
+>>> [UAV->CLOUD] BLK:e5d3|TX:7.0.0.9|CID:5|TS:46.252|SPD:19.6|HDG:1.4|PX:945.2|PY:-10.0|L...
+✓ [CAR 5] ACT=OK REP=1.000 RWD=1.000 PNL=0.000 CREDIT=88
+[ZONE-ROUTE] CID:1 zone=1 edge_port=9998
+[EDGE-RTT] CID:1 wall=1.2 ms  sim_delay=5.0 ms
+>>> [UAV->CLOUD] BLK:beaf|TX:7.0.0.5|CID:1|TS:46.560|SPD:20.4|HDG:1.4|PX:931.9|PY:-20.0|L...
+✓ [CAR 1] ACT=OK REP=1.000 RWD=1.000 PNL=0.000 CREDIT=89
+[ZONE-ROUTE] CID:0 zone=1 edge_port=9998
+[EDGE-RTT] CID:0 wall=1.1 ms  sim_delay=5.0 ms
+>>> [UAV->CLOUD] BLK:8954|TX:7.0.0.4|CID:0|TS:46.690|SPD:19.9|HDG:-1.9|PX:934.5|PY:-10.0|...
+✓ [CAR 0] ACT=OK REP=0.744 RWD=1.000 PNL=0.000 CREDIT=87
+[ZONE-ROUTE] CID:5 zone=1 edge_port=9998
+[EDGE-RTT] CID:5 wall=0.9 ms  sim_delay=5.0 ms
+>>> [UAV->CLOUD] BLK:e388|TX:7.0.0.9|CID:5|TS:46.752|SPD:20.2|HDG:-1.2|PX:955.7|PY:-10.0|...
+✓ [CAR 5] ACT=OK REP=0.898 RWD=1.000 PNL=0.000 CREDIT=89
+[ZONE-ROUTE] CID:1 zone=1 edge_port=9998
+[EDGE-RTT] CID:1 wall=1.0 ms  sim_delay=5.0 ms
+>>> [UAV->CLOUD] BLK:b284|TX:7.0.0.5|CID:1|TS:47.060|SPD:20.1|HDG:1.2|PX:940.8|PY:-20.0|L...
+✓ [CAR 1] ACT=OK REP=1.000 RWD=1.000 PNL=0.000 CREDIT=90
+[ZONE-ROUTE] CID:0 zone=1 edge_port=9998
+[EDGE-RTT] CID:0 wall=0.8 ms  sim_delay=5.0 ms
+>>> [UAV->CLOUD] BLK:f3e8|TX:7.0.0.4|CID:0|TS:47.190|SPD:19.9|HDG:0.4|PX:944.2|PY:-10.0|L...
+✓ [CAR 0] ACT=OK REP=0.709 RWD=1.000 PNL=0.000 CREDIT=88
+[ZONE-ROUTE] CID:5 zone=1 edge_port=9998
+[EDGE-RTT] CID:5 wall=1.1 ms  sim_delay=5.0 ms
+>>> [UAV->CLOUD] BLK:e863|TX:7.0.0.9|CID:5|TS:47.252|SPD:20.2|HDG:0.7|PX:965.6|PY:-10.0|L...
+✓ [CAR 5] ACT=OK REP=0.737 RWD=1.000 PNL=0.000 CREDIT=90
+[ZONE-ROUTE] CID:1 zone=1 edge_port=9998
+[EDGE-RTT] CID:1 wall=1.2 ms  sim_delay=5.0 ms
+>>> [UAV->CLOUD] BLK:c7b1|TX:7.0.0.5|CID:1|TS:47.560|SPD:19.8|HDG:1.5|PX:950.6|PY:-20.0|L...
+✓ [CAR 1] ACT=OK REP=1.000 RWD=1.000 PNL=0.000 CREDIT=91
+[ZONE-ROUTE] CID:0 zone=1 edge_port=9998
+[EDGE-RTT] CID:0 wall=1.0 ms  sim_delay=5.0 ms
+>>> [UAV->CLOUD] BLK:4a96|TX:7.0.0.4|CID:0|TS:47.690|SPD:19.9|HDG:-0.1|PX:954.3|PY:-10.0|...
+✓ [CAR 0] ACT=OK REP=1.000 RWD=1.000 PNL=0.000 CREDIT=89
+[ZONE-ROUTE] CID:5 zone=1 edge_port=9998
+[EDGE-RTT] CID:5 wall=1.1 ms  sim_delay=5.0 ms
+>>> [UAV->CLOUD] BLK:d487|TX:7.0.0.9|CID:5|TS:47.752|SPD:19.8|HDG:1.5|PX:974.5|PY:-10.0|L...
+✓ [CAR 5] ACT=OK REP=1.000 RWD=1.000 PNL=0.000 CREDIT=91
+[ZONE-ROUTE] CID:1 zone=1 edge_port=9998
+[EDGE-RTT] CID:1 wall=1.1 ms  sim_delay=5.0 ms
+>>> [UAV->CLOUD] BLK:daf8|TX:7.0.0.5|CID:1|TS:48.060|SPD:19.6|HDG:0.1|PX:961.9|PY:-20.0|L...
+✓ [CAR 1] ACT=OK REP=1.000 RWD=1.000 PNL=0.000 CREDIT=92
+[ZONE-ROUTE] CID:0 zone=1 edge_port=9998
+[EDGE-RTT] CID:0 wall=1.1 ms  sim_delay=5.0 ms
+>>> [UAV->CLOUD] BLK:3191|TX:7.0.0.4|CID:0|TS:48.190|SPD:20.2|HDG:-1.8|PX:964.0|PY:-10.0|...
+✓ [CAR 0] ACT=OK REP=1.000 RWD=1.000 PNL=0.000 CREDIT=90
+[ZONE-ROUTE] CID:5 zone=1 edge_port=9998
+[EDGE-RTT] CID:5 wall=1.0 ms  sim_delay=5.0 ms
+>>> [UAV->CLOUD] BLK:9708|TX:7.0.0.9|CID:5|TS:48.252|SPD:20.2|HDG:1.9|PX:985.4|PY:-10.0|L...
+✓ [CAR 5] ACT=OK REP=0.788 RWD=1.000 PNL=0.000 CREDIT=92
+[ZONE-ROUTE] CID:1 zone=1 edge_port=9998
+[EDGE-RTT] CID:1 wall=0.9 ms  sim_delay=5.0 ms
+>>> [UAV->CLOUD] BLK:c06c|TX:7.0.0.5|CID:1|TS:48.560|SPD:19.7|HDG:-0.6|PX:971.4|PY:-20.0|...
+✓ [CAR 1] ACT=OK REP=1.000 RWD=1.000 PNL=0.000 CREDIT=93
+[ZONE-ROUTE] CID:0 zone=1 edge_port=9998
+[EDGE-RTT] CID:0 wall=1.0 ms  sim_delay=5.0 ms
+>>> [UAV->CLOUD] BLK:7de4|TX:7.0.0.4|CID:0|TS:48.690|SPD:20.2|HDG:1.1|PX:973.2|PY:-10.0|L...
+✓ [CAR 0] ACT=OK REP=0.952 RWD=1.000 PNL=0.000 CREDIT=91
+[ZONE-ROUTE] CID:5 zone=1 edge_port=9998
+[EDGE-RTT] CID:5 wall=1.1 ms  sim_delay=5.0 ms
+>>> [UAV->CLOUD] BLK:3362|TX:7.0.0.9|CID:5|TS:48.752|SPD:20.3|HDG:1.5|PX:994.5|PY:-10.0|L...
+✓ [CAR 5] ACT=OK REP=1.000 RWD=1.000 PNL=0.000 CREDIT=93
+[ZONE-ROUTE] CID:1 zone=1 edge_port=9998
+[EDGE-RTT] CID:1 wall=0.9 ms  sim_delay=5.0 ms
+>>> [UAV->CLOUD] BLK:26d5|TX:7.0.0.5|CID:1|TS:49.060|SPD:20.2|HDG:-0.4|PX:981.0|PY:-20.0|...
+✓ [CAR 1] ACT=OK REP=0.962 RWD=1.000 PNL=0.000 CREDIT=94
+[ZONE-ROUTE] CID:0 zone=1 edge_port=9998
+[EDGE-RTT] CID:0 wall=0.9 ms  sim_delay=5.0 ms
+>>> [UAV->CLOUD] BLK:2a3b|TX:7.0.0.4|CID:0|TS:49.190|SPD:20.4|HDG:0.7|PX:983.6|PY:-10.0|L...
+✓ [CAR 0] ACT=OK REP=1.000 RWD=1.000 PNL=0.000 CREDIT=92
+[ZONE-ROUTE] CID:5 zone=1 edge_port=9998
+[EDGE-RTT] CID:5 wall=1.0 ms  sim_delay=5.0 ms
+>>> [UAV->CLOUD] BLK:ef06|TX:7.0.0.9|CID:5|TS:49.252|SPD:20.1|HDG:1.6|PX:1005.6|PY:-10.0|...
+✓ [CAR 5] ACT=OK REP=0.909 RWD=1.000 PNL=0.000 CREDIT=94
+[ZONE-ROUTE] CID:1 zone=1 edge_port=9998
+[EDGE-RTT] CID:1 wall=0.8 ms  sim_delay=5.0 ms
+>>> [UAV->CLOUD] BLK:081f|TX:7.0.0.5|CID:1|TS:49.560|SPD:20.3|HDG:-0.9|PX:990.9|PY:-20.0|...
+✓ [CAR 1] ACT=OK REP=0.911 RWD=1.000 PNL=0.000 CREDIT=95
+[ZONE-ROUTE] CID:0 zone=1 edge_port=9998
+[EDGE-RTT] CID:0 wall=1.1 ms  sim_delay=5.0 ms
+>>> [UAV->CLOUD] BLK:876f|TX:7.0.0.4|CID:0|TS:49.690|SPD:19.6|HDG:-1.3|PX:993.9|PY:-10.0|...
+✓ [CAR 0] ACT=OK REP=1.000 RWD=1.000 PNL=0.000 CREDIT=93
+[ZONE-ROUTE] CID:5 zone=1 edge_port=9998
+[EDGE-RTT] CID:5 wall=1.1 ms  sim_delay=5.0 ms
+>>> [UAV->CLOUD] BLK:0eac|TX:7.0.0.9|CID:5|TS:49.752|SPD:20.0|HDG:0.5|PX:1015.3|PY:-10.0|...
+✓ [CAR 5] ACT=OK REP=1.000 RWD=1.000 PNL=0.000 CREDIT=95
+[PKT-DROP] UAV dropped telemetry from 7.0.0.7 (drop_rate=1%)
+[ZONE-ROUTE] CID:1 zone=1 edge_port=9998
+[EDGE-RTT] CID:1 wall=1.0 ms  sim_delay=5.0 ms
+>>> [UAV->CLOUD] BLK:5500|TX:7.0.0.5|CID:1|TS:50.060|SPD:20.1|HDG:0.6|PX:1001.8|PY:-20.0|...
+✓ [CAR 1] ACT=OK REP=1.000 RWD=1.000 PNL=0.000 CREDIT=96
+[ZONE-ROUTE] CID:0 zone=1 edge_port=9998
+[EDGE-RTT] CID:0 wall=0.8 ms  sim_delay=5.0 ms
+>>> [UAV->CLOUD] BLK:d8e2|TX:7.0.0.4|CID:0|TS:50.190|SPD:19.7|HDG:-1.2|PX:1003.7|PY:-10.0...
+✓ [CAR 0] ACT=OK REP=0.921 RWD=1.000 PNL=0.000 CREDIT=94
+[ZONE-ROUTE] CID:5 zone=1 edge_port=9998
+[EDGE-RTT] CID:5 wall=1.0 ms  sim_delay=5.0 ms
+>>> [UAV->CLOUD] BLK:68e3|TX:7.0.0.9|CID:5|TS:50.252|SPD:20.2|HDG:-1.4|PX:1025.0|PY:-10.0...
+✓ [CAR 5] ACT=OK REP=0.642 RWD=1.000 PNL=0.000 CREDIT=96
+[ZONE-ROUTE] CID:1 zone=1 edge_port=9998
+[EDGE-RTT] CID:1 wall=0.9 ms  sim_delay=5.0 ms
+>>> [UAV->CLOUD] BLK:381f|TX:7.0.0.5|CID:1|TS:50.560|SPD:20.0|HDG:-1.6|PX:1010.5|PY:-20.0...
+✓ [CAR 1] ACT=OK REP=1.000 RWD=1.000 PNL=0.000 CREDIT=97
+[ZONE-ROUTE] CID:0 zone=1 edge_port=9998
+[EDGE-RTT] CID:0 wall=0.9 ms  sim_delay=5.0 ms
+>>> [UAV->CLOUD] BLK:ed82|TX:7.0.0.4|CID:0|TS:50.690|SPD:19.8|HDG:1.8|PX:1013.7|PY:-10.0|...
+✓ [CAR 0] ACT=OK REP=0.961 RWD=1.000 PNL=0.000 CREDIT=95
+[ZONE-ROUTE] CID:5 zone=1 edge_port=9998
+[EDGE-RTT] CID:5 wall=1.0 ms  sim_delay=5.0 ms
+>>> [UAV->CLOUD] BLK:45a1|TX:7.0.0.9|CID:5|TS:50.752|SPD:19.7|HDG:-1.8|PX:1034.9|PY:-10.0...
+✓ [CAR 5] ACT=OK REP=0.958 RWD=1.000 PNL=0.000 CREDIT=97
+[ZONE-ROUTE] CID:1 zone=1 edge_port=9998
+[EDGE-RTT] CID:1 wall=0.9 ms  sim_delay=5.0 ms
+>>> [UAV->CLOUD] BLK:6c53|TX:7.0.0.5|CID:1|TS:51.060|SPD:20.4|HDG:1.0|PX:1021.2|PY:-20.0|...
+✓ [CAR 1] ACT=OK REP=0.965 RWD=1.000 PNL=0.000 CREDIT=98
+[ZONE-ROUTE] CID:0 zone=1 edge_port=9998
+[EDGE-RTT] CID:0 wall=1.0 ms  sim_delay=5.0 ms
+>>> [UAV->CLOUD] BLK:8444|TX:7.0.0.4|CID:0|TS:51.190|SPD:20.0|HDG:-1.5|PX:1023.5|PY:-10.0...
+✓ [CAR 0] ACT=OK REP=0.696 RWD=1.000 PNL=0.000 CREDIT=96
+[ZONE-ROUTE] CID:5 zone=1 edge_port=9998
+[EDGE-RTT] CID:5 wall=1.1 ms  sim_delay=5.0 ms
+>>> [UAV->CLOUD] BLK:30a4|TX:7.0.0.9|CID:5|TS:51.252|SPD:20.1|HDG:-1.3|PX:1045.6|PY:-10.0...
+✓ [CAR 5] ACT=OK REP=0.838 RWD=1.000 PNL=0.000 CREDIT=98
+[ZONE-ROUTE] CID:1 zone=1 edge_port=9998
+[EDGE-RTT] CID:1 wall=0.8 ms  sim_delay=5.0 ms
+>>> [UAV->CLOUD] BLK:11d0|TX:7.0.0.5|CID:1|TS:51.560|SPD:20.4|HDG:1.4|PX:1031.7|PY:-20.0|...
+✓ [CAR 1] ACT=OK REP=0.996 RWD=1.000 PNL=0.000 CREDIT=99
+[ZONE-ROUTE] CID:0 zone=1 edge_port=9998
+[EDGE-RTT] CID:0 wall=1.0 ms  sim_delay=5.0 ms
+>>> [UAV->CLOUD] BLK:0bb5|TX:7.0.0.4|CID:0|TS:51.690|SPD:19.8|HDG:0.2|PX:1034.2|PY:-10.0|...
+✓ [CAR 0] ACT=OK REP=1.000 RWD=1.000 PNL=0.000 CREDIT=97
+[ZONE-ROUTE] CID:5 zone=1 edge_port=9998
+[EDGE-RTT] CID:5 wall=1.0 ms  sim_delay=5.0 ms
+>>> [UAV->CLOUD] BLK:975a|TX:7.0.0.9|CID:5|TS:51.752|SPD:19.5|HDG:-1.5|PX:1054.7|PY:-10.0...
+✓ [CAR 5] ACT=OK REP=0.668 RWD=1.000 PNL=0.000 CREDIT=99
+[ZONE-ROUTE] CID:1 zone=1 edge_port=9998
+[EDGE-RTT] CID:1 wall=1.0 ms  sim_delay=5.0 ms
+>>> [UAV->CLOUD] BLK:201a|TX:7.0.0.5|CID:1|TS:52.060|SPD:19.9|HDG:1.7|PX:1041.2|PY:-20.0|...
+✓ [CAR 1] ACT=OK REP=0.847 RWD=1.000 PNL=0.000 CREDIT=100
+[ZONE-ROUTE] CID:0 zone=1 edge_port=9998
+[EDGE-RTT] CID:0 wall=1.0 ms  sim_delay=5.0 ms
+>>> [UAV->CLOUD] BLK:91f5|TX:7.0.0.4|CID:0|TS:52.190|SPD:19.6|HDG:-1.4|PX:1044.5|PY:-10.0...
+✓ [CAR 0] ACT=OK REP=0.787 RWD=1.000 PNL=0.000 CREDIT=98
+[ZONE-ROUTE] CID:5 zone=1 edge_port=9998
+[EDGE-RTT] CID:5 wall=1.2 ms  sim_delay=5.0 ms
+>>> [UAV->CLOUD] BLK:40e4|TX:7.0.0.9|CID:5|TS:52.252|SPD:19.5|HDG:0.2|PX:1065.4|PY:-10.0|...
+✓ [CAR 5] ACT=OK REP=1.000 RWD=1.000 PNL=0.000 CREDIT=100
+[ZONE-ROUTE] CID:1 zone=1 edge_port=9998
+[EDGE-RTT] CID:1 wall=1.3 ms  sim_delay=5.0 ms
+>>> [UAV->CLOUD] BLK:038c|TX:7.0.0.5|CID:1|TS:52.560|SPD:19.6|HDG:-1.2|PX:1051.5|PY:-20.0...
+✓ [CAR 1] ACT=OK REP=1.000 RWD=1.000 PNL=0.000 CREDIT=101
+[ZONE-ROUTE] CID:0 zone=1 edge_port=9998
+[EDGE-RTT] CID:0 wall=1.1 ms  sim_delay=5.0 ms
+>>> [UAV->CLOUD] BLK:4349|TX:7.0.0.4|CID:0|TS:52.690|SPD:20.1|HDG:-0.4|PX:1053.4|PY:-10.0...
+✓ [CAR 0] ACT=OK REP=1.000 RWD=1.000 PNL=0.000 CREDIT=99
+[ZONE-ROUTE] CID:5 zone=1 edge_port=9998
+[EDGE-RTT] CID:5 wall=1.0 ms  sim_delay=5.0 ms
+>>> [UAV->CLOUD] BLK:3609|TX:7.0.0.9|CID:5|TS:52.752|SPD:19.7|HDG:-0.1|PX:1075.0|PY:-10.0...
+✓ [CAR 5] ACT=OK REP=0.985 RWD=1.000 PNL=0.000 CREDIT=101
+[ZONE-ROUTE] CID:1 zone=1 edge_port=9998
+[EDGE-RTT] CID:1 wall=1.2 ms  sim_delay=5.0 ms
+>>> [UAV->CLOUD] BLK:b83a|TX:7.0.0.5|CID:1|TS:53.060|SPD:19.9|HDG:0.4|PX:1061.3|PY:-20.0|...
+✓ [CAR 1] ACT=OK REP=0.941 RWD=1.000 PNL=0.000 CREDIT=102
+[ZONE-ROUTE] CID:0 zone=1 edge_port=9998
+[EDGE-RTT] CID:0 wall=1.1 ms  sim_delay=5.0 ms
+>>> [UAV->CLOUD] BLK:edfa|TX:7.0.0.4|CID:0|TS:53.190|SPD:20.2|HDG:-0.8|PX:1063.8|PY:-10.0...
+✓ [CAR 0] ACT=OK REP=0.812 RWD=1.000 PNL=0.000 CREDIT=100
+[ZONE-ROUTE] CID:5 zone=1 edge_port=9998
+[EDGE-RTT] CID:5 wall=1.2 ms  sim_delay=5.0 ms
+>>> [UAV->CLOUD] BLK:3b96|TX:7.0.0.9|CID:5|TS:53.252|SPD:20.1|HDG:1.2|PX:1085.7|PY:-10.0|...
+✓ [CAR 5] ACT=OK REP=1.000 RWD=1.000 PNL=0.000 CREDIT=102
+[ZONE-ROUTE] CID:1 zone=1 edge_port=9998
+[EDGE-RTT] CID:1 wall=1.3 ms  sim_delay=5.0 ms
+>>> [UAV->CLOUD] BLK:72fb|TX:7.0.0.5|CID:1|TS:53.560|SPD:19.7|HDG:0.8|PX:1071.6|PY:-20.0|...
+✓ [CAR 1] ACT=OK REP=0.933 RWD=1.000 PNL=0.000 CREDIT=103
+[ZONE-ROUTE] CID:0 zone=1 edge_port=9998
+[EDGE-RTT] CID:0 wall=1.2 ms  sim_delay=5.0 ms
+>>> [UAV->CLOUD] BLK:7215|TX:7.0.0.4|CID:0|TS:53.690|SPD:19.7|HDG:-0.5|PX:1074.1|PY:-10.0...
+✓ [CAR 0] ACT=OK REP=0.926 RWD=1.000 PNL=0.000 CREDIT=101
+[ZONE-ROUTE] CID:5 zone=1 edge_port=9998
+[EDGE-RTT] CID:5 wall=1.1 ms  sim_delay=5.0 ms
+>>> [UAV->CLOUD] BLK:607b|TX:7.0.0.9|CID:5|TS:53.752|SPD:20.5|HDG:0.5|PX:1094.4|PY:-10.0|...
+✓ [CAR 5] ACT=OK REP=0.897 RWD=1.000 PNL=0.000 CREDIT=103
+[ZONE-ROUTE] CID:1 zone=1 edge_port=9998
+[EDGE-RTT] CID:1 wall=1.4 ms  sim_delay=5.0 ms
+>>> [UAV->CLOUD] BLK:14ff|TX:7.0.0.5|CID:1|TS:54.060|SPD:20.2|HDG:1.8|PX:1081.2|PY:-20.0|...
+✓ [CAR 1] ACT=OK REP=1.000 RWD=1.000 PNL=0.000 CREDIT=104
+[ZONE-ROUTE] CID:0 zone=1 edge_port=9998
+[EDGE-RTT] CID:0 wall=0.9 ms  sim_delay=5.0 ms
+>>> [UAV->CLOUD] BLK:3805|TX:7.0.0.4|CID:0|TS:54.190|SPD:20.3|HDG:-1.5|PX:1083.4|PY:-10.0...
+✓ [CAR 0] ACT=OK REP=0.816 RWD=1.000 PNL=0.000 CREDIT=102
+[ZONE-ROUTE] CID:5 zone=1 edge_port=9998
+[EDGE-RTT] CID:5 wall=1.0 ms  sim_delay=5.0 ms
+>>> [UAV->CLOUD] BLK:8341|TX:7.0.0.9|CID:5|TS:54.252|SPD:19.8|HDG:-0.6|PX:1105.7|PY:-10.0...
+✓ [CAR 5] ACT=OK REP=0.935 RWD=1.000 PNL=0.000 CREDIT=104
+[ZONE-ROUTE] CID:1 zone=1 edge_port=9998
+[EDGE-RTT] CID:1 wall=1.1 ms  sim_delay=5.0 ms
+>>> [UAV->CLOUD] BLK:0844|TX:7.0.0.5|CID:1|TS:54.560|SPD:19.9|HDG:0.4|PX:1090.7|PY:-20.0|...
+✓ [CAR 1] ACT=OK REP=1.000 RWD=1.000 PNL=0.000 CREDIT=105
+[ZONE-ROUTE] CID:0 zone=1 edge_port=9998
+[EDGE-RTT] CID:0 wall=0.7 ms  sim_delay=5.0 ms
+>>> [UAV->CLOUD] BLK:897b|TX:7.0.0.4|CID:0|TS:54.690|SPD:19.9|HDG:0.3|PX:1093.4|PY:-10.0|...
+✓ [CAR 0] ACT=OK REP=1.000 RWD=1.000 PNL=0.000 CREDIT=103
+[ZONE-ROUTE] CID:5 zone=1 edge_port=9998
+[EDGE-RTT] CID:5 wall=1.1 ms  sim_delay=5.0 ms
+>>> [UAV->CLOUD] BLK:6c32|TX:7.0.0.9|CID:5|TS:54.752|SPD:20.4|HDG:0.4|PX:1115.4|PY:-10.0|...
+✓ [CAR 5] ACT=OK REP=1.000 RWD=1.000 PNL=0.000 CREDIT=105
+[ZONE-ROUTE] CID:1 zone=1 edge_port=9998
+[EDGE-RTT] CID:1 wall=1.0 ms  sim_delay=5.0 ms
+>>> [UAV->CLOUD] BLK:f16a|TX:7.0.0.5|CID:1|TS:55.060|SPD:19.7|HDG:-0.9|PX:1100.6|PY:-20.0...
+✓ [CAR 1] ACT=OK REP=0.808 RWD=1.000 PNL=0.000 CREDIT=106
+[ZONE-ROUTE] CID:0 zone=1 edge_port=9998
+[EDGE-RTT] CID:0 wall=1.2 ms  sim_delay=5.0 ms
+>>> [UAV->CLOUD] BLK:3fc4|TX:7.0.0.4|CID:0|TS:55.190|SPD:19.8|HDG:1.6|PX:1104.5|PY:-10.0|...
+✓ [CAR 0] ACT=OK REP=1.000 RWD=1.000 PNL=0.000 CREDIT=104
+[ZONE-ROUTE] CID:5 zone=1 edge_port=9998
+[EDGE-RTT] CID:5 wall=0.9 ms  sim_delay=5.0 ms
+>>> [UAV->CLOUD] BLK:7c39|TX:7.0.0.9|CID:5|TS:55.252|SPD:19.6|HDG:1.5|PX:1125.6|PY:-10.0|...
+✓ [CAR 5] ACT=OK REP=0.894 RWD=1.000 PNL=0.000 CREDIT=106
+[ZONE-ROUTE] CID:1 zone=1 edge_port=9998
+[EDGE-RTT] CID:1 wall=1.0 ms  sim_delay=5.0 ms
+>>> [UAV->CLOUD] BLK:9796|TX:7.0.0.5|CID:1|TS:55.560|SPD:20.4|HDG:-1.5|PX:1111.4|PY:-20.0...
+✓ [CAR 1] ACT=OK REP=1.000 RWD=1.000 PNL=0.000 CREDIT=107
+[ZONE-ROUTE] CID:0 zone=1 edge_port=9998
+[EDGE-RTT] CID:0 wall=0.7 ms  sim_delay=5.0 ms
+>>> [UAV->CLOUD] BLK:4675|TX:7.0.0.4|CID:0|TS:55.690|SPD:19.6|HDG:-0.5|PX:1114.2|PY:-10.0...
+✓ [CAR 0] ACT=OK REP=0.917 RWD=1.000 PNL=0.000 CREDIT=105
+[ZONE-ROUTE] CID:5 zone=1 edge_port=9998
+[EDGE-RTT] CID:5 wall=1.1 ms  sim_delay=5.0 ms
+>>> [UAV->CLOUD] BLK:682c|TX:7.0.0.9|CID:5|TS:55.752|SPD:19.8|HDG:-1.7|PX:1134.9|PY:-10.0...
+✓ [CAR 5] ACT=OK REP=1.000 RWD=1.000 PNL=0.000 CREDIT=107
+[ZONE-ROUTE] CID:1 zone=1 edge_port=9998
+[EDGE-RTT] CID:1 wall=1.0 ms  sim_delay=5.0 ms
+>>> [UAV->CLOUD] BLK:e68b|TX:7.0.0.5|CID:1|TS:56.060|SPD:20.3|HDG:1.0|PX:1121.4|PY:-20.0|...
+✓ [CAR 1] ACT=OK REP=0.983 RWD=1.000 PNL=0.000 CREDIT=108
+[ZONE-ROUTE] CID:0 zone=1 edge_port=9998
+[EDGE-RTT] CID:0 wall=1.0 ms  sim_delay=5.0 ms
+>>> [UAV->CLOUD] BLK:276e|TX:7.0.0.4|CID:0|TS:56.190|SPD:19.8|HDG:0.0|PX:1123.6|PY:-10.0|...
+✓ [CAR 0] ACT=OK REP=1.000 RWD=1.000 PNL=0.000 CREDIT=106
+[ZONE-ROUTE] CID:5 zone=1 edge_port=9998
+[EDGE-RTT] CID:5 wall=1.0 ms  sim_delay=5.0 ms
+>>> [UAV->CLOUD] BLK:346d|TX:7.0.0.9|CID:5|TS:56.252|SPD:19.6|HDG:0.4|PX:1145.1|PY:-10.0|...
+✓ [CAR 5] ACT=OK REP=0.982 RWD=1.000 PNL=0.000 CREDIT=108
+[ZONE-ROUTE] CID:1 zone=1 edge_port=9998
+[EDGE-RTT] CID:1 wall=1.3 ms  sim_delay=5.0 ms
+>>> [UAV->CLOUD] BLK:1e0f|TX:7.0.0.5|CID:1|TS:56.560|SPD:20.2|HDG:-0.5|PX:1130.9|PY:-20.0...
+✓ [CAR 1] ACT=OK REP=0.886 RWD=1.000 PNL=0.000 CREDIT=109
+[ZONE-ROUTE] CID:0 zone=1 edge_port=9998
+[EDGE-RTT] CID:0 wall=1.0 ms  sim_delay=5.0 ms
+>>> [UAV->CLOUD] BLK:b65a|TX:7.0.0.4|CID:0|TS:56.690|SPD:19.7|HDG:-0.9|PX:1133.7|PY:-10.0...
+✓ [CAR 0] ACT=OK REP=0.633 RWD=1.000 PNL=0.000 CREDIT=107
+[ZONE-ROUTE] CID:5 zone=1 edge_port=9998
+[EDGE-RTT] CID:5 wall=1.0 ms  sim_delay=5.0 ms
+>>> [UAV->CLOUD] BLK:5147|TX:7.0.0.9|CID:5|TS:56.752|SPD:20.4|HDG:1.8|PX:1155.7|PY:-10.0|...
+✓ [CAR 5] ACT=OK REP=1.000 RWD=1.000 PNL=0.000 CREDIT=109
+[ZONE-ROUTE] CID:1 zone=1 edge_port=9998
+[EDGE-RTT] CID:1 wall=0.8 ms  sim_delay=5.0 ms
+>>> [UAV->CLOUD] BLK:a3de|TX:7.0.0.5|CID:1|TS:57.060|SPD:19.9|HDG:-0.3|PX:1141.9|PY:-20.0...
+✓ [CAR 1] ACT=OK REP=0.946 RWD=1.000 PNL=0.000 CREDIT=110
+[ZONE-ROUTE] CID:0 zone=1 edge_port=9998
+[EDGE-RTT] CID:0 wall=0.8 ms  sim_delay=5.0 ms
+>>> [UAV->CLOUD] BLK:f6be|TX:7.0.0.4|CID:0|TS:57.190|SPD:20.2|HDG:-1.3|PX:1143.6|PY:-10.0...
+✓ [CAR 0] ACT=OK REP=1.000 RWD=1.000 PNL=0.000 CREDIT=108
+[ZONE-ROUTE] CID:5 zone=1 edge_port=9998
+[EDGE-RTT] CID:5 wall=0.9 ms  sim_delay=5.0 ms
+>>> [UAV->CLOUD] BLK:a451|TX:7.0.0.9|CID:5|TS:57.252|SPD:20.0|HDG:0.6|PX:1165.0|PY:-10.0|...
+✓ [CAR 5] ACT=OK REP=0.887 RWD=1.000 PNL=0.000 CREDIT=110
+[ZONE-ROUTE] CID:1 zone=1 edge_port=9998
+[EDGE-RTT] CID:1 wall=1.1 ms  sim_delay=5.0 ms
+>>> [UAV->CLOUD] BLK:4a1c|TX:7.0.0.5|CID:1|TS:57.560|SPD:20.4|HDG:-0.8|PX:1150.8|PY:-20.0...
+✓ [CAR 1] ACT=OK REP=0.748 RWD=1.000 PNL=0.000 CREDIT=111
+[ZONE-ROUTE] CID:0 zone=1 edge_port=9998
+[EDGE-RTT] CID:0 wall=0.9 ms  sim_delay=5.0 ms
+>>> [UAV->CLOUD] BLK:d566|TX:7.0.0.4|CID:0|TS:57.690|SPD:20.4|HDG:1.2|PX:1153.9|PY:-10.0|...
+✓ [CAR 0] ACT=OK REP=1.000 RWD=1.000 PNL=0.000 CREDIT=109
+[ZONE-ROUTE] CID:5 zone=1 edge_port=9998
+[EDGE-RTT] CID:5 wall=0.8 ms  sim_delay=5.0 ms
+>>> [UAV->CLOUD] BLK:27a8|TX:7.0.0.9|CID:5|TS:57.752|SPD:20.3|HDG:1.5|PX:1175.7|PY:-10.0|...
+✓ [CAR 5] ACT=OK REP=0.592 RWD=1.000 PNL=0.000 CREDIT=111
+[ZONE-ROUTE] CID:1 zone=1 edge_port=9998
+[EDGE-RTT] CID:1 wall=0.9 ms  sim_delay=5.0 ms
+>>> [UAV->CLOUD] BLK:3178|TX:7.0.0.5|CID:1|TS:58.060|SPD:19.6|HDG:-1.6|PX:1161.7|PY:-20.0...
+✓ [CAR 1] ACT=OK REP=1.000 RWD=1.000 PNL=0.000 CREDIT=112
+[ZONE-ROUTE] CID:0 zone=1 edge_port=9998
+[EDGE-RTT] CID:0 wall=1.0 ms  sim_delay=5.0 ms
+>>> [UAV->CLOUD] BLK:2379|TX:7.0.0.4|CID:0|TS:58.190|SPD:19.6|HDG:-0.1|PX:1163.6|PY:-10.0...
+✓ [CAR 0] ACT=OK REP=1.000 RWD=1.000 PNL=0.000 CREDIT=110
+[ZONE-ROUTE] CID:5 zone=1 edge_port=9998
+[EDGE-RTT] CID:5 wall=0.9 ms  sim_delay=5.0 ms
+>>> [UAV->CLOUD] BLK:27b5|TX:7.0.0.9|CID:5|TS:58.252|SPD:19.6|HDG:-1.1|PX:1185.3|PY:-10.0...
+✓ [CAR 5] ACT=OK REP=0.964 RWD=1.000 PNL=0.000 CREDIT=112
+[ZONE-ROUTE] CID:1 zone=1 edge_port=9998
+[EDGE-RTT] CID:1 wall=0.9 ms  sim_delay=5.0 ms
+>>> [UAV->CLOUD] BLK:fcca|TX:7.0.0.5|CID:1|TS:58.560|SPD:19.6|HDG:-1.1|PX:1170.5|PY:-20.0...
+✓ [CAR 1] ACT=OK REP=1.000 RWD=1.000 PNL=0.000 CREDIT=113
+[ZONE-ROUTE] CID:0 zone=1 edge_port=9998
+[EDGE-RTT] CID:0 wall=1.0 ms  sim_delay=5.0 ms
+>>> [UAV->CLOUD] BLK:3b0a|TX:7.0.0.4|CID:0|TS:58.690|SPD:19.9|HDG:0.2|PX:1174.2|PY:-10.0|...
+✓ [CAR 0] ACT=OK REP=1.000 RWD=1.000 PNL=0.000 CREDIT=111
+[ZONE-ROUTE] CID:5 zone=1 edge_port=9998
+[EDGE-RTT] CID:5 wall=0.8 ms  sim_delay=5.0 ms
+>>> [UAV->CLOUD] BLK:fe81|TX:7.0.0.9|CID:5|TS:58.752|SPD:20.1|HDG:-1.1|PX:1195.1|PY:-10.0...
+✓ [CAR 5] ACT=OK REP=1.000 RWD=1.000 PNL=0.000 CREDIT=113
+[ZONE-ROUTE] CID:1 zone=1 edge_port=9998
+[EDGE-RTT] CID:1 wall=1.0 ms  sim_delay=5.0 ms
+>>> [UAV->CLOUD] BLK:403a|TX:7.0.0.5|CID:1|TS:59.060|SPD:20.1|HDG:0.1|PX:1181.2|PY:-20.0|...
+✓ [CAR 1] ACT=OK REP=1.000 RWD=1.000 PNL=0.000 CREDIT=114
+[ZONE-ROUTE] CID:0 zone=1 edge_port=9998
+[EDGE-RTT] CID:0 wall=1.0 ms  sim_delay=5.0 ms
+>>> [UAV->CLOUD] BLK:1150|TX:7.0.0.4|CID:0|TS:59.190|SPD:19.7|HDG:-0.2|PX:1184.4|PY:-10.0...
+✓ [CAR 0] ACT=OK REP=1.000 RWD=1.000 PNL=0.000 CREDIT=112
+[ZONE-ROUTE] CID:5 zone=1 edge_port=9998
+[EDGE-RTT] CID:5 wall=0.9 ms  sim_delay=5.0 ms
+>>> [UAV->CLOUD] BLK:ae39|TX:7.0.0.9|CID:5|TS:59.252|SPD:20.1|HDG:2.0|PX:1205.7|PY:-10.0|...
+✓ [CAR 5] ACT=OK REP=0.863 RWD=1.000 PNL=0.000 CREDIT=114
+[ZONE-ROUTE] CID:1 zone=1 edge_port=9998
+[EDGE-RTT] CID:1 wall=0.9 ms  sim_delay=5.0 ms
+>>> [UAV->CLOUD] BLK:115d|TX:7.0.0.5|CID:1|TS:59.560|SPD:20.4|HDG:1.6|PX:1191.5|PY:-20.0|...
+✓ [CAR 1] ACT=OK REP=1.000 RWD=1.000 PNL=0.000 CREDIT=115
+[ZONE-ROUTE] CID:0 zone=1 edge_port=9998
+[EDGE-RTT] CID:0 wall=1.0 ms  sim_delay=5.0 ms
+>>> [UAV->CLOUD] BLK:c6ef|TX:7.0.0.4|CID:0|TS:59.690|SPD:25.3|HDG:0.4|PX:1194.7|PY:-10.0|...
+[ECON-CLAWBACK] CID:0 ACT=WARN prior_payoff=116.0 extra_penalty=88.0 new_payoff=27.9
+[TRUST-REVOKED] CID:0 benefits revoked logically; lane=1 speed=20.0 latency=10.0ms
+[FORGIVENESS] CID:0 WARN #1 — streak reset, benefits revoked
+⚠ [CAR 0] ACT=WARN REP=0.945 RWD=0.000 PNL=88.073 CREDIT=111
+[ZONE-ROUTE] CID:5 zone=1 edge_port=9998
+[EDGE-RTT] CID:5 wall=1.1 ms  sim_delay=5.0 ms
+>>> [UAV->CLOUD] BLK:06de|TX:7.0.0.9|CID:5|TS:59.752|SPD:24.7|HDG:1.8|PX:1217.4|PY:-10.0|...
+✓ [CAR 5] ACT=OK REP=0.999 RWD=0.851 PNL=0.000 CREDIT=115
+[ZONE-ROUTE] CID:1 zone=1 edge_port=9998
+[EDGE-RTT] CID:1 wall=1.1 ms  sim_delay=5.0 ms
+>>> [UAV->CLOUD] BLK:ef1f|TX:7.0.0.5|CID:1|TS:60.060|SPD:19.9|HDG:-1.9|PX:1200.5|PY:-20.0...
+✓ [CAR 1] ACT=OK REP=0.957 RWD=1.000 PNL=0.000 CREDIT=116
+[ZONE-ROUTE] CID:0 zone=1 edge_port=9998
+[EDGE-RTT] CID:0 wall=0.9 ms  sim_delay=5.0 ms
+>>> [UAV->CLOUD] BLK:ba46|TX:7.0.0.4|CID:0|TS:60.190|SPD:25.2|HDG:-1.6|PX:1207.3|PY:-10.0...
+[ECON-CLAWBACK] CID:0 ACT=WARN prior_payoff=27.9 extra_penalty=15.2 new_payoff=12.6
+[FORGIVENESS] CID:0 WARN #2 — streak reset, benefits revoked
+⚠ [CAR 0] ACT=WARN REP=0.898 RWD=0.000 PNL=15.308 CREDIT=-2
+[ZONE-ROUTE] CID:5 zone=1 edge_port=9998
+[EDGE-RTT] CID:5 wall=0.9 ms  sim_delay=5.0 ms
+>>> [UAV->CLOUD] BLK:8225|TX:7.0.0.9|CID:5|TS:60.252|SPD:24.6|HDG:-1.2|PX:1230.0|PY:-10.0...
+[ECON-CLAWBACK] CID:5 ACT=WARN prior_payoff=118.8 extra_penalty=90.1 new_payoff=28.6
+[TRUST-REVOKED] CID:5 benefits revoked logically; lane=1 speed=20.0 latency=10.0ms
+[FORGIVENESS] CID:5 WARN #1 — streak reset, benefits revoked
+⚠ [CAR 5] ACT=WARN REP=0.891 RWD=0.000 PNL=90.210 CREDIT=114
+[ZONE-ROUTE] CID:1 zone=1 edge_port=9998
+[EDGE-RTT] CID:1 wall=1.1 ms  sim_delay=5.0 ms
+>>> [UAV->CLOUD] BLK:96df|TX:7.0.0.5|CID:1|TS:60.560|SPD:20.2|HDG:-0.4|PX:1211.4|PY:-20.0...
+✓ [CAR 1] ACT=OK REP=0.949 RWD=1.000 PNL=0.000 CREDIT=117
+[ZONE-ROUTE] CID:0 zone=1 edge_port=9998
+[EDGE-RTT] CID:0 wall=1.1 ms  sim_delay=5.0 ms
+>>> [UAV->CLOUD] BLK:5225|TX:7.0.0.4|CID:0|TS:60.690|SPD:25.2|HDG:1.7|PX:1220.7|PY:-10.0|...
+[ECON-CLAWBACK] CID:0 ACT=WARN prior_payoff=12.6 extra_penalty=7.8 new_payoff=4.7
+[FORGIVENESS] CID:0 WARN #3 — streak reset, benefits revoked
+⚠ [CAR 0] ACT=WARN REP=1.000 RWD=0.000 PNL=7.906 CREDIT=-2
+[ZONE-ROUTE] CID:5 zone=1 edge_port=9998
+[EDGE-RTT] CID:5 wall=0.7 ms  sim_delay=5.0 ms
+>>> [UAV->CLOUD] BLK:e3fa|TX:7.0.0.9|CID:5|TS:60.752|SPD:25.0|HDG:-0.7|PX:1242.3|PY:-10.0...
+[ECON-CLAWBACK] CID:5 ACT=WARN prior_payoff=28.6 extra_penalty=15.6 new_payoff=13.0
+[FORGIVENESS] CID:5 WARN #2 — streak reset, benefits revoked
+⚠ [CAR 5] ACT=WARN REP=0.973 RWD=0.000 PNL=15.665 CREDIT=-2
+[ZONE-ROUTE] CID:1 zone=1 edge_port=9998
+[EDGE-RTT] CID:1 wall=1.1 ms  sim_delay=5.0 ms
+>>> [UAV->CLOUD] BLK:e83c|TX:7.0.0.5|CID:1|TS:61.060|SPD:20.0|HDG:1.1|PX:1221.5|PY:-20.0|...
+✓ [CAR 1] ACT=OK REP=1.000 RWD=1.000 PNL=0.000 CREDIT=118
+[ZONE-ROUTE] CID:0 zone=1 edge_port=9998
+[EDGE-RTT] CID:0 wall=1.1 ms  sim_delay=5.0 ms
+>>> [UAV->CLOUD] BLK:113b|TX:7.0.0.4|CID:0|TS:61.190|SPD:25.3|HDG:1.5|PX:1232.3|PY:-10.0|...
+[ECON-CLAWBACK] CID:0 ACT=WARN prior_payoff=4.7 extra_penalty=4.1 new_payoff=0.5
+[FORGIVENESS] CID:0 WARN #4 — streak reset, benefits revoked
+⚠ [CAR 0] ACT=WARN REP=0.903 RWD=0.000 PNL=4.205 CREDIT=-2
+[ZONE-ROUTE] CID:5 zone=1 edge_port=9998
+[EDGE-RTT] CID:5 wall=1.0 ms  sim_delay=5.0 ms
+>>> [UAV->CLOUD] BLK:f636|TX:7.0.0.9|CID:5|TS:61.252|SPD:25.1|HDG:1.0|PX:1254.3|PY:-10.0|...
+[ECON-CLAWBACK] CID:5 ACT=WARN prior_payoff=13.0 extra_penalty=8.0 new_payoff=4.9
+[FORGIVENESS] CID:5 WARN #3 — streak reset, benefits revoked
+⚠ [CAR 5] ACT=WARN REP=0.943 RWD=0.000 PNL=8.085 CREDIT=-2
+[ZONE-ROUTE] CID:1 zone=1 edge_port=9998
+[EDGE-RTT] CID:1 wall=0.9 ms  sim_delay=5.0 ms
+>>> [UAV->CLOUD] BLK:39b1|TX:7.0.0.5|CID:1|TS:61.560|SPD:25.1|HDG:0.3|PX:1232.5|PY:-20.0|...
+[ECON-CLAWBACK] CID:1 ACT=WARN prior_payoff=122.0 extra_penalty=92.5 new_payoff=29.4
+[TRUST-REVOKED] CID:1 benefits revoked logically; lane=2 speed=20.0 latency=10.0ms
+[FORGIVENESS] CID:1 WARN #1 — streak reset, benefits revoked
+⚠ [CAR 1] ACT=WARN REP=0.884 RWD=0.000 PNL=92.573 CREDIT=117
+[ZONE-ROUTE] CID:0 zone=1 edge_port=9998
+[EDGE-RTT] CID:0 wall=1.0 ms  sim_delay=5.0 ms
+>>> [UAV->CLOUD] BLK:41be|TX:7.0.0.4|CID:0|TS:61.690|SPD:25.5|HDG:-2.0|PX:1245.1|PY:-10.0...
+[ECON-CLAWBACK] CID:0 ACT=WARN prior_payoff=0.5 extra_penalty=2.3 new_payoff=-1.9
+[FORGIVENESS] CID:0 WARN #5 — streak reset, benefits revoked
+⚠ [CAR 0] ACT=WARN REP=0.836 RWD=0.000 PNL=2.355 CREDIT=-2
+[ZONE-ROUTE] CID:5 zone=1 edge_port=9998
+[EDGE-RTT] CID:5 wall=1.0 ms  sim_delay=5.0 ms
+>>> [UAV->CLOUD] BLK:dd79|TX:7.0.0.9|CID:5|TS:61.752|SPD:25.0|HDG:1.8|PX:1266.7|PY:-10.0|...
+[ECON-CLAWBACK] CID:5 ACT=WARN prior_payoff=4.9 extra_penalty=4.2 new_payoff=0.6
+[FORGIVENESS] CID:5 WARN #4 — streak reset, benefits revoked
+⚠ [CAR 5] ACT=WARN REP=0.710 RWD=0.000 PNL=4.294 CREDIT=-2
+[ZONE-ROUTE] CID:1 zone=1 edge_port=9998
+[EDGE-RTT] CID:1 wall=0.8 ms  sim_delay=5.0 ms
+>>> [UAV->CLOUD] BLK:a7a1|TX:7.0.0.5|CID:1|TS:62.060|SPD:25.1|HDG:0.2|PX:1244.8|PY:-20.0|...
+[ECON-CLAWBACK] CID:1 ACT=WARN prior_payoff=29.4 extra_penalty=16.0 new_payoff=13.4
+[FORGIVENESS] CID:1 WARN #2 — streak reset, benefits revoked
+⚠ [CAR 1] ACT=WARN REP=0.904 RWD=0.000 PNL=16.058 CREDIT=-2
+[ZONE-ROUTE] CID:0 zone=1 edge_port=9998
+[EDGE-RTT] CID:0 wall=1.0 ms  sim_delay=5.0 ms
+>>> [UAV->CLOUD] BLK:8b43|TX:7.0.0.4|CID:0|TS:62.190|SPD:25.4|HDG:0.6|PX:1258.3|PY:-10.0|...
+[ECON-CLAWBACK] CID:0 ACT=WARN prior_payoff=-1.9 extra_penalty=2.2 new_payoff=-4.2
+[FORGIVENESS] CID:0 WARN #6 — streak reset, benefits revoked
+⚠ [CAR 0] ACT=WARN REP=0.780 RWD=0.000 PNL=2.352 CREDIT=-2
+[ZONE-ROUTE] CID:5 zone=1 edge_port=9998
+[EDGE-RTT] CID:5 wall=1.0 ms  sim_delay=5.0 ms
+>>> [UAV->CLOUD] BLK:65ab|TX:7.0.0.9|CID:5|TS:62.252|SPD:24.6|HDG:1.4|PX:1280.0|PY:-10.0|...
+[ECON-CLAWBACK] CID:5 ACT=WARN prior_payoff=0.6 extra_penalty=2.3 new_payoff=-1.8
+[FORGIVENESS] CID:5 WARN #5 — streak reset, benefits revoked
+⚠ [CAR 5] ACT=WARN REP=1.000 RWD=0.000 PNL=2.395 CREDIT=-2
+[ZONE-ROUTE] CID:1 zone=1 edge_port=9998
+[EDGE-RTT] CID:1 wall=1.1 ms  sim_delay=5.0 ms
+>>> [UAV->CLOUD] BLK:7044|TX:7.0.0.5|CID:1|TS:62.560|SPD:25.3|HDG:1.4|PX:1257.7|PY:-20.0|...
+[ECON-CLAWBACK] CID:1 ACT=WARN prior_payoff=13.4 extra_penalty=8.2 new_payoff=5.1
+[FORGIVENESS] CID:1 WARN #3 — streak reset, benefits revoked
+⚠ [CAR 1] ACT=WARN REP=0.913 RWD=0.000 PNL=8.281 CREDIT=-2
+[ZONE-ROUTE] CID:0 zone=1 edge_port=9998
+[EDGE-RTT] CID:0 wall=0.9 ms  sim_delay=5.0 ms
+>>> [UAV->CLOUD] BLK:a92e|TX:7.0.0.4|CID:0|TS:62.690|SPD:24.6|HDG:-1.9|PX:1270.3|PY:-10.0...
+[ECON-CLAWBACK] CID:0 ACT=WARN prior_payoff=-4.2 extra_penalty=2.5 new_payoff=-6.8
+[FORGIVENESS] CID:0 WARN #7 — streak reset, benefits revoked
+⚠ [CAR 0] ACT=WARN REP=1.000 RWD=0.000 PNL=2.600 CREDIT=-2
+[ZONE-ROUTE] CID:5 zone=1 edge_port=9998
+[EDGE-RTT] CID:5 wall=0.7 ms  sim_delay=5.0 ms
+>>> [UAV->CLOUD] BLK:8533|TX:7.0.0.9|CID:5|TS:62.752|SPD:24.9|HDG:0.9|PX:1292.5|PY:-10.0|...
+[ECON-CLAWBACK] CID:5 ACT=WARN prior_payoff=-1.8 extra_penalty=2.2 new_payoff=-4.2
+[FORGIVENESS] CID:5 WARN #6 — streak reset, benefits revoked
+⚠ [CAR 5] ACT=WARN REP=1.000 RWD=0.000 PNL=2.351 CREDIT=-2
+[ZONE-ROUTE] CID:1 zone=1 edge_port=9998
+[EDGE-RTT] CID:1 wall=1.1 ms  sim_delay=5.0 ms
+>>> [UAV->CLOUD] BLK:a54d|TX:7.0.0.5|CID:1|TS:63.060|SPD:24.6|HDG:0.3|PX:1268.9|PY:-20.0|...
+[ECON-CLAWBACK] CID:1 ACT=WARN prior_payoff=5.1 extra_penalty=4.3 new_payoff=0.7
+[FORGIVENESS] CID:1 WARN #4 — streak reset, benefits revoked
+⚠ [CAR 1] ACT=WARN REP=0.662 RWD=0.000 PNL=4.389 CREDIT=-2
+[ZONE-ROUTE] CID:0 zone=1 edge_port=9998
+[EDGE-RTT] CID:0 wall=0.8 ms  sim_delay=5.0 ms
+>>> [UAV->CLOUD] BLK:43d4|TX:7.0.0.4|CID:0|TS:63.190|SPD:24.6|HDG:-0.3|PX:1282.5|PY:-10.0...
+[ECON-CLAWBACK] CID:0 ACT=WARN prior_payoff=-6.8 extra_penalty=2.8 new_payoff=-9.7
+[FORGIVENESS] CID:0 WARN #8 — streak reset, benefits revoked
+⚠ [CAR 0] ACT=WARN REP=0.892 RWD=0.000 PNL=2.849 CREDIT=-2
+[ZONE-ROUTE] CID:5 zone=1 edge_port=9998
+[EDGE-RTT] CID:5 wall=1.1 ms  sim_delay=5.0 ms
+>>> [UAV->CLOUD] BLK:eb51|TX:7.0.0.9|CID:5|TS:63.252|SPD:24.9|HDG:-1.1|PX:1304.0|PY:-10.0...
+[ECON-CLAWBACK] CID:5 ACT=WARN prior_payoff=-4.2 extra_penalty=2.5 new_payoff=-6.8
+[FORGIVENESS] CID:5 WARN #7 — streak reset, benefits revoked
+⚠ [CAR 5] ACT=WARN REP=0.767 RWD=0.000 PNL=2.600 CREDIT=-2
+[ZONE-ROUTE] CID:1 zone=1 edge_port=9998
+[EDGE-RTT] CID:1 wall=1.2 ms  sim_delay=5.0 ms
+>>> [UAV->CLOUD] BLK:fa4a|TX:7.0.0.5|CID:1|TS:63.560|SPD:24.7|HDG:0.7|PX:1281.3|PY:-20.0|...
+[ECON-CLAWBACK] CID:1 ACT=WARN prior_payoff=0.7 extra_penalty=2.3 new_payoff=-1.8
+[FORGIVENESS] CID:1 WARN #5 — streak reset, benefits revoked
+⚠ [CAR 1] ACT=WARN REP=0.884 RWD=0.000 PNL=2.448 CREDIT=-2
+[ZONE-ROUTE] CID:0 zone=1 edge_port=9998
+[EDGE-RTT] CID:0 wall=0.9 ms  sim_delay=5.0 ms
+>>> [UAV->CLOUD] BLK:8200|TX:7.0.0.4|CID:0|TS:63.690|SPD:25.2|HDG:0.2|PX:1295.9|PY:-10.0|...
+[ECON-CLAWBACK] CID:0 ACT=WARN prior_payoff=-9.7 extra_penalty=3.0 new_payoff=-12.8
+[FORGIVENESS] CID:0 WARN #9 — streak reset, benefits revoked
+⚠ [CAR 0] ACT=WARN REP=0.683 RWD=0.000 PNL=3.102 CREDIT=-2
+[ZONE-ROUTE] CID:5 zone=1 edge_port=9998
+[EDGE-RTT] CID:5 wall=0.9 ms  sim_delay=5.0 ms
+>>> [UAV->CLOUD] BLK:b82c|TX:7.0.0.9|CID:5|TS:63.752|SPD:25.3|HDG:-1.6|PX:1316.8|PY:-10.0...
+[ECON-CLAWBACK] CID:5 ACT=WARN prior_payoff=-6.8 extra_penalty=2.8 new_payoff=-9.6
+[FORGIVENESS] CID:5 WARN #8 — streak reset, benefits revoked
+⚠ [CAR 5] ACT=WARN REP=0.690 RWD=0.000 PNL=2.852 CREDIT=-2
+[ZONE-ROUTE] CID:1 zone=1 edge_port=9998
+[EDGE-RTT] CID:1 wall=1.0 ms  sim_delay=5.0 ms
+>>> [UAV->CLOUD] BLK:0d7f|TX:7.0.0.5|CID:1|TS:64.060|SPD:25.3|HDG:2.0|PX:1294.8|PY:-20.0|...
+[ECON-CLAWBACK] CID:1 ACT=WARN prior_payoff=-1.8 extra_penalty=2.2 new_payoff=-4.1
+[FORGIVENESS] CID:1 WARN #6 — streak reset, benefits revoked
+⚠ [CAR 1] ACT=WARN REP=0.914 RWD=0.000 PNL=2.352 CREDIT=-2
+[ZONE-ROUTE] CID:0 zone=1 edge_port=9998
+[EDGE-RTT] CID:0 wall=0.9 ms  sim_delay=5.0 ms
+>>> [UAV->CLOUD] BLK:647b|TX:7.0.0.4|CID:0|TS:64.190|SPD:25.3|HDG:-0.2|PX:1307.9|PY:-10.0...
+[ECON-CLAWBACK] CID:0 ACT=WARN prior_payoff=-12.8 extra_penalty=3.2 new_payoff=-16.1
+[FORGIVENESS] CID:0 WARN #10 — streak reset, benefits revoked
+⚠ [CAR 0] ACT=WARN REP=0.856 RWD=0.000 PNL=3.352 CREDIT=-2
+[ZONE-ROUTE] CID:5 zone=1 edge_port=9998
+[EDGE-RTT] CID:5 wall=1.0 ms  sim_delay=5.0 ms
+>>> [UAV->CLOUD] BLK:48a1|TX:7.0.0.9|CID:5|TS:64.252|SPD:25.5|HDG:-1.7|PX:1328.6|PY:-10.0...
+[ECON-CLAWBACK] CID:5 ACT=WARN prior_payoff=-9.6 extra_penalty=3.0 new_payoff=-12.7
+[FORGIVENESS] CID:5 WARN #9 — streak reset, benefits revoked
+⚠ [CAR 5] ACT=WARN REP=0.959 RWD=0.000 PNL=3.102 CREDIT=-2
+[ZONE-ROUTE] CID:1 zone=1 edge_port=9998
+[EDGE-RTT] CID:1 wall=0.8 ms  sim_delay=5.0 ms
+>>> [UAV->CLOUD] BLK:c313|TX:7.0.0.5|CID:1|TS:64.560|SPD:25.1|HDG:0.7|PX:1306.3|PY:-20.0|...
+[ECON-CLAWBACK] CID:1 ACT=WARN prior_payoff=-4.1 extra_penalty=2.5 new_payoff=-6.7
+[FORGIVENESS] CID:1 WARN #7 — streak reset, benefits revoked
+⚠ [CAR 1] ACT=WARN REP=0.946 RWD=0.000 PNL=2.601 CREDIT=-2
+[ZONE-ROUTE] CID:0 zone=1 edge_port=9998
+[EDGE-RTT] CID:0 wall=0.8 ms  sim_delay=5.0 ms
+>>> [UAV->CLOUD] BLK:99b0|TX:7.0.0.4|CID:0|TS:64.690|SPD:25.3|HDG:1.7|PX:1320.2|PY:-10.0|...
+[ECON-CLAWBACK] CID:0 ACT=WARN prior_payoff=-16.1 extra_penalty=3.5 new_payoff=-19.7
+[FORGIVENESS] CID:0 WARN #11 — streak reset, benefits revoked
+⚠ [CAR 0] ACT=WARN REP=1.000 RWD=0.000 PNL=3.602 CREDIT=-2
+[ZONE-ROUTE] CID:5 zone=1 edge_port=9998
+[EDGE-RTT] CID:5 wall=0.9 ms  sim_delay=5.0 ms
+>>> [UAV->CLOUD] BLK:adf7|TX:7.0.0.9|CID:5|TS:64.752|SPD:24.8|HDG:-2.0|PX:1342.5|PY:-10.0...
+[ECON-CLAWBACK] CID:5 ACT=WARN prior_payoff=-12.7 extra_penalty=3.2 new_payoff=-16.1
+[FORGIVENESS] CID:5 WARN #10 — streak reset, benefits revoked
+⚠ [CAR 5] ACT=WARN REP=0.874 RWD=0.000 PNL=3.350 CREDIT=-2
+[ZONE-ROUTE] CID:1 zone=1 edge_port=9998
+[EDGE-RTT] CID:1 wall=1.2 ms  sim_delay=5.0 ms
+>>> [UAV->CLOUD] BLK:defb|TX:7.0.0.5|CID:1|TS:65.060|SPD:25.1|HDG:-1.0|PX:1319.5|PY:-20.0...
+[ECON-CLAWBACK] CID:1 ACT=WARN prior_payoff=-6.7 extra_penalty=2.8 new_payoff=-9.6
+[FORGIVENESS] CID:1 WARN #8 — streak reset, benefits revoked
+⚠ [CAR 1] ACT=WARN REP=0.941 RWD=0.000 PNL=2.851 CREDIT=-2
+[ZONE-ROUTE] CID:0 zone=1 edge_port=9998
+[EDGE-RTT] CID:0 wall=1.0 ms  sim_delay=5.0 ms
+>>> [UAV->CLOUD] BLK:4155|TX:7.0.0.4|CID:0|TS:65.190|SPD:25.2|HDG:-0.9|PX:1333.3|PY:-10.0...
+[ECON-CLAWBACK] CID:0 ACT=WARN prior_payoff=-19.7 extra_penalty=3.8 new_payoff=-23.6
+[FORGIVENESS] CID:0 WARN #12 — streak reset, benefits revoked
+⚠ [CAR 0] ACT=WARN REP=0.876 RWD=0.000 PNL=3.852 CREDIT=-2
+[ZONE-ROUTE] CID:5 zone=1 edge_port=9998
+[EDGE-RTT] CID:5 wall=1.1 ms  sim_delay=5.0 ms
+>>> [UAV->CLOUD] BLK:9313|TX:7.0.0.9|CID:5|TS:65.252|SPD:24.9|HDG:1.5|PX:1353.9|PY:-10.0|...
+[ECON-CLAWBACK] CID:5 ACT=WARN prior_payoff=-16.1 extra_penalty=3.5 new_payoff=-19.7
+[FORGIVENESS] CID:5 WARN #11 — streak reset, benefits revoked
+⚠ [CAR 5] ACT=WARN REP=0.766 RWD=0.000 PNL=3.601 CREDIT=-2
+[ZONE-ROUTE] CID:1 zone=1 edge_port=9998
+[EDGE-RTT] CID:1 wall=1.2 ms  sim_delay=5.0 ms
+>>> [UAV->CLOUD] BLK:25f8|TX:7.0.0.5|CID:1|TS:65.560|SPD:24.5|HDG:0.4|PX:1332.7|PY:-20.0|...
+[ECON-CLAWBACK] CID:1 ACT=WARN prior_payoff=-9.6 extra_penalty=3.0 new_payoff=-12.7
+[FORGIVENESS] CID:1 WARN #9 — streak reset, benefits revoked
+⚠ [CAR 1] ACT=WARN REP=0.817 RWD=0.000 PNL=3.099 CREDIT=-2
+[ZONE-ROUTE] CID:0 zone=1 edge_port=9998
+[EDGE-RTT] CID:0 wall=1.0 ms  sim_delay=5.0 ms
+>>> [UAV->CLOUD] BLK:1c60|TX:7.0.0.4|CID:0|TS:65.690|SPD:24.7|HDG:-0.6|PX:1345.5|PY:-10.0...
+[ECON-CLAWBACK] CID:0 ACT=WARN prior_payoff=-23.6 extra_penalty=4.0 new_payoff=-27.7
+[FORGIVENESS] CID:0 WARN #13 — streak reset, benefits revoked
+⚠ [CAR 0] ACT=WARN REP=0.974 RWD=0.000 PNL=4.100 CREDIT=-2
+[ZONE-ROUTE] CID:5 zone=1 edge_port=9998
+[EDGE-RTT] CID:5 wall=1.1 ms  sim_delay=5.0 ms
+>>> [UAV->CLOUD] BLK:bf44|TX:7.0.0.9|CID:5|TS:65.752|SPD:24.5|HDG:0.9|PX:1366.4|PY:-10.0|...
+[ECON-CLAWBACK] CID:5 ACT=WARN prior_payoff=-19.7 extra_penalty=3.8 new_payoff=-23.5
+[FORGIVENESS] CID:5 WARN #12 — streak reset, benefits revoked
+⚠ [CAR 5] ACT=WARN REP=0.631 RWD=0.000 PNL=3.849 CREDIT=-2
+[ZONE-ROUTE] CID:1 zone=1 edge_port=9998
+[EDGE-RTT] CID:1 wall=1.1 ms  sim_delay=5.0 ms
+>>> [UAV->CLOUD] BLK:a3c9|TX:7.0.0.5|CID:1|TS:66.060|SPD:25.4|HDG:1.3|PX:1345.0|PY:-20.0|...
+[ECON-CLAWBACK] CID:1 ACT=WARN prior_payoff=-12.7 extra_penalty=3.2 new_payoff=-16.0
+[FORGIVENESS] CID:1 WARN #10 — streak reset, benefits revoked
+⚠ [CAR 1] ACT=WARN REP=0.895 RWD=0.000 PNL=3.352 CREDIT=-2
+[ZONE-ROUTE] CID:5 zone=1 edge_port=9998
+[EDGE-RTT] CID:5 wall=1.1 ms  sim_delay=5.0 ms
+>>> [UAV->CLOUD] BLK:0e8f|TX:7.0.0.9|CID:5|TS:66.252|SPD:24.5|HDG:0.6|PX:1379.1|PY:-10.0|...
+[ZONE-ROUTE] CID:0 zone=1 edge_port=9998
+[EDGE-RTT] CID:0 wall=0.8 ms  sim_delay=5.0 ms
+>>> [UAV->CLOUD] BLK:07de|TX:7.0.0.4|CID:0|TS:66.190|SPD:24.9|HDG:0.4|PX:1357.9|PY:-10.0|...
+[ECON-CLAWBACK] CID:5 ACT=WARN prior_payoff=-23.5 extra_penalty=4.0 new_payoff=-27.6
+[FORGIVENESS] CID:5 WARN #13 — streak reset, benefits revoked
+⚠ [CAR 5] ACT=WARN REP=1.000 RWD=0.000 PNL=4.098 CREDIT=-2
+[ECON-CLAWBACK] CID:0 ACT=WARN prior_payoff=-27.660 extra_penalty=4.250 new_payoff=-32.011
+[FORGIVENESS] CID:0 WARN #14 — streak reset, benefits revoked
+⚠ [CAR 0] ACT=WARN REP=0.895 RWD=0.000 PNL=4.351 CREDIT=-2
+[ZONE-ROUTE] CID:1 zone=1 edge_port=9998
+[EDGE-RTT] CID:1 wall=1.0 ms  sim_delay=5.0 ms
+>>> [UAV->CLOUD] BLK:1420|TX:7.0.0.5|CID:1|TS:66.560|SPD:24.7|HDG:-0.1|PX:1356.6|PY:-20.0...
+[ECON-CLAWBACK] CID:1 ACT=WARN prior_payoff=-16.0 extra_penalty=3.5 new_payoff=-19.6
+[FORGIVENESS] CID:1 WARN #11 — streak reset, benefits revoked
+⚠ [CAR 1] ACT=WARN REP=0.858 RWD=0.000 PNL=3.600 CREDIT=-2
+[ZONE-ROUTE] CID:0 zone=1 edge_port=9998
+[EDGE-RTT] CID:0 wall=0.9 ms  sim_delay=5.0 ms
+>>> [UAV->CLOUD] BLK:e58a|TX:7.0.0.4|CID:0|TS:66.690|SPD:25.5|HDG:-0.8|PX:1370.1|PY:-10.0...
+[ECON-CLAWBACK] CID:0 ACT=WARN prior_payoff=-32.0 extra_penalty=4.5 new_payoff=-36.6
+[FORGIVENESS] CID:0 WARN #15 — streak reset, benefits revoked
+⚠ [CAR 0] ACT=WARN REP=0.986 RWD=0.000 PNL=4.602 CREDIT=-2
+[ZONE-ROUTE] CID:5 zone=1 edge_port=9998
+[EDGE-RTT] CID:5 wall=0.9 ms  sim_delay=5.0 ms
+>>> [UAV->CLOUD] BLK:8bc8|TX:7.0.0.9|CID:5|TS:66.752|SPD:24.7|HDG:0.4|PX:1391.8|PY:-10.0|...
+[ZONE-ROUTE] CID:1 zone=1 edge_port=9998
+[EDGE-RTT] CID:1 wall=1.0 ms  sim_delay=5.0 ms
+>>> [UAV->CLOUD] BLK:f741|TX:7.0.0.5|CID:1|TS:67.060|SPD:24.5|HDG:1.0|PX:1369.9|PY:-20.0|...
+[ECON-CLAWBACK] CID:1 ACT=WARN prior_payoff=-19.6 extra_penalty=3.8 new_payoff=-23.5
+[FORGIVENESS] CID:1 WARN #12 — streak reset, benefits revoked
+⚠ [CAR 1] ACT=WARN REP=0.641 RWD=0.000 PNL=3.848 CREDIT=-2
+[ZONE-ROUTE] CID:0 zone=1 edge_port=9998
+[EDGE-RTT] CID:0 wall=1.2 ms  sim_delay=5.0 ms
+>>> [UAV->CLOUD] BLK:45ce|TX:7.0.0.4|CID:0|TS:67.190|SPD:25.5|HDG:-1.5|PX:1383.4|PY:-10.0...
+[ECON-CLAWBACK] CID:0 ACT=WARN prior_payoff=-36.6 extra_penalty=4.8 new_payoff=-41.5
+[FORGIVENESS] CID:0 WARN #16 — streak reset, benefits revoked
+⚠ [CAR 0] ACT=WARN REP=1.000 RWD=0.000 PNL=4.852 CREDIT=-2
+[HTD] CID:5 handover Z1->Z2 trust discounted at PX=1404.5 delta=0.3 alpha:59.9->19.4 beta:9.2->3.5 obs/window reset probationK=8
+[CUSUM] CID:5 activated at HANDOVER Z1->Z2 PX=1404.5 warmupK=5 mu0=0.2 h=2.5
+[ZONE-ROUTE] CID:5 zone=2 edge_port=9996
+[EDGE-RTT] CID:5 wall=1.4 ms  sim_delay=5.0 ms
+[CUSUM-WARMUP] CID:5 warmup 1/5 pEdge=0.2 (skipping)
+[POST-HANDOVER] CID:5 zone=2 pkt=1/8 credit_factor=0.2
+>>> [UAV->CLOUD] BLK:e88b|TX:7.0.0.9|CID:5|TS:67.252|SPD:25.0|HDG:-1.1|PX:1404.5|PY:-10.0...
+[ECON-CLAWBACK] CID:5 ACT=WARN prior_payoff=-27.6 extra_penalty=4.2 new_payoff=-32.0
+[FORGIVENESS] CID:5 WARN #14 — streak reset, benefits revoked
+⚠ [CAR 5] ACT=WARN REP=0.903 RWD=0.000 PNL=4.345 CREDIT=-2
+[ZONE-ROUTE] CID:1 zone=1 edge_port=9998
+[EDGE-RTT] CID:1 wall=0.9 ms  sim_delay=5.0 ms
+>>> [UAV->CLOUD] BLK:7a95|TX:7.0.0.5|CID:1|TS:67.560|SPD:24.6|HDG:1.6|PX:1381.4|PY:-20.0|...
+[ECON-CLAWBACK] CID:1 ACT=WARN prior_payoff=-23.5 extra_penalty=4.0 new_payoff=-27.6
+[FORGIVENESS] CID:1 WARN #13 — streak reset, benefits revoked
+⚠ [CAR 1] ACT=WARN REP=0.837 RWD=0.000 PNL=4.099 CREDIT=-2
+[ZONE-ROUTE] CID:0 zone=1 edge_port=9998
+[EDGE-RTT] CID:0 wall=1.0 ms  sim_delay=5.0 ms
+>>> [UAV->CLOUD] BLK:8534|TX:7.0.0.4|CID:0|TS:67.690|SPD:25.0|HDG:1.9|PX:1395.8|PY:-10.0|...
+[ECON-CLAWBACK] CID:0 ACT=WARN prior_payoff=-41.5 extra_penalty=5.0 new_payoff=-46.6
+[FORGIVENESS] CID:0 WARN #17 — streak reset, benefits revoked
+⚠ [CAR 0] ACT=WARN REP=1.000 RWD=0.000 PNL=5.101 CREDIT=-2
+[ZONE-ROUTE] CID:5 zone=2 edge_port=9996
+[EDGE-RTT] CID:5 wall=1.1 ms  sim_delay=5.0 ms
+[CUSUM-WARMUP] CID:5 warmup 2/5 pEdge=0.2 (skipping)
+[POST-HANDOVER] CID:5 zone=2 pkt=2/8 credit_factor=0.2
+>>> [UAV->CLOUD] BLK:3994|TX:7.0.0.9|CID:5|TS:67.752|SPD:25.1|HDG:-2.0|PX:1416.8|PY:-10.0...
+[ECON-CLAWBACK] CID:5 ACT=WARN prior_payoff=-32.0 extra_penalty=4.5 new_payoff=-36.5
+[FORGIVENESS] CID:5 WARN #15 — streak reset, benefits revoked
+⚠ [CAR 5] ACT=WARN REP=0.769 RWD=0.000 PNL=4.595 CREDIT=-2
+[ZONE-ROUTE] CID:1 zone=1 edge_port=9998
+[EDGE-RTT] CID:1 wall=0.8 ms  sim_delay=5.0 ms
+>>> [UAV->CLOUD] BLK:eab2|TX:7.0.0.5|CID:1|TS:68.060|SPD:24.6|HDG:-0.3|PX:1395.1|PY:-20.0...
+[ECON-CLAWBACK] CID:1 ACT=WARN prior_payoff=-27.6 extra_penalty=4.2 new_payoff=-31.9
+[FORGIVENESS] CID:1 WARN #14 — streak reset, benefits revoked
+⚠ [CAR 1] ACT=WARN REP=1.000 RWD=0.000 PNL=4.349 CREDIT=-2
+[HTD] CID:0 handover Z1->Z2 trust discounted at PX=1407.9 delta=0.3 alpha:58.5->18.9 beta:11.1->4.0 obs/window reset probationK=8
+[CUSUM] CID:0 activated at HANDOVER Z1->Z2 PX=1407.9 warmupK=5 mu0=0.2 h=2.5
+[ZONE-ROUTE] CID:0 zone=2 edge_port=9996
+[EDGE-RTT] CID:0 wall=1.3 ms  sim_delay=5.0 ms
+[CUSUM-WARMUP] CID:0 warmup 1/5 pEdge=0.2 (skipping)
+[POST-HANDOVER] CID:0 zone=2 pkt=1/8 credit_factor=0.2
+>>> [UAV->CLOUD] BLK:58a8|TX:7.0.0.4|CID:0|TS:68.190|SPD:24.8|HDG:1.0|PX:1407.9|PY:-10.0|...
+[ECON-CLAWBACK] CID:0 ACT=WARN prior_payoff=-46.6 extra_penalty=5.2 new_payoff=-51.9
+[FORGIVENESS] CID:0 WARN #18 — streak reset, benefits revoked
+⚠ [CAR 0] ACT=WARN REP=0.471 RWD=0.000 PNL=5.343 CREDIT=-2
+[ZONE-ROUTE] CID:5 zone=2 edge_port=9996
+[EDGE-RTT] CID:5 wall=1.3 ms  sim_delay=5.0 ms
+[CUSUM-WARMUP] CID:5 warmup 3/5 pEdge=0.2 (skipping)
+[POST-HANDOVER] CID:5 zone=2 pkt=3/8 credit_factor=0.2
+>>> [UAV->CLOUD] BLK:04e5|TX:7.0.0.9|CID:5|TS:68.252|SPD:24.6|HDG:-1.1|PX:1428.9|PY:-10.0...
+[ECON-CLAWBACK] CID:5 ACT=WARN prior_payoff=-36.5 extra_penalty=4.8 new_payoff=-41.4
+[FORGIVENESS] CID:5 WARN #16 — streak reset, benefits revoked
+⚠ [CAR 5] ACT=WARN REP=0.723 RWD=0.000 PNL=4.855 CREDIT=-2
+[HTD] CID:1 handover Z1->Z2 trust discounted at PX=1407.2 delta=0.3 alpha:61.5->19.8 beta:9.2->3.5 obs/window reset probationK=8
+[CUSUM] CID:1 activated at HANDOVER Z1->Z2 PX=1407.2 warmupK=5 mu0=0.2 h=2.5
+[ZONE-ROUTE] CID:1 zone=2 edge_port=9996
+[EDGE-RTT] CID:1 wall=1.0 ms  sim_delay=5.0 ms
+[CUSUM-WARMUP] CID:1 warmup 1/5 pEdge=0.2 (skipping)
+[POST-HANDOVER] CID:1 zone=2 pkt=1/8 credit_factor=0.2
+>>> [UAV->CLOUD] BLK:a351|TX:7.0.0.5|CID:1|TS:68.560|SPD:25.4|HDG:-0.3|PX:1407.2|PY:-20.0...
+[ECON-CLAWBACK] CID:1 ACT=WARN prior_payoff=-31.9 extra_penalty=4.5 new_payoff=-36.5
+[FORGIVENESS] CID:1 WARN #15 — streak reset, benefits revoked
+⚠ [CAR 1] ACT=WARN REP=1.000 RWD=0.000 PNL=4.596 CREDIT=-2
+[ZONE-ROUTE] CID:0 zone=2 edge_port=9996
+[EDGE-RTT] CID:0 wall=1.2 ms  sim_delay=5.0 ms
+[CUSUM-WARMUP] CID:0 warmup 2/5 pEdge=0.2 (skipping)
+[POST-HANDOVER] CID:0 zone=2 pkt=2/8 credit_factor=0.2
+>>> [UAV->CLOUD] BLK:3590|TX:7.0.0.4|CID:0|TS:68.690|SPD:25.2|HDG:0.3|PX:1420.4|PY:-10.0|...
+[ECON-CLAWBACK] CID:0 ACT=WARN prior_payoff=-51.9 extra_penalty=5.5 new_payoff=-57.5
+[FORGIVENESS] CID:0 WARN #19 — streak reset, benefits revoked
+⚠ [CAR 0] ACT=WARN REP=0.894 RWD=0.000 PNL=5.595 CREDIT=-2
+[ZONE-ROUTE] CID:5 zone=2 edge_port=9996
+[EDGE-RTT] CID:5 wall=1.1 ms  sim_delay=5.0 ms
+[CUSUM-WARMUP] CID:5 warmup 4/5 pEdge=0.2 (skipping)
+[POST-HANDOVER] CID:5 zone=2 pkt=4/8 credit_factor=0.2
+>>> [UAV->CLOUD] BLK:5c84|TX:7.0.0.9|CID:5|TS:68.752|SPD:24.7|HDG:1.0|PX:1442.0|PY:-10.0|...
+[ECON-CLAWBACK] CID:5 ACT=WARN prior_payoff=-41.4 extra_penalty=5.0 new_payoff=-46.5
+[FORGIVENESS] CID:5 WARN #17 — streak reset, benefits revoked
+⚠ [CAR 5] ACT=WARN REP=0.658 RWD=0.000 PNL=5.101 CREDIT=-2
+[ZONE-ROUTE] CID:1 zone=2 edge_port=9996
+[EDGE-RTT] CID:1 wall=1.1 ms  sim_delay=5.0 ms
+[CUSUM-WARMUP] CID:1 warmup 2/5 pEdge=0.2 (skipping)
+[POST-HANDOVER] CID:1 zone=2 pkt=2/8 credit_factor=0.2
+>>> [UAV->CLOUD] BLK:19d7|TX:7.0.0.5|CID:1|TS:69.060|SPD:25.0|HDG:0.0|PX:1419.7|PY:-20.0|...
+[ECON-CLAWBACK] CID:1 ACT=WARN prior_payoff=-36.5 extra_penalty=4.8 new_payoff=-41.3
+[FORGIVENESS] CID:1 WARN #16 — streak reset, benefits revoked
+⚠ [CAR 1] ACT=WARN REP=0.582 RWD=0.000 PNL=4.845 CREDIT=-2
+[ZONE-ROUTE] CID:0 zone=2 edge_port=9996
+[EDGE-RTT] CID:0 wall=1.2 ms  sim_delay=5.0 ms
+[CUSUM-WARMUP] CID:0 warmup 3/5 pEdge=0.2 (skipping)
+[POST-HANDOVER] CID:0 zone=2 pkt=3/8 credit_factor=0.2
+>>> [UAV->CLOUD] BLK:f157|TX:7.0.0.4|CID:0|TS:69.190|SPD:25.4|HDG:-1.7|PX:1432.9|PY:-10.0...
+[ECON-CLAWBACK] CID:0 ACT=WARN prior_payoff=-57.5 extra_penalty=5.8 new_payoff=-63.4
+[FORGIVENESS] CID:0 WARN #20 — streak reset, benefits revoked
+⚠ [CAR 0] ACT=WARN REP=0.748 RWD=0.000 PNL=5.853 CREDIT=-2
+[ZONE-ROUTE] CID:5 zone=2 edge_port=9996
+[EDGE-RTT] CID:5 wall=1.3 ms  sim_delay=5.0 ms
+[CUSUM-WARMUP] CID:5 warmup 5/5 pEdge=0.2 (skipping)
+[POST-HANDOVER] CID:5 zone=2 pkt=5/8 credit_factor=0.2
+>>> [UAV->CLOUD] BLK:4a9e|TX:7.0.0.9|CID:5|TS:69.252|SPD:25.3|HDG:0.0|PX:1454.7|PY:-10.0|...
+[ECON-CLAWBACK] CID:5 ACT=WARN prior_payoff=-46.5 extra_penalty=5.2 new_payoff=-51.9
+[FORGIVENESS] CID:5 WARN #18 — streak reset, benefits revoked
+⚠ [CAR 5] ACT=WARN REP=0.700 RWD=0.000 PNL=5.352 CREDIT=-2
+[PKT-DROP] UAV dropped telemetry from 7.0.0.6 (drop_rate=1%)
+[ZONE-ROUTE] CID:1 zone=2 edge_port=9996
+[EDGE-RTT] CID:1 wall=1.3 ms  sim_delay=5.0 ms
+[CUSUM-WARMUP] CID:1 warmup 3/5 pEdge=0.2 (skipping)
+[POST-HANDOVER] CID:1 zone=2 pkt=3/8 credit_factor=0.2
+>>> [UAV->CLOUD] BLK:28e2|TX:7.0.0.5|CID:1|TS:69.560|SPD:24.8|HDG:0.1|PX:1432.6|PY:-20.0|...
+[ECON-CLAWBACK] CID:1 ACT=WARN prior_payoff=-41.3 extra_penalty=5.0 new_payoff=-46.5
+[FORGIVENESS] CID:1 WARN #17 — streak reset, benefits revoked
+⚠ [CAR 1] ACT=WARN REP=0.753 RWD=0.000 PNL=5.106 CREDIT=-2
+[ZONE-ROUTE] CID:0 zone=2 edge_port=9996
+[EDGE-RTT] CID:0 wall=1.3 ms  sim_delay=5.0 ms
+[CUSUM-WARMUP] CID:0 warmup 4/5 pEdge=0.2 (skipping)
+[POST-HANDOVER] CID:0 zone=2 pkt=4/8 credit_factor=0.2
+>>> [UAV->CLOUD] BLK:b4e8|TX:7.0.0.4|CID:0|TS:69.690|SPD:25.2|HDG:-1.4|PX:1444.5|PY:-10.0...
+[ECON-CLAWBACK] CID:0 ACT=WARN prior_payoff=-63.4 extra_penalty=6.0 new_payoff=-69.5
+[FORGIVENESS] CID:0 WARN #21 — streak reset, benefits revoked
+⚠ [CAR 0] ACT=WARN REP=0.505 RWD=0.000 PNL=6.102 CREDIT=-2
+[ZONE-ROUTE] CID:5 zone=2 edge_port=9996
+[EDGE-RTT] CID:5 wall=1.2 ms  sim_delay=5.0 ms
+[CUSUM] CID:5 S=0.005/2.500 pEdge=0.205
+[POST-HANDOVER] CID:5 zone=2 pkt=6/8 credit_factor=0.250
+>>> [UAV->CLOUD] BLK:dc2f|TX:7.0.0.9|CID:5|TS:69.752|SPD:25.2|HDG:1.6|PX:1467.4|PY:-10.0|...
+[ECON-CLAWBACK] CID:5 ACT=WARN prior_payoff=-51.854 extra_penalty=5.500 new_payoff=-57.456
+[FORGIVENESS] CID:5 WARN #19 — streak reset, benefits revoked
+⚠ [CAR 5] ACT=WARN REP=0.804 RWD=0.000 PNL=5.602 CREDIT=-2
+[HANDOVER] CID:0 trigger from_Z1 to_Z2 at posX=1453.000 distLeft=347.000m
+[HANDOVER] CID:1 trigger from_Z1 to_Z2 at posX=1443.000 distLeft=357.000m
+[HANDOVER] CID:2 trigger from_Z1 to_Z2 at posX=1433.000 distLeft=367.000m
+[HANDOVER] CID:3 trigger from_Z1 to_Z2 at posX=1423.000 distLeft=377.000m
+[HANDOVER] CID:4 trigger from_Z1 to_Z2 at posX=1413.000 distLeft=387.000m
+[HANDOVER] CID:5 trigger from_Z1 to_Z2 at posX=1473.000 distLeft=327.000m
+[ZONE-ROUTE] CID:1 zone=2 edge_port=9996
+[EDGE-RTT] CID:1 wall=1.5 ms  sim_delay=5.0 ms
+[CUSUM-WARMUP] CID:1 warmup 4/5 pEdge=0.2 (skipping)
+[POST-HANDOVER] CID:1 zone=2 pkt=4/8 credit_factor=0.2
+>>> [UAV->CLOUD] BLK:3115|TX:7.0.0.5|CID:1|TS:70.060|SPD:24.9|HDG:-0.4|PX:1445.1|PY:-20.0...
+[ECON-CLAWBACK] CID:1 ACT=WARN prior_payoff=-46.5 extra_penalty=5.2 new_payoff=-51.8
+[FORGIVENESS] CID:1 WARN #18 — streak reset, benefits revoked
+⚠ [CAR 1] ACT=WARN REP=0.605 RWD=0.000 PNL=5.355 CREDIT=-2
+[ZONE-ROUTE] CID:0 zone=2 edge_port=9996
+[EDGE-RTT] CID:0 wall=1.6 ms  sim_delay=5.0 ms
+[CUSUM-WARMUP] CID:0 warmup 5/5 pEdge=0.2 (skipping)
+[POST-HANDOVER] CID:0 zone=2 pkt=5/8 credit_factor=0.2
+>>> [UAV->CLOUD] BLK:0746|TX:7.0.0.4|CID:0|TS:70.190|SPD:24.9|HDG:0.2|PX:1458.5|PY:-10.0|...
+[ECON-CLAWBACK] CID:0 ACT=WARN prior_payoff=-69.5 extra_penalty=6.2 new_payoff=-75.8
+[FORGIVENESS] CID:0 WARN #22 — streak reset, benefits revoked
+⚠ [CAR 0] ACT=WARN REP=0.548 RWD=0.000 PNL=6.352 CREDIT=-2
+[ZONE-ROUTE] CID:5 zone=2 edge_port=9996
+[EDGE-RTT] CID:5 wall=1.8 ms  sim_delay=5.0 ms
+[CUSUM] CID:5 S=0.006/2.500 pEdge=0.201
+[POST-HANDOVER] CID:5 zone=2 pkt=7/8 credit_factor=0.250
+>>> [UAV->CLOUD] BLK:9533|TX:7.0.0.9|CID:5|TS:70.252|SPD:24.7|HDG:0.8|PX:1479.2|PY:-10.0|...
+[ECON-CLAWBACK] CID:5 ACT=WARN prior_payoff=-57.456 extra_penalty=5.750 new_payoff=-63.307
+[FORGIVENESS] CID:5 WARN #20 — streak reset, benefits revoked
+⚠ [CAR 5] ACT=WARN REP=0.841 RWD=0.000 PNL=5.851 CREDIT=-2
+[ZONE-ROUTE] CID:1 zone=2 edge_port=9996
+[EDGE-RTT] CID:1 wall=1.4 ms  sim_delay=5.0 ms
+[CUSUM-WARMUP] CID:1 warmup 5/5 pEdge=0.2 (skipping)
+[POST-HANDOVER] CID:1 zone=2 pkt=5/8 credit_factor=0.2
+>>> [UAV->CLOUD] BLK:28e1|TX:7.0.0.5|CID:1|TS:70.560|SPD:25.2|HDG:-1.9|PX:1456.4|PY:-20.0...
+[ECON-CLAWBACK] CID:1 ACT=WARN prior_payoff=-51.8 extra_penalty=5.5 new_payoff=-57.4
+[FORGIVENESS] CID:1 WARN #19 — streak reset, benefits revoked
+⚠ [CAR 1] ACT=WARN REP=0.859 RWD=0.000 PNL=5.602 CREDIT=-2
+[ZONE-ROUTE] CID:0 zone=2 edge_port=9996
+[EDGE-RTT] CID:0 wall=1.5 ms  sim_delay=5.0 ms
+[CUSUM] CID:0 S=0.005/2.500 pEdge=0.205
+[POST-HANDOVER] CID:0 zone=2 pkt=6/8 credit_factor=0.250
+>>> [UAV->CLOUD] BLK:0619|TX:7.0.0.4|CID:0|TS:70.690|SPD:25.1|HDG:-1.8|PX:1469.8|PY:-10.0...
+[ECON-CLAWBACK] CID:0 ACT=WARN prior_payoff=-75.811 extra_penalty=6.500 new_payoff=-82.413
+[FORGIVENESS] CID:0 WARN #23 — streak reset, benefits revoked
+⚠ [CAR 0] ACT=WARN REP=0.847 RWD=0.000 PNL=6.602 CREDIT=-2
+[ZONE-ROUTE] CID:5 zone=2 edge_port=9996
+[EDGE-RTT] CID:5 wall=1.2 ms  sim_delay=5.0 ms
+[CUSUM] CID:5 S=0.009/2.500 pEdge=0.203
+[POST-HANDOVER] CID:5 zone=2 pkt=8/8 credit_factor=0.250
+[POST-HANDOVER-END] CID:5 zone=2 probation complete
+>>> [UAV->CLOUD] BLK:5043|TX:7.0.0.9|CID:5|TS:70.752|SPD:25.1|HDG:-1.7|PX:1492.5|PY:-10.0...
+[ECON-CLAWBACK] CID:5 ACT=WARN prior_payoff=-63.307 extra_penalty=6.000 new_payoff=-69.409
+[FORGIVENESS] CID:5 WARN #21 — streak reset, benefits revoked
+⚠ [CAR 5] ACT=WARN REP=0.663 RWD=0.000 PNL=6.102 CREDIT=-2
+[ZONE-ROUTE] CID:1 zone=2 edge_port=9996
+[EDGE-RTT] CID:1 wall=1.5 ms  sim_delay=5.0 ms
+[CUSUM] CID:1 S=0.003/2.500 pEdge=0.203
+[POST-HANDOVER] CID:1 zone=2 pkt=6/8 credit_factor=0.250
+>>> [UAV->CLOUD] BLK:4d84|TX:7.0.0.5|CID:1|TS:71.060|SPD:25.0|HDG:-1.8|PX:1469.9|PY:-20.0...
+[ECON-CLAWBACK] CID:1 ACT=WARN prior_payoff=-57.407 extra_penalty=5.750 new_payoff=-63.259
+[FORGIVENESS] CID:1 WARN #20 — streak reset, benefits revoked
+⚠ [CAR 1] ACT=WARN REP=0.812 RWD=0.000 PNL=5.852 CREDIT=-2
+[ZONE-ROUTE] CID:5 zone=2 edge_port=9996
+[EDGE-RTT] CID:5 wall=1.5 ms  sim_delay=5.0 ms
+[CUSUM] CID:5 S=0.013/2.500 pEdge=0.204
+>>> [UAV->CLOUD] BLK:e1f1|TX:7.0.0.9|CID:5|TS:71.252|SPD:25.1|HDG:0.3|PX:1504.0|PY:-10.0|...
+[ECON-CLAWBACK] CID:5 ACT=WARN prior_payoff=-69.409 extra_penalty=6.250 new_payoff=-75.761
+[FORGIVENESS] CID:5 WARN #22 — streak reset, benefits revoked
+⚠ [CAR 5] ACT=WARN REP=0.620 RWD=0.000 PNL=6.352 CREDIT=-2
+[ZONE-ROUTE] CID:1 zone=2 edge_port=9996
+[EDGE-RTT] CID:1 wall=1.3 ms  sim_delay=5.0 ms
+[CUSUM] CID:1 S=0.003/2.500 pEdge=0.200
+[POST-HANDOVER] CID:1 zone=2 pkt=7/8 credit_factor=0.250
+>>> [UAV->CLOUD] BLK:6c6b|TX:7.0.0.5|CID:1|TS:71.560|SPD:24.5|HDG:2.0|PX:1482.3|PY:-20.0|...
+[ECON-CLAWBACK] CID:1 ACT=WARN prior_payoff=-63.259 extra_penalty=6.000 new_payoff=-69.359
+[FORGIVENESS] CID:1 WARN #21 — streak reset, benefits revoked
+⚠ [CAR 1] ACT=WARN REP=0.611 RWD=0.000 PNL=6.100 CREDIT=-2
+[ZONE-ROUTE] CID:0 zone=2 edge_port=9996
+[EDGE-RTT] CID:0 wall=1.5 ms  sim_delay=5.0 ms
+[CUSUM] CID:0 S=0.012/2.500 pEdge=0.207
+[POST-HANDOVER] CID:0 zone=2 pkt=7/8 credit_factor=0.250
+>>> [UAV->CLOUD] BLK:1ea6|TX:7.0.0.4|CID:0|TS:71.690|SPD:25.5|HDG:1.5|PX:1495.2|PY:-10.0|...
+[ECON-CLAWBACK] CID:0 ACT=WARN prior_payoff=-82.413 extra_penalty=6.750 new_payoff=-89.266
+[FORGIVENESS] CID:0 WARN #24 — streak reset, benefits revoked
+⚠ [CAR 0] ACT=WARN REP=0.765 RWD=0.000 PNL=6.853 CREDIT=-2
+[ZONE-ROUTE] CID:5 zone=2 edge_port=9996
+[EDGE-RTT] CID:5 wall=1.4 ms  sim_delay=5.0 ms
+[CUSUM] CID:5 S=0.017/2.500 pEdge=0.204
+>>> [UAV->CLOUD] BLK:4c28|TX:7.0.0.9|CID:5|TS:71.752|SPD:25.1|HDG:-0.9|PX:1517.1|PY:-10.0...
+[ECON-CLAWBACK] CID:5 ACT=WARN prior_payoff=-75.761 extra_penalty=6.500 new_payoff=-82.363
+[FORGIVENESS] CID:5 WARN #23 — streak reset, benefits revoked
+⚠ [CAR 5] ACT=WARN REP=0.793 RWD=0.000 PNL=6.602 CREDIT=-2
+[ZONE-ROUTE] CID:1 zone=2 edge_port=9996
+[EDGE-RTT] CID:1 wall=1.5 ms  sim_delay=5.0 ms
+[CUSUM] CID:1 S=0.007/2.500 pEdge=0.204
+[POST-HANDOVER] CID:1 zone=2 pkt=8/8 credit_factor=0.250
+[POST-HANDOVER-END] CID:1 zone=2 probation complete
+>>> [UAV->CLOUD] BLK:ea46|TX:7.0.0.5|CID:1|TS:72.060|SPD:25.1|HDG:-0.3|PX:1494.8|PY:-20.0...
+[ECON-CLAWBACK] CID:1 ACT=WARN prior_payoff=-69.359 extra_penalty=6.250 new_payoff=-75.711
+[FORGIVENESS] CID:1 WARN #22 — streak reset, benefits revoked
+⚠ [CAR 1] ACT=WARN REP=0.536 RWD=0.000 PNL=6.352 CREDIT=-2
+[ZONE-ROUTE] CID:0 zone=2 edge_port=9996
+[EDGE-RTT] CID:0 wall=1.1 ms  sim_delay=5.0 ms
+[CUSUM] CID:0 S=0.013/2.500 pEdge=0.201
+[POST-HANDOVER] CID:0 zone=2 pkt=8/8 credit_factor=0.250
+[POST-HANDOVER-END] CID:0 zone=2 probation complete
+>>> [UAV->CLOUD] BLK:f277|TX:7.0.0.4|CID:0|TS:72.190|SPD:24.6|HDG:-1.5|PX:1508.5|PY:-10.0...
+[ECON-CLAWBACK] CID:0 ACT=WARN prior_payoff=-89.266 extra_penalty=7.000 new_payoff=-96.367
+[FORGIVENESS] CID:0 WARN #25 — streak reset, benefits revoked
+⚠ [CAR 0] ACT=WARN REP=0.594 RWD=0.000 PNL=7.101 CREDIT=-2
+[ZONE-ROUTE] CID:1 zone=2 edge_port=9996
+[EDGE-RTT] CID:1 wall=1.2 ms  sim_delay=5.0 ms
+[CUSUM] CID:1 S=0.008/2.500 pEdge=0.201
+>>> [UAV->CLOUD] BLK:94b7|TX:7.0.0.5|CID:1|TS:72.560|SPD:24.7|HDG:-1.7|PX:1507.6|PY:-20.0...
+[ECON-CLAWBACK] CID:1 ACT=WARN prior_payoff=-75.711 extra_penalty=6.500 new_payoff=-82.312
+[FORGIVENESS] CID:1 WARN #23 — streak reset, benefits revoked
+⚠ [CAR 1] ACT=WARN REP=0.791 RWD=0.000 PNL=6.601 CREDIT=-2
+[ZONE-ROUTE] CID:0 zone=2 edge_port=9996
+[EDGE-RTT] CID:0 wall=1.5 ms  sim_delay=5.0 ms
+[CUSUM] CID:0 S=0.014/2.500 pEdge=0.201
+>>> [UAV->CLOUD] BLK:c8d3|TX:7.0.0.4|CID:0|TS:72.690|SPD:24.6|HDG:0.3|PX:1520.7|PY:-10.0|...
+[ECON-CLAWBACK] CID:0 ACT=WARN prior_payoff=-96.367 extra_penalty=7.250 new_payoff=-103.718
+[FORGIVENESS] CID:0 WARN #26 — streak reset, benefits revoked
+⚠ [CAR 0] ACT=WARN REP=0.491 RWD=0.000 PNL=7.351 CREDIT=-2
+[ZONE-ROUTE] CID:1 zone=2 edge_port=9996
+[EDGE-RTT] CID:1 wall=1.4 ms  sim_delay=5.0 ms
+[CUSUM] CID:1 S=0.012/2.500 pEdge=0.204
+>>> [UAV->CLOUD] BLK:4a23|TX:7.0.0.5|CID:1|TS:73.060|SPD:25.1|HDG:1.0|PX:1519.7|PY:-20.0|...
+[ECON-CLAWBACK] CID:1 ACT=WARN prior_payoff=-82.312 extra_penalty=6.750 new_payoff=-89.164
+[FORGIVENESS] CID:1 WARN #24 — streak reset, benefits revoked
+⚠ [CAR 1] ACT=WARN REP=0.477 RWD=0.000 PNL=6.852 CREDIT=-2
+[ZONE-ROUTE] CID:0 zone=2 edge_port=9996
+[EDGE-RTT] CID:0 wall=1.6 ms  sim_delay=5.0 ms
+[CUSUM] CID:0 S=0.018/2.500 pEdge=0.204
+>>> [UAV->CLOUD] BLK:f4b6|TX:7.0.0.4|CID:0|TS:73.190|SPD:25.1|HDG:0.4|PX:1532.9|PY:-10.0|...
+[ECON-CLAWBACK] CID:0 ACT=WARN prior_payoff=-103.718 extra_penalty=7.500 new_payoff=-111.320
+[FORGIVENESS] CID:0 WARN #27 — streak reset, benefits revoked
+⚠ [CAR 0] ACT=WARN REP=0.481 RWD=0.000 PNL=7.602 CREDIT=-2
+[ZONE-ROUTE] CID:1 zone=2 edge_port=9996
+[EDGE-RTT] CID:1 wall=1.4 ms  sim_delay=5.0 ms
+[CUSUM] CID:1 S=0.017/2.500 pEdge=0.205
+>>> [UAV->CLOUD] BLK:8a34|TX:7.0.0.5|CID:1|TS:73.560|SPD:25.2|HDG:-0.1|PX:1531.8|PY:-20.0...
+[ECON-CLAWBACK] CID:1 ACT=WARN prior_payoff=-89.164 extra_penalty=7.000 new_payoff=-96.266
+[FORGIVENESS] CID:1 WARN #25 — streak reset, benefits revoked
+⚠ [CAR 1] ACT=WARN REP=0.653 RWD=0.000 PNL=7.102 CREDIT=-2
+[ZONE-ROUTE] CID:0 zone=2 edge_port=9996
+[EDGE-RTT] CID:0 wall=1.4 ms  sim_delay=5.0 ms
+[CUSUM] CID:0 S=0.019/2.500 pEdge=0.201
+>>> [UAV->CLOUD] BLK:ed76|TX:7.0.0.4|CID:0|TS:73.690|SPD:24.6|HDG:-1.1|PX:1545.0|PY:-10.0...
+[ECON-CLAWBACK] CID:0 ACT=WARN prior_payoff=-111.320 extra_penalty=7.750 new_payoff=-119.171
+[FORGIVENESS] CID:0 WARN #28 — streak reset, benefits revoked
+⚠ [CAR 0] ACT=WARN REP=0.829 RWD=0.000 PNL=7.851 CREDIT=-2
+[ZONE-ROUTE] CID:1 zone=2 edge_port=9996
+[EDGE-RTT] CID:1 wall=1.2 ms  sim_delay=5.0 ms
+[CUSUM] CID:1 S=0.023/2.500 pEdge=0.206
+>>> [UAV->CLOUD] BLK:b43f|TX:7.0.0.5|CID:1|TS:74.060|SPD:25.5|HDG:0.1|PX:1544.4|PY:-20.0|...
+[ECON-CLAWBACK] CID:1 ACT=WARN prior_payoff=-96.266 extra_penalty=7.250 new_payoff=-103.619
+[FORGIVENESS] CID:1 WARN #26 — streak reset, benefits revoked
+⚠ [CAR 1] ACT=WARN REP=0.529 RWD=0.000 PNL=7.353 CREDIT=-2
+[ZONE-ROUTE] CID:1 zone=2 edge_port=9996
+[EDGE-RTT] CID:1 wall=1.6 ms  sim_delay=5.0 ms
+[CUSUM] CID:1 S=0.023/2.500 pEdge=0.200
+>>> [UAV->CLOUD] BLK:e4a8|TX:7.0.0.5|CID:1|TS:74.560|SPD:24.5|HDG:0.6|PX:1556.3|PY:-20.0|...
+[ECON-CLAWBACK] CID:1 ACT=WARN prior_payoff=-103.619 extra_penalty=7.500 new_payoff=-111.219
+[FORGIVENESS] CID:1 WARN #27 — streak reset, benefits revoked
+⚠ [CAR 1] ACT=WARN REP=0.474 RWD=0.000 PNL=7.600 CREDIT=-2
+[ZONE-ROUTE] CID:1 zone=2 edge_port=9996
+[EDGE-RTT] CID:1 wall=1.5 ms  sim_delay=5.0 ms
+[CUSUM] CID:1 S=0.028/2.500 pEdge=0.205
+>>> [UAV->CLOUD] BLK:6642|TX:7.0.0.5|CID:1|TS:75.060|SPD:25.1|HDG:1.1|PX:1569.9|PY:-20.0|...
+[ECON-CLAWBACK] CID:1 ACT=WARN prior_payoff=-111.219 extra_penalty=7.750 new_payoff=-119.071
+[FORGIVENESS] CID:1 WARN #28 — streak reset, benefits revoked
+⚠ [CAR 1] ACT=WARN REP=0.785 RWD=0.000 PNL=7.852 CREDIT=-2
+[ZONE-ROUTE] CID:1 zone=2 edge_port=9996
+[EDGE-RTT] CID:1 wall=1.5 ms  sim_delay=5.0 ms
+[CUSUM] CID:1 S=0.031/2.500 pEdge=0.203
+>>> [UAV->CLOUD] BLK:5487|TX:7.0.0.5|CID:1|TS:75.560|SPD:24.8|HDG:-0.3|PX:1582.4|PY:-20.0...
+[ECON-CLAWBACK] CID:1 ACT=WARN prior_payoff=-119.071 extra_penalty=8.000 new_payoff=-127.173
+[FORGIVENESS] CID:1 WARN #29 — streak reset, benefits revoked
+⚠ [CAR 1] ACT=WARN REP=0.236 RWD=0.000 PNL=8.102 CREDIT=-2
+[LATE-ATTACK] CID:0 POSITION-FLIP at t=76.0s posX=1603.0m distToExit=197.0m (threshold=200.0m)
+[ZONE-ROUTE] CID:1 zone=2 edge_port=9996
+[EDGE-RTT] CID:1 wall=1.4 ms  sim_delay=5.0 ms
+[CUSUM] CID:1 S=0.032/2.500 pEdge=0.201
+>>> [UAV->CLOUD] BLK:9d7e|TX:7.0.0.5|CID:1|TS:76.060|SPD:24.7|HDG:0.1|PX:1594.5|PY:-20.0|...
+[ECON-CLAWBACK] CID:1 ACT=WARN prior_payoff=-127.173 extra_penalty=8.250 new_payoff=-135.524
+[FORGIVENESS] CID:1 WARN #30 — streak reset, benefits revoked
+⚠ [CAR 1] ACT=WARN REP=0.426 RWD=0.000 PNL=8.351 CREDIT=-2
+[ZONE-ROUTE] CID:1 zone=2 edge_port=9996
+[EDGE-RTT] CID:1 wall=1.3 ms  sim_delay=5.0 ms
+[CUSUM] CID:1 S=0.037/2.500 pEdge=0.205
+>>> [UAV->CLOUD] BLK:b438|TX:7.0.0.5|CID:1|TS:76.560|SPD:25.3|HDG:1.6|PX:1607.2|PY:-20.0|...
+[ECON-CLAWBACK] CID:1 ACT=WARN prior_payoff=-135.524 extra_penalty=8.500 new_payoff=-144.126
+[FORGIVENESS] CID:1 WARN #31 — streak reset, benefits revoked
+⚠ [CAR 1] ACT=WARN REP=0.735 RWD=0.000 PNL=8.602 CREDIT=-2
+[ZONE-ROUTE] CID:1 zone=2 edge_port=9996
+[EDGE-RTT] CID:1 wall=1.2 ms  sim_delay=5.0 ms
+[CUSUM] CID:1 S=0.041/2.500 pEdge=0.204
+>>> [UAV->CLOUD] BLK:2719|TX:7.0.0.5|CID:1|TS:77.060|SPD:25.0|HDG:0.5|PX:1618.9|PY:-20.0|...
+[ECON-CLAWBACK] CID:1 ACT=WARN prior_payoff=-144.126 extra_penalty=8.750 new_payoff=-152.978
+[FORGIVENESS] CID:1 WARN #32 — streak reset, benefits revoked
+⚠ [CAR 1] ACT=WARN REP=0.815 RWD=0.000 PNL=8.852 CREDIT=-2
+[ZONE-ROUTE] CID:1 zone=2 edge_port=9996
+[EDGE-RTT] CID:1 wall=1.2 ms  sim_delay=5.0 ms
+[CUSUM] CID:1 S=0.041/2.500 pEdge=0.200
+>>> [UAV->CLOUD] BLK:3472|TX:7.0.0.5|CID:1|TS:77.560|SPD:24.5|HDG:0.5|PX:1632.5|PY:-20.0|...
+[ECON-CLAWBACK] CID:1 ACT=WARN prior_payoff=-152.978 extra_penalty=9.000 new_payoff=-162.078
+[FORGIVENESS] CID:1 WARN #33 — streak reset, benefits revoked
+⚠ [CAR 1] ACT=WARN REP=0.740 RWD=0.000 PNL=9.100 CREDIT=-2
+[ZONE-ROUTE] CID:1 zone=2 edge_port=9996
+[EDGE-RTT] CID:1 wall=1.6 ms  sim_delay=5.0 ms
+[CUSUM] CID:1 S=0.047/2.500 pEdge=0.206
+>>> [UAV->CLOUD] BLK:3927|TX:7.0.0.5|CID:1|TS:78.060|SPD:25.4|HDG:-0.6|PX:1644.2|PY:-20.0...
+[ECON-CLAWBACK] CID:1 ACT=WARN prior_payoff=-162.078 extra_penalty=9.250 new_payoff=-171.431
+[FORGIVENESS] CID:1 WARN #34 — streak reset, benefits revoked
+⚠ [CAR 1] ACT=WARN REP=0.328 RWD=0.000 PNL=9.353 CREDIT=-2
+[ZONE-ROUTE] CID:1 zone=2 edge_port=9996
+[EDGE-RTT] CID:1 wall=1.5 ms  sim_delay=5.0 ms
+[CUSUM] CID:1 S=0.048/2.500 pEdge=0.201
+>>> [UAV->CLOUD] BLK:45ed|TX:7.0.0.5|CID:1|TS:78.560|SPD:24.6|HDG:0.3|PX:1657.3|PY:-20.0|...
+[ECON-CLAWBACK] CID:1 ACT=WARN prior_payoff=-171.431 extra_penalty=9.500 new_payoff=-181.032
+[FORGIVENESS] CID:1 WARN #35 — streak reset, benefits revoked
+⚠ [CAR 1] ACT=WARN REP=0.556 RWD=0.000 PNL=9.601 CREDIT=-2
+[ZONE-ROUTE] CID:1 zone=2 edge_port=9996
+[EDGE-RTT] CID:1 wall=1.5 ms  sim_delay=5.0 ms
+[CUSUM] CID:1 S=0.049/2.500 pEdge=0.201
+>>> [UAV->CLOUD] BLK:2217|TX:7.0.0.5|CID:1|TS:79.060|SPD:24.7|HDG:1.1|PX:1670.1|PY:-20.0|...
+[ECON-CLAWBACK] CID:1 ACT=WARN prior_payoff=-181.032 extra_penalty=9.750 new_payoff=-190.883
+[FORGIVENESS] CID:1 WARN #36 — streak reset, benefits revoked
+⚠ [CAR 1] ACT=WARN REP=0.270 RWD=0.000 PNL=9.851 CREDIT=-2
+[ZONE-ROUTE] CID:1 zone=2 edge_port=9996
+[EDGE-RTT] CID:1 wall=1.4 ms  sim_delay=5.0 ms
+[CUSUM] CID:1 S=0.055/2.500 pEdge=0.206
+>>> [UAV->CLOUD] BLK:24b7|TX:7.0.0.5|CID:1|TS:79.560|SPD:25.5|HDG:1.8|PX:1681.8|PY:-20.0|...
+[ECON-CLAWBACK] CID:1 ACT=WARN prior_payoff=-190.883 extra_penalty=10.000 new_payoff=-200.986
+[FORGIVENESS] CID:1 WARN #37 — streak reset, benefits revoked
+⚠ [CAR 1] ACT=WARN REP=0.562 RWD=0.000 PNL=10.103 CREDIT=-2
+[ZONE-ROUTE] CID:1 zone=2 edge_port=9996
+[EDGE-RTT] CID:1 wall=1.7 ms  sim_delay=5.0 ms
+[CUSUM] CID:1 S=0.058/2.500 pEdge=0.203
+>>> [UAV->CLOUD] BLK:12dd|TX:7.0.0.5|CID:1|TS:80.060|SPD:24.8|HDG:0.3|PX:1694.4|PY:-20.0|...
+[ECON-CLAWBACK] CID:1 ACT=WARN prior_payoff=-200.986 extra_penalty=10.250 new_payoff=-211.338
+[FORGIVENESS] CID:1 WARN #38 — streak reset, benefits revoked
+⚠ [CAR 1] ACT=WARN REP=0.553 RWD=0.000 PNL=10.352 CREDIT=-2
+[ZONE-ROUTE] CID:1 zone=2 edge_port=9996
+[EDGE-RTT] CID:1 wall=1.6 ms  sim_delay=5.0 ms
+[CUSUM] CID:1 S=0.062/2.500 pEdge=0.204
+>>> [UAV->CLOUD] BLK:d504|TX:7.0.0.5|CID:1|TS:80.560|SPD:25.1|HDG:1.1|PX:1706.9|PY:-20.0|...
+[ECON-CLAWBACK] CID:1 ACT=WARN prior_payoff=-211.338 extra_penalty=10.500 new_payoff=-221.940
+[FORGIVENESS] CID:1 WARN #39 — streak reset, benefits revoked
+⚠ [CAR 1] ACT=WARN REP=0.504 RWD=0.000 PNL=10.602 CREDIT=-2
+[ZONE-ROUTE] CID:1 zone=2 edge_port=9996
+[EDGE-RTT] CID:1 wall=1.6 ms  sim_delay=5.0 ms
+[CUSUM] CID:1 S=0.067/2.500 pEdge=0.205
+>>> [UAV->CLOUD] BLK:2b22|TX:7.0.0.5|CID:1|TS:81.060|SPD:25.2|HDG:-0.4|PX:1719.0|PY:-20.0...
+[ECON-CLAWBACK] CID:1 ACT=WARN prior_payoff=-221.940 extra_penalty=10.750 new_payoff=-232.792
+[FORGIVENESS] CID:1 WARN #40 — streak reset, benefits revoked
+⚠ [CAR 1] ACT=WARN REP=0.770 RWD=0.000 PNL=10.852 CREDIT=-2
+[ZONE-ROUTE] CID:1 zone=2 edge_port=9996
+[EDGE-RTT] CID:1 wall=1.5 ms  sim_delay=5.0 ms
+[CUSUM] CID:1 S=0.070/2.500 pEdge=0.203
+>>> [UAV->CLOUD] BLK:9476|TX:7.0.0.5|CID:1|TS:81.560|SPD:24.8|HDG:1.9|PX:1731.9|PY:-20.0|...
+[ECON-CLAWBACK] CID:1 ACT=WARN prior_payoff=-232.792 extra_penalty=11.000 new_payoff=-243.894
+[FORGIVENESS] CID:1 WARN #41 — streak reset, benefits revoked
+⚠ [CAR 1] ACT=WARN REP=0.624 RWD=0.000 PNL=11.102 CREDIT=-2
+[ZONE-ROUTE] CID:1 zone=2 edge_port=9996
+[EDGE-RTT] CID:1 wall=1.5 ms  sim_delay=5.0 ms
+[CUSUM] CID:1 S=0.074/2.500 pEdge=0.204
+>>> [UAV->CLOUD] BLK:01ba|TX:7.0.0.5|CID:1|TS:82.060|SPD:25.1|HDG:0.6|PX:1744.1|PY:-20.0|...
+[ECON-CLAWBACK] CID:1 ACT=WARN prior_payoff=-243.894 extra_penalty=11.250 new_payoff=-255.246
+[FORGIVENESS] CID:1 WARN #42 — streak reset, benefits revoked
+⚠ [CAR 1] ACT=WARN REP=0.123 RWD=0.000 PNL=11.352 CREDIT=-2
+[ZONE-ROUTE] CID:1 zone=2 edge_port=9996
+[EDGE-RTT] CID:1 wall=1.5 ms  sim_delay=5.0 ms
+[CUSUM] CID:1 S=0.077/2.500 pEdge=0.203
+>>> [UAV->CLOUD] BLK:f790|TX:7.0.0.5|CID:1|TS:82.560|SPD:24.8|HDG:0.8|PX:1757.7|PY:-20.0|...
+[ECON-CLAWBACK] CID:1 ACT=WARN prior_payoff=-255.246 extra_penalty=11.500 new_payoff=-266.848
+[FORGIVENESS] CID:1 WARN #43 — streak reset, benefits revoked
+⚠ [CAR 1] ACT=WARN REP=0.396 RWD=0.000 PNL=11.602 CREDIT=-2
+[ZONE-ROUTE] CID:1 zone=2 edge_port=9996
+[EDGE-RTT] CID:1 wall=1.6 ms  sim_delay=5.0 ms
+[CUSUM] CID:1 S=0.083/2.500 pEdge=0.206
+>>> [UAV->CLOUD] BLK:61a4|TX:7.0.0.5|CID:1|TS:83.060|SPD:25.4|HDG:0.9|PX:1768.8|PY:-20.0|...
+[ECON-CLAWBACK] CID:1 ACT=WARN prior_payoff=-266.848 extra_penalty=11.750 new_payoff=-278.701
+[FORGIVENESS] CID:1 WARN #44 — streak reset, benefits revoked
+⚠ [CAR 1] ACT=WARN REP=0.323 RWD=0.000 PNL=11.853 CREDIT=-2
+[ZONE-ROUTE] CID:1 zone=2 edge_port=9996
+[EDGE-RTT] CID:1 wall=1.3 ms  sim_delay=5.0 ms
+[CUSUM] CID:1 S=0.085/2.500 pEdge=0.202
+>>> [UAV->CLOUD] BLK:7657|TX:7.0.0.5|CID:1|TS:83.560|SPD:24.7|HDG:1.8|PX:1782.6|PY:-20.0|...
+[ECON-CLAWBACK] CID:1 ACT=WARN prior_payoff=-278.701 extra_penalty=12.000 new_payoff=-290.802
+[FORGIVENESS] CID:1 WARN #45 — streak reset, benefits revoked
+⚠ [CAR 1] ACT=WARN REP=0.568 RWD=0.000 PNL=12.101 CREDIT=-2
+[ZONE-ROUTE] CID:1 zone=2 edge_port=9996
+[EDGE-RTT] CID:1 wall=1.4 ms  sim_delay=5.0 ms
+[CUSUM] CID:1 S=0.091/2.500 pEdge=0.206
+>>> [UAV->CLOUD] BLK:4359|TX:7.0.0.5|CID:1|TS:84.060|SPD:25.3|HDG:-0.7|PX:1794.4|PY:-20.0...
+[ECON-CLAWBACK] CID:1 ACT=WARN prior_payoff=-290.802 extra_penalty=12.250 new_payoff=-303.155
+[FORGIVENESS] CID:1 WARN #46 — streak reset, benefits revoked
+⚠ [CAR 1] ACT=WARN REP=0.704 RWD=0.000 PNL=12.353 CREDIT=-2
+[ZONE-ROUTE] CID:1 zone=2 edge_port=9996
+[EDGE-RTT] CID:1 wall=1.6 ms  sim_delay=5.0 ms
+[CUSUM] CID:1 S=0.097/2.500 pEdge=0.206
+>>> [UAV->CLOUD] BLK:0b56|TX:7.0.0.5|CID:1|TS:84.560|SPD:25.3|HDG:1.3|PX:1807.2|PY:-20.0|...
+[ECON-CLAWBACK] CID:1 ACT=WARN prior_payoff=-303.155 extra_penalty=12.500 new_payoff=-315.758
+[FORGIVENESS] CID:1 WARN #47 — streak reset, benefits revoked
+⚠ [CAR 1] ACT=WARN REP=0.394 RWD=0.000 PNL=12.603 CREDIT=-2
+[ZONE-ROUTE] CID:1 zone=2 edge_port=9996
+[EDGE-RTT] CID:1 wall=1.7 ms  sim_delay=5.0 ms
+[CUSUM] CID:1 S=0.103/2.500 pEdge=0.206
+>>> [UAV->CLOUD] BLK:d168|TX:7.0.0.5|CID:1|TS:85.060|SPD:25.2|HDG:-0.5|PX:1819.8|PY:-20.0...
+[ECON-CLAWBACK] CID:1 ACT=WARN prior_payoff=-315.758 extra_penalty=12.750 new_payoff=-328.611
+[FORGIVENESS] CID:1 WARN #48 — streak reset, benefits revoked
+⚠ [CAR 1] ACT=WARN REP=0.572 RWD=0.000 PNL=12.853 CREDIT=-2
+[ZONE-ROUTE] CID:1 zone=2 edge_port=9996
+[EDGE-RTT] CID:1 wall=1.6 ms  sim_delay=5.0 ms
+[CUSUM] CID:1 S=0.107/2.500 pEdge=0.204
+>>> [UAV->CLOUD] BLK:8c27|TX:7.0.0.5|CID:1|TS:85.560|SPD:25.0|HDG:1.5|PX:1831.6|PY:-20.0|...
+[ECON-CLAWBACK] CID:1 ACT=WARN prior_payoff=-328.611 extra_penalty=13.000 new_payoff=-341.713
+[FORGIVENESS] CID:1 WARN #49 — streak reset, benefits revoked
+⚠ [CAR 1] ACT=WARN REP=0.672 RWD=0.000 PNL=13.102 CREDIT=-2
+[ZONE-ROUTE] CID:1 zone=2 edge_port=9996
+[EDGE-RTT] CID:1 wall=1.3 ms  sim_delay=5.0 ms
+[CUSUM] CID:1 S=0.109/2.500 pEdge=0.202
+>>> [UAV->CLOUD] BLK:87df|TX:7.0.0.5|CID:1|TS:86.060|SPD:24.7|HDG:-1.8|PX:1844.1|PY:-20.0...
+[ECON-CLAWBACK] CID:1 ACT=WARN prior_payoff=-341.713 extra_penalty=13.250 new_payoff=-355.064
+[FORGIVENESS] CID:1 WARN #50 — streak reset, benefits revoked
+⚠ [CAR 1] ACT=WARN REP=0.387 RWD=0.000 PNL=13.351 CREDIT=-2
+[ZONE-ROUTE] CID:1 zone=2 edge_port=9996
+[EDGE-RTT] CID:1 wall=1.4 ms  sim_delay=5.0 ms
+[CUSUM] CID:1 S=0.110/2.500 pEdge=0.201
+>>> [UAV->CLOUD] BLK:f55b|TX:7.0.0.5|CID:1|TS:86.560|SPD:24.6|HDG:-1.6|PX:1856.7|PY:-20.0...
+[ECON-CLAWBACK] CID:1 ACT=WARN prior_payoff=-355.064 extra_penalty=13.500 new_payoff=-368.665
+[FORGIVENESS] CID:1 WARN #51 — streak reset, benefits revoked
+⚠ [CAR 1] ACT=WARN REP=0.697 RWD=0.000 PNL=13.601 CREDIT=-2
+[ZONE-ROUTE] CID:1 zone=2 edge_port=9996
+[EDGE-RTT] CID:1 wall=1.5 ms  sim_delay=5.0 ms
+[CUSUM] CID:1 S=0.110/2.500 pEdge=0.200
+>>> [UAV->CLOUD] BLK:f1ca|TX:7.0.0.5|CID:1|TS:87.060|SPD:24.6|HDG:1.5|PX:1870.2|PY:-20.0|...
+[ECON-CLAWBACK] CID:1 ACT=WARN prior_payoff=-368.665 extra_penalty=13.750 new_payoff=-382.515
+[FORGIVENESS] CID:1 WARN #52 — streak reset, benefits revoked
+⚠ [CAR 1] ACT=WARN REP=0.274 RWD=0.000 PNL=13.850 CREDIT=-2
+[ZONE-ROUTE] CID:1 zone=2 edge_port=9996
+[EDGE-RTT] CID:1 wall=1.5 ms  sim_delay=5.0 ms
+[CUSUM] CID:1 S=0.111/2.500 pEdge=0.201
+>>> [UAV->CLOUD] BLK:2628|TX:7.0.0.5|CID:1|TS:87.560|SPD:24.7|HDG:-0.6|PX:1882.7|PY:-20.0...
+[ECON-CLAWBACK] CID:1 ACT=WARN prior_payoff=-382.515 extra_penalty=14.000 new_payoff=-396.616
+[FORGIVENESS] CID:1 WARN #53 — streak reset, benefits revoked
+⚠ [CAR 1] ACT=WARN REP=0.290 RWD=0.000 PNL=14.101 CREDIT=-2
+[ZONE-ROUTE] CID:1 zone=2 edge_port=9996
+[EDGE-RTT] CID:1 wall=1.8 ms  sim_delay=5.0 ms
+[CUSUM] CID:1 S=0.111/2.500 pEdge=0.200
+>>> [UAV->CLOUD] BLK:28cf|TX:7.0.0.5|CID:1|TS:88.060|SPD:24.6|HDG:1.3|PX:1893.9|PY:-20.0|...
+[ECON-CLAWBACK] CID:1 ACT=WARN prior_payoff=-396.616 extra_penalty=14.250 new_payoff=-410.966
+[FORGIVENESS] CID:1 WARN #54 — streak reset, benefits revoked
+⚠ [CAR 1] ACT=WARN REP=0.393 RWD=0.000 PNL=14.350 CREDIT=-2
+[ZONE-ROUTE] CID:1 zone=2 edge_port=9996
+[EDGE-RTT] CID:1 wall=1.3 ms  sim_delay=5.0 ms
+[CUSUM] CID:1 S=0.116/2.500 pEdge=0.205
+>>> [UAV->CLOUD] BLK:a956|TX:7.0.0.5|CID:1|TS:88.560|SPD:25.5|HDG:-0.1|PX:1906.9|PY:-20.0...
+[ECON-CLAWBACK] CID:1 ACT=WARN prior_payoff=-410.966 extra_penalty=14.500 new_payoff=-425.568
+[FORGIVENESS] CID:1 WARN #55 — streak reset, benefits revoked
+⚠ [CAR 1] ACT=WARN REP=0.424 RWD=0.000 PNL=14.602 CREDIT=-2
+[ZONE-ROUTE] CID:1 zone=2 edge_port=9996
+[EDGE-RTT] CID:1 wall=1.4 ms  sim_delay=5.0 ms
+[CUSUM] CID:1 S=0.118/2.500 pEdge=0.202
+>>> [UAV->CLOUD] BLK:5f84|TX:7.0.0.5|CID:1|TS:89.060|SPD:24.8|HDG:-0.2|PX:1919.4|PY:-20.0...
+[ECON-CLAWBACK] CID:1 ACT=WARN prior_payoff=-425.568 extra_penalty=14.750 new_payoff=-440.419
+[FORGIVENESS] CID:1 WARN #56 — streak reset, benefits revoked
+⚠ [CAR 1] ACT=WARN REP=0.413 RWD=0.000 PNL=14.851 CREDIT=-2
+[ZONE-ROUTE] CID:1 zone=2 edge_port=9996
+[EDGE-RTT] CID:1 wall=1.1 ms  sim_delay=5.0 ms
+[CUSUM] CID:1 S=0.123/2.500 pEdge=0.205
+>>> [UAV->CLOUD] BLK:67b4|TX:7.0.0.5|CID:1|TS:89.560|SPD:25.2|HDG:1.2|PX:1932.4|PY:-20.0|...
+[ECON-CLAWBACK] CID:1 ACT=WARN prior_payoff=-440.419 extra_penalty=15.000 new_payoff=-455.521
+[FORGIVENESS] CID:1 WARN #57 — streak reset, benefits revoked
+⚠ [CAR 1] ACT=WARN REP=0.329 RWD=0.000 PNL=15.102 CREDIT=-2
+[ZONE-ROUTE] CID:1 zone=2 edge_port=9996
+[EDGE-RTT] CID:1 wall=1.4 ms  sim_delay=5.0 ms
+[CUSUM] CID:1 S=0.129/2.500 pEdge=0.206
+>>> [UAV->CLOUD] BLK:ec62|TX:7.0.0.5|CID:1|TS:90.060|SPD:25.5|HDG:-0.5|PX:1943.9|PY:-20.0...
+[ECON-CLAWBACK] CID:1 ACT=WARN prior_payoff=-455.521 extra_penalty=15.250 new_payoff=-470.874
+[FORGIVENESS] CID:1 WARN #58 — streak reset, benefits revoked
+⚠ [CAR 1] ACT=WARN REP=0.357 RWD=0.000 PNL=15.353 CREDIT=-2
+[ZONE-ROUTE] CID:1 zone=2 edge_port=9996
+[EDGE-RTT] CID:1 wall=1.3 ms  sim_delay=5.0 ms
+[CUSUM] CID:1 S=0.136/2.500 pEdge=0.207
+>>> [UAV->CLOUD] BLK:f13c|TX:7.0.0.5|CID:1|TS:90.560|SPD:25.5|HDG:1.5|PX:1957.6|PY:-20.0|...
+[ECON-CLAWBACK] CID:1 ACT=WARN prior_payoff=-470.874 extra_penalty=15.500 new_payoff=-486.477
+[FORGIVENESS] CID:1 WARN #59 — streak reset, benefits revoked
+⚠ [CAR 1] ACT=WARN REP=0.317 RWD=0.000 PNL=15.603 CREDIT=-2
+[ZONE-ROUTE] CID:1 zone=2 edge_port=9996
+[EDGE-RTT] CID:1 wall=1.4 ms  sim_delay=5.0 ms
+[CUSUM] CID:1 S=0.137/2.500 pEdge=0.201
+>>> [UAV->CLOUD] BLK:771a|TX:7.0.0.5|CID:1|TS:91.060|SPD:24.6|HDG:1.6|PX:1969.5|PY:-20.0|...
+[ECON-CLAWBACK] CID:1 ACT=WARN prior_payoff=-486.477 extra_penalty=15.750 new_payoff=-502.328
+[FORGIVENESS] CID:1 WARN #60 — streak reset, benefits revoked
+⚠ [CAR 1] ACT=WARN REP=0.431 RWD=0.000 PNL=15.851 CREDIT=-2
+[ZONE-ROUTE] CID:1 zone=2 edge_port=9996
+[EDGE-RTT] CID:1 wall=1.5 ms  sim_delay=5.0 ms
+[CUSUM] CID:1 S=0.142/2.500 pEdge=0.205
+>>> [UAV->CLOUD] BLK:d4b0|TX:7.0.0.5|CID:1|TS:91.560|SPD:25.1|HDG:-0.9|PX:1982.1|PY:-20.0...
+[ECON-CLAWBACK] CID:1 ACT=WARN prior_payoff=-502.328 extra_penalty=16.000 new_payoff=-518.430
+[FORGIVENESS] CID:1 WARN #61 — streak reset, benefits revoked
+⚠ [CAR 1] ACT=WARN REP=0.281 RWD=0.000 PNL=16.102 CREDIT=-2
+[ZONE-ROUTE] CID:1 zone=2 edge_port=9996
+[EDGE-RTT] CID:1 wall=1.5 ms  sim_delay=5.0 ms
+[CUSUM] CID:1 S=0.147/2.500 pEdge=0.205
+>>> [UAV->CLOUD] BLK:91e3|TX:7.0.0.5|CID:1|TS:92.060|SPD:25.1|HDG:0.6|PX:1994.0|PY:-20.0|...
+[ECON-CLAWBACK] CID:1 ACT=WARN prior_payoff=-518.430 extra_penalty=16.250 new_payoff=-534.782
+[FORGIVENESS] CID:1 WARN #62 — streak reset, benefits revoked
+⚠ [CAR 1] ACT=WARN REP=0.196 RWD=0.000 PNL=16.352 CREDIT=-2
+[ZONE-ROUTE] CID:1 zone=2 edge_port=9996
+[EDGE-RTT] CID:1 wall=1.2 ms  sim_delay=5.0 ms
+[CUSUM] CID:1 S=0.152/2.500 pEdge=0.205
+>>> [UAV->CLOUD] BLK:ce84|TX:7.0.0.5|CID:1|TS:92.560|SPD:25.2|HDG:1.2|PX:2006.4|PY:-20.0|...
+[ECON-CLAWBACK] CID:1 ACT=WARN prior_payoff=-534.782 extra_penalty=16.500 new_payoff=-551.384
+[FORGIVENESS] CID:1 WARN #63 — streak reset, benefits revoked
+⚠ [CAR 1] ACT=WARN REP=0.310 RWD=0.000 PNL=16.602 CREDIT=-2
+[ZONE-ROUTE] CID:1 zone=2 edge_port=9996
+[EDGE-RTT] CID:1 wall=1.4 ms  sim_delay=5.0 ms
+[CUSUM] CID:1 S=0.153/2.500 pEdge=0.201
+>>> [UAV->CLOUD] BLK:9330|TX:7.0.0.5|CID:1|TS:93.060|SPD:24.6|HDG:-1.5|PX:2019.0|PY:-20.0...
+[ECON-CLAWBACK] CID:1 ACT=WARN prior_payoff=-551.384 extra_penalty=16.750 new_payoff=-568.235
+[FORGIVENESS] CID:1 WARN #64 — streak reset, benefits revoked
+⚠ [CAR 1] ACT=WARN REP=0.529 RWD=0.000 PNL=16.851 CREDIT=-2
+[ZONE-ROUTE] CID:1 zone=2 edge_port=9996
+[EDGE-RTT] CID:1 wall=1.6 ms  sim_delay=5.0 ms
+[CUSUM] CID:1 S=0.154/2.500 pEdge=0.201
+>>> [UAV->CLOUD] BLK:b31a|TX:7.0.0.5|CID:1|TS:93.560|SPD:24.6|HDG:-1.8|PX:2032.6|PY:-20.0...
+[ECON-CLAWBACK] CID:1 ACT=WARN prior_payoff=-568.235 extra_penalty=17.000 new_payoff=-585.336
+[FORGIVENESS] CID:1 WARN #65 — streak reset, benefits revoked
+⚠ [CAR 1] ACT=WARN REP=0.231 RWD=0.000 PNL=17.101 CREDIT=-2
+[ZONE-ROUTE] CID:1 zone=2 edge_port=9996
+[EDGE-RTT] CID:1 wall=1.3 ms  sim_delay=5.0 ms
+[CUSUM] CID:1 S=0.155/2.500 pEdge=0.201
+>>> [UAV->CLOUD] BLK:0be5|TX:7.0.0.5|CID:1|TS:94.060|SPD:24.7|HDG:1.7|PX:2043.9|PY:-20.0|...
+[ECON-CLAWBACK] CID:1 ACT=WARN prior_payoff=-585.336 extra_penalty=17.250 new_payoff=-602.687
+[FORGIVENESS] CID:1 WARN #66 — streak reset, benefits revoked
+⚠ [CAR 1] ACT=WARN REP=0.721 RWD=0.000 PNL=17.351 CREDIT=-2
+[ZONE-ROUTE] CID:1 zone=2 edge_port=9996
+[EDGE-RTT] CID:1 wall=1.5 ms  sim_delay=5.0 ms
+[CUSUM] CID:1 S=0.159/2.500 pEdge=0.204
+>>> [UAV->CLOUD] BLK:7608|TX:7.0.0.5|CID:1|TS:94.560|SPD:25.2|HDG:1.1|PX:2056.5|PY:-20.0|...
+[ECON-CLAWBACK] CID:1 ACT=WARN prior_payoff=-602.687 extra_penalty=17.500 new_payoff=-620.289
+[FORGIVENESS] CID:1 WARN #67 — streak reset, benefits revoked
+⚠ [CAR 1] ACT=WARN REP=0.047 RWD=0.000 PNL=17.602 CREDIT=-2
+[ZONE-ROUTE] CID:1 zone=2 edge_port=9996
+[EDGE-RTT] CID:1 wall=1.4 ms  sim_delay=5.0 ms
+[CUSUM] CID:1 S=0.163/2.500 pEdge=0.204
+>>> [UAV->CLOUD] BLK:c154|TX:7.0.0.5|CID:1|TS:95.060|SPD:25.1|HDG:0.9|PX:2069.0|PY:-20.0|...
+[ECON-CLAWBACK] CID:1 ACT=WARN prior_payoff=-620.289 extra_penalty=17.750 new_payoff=-638.141
+[FORGIVENESS] CID:1 WARN #68 — streak reset, benefits revoked
+⚠ [CAR 1] ACT=WARN REP=0.180 RWD=0.000 PNL=17.852 CREDIT=-2
+[ZONE-ROUTE] CID:1 zone=2 edge_port=9996
+[EDGE-RTT] CID:1 wall=1.2 ms  sim_delay=5.0 ms
+[CUSUM] CID:1 S=0.167/2.500 pEdge=0.204
+>>> [UAV->CLOUD] BLK:fdad|TX:7.0.0.5|CID:1|TS:95.560|SPD:25.0|HDG:0.5|PX:2082.0|PY:-20.0|...
+[ECON-CLAWBACK] CID:1 ACT=WARN prior_payoff=-638.141 extra_penalty=18.000 new_payoff=-656.243
+[FORGIVENESS] CID:1 WARN #69 — streak reset, benefits revoked
+⚠ [CAR 1] ACT=WARN REP=0.317 RWD=0.000 PNL=18.102 CREDIT=-2
+[ZONE-ROUTE] CID:1 zone=2 edge_port=9996
+[EDGE-RTT] CID:1 wall=1.1 ms  sim_delay=5.0 ms
+[CUSUM] CID:1 S=0.169/2.500 pEdge=0.202
+>>> [UAV->CLOUD] BLK:1765|TX:7.0.0.5|CID:1|TS:96.060|SPD:24.8|HDG:-1.0|PX:2095.1|PY:-20.0...
+[ECON-CLAWBACK] CID:1 ACT=WARN prior_payoff=-656.243 extra_penalty=18.250 new_payoff=-674.594
+[FORGIVENESS] CID:1 WARN #70 — streak reset, benefits revoked
+⚠ [CAR 1] ACT=WARN REP=0.188 RWD=0.000 PNL=18.351 CREDIT=-2
+[ZONE-ROUTE] CID:1 zone=2 edge_port=9996
+[EDGE-RTT] CID:1 wall=1.3 ms  sim_delay=5.0 ms
+[CUSUM] CID:1 S=0.175/2.500 pEdge=0.206
+>>> [UAV->CLOUD] BLK:9350|TX:7.0.0.5|CID:1|TS:96.560|SPD:25.4|HDG:-0.1|PX:2107.2|PY:-20.0...
+[ECON-CLAWBACK] CID:1 ACT=WARN prior_payoff=-674.594 extra_penalty=18.500 new_payoff=-693.197
+[FORGIVENESS] CID:1 WARN #71 — streak reset, benefits revoked
+⚠ [CAR 1] ACT=WARN REP=0.328 RWD=0.000 PNL=18.603 CREDIT=-2
+[ZONE-ROUTE] CID:1 zone=2 edge_port=9996
+[EDGE-RTT] CID:1 wall=1.5 ms  sim_delay=5.0 ms
+[CUSUM] CID:1 S=0.178/2.500 pEdge=0.203
+>>> [UAV->CLOUD] BLK:eff3|TX:7.0.0.5|CID:1|TS:97.560|SPD:24.9|HDG:-1.0|PX:2132.1|PY:-20.0...
+[ECON-CLAWBACK] CID:1 ACT=WARN prior_payoff=-693.197 extra_penalty=18.750 new_payoff=-712.049
+[FORGIVENESS] CID:1 WARN #72 — streak reset, benefits revoked
+⚠ [CAR 1] ACT=WARN REP=0.421 RWD=0.000 PNL=18.852 CREDIT=-2
+[ZONE-ROUTE] CID:1 zone=2 edge_port=9996
+[EDGE-RTT] CID:1 wall=1.4 ms  sim_delay=5.0 ms
+[CUSUM] CID:1 S=0.182/2.500 pEdge=0.204
+>>> [UAV->CLOUD] BLK:32fc|TX:7.0.0.5|CID:1|TS:98.060|SPD:25.0|HDG:0.1|PX:2145.0|PY:-20.0|...
+[ECON-CLAWBACK] CID:1 ACT=WARN prior_payoff=-712.049 extra_penalty=19.000 new_payoff=-731.151
+[FORGIVENESS] CID:1 WARN #73 — streak reset, benefits revoked
+⚠ [CAR 1] ACT=WARN REP=0.330 RWD=0.000 PNL=19.102 CREDIT=-2
+[ZONE-ROUTE] CID:1 zone=2 edge_port=9996
+[EDGE-RTT] CID:1 wall=1.2 ms  sim_delay=5.0 ms
+[CUSUM] CID:1 S=0.187/2.500 pEdge=0.205
+>>> [UAV->CLOUD] BLK:87d3|TX:7.0.0.5|CID:1|TS:98.560|SPD:25.2|HDG:0.5|PX:2157.3|PY:-20.0|...
+[ECON-CLAWBACK] CID:1 ACT=WARN prior_payoff=-731.151 extra_penalty=19.250 new_payoff=-750.503
+[FORGIVENESS] CID:1 WARN #74 — streak reset, benefits revoked
+⚠ [CAR 1] ACT=WARN REP=0.196 RWD=0.000 PNL=19.352 CREDIT=-2
+[ZONE-ROUTE] CID:1 zone=2 edge_port=9996
+[EDGE-RTT] CID:1 wall=1.2 ms  sim_delay=5.0 ms
+[CUSUM] CID:1 S=0.193/2.500 pEdge=0.206
+>>> [UAV->CLOUD] BLK:7401|TX:7.0.0.5|CID:1|TS:99.060|SPD:25.3|HDG:-0.1|PX:2168.9|PY:-20.0...
+[ECON-CLAWBACK] CID:1 ACT=WARN prior_payoff=-750.503 extra_penalty=19.500 new_payoff=-770.106
+[FORGIVENESS] CID:1 WARN #75 — streak reset, benefits revoked
+⚠ [CAR 1] ACT=WARN REP=0.433 RWD=0.000 PNL=19.603 CREDIT=-2
+[ZONE-ROUTE] CID:1 zone=2 edge_port=9996
+[EDGE-RTT] CID:1 wall=1.3 ms  sim_delay=5.0 ms
+[CUSUM] CID:1 S=0.197/2.500 pEdge=0.204
+>>> [UAV->CLOUD] BLK:c160|TX:7.0.0.5|CID:1|TS:99.560|SPD:25.0|HDG:0.4|PX:2181.6|PY:-20.0|...
+[ECON-CLAWBACK] CID:1 ACT=WARN prior_payoff=-770.106 extra_penalty=19.750 new_payoff=-789.958
+[FORGIVENESS] CID:1 WARN #76 — streak reset, benefits revoked
+⚠ [CAR 1] ACT=WARN REP=0.335 RWD=0.000 PNL=19.852 CREDIT=-2
+[ZONE-ROUTE] CID:1 zone=2 edge_port=9996
+[EDGE-RTT] CID:1 wall=1.2 ms  sim_delay=5.0 ms
+[CUSUM] CID:1 S=0.203/2.500 pEdge=0.206
+>>> [UAV->CLOUD] BLK:6a20|TX:7.0.0.5|CID:1|TS:100.060|SPD:25.3|HDG:0.6|PX:2195.2|PY:-20.0...
+[ECON-CLAWBACK] CID:1 ACT=WARN prior_payoff=-789.958 extra_penalty=20.000 new_payoff=-810.061
+[FORGIVENESS] CID:1 WARN #77 — streak reset, benefits revoked
+⚠ [CAR 1] ACT=WARN REP=0.333 RWD=0.000 PNL=20.103 CREDIT=-2
+[ZONE-ROUTE] CID:1 zone=2 edge_port=9996
+[EDGE-RTT] CID:1 wall=1.5 ms  sim_delay=5.0 ms
+[CUSUM] CID:1 S=0.204/2.500 pEdge=0.201
+>>> [UAV->CLOUD] BLK:1295|TX:7.0.0.5|CID:1|TS:100.560|SPD:24.6|HDG:-1.8|PX:2207.5|PY:-20....
+[ECON-CLAWBACK] CID:1 ACT=WARN prior_payoff=-810.061 extra_penalty=20.250 new_payoff=-830.412
+[FORGIVENESS] CID:1 WARN #78 — streak reset, benefits revoked
+⚠ [CAR 1] ACT=WARN REP=0.296 RWD=0.000 PNL=20.351 CREDIT=-2
+[ZONE-ROUTE] CID:1 zone=2 edge_port=9996
+[EDGE-RTT] CID:1 wall=1.3 ms  sim_delay=5.0 ms
+[CUSUM] CID:1 S=0.209/2.500 pEdge=0.205
+>>> [UAV->CLOUD] BLK:f8c9|TX:7.0.0.5|CID:1|TS:101.060|SPD:25.1|HDG:-1.3|PX:2218.9|PY:-20....
+[ECON-CLAWBACK] CID:1 ACT=WARN prior_payoff=-830.412 extra_penalty=20.500 new_payoff=-851.014
+[FORGIVENESS] CID:1 WARN #79 — streak reset, benefits revoked
+⚠ [CAR 1] ACT=WARN REP=0.112 RWD=0.000 PNL=20.602 CREDIT=-2
+[ZONE-ROUTE] CID:1 zone=2 edge_port=9996
+[EDGE-RTT] CID:1 wall=1.4 ms  sim_delay=5.0 ms
+[CUSUM] CID:1 S=0.212/2.500 pEdge=0.203
+>>> [UAV->CLOUD] BLK:4e63|TX:7.0.0.5|CID:1|TS:101.560|SPD:24.9|HDG:0.1|PX:2232.6|PY:-20.0...
+[ECON-CLAWBACK] CID:1 ACT=WARN prior_payoff=-851.014 extra_penalty=20.750 new_payoff=-871.866
+[FORGIVENESS] CID:1 WARN #80 — streak reset, benefits revoked
+⚠ [CAR 1] ACT=WARN REP=0.519 RWD=0.000 PNL=20.852 CREDIT=-2
+[ZONE-ROUTE] CID:1 zone=2 edge_port=9996
+[EDGE-RTT] CID:1 wall=1.3 ms  sim_delay=5.0 ms
+[CUSUM] CID:1 S=0.212/2.500 pEdge=0.200
+>>> [UAV->CLOUD] BLK:2df3|TX:7.0.0.5|CID:1|TS:102.060|SPD:24.5|HDG:-1.8|PX:2244.1|PY:-20....
+[ECON-CLAWBACK] CID:1 ACT=WARN prior_payoff=-871.866 extra_penalty=21.000 new_payoff=-892.966
+[FORGIVENESS] CID:1 WARN #81 — streak reset, benefits revoked
+⚠ [CAR 1] ACT=WARN REP=0.384 RWD=0.000 PNL=21.100 CREDIT=-2
+[ZONE-ROUTE] CID:1 zone=2 edge_port=9996
+[EDGE-RTT] CID:1 wall=0.9 ms  sim_delay=5.0 ms
+[CUSUM] CID:1 S=0.212/2.500 pEdge=0.200
+>>> [UAV->CLOUD] BLK:bf6e|TX:7.0.0.5|CID:1|TS:102.560|SPD:24.6|HDG:0.8|PX:2256.6|PY:-20.0...
+[ECON-CLAWBACK] CID:1 ACT=WARN prior_payoff=-892.966 extra_penalty=21.250 new_payoff=-914.316
+[FORGIVENESS] CID:1 WARN #82 — streak reset, benefits revoked
+⚠ [CAR 1] ACT=WARN REP=0.224 RWD=0.000 PNL=21.350 CREDIT=-2
+[ZONE-ROUTE] CID:1 zone=2 edge_port=9996
+[EDGE-RTT] CID:1 wall=1.6 ms  sim_delay=5.0 ms
+[CUSUM] CID:1 S=0.217/2.500 pEdge=0.205
+>>> [UAV->CLOUD] BLK:33d8|TX:7.0.0.5|CID:1|TS:103.060|SPD:25.3|HDG:0.5|PX:2269.8|PY:-20.0...
+[ECON-CLAWBACK] CID:1 ACT=WARN prior_payoff=-914.316 extra_penalty=21.500 new_payoff=-935.918
+[FORGIVENESS] CID:1 WARN #83 — streak reset, benefits revoked
+⚠ [CAR 1] ACT=WARN REP=0.754 RWD=0.000 PNL=21.602 CREDIT=-2
+[ZONE-ROUTE] CID:1 zone=2 edge_port=9996
+[EDGE-RTT] CID:1 wall=1.3 ms  sim_delay=5.0 ms
+[CUSUM] CID:1 S=0.218/2.500 pEdge=0.201
+>>> [UAV->CLOUD] BLK:a87d|TX:7.0.0.5|CID:1|TS:103.560|SPD:24.7|HDG:1.4|PX:2281.3|PY:-20.0...
+[ECON-CLAWBACK] CID:1 ACT=WARN prior_payoff=-935.918 extra_penalty=21.750 new_payoff=-957.769
+[FORGIVENESS] CID:1 WARN #84 — streak reset, benefits revoked
+⚠ [CAR 1] ACT=WARN REP=0.388 RWD=0.000 PNL=21.851 CREDIT=-2
+[ZONE-ROUTE] CID:1 zone=2 edge_port=9996
+[EDGE-RTT] CID:1 wall=1.2 ms  sim_delay=5.0 ms
+[CUSUM] CID:1 S=0.220/2.500 pEdge=0.202
+>>> [UAV->CLOUD] BLK:dd10|TX:7.0.0.5|CID:1|TS:104.060|SPD:24.9|HDG:0.2|PX:2294.9|PY:-20.0...
+[ECON-CLAWBACK] CID:1 ACT=WARN prior_payoff=-957.769 extra_penalty=22.000 new_payoff=-979.870
+[FORGIVENESS] CID:1 WARN #85 — streak reset, benefits revoked
+⚠ [CAR 1] ACT=WARN REP=0.314 RWD=0.000 PNL=22.101 CREDIT=-2
+[ZONE-ROUTE] CID:1 zone=2 edge_port=9996
+[EDGE-RTT] CID:1 wall=1.3 ms  sim_delay=5.0 ms
+[CUSUM] CID:1 S=0.221/2.500 pEdge=0.201
+>>> [UAV->CLOUD] BLK:b457|TX:7.0.0.5|CID:1|TS:104.560|SPD:24.7|HDG:-0.5|PX:2306.8|PY:-20....
+[ECON-CLAWBACK] CID:1 ACT=WARN prior_payoff=-979.870 extra_penalty=22.250 new_payoff=-1002.221
+[FORGIVENESS] CID:1 WARN #86 — streak reset, benefits revoked
+⚠ [CAR 1] ACT=WARN REP=0.226 RWD=0.000 PNL=22.351 CREDIT=-2
+[ZONE-ROUTE] CID:1 zone=2 edge_port=9996
+[EDGE-RTT] CID:1 wall=1.2 ms  sim_delay=5.0 ms
+[CUSUM] CID:1 S=0.227/2.500 pEdge=0.206
+>>> [UAV->CLOUD] BLK:b1bf|TX:7.0.0.5|CID:1|TS:105.060|SPD:25.5|HDG:2.0|PX:2320.2|PY:-20.0...
+[ECON-CLAWBACK] CID:1 ACT=WARN prior_payoff=-1002.221 extra_penalty=22.500 new_payoff=-1024.824
+[FORGIVENESS] CID:1 WARN #87 — streak reset, benefits revoked
+⚠ [CAR 1] ACT=WARN REP=0.066 RWD=0.000 PNL=22.603 CREDIT=-2
+[ZONE-ROUTE] CID:1 zone=2 edge_port=9996
+[EDGE-RTT] CID:1 wall=1.5 ms  sim_delay=5.0 ms
+[CUSUM] CID:1 S=0.227/2.500 pEdge=0.200
+>>> [UAV->CLOUD] BLK:9573|TX:7.0.0.5|CID:1|TS:105.560|SPD:24.5|HDG:0.5|PX:2332.6|PY:-20.0...
+[ECON-CLAWBACK] CID:1 ACT=WARN prior_payoff=-1024.824 extra_penalty=22.750 new_payoff=-1047.674
+[FORGIVENESS] CID:1 WARN #88 — streak reset, benefits revoked
+⚠ [CAR 1] ACT=WARN REP=0.201 RWD=0.000 PNL=22.850 CREDIT=-2
+[ZONE-ROUTE] CID:1 zone=2 edge_port=9996
+[EDGE-RTT] CID:1 wall=1.4 ms  sim_delay=5.0 ms
+[CUSUM] CID:1 S=0.232/2.500 pEdge=0.205
+>>> [UAV->CLOUD] BLK:69f2|TX:7.0.0.5|CID:1|TS:106.060|SPD:25.2|HDG:0.5|PX:2344.2|PY:-20.0...
+[ECON-CLAWBACK] CID:1 ACT=WARN prior_payoff=-1047.674 extra_penalty=23.000 new_payoff=-1070.776
+[FORGIVENESS] CID:1 WARN #89 — streak reset, benefits revoked
+⚠ [CAR 1] ACT=WARN REP=0.293 RWD=0.000 PNL=23.102 CREDIT=-2
+[ZONE-ROUTE] CID:1 zone=2 edge_port=9996
+[EDGE-RTT] CID:1 wall=1.2 ms  sim_delay=5.0 ms
+[CUSUM] CID:1 S=0.234/2.500 pEdge=0.202
+>>> [UAV->CLOUD] BLK:3a08|TX:7.0.0.5|CID:1|TS:106.560|SPD:24.8|HDG:1.4|PX:2356.6|PY:-20.0...
+[ECON-CLAWBACK] CID:1 ACT=WARN prior_payoff=-1070.776 extra_penalty=23.250 new_payoff=-1094.127
+[FORGIVENESS] CID:1 WARN #90 — streak reset, benefits revoked
+⚠ [CAR 1] ACT=WARN REP=0.244 RWD=0.000 PNL=23.351 CREDIT=-2
+[ZONE-ROUTE] CID:1 zone=2 edge_port=9996
+[EDGE-RTT] CID:1 wall=1.6 ms  sim_delay=5.0 ms
+[CUSUM] CID:1 S=0.240/2.500 pEdge=0.206
+>>> [UAV->CLOUD] BLK:0d5c|TX:7.0.0.5|CID:1|TS:107.060|SPD:25.4|HDG:-0.8|PX:2369.2|PY:-20....
+[ECON-CLAWBACK] CID:1 ACT=WARN prior_payoff=-1094.127 extra_penalty=23.500 new_payoff=-1117.730
+[FORGIVENESS] CID:1 WARN #91 — streak reset, benefits revoked
+⚠ [CAR 1] ACT=WARN REP=0.222 RWD=0.000 PNL=23.603 CREDIT=-2
+[ZONE-ROUTE] CID:1 zone=2 edge_port=9996
+[EDGE-RTT] CID:1 wall=1.0 ms  sim_delay=5.0 ms
+[CUSUM] CID:1 S=0.241/2.500 pEdge=0.201
+>>> [UAV->CLOUD] BLK:df0a|TX:7.0.0.5|CID:1|TS:107.560|SPD:24.6|HDG:1.5|PX:2382.1|PY:-20.0...
+[ECON-CLAWBACK] CID:1 ACT=WARN prior_payoff=-1117.730 extra_penalty=23.750 new_payoff=-1141.581
+[FORGIVENESS] CID:1 WARN #92 — streak reset, benefits revoked
+⚠ [CAR 1] ACT=WARN REP=0.314 RWD=0.000 PNL=23.851 CREDIT=-2
+[ZONE-ROUTE] CID:1 zone=2 edge_port=9996
+[EDGE-RTT] CID:1 wall=1.4 ms  sim_delay=5.0 ms
+[CUSUM] CID:1 S=0.245/2.500 pEdge=0.204
+>>> [UAV->CLOUD] BLK:e26b|TX:7.0.0.5|CID:1|TS:108.060|SPD:25.1|HDG:-0.8|PX:2395.2|PY:-20....
+[ECON-CLAWBACK] CID:1 ACT=WARN prior_payoff=-1141.581 extra_penalty=24.000 new_payoff=-1165.683
+[FORGIVENESS] CID:1 WARN #93 — streak reset, benefits revoked
+⚠ [CAR 1] ACT=WARN REP=0.171 RWD=0.000 PNL=24.102 CREDIT=-2
+[ZONE-ROUTE] CID:1 zone=2 edge_port=9996
+[EDGE-RTT] CID:1 wall=1.3 ms  sim_delay=5.0 ms
+[CUSUM] CID:1 S=0.251/2.500 pEdge=0.206
+>>> [UAV->CLOUD] BLK:09b5|TX:7.0.0.5|CID:1|TS:108.560|SPD:25.4|HDG:-0.3|PX:2407.0|PY:-20....
+[ECON-CLAWBACK] CID:1 ACT=WARN prior_payoff=-1165.683 extra_penalty=24.250 new_payoff=-1190.036
+[FORGIVENESS] CID:1 WARN #94 — streak reset, benefits revoked
+⚠ [CAR 1] ACT=WARN REP=0.023 RWD=0.000 PNL=24.353 CREDIT=-2
+[ZONE-ROUTE] CID:1 zone=2 edge_port=9996
+[EDGE-RTT] CID:1 wall=1.3 ms  sim_delay=5.0 ms
+[CUSUM] CID:1 S=0.255/2.500 pEdge=0.204
+>>> [UAV->CLOUD] BLK:ec51|TX:7.0.0.5|CID:1|TS:109.060|SPD:25.0|HDG:1.9|PX:2419.1|PY:-20.0...
+[ECON-CLAWBACK] CID:1 ACT=WARN prior_payoff=-1190.036 extra_penalty=24.500 new_payoff=-1214.638
+[FORGIVENESS] CID:1 WARN #95 — streak reset, benefits revoked
+⚠ [CAR 1] ACT=WARN REP=0.217 RWD=0.000 PNL=24.602 CREDIT=-2
+[ZONE-ROUTE] CID:1 zone=2 edge_port=9996
+[EDGE-RTT] CID:1 wall=1.3 ms  sim_delay=5.0 ms
+[CUSUM] CID:1 S=0.261/2.500 pEdge=0.206
+>>> [UAV->CLOUD] BLK:3d8f|TX:7.0.0.5|CID:1|TS:109.560|SPD:25.3|HDG:0.4|PX:2431.4|PY:-20.0...
+[ECON-CLAWBACK] CID:1 ACT=WARN prior_payoff=-1214.638 extra_penalty=24.750 new_payoff=-1239.491
+[FORGIVENESS] CID:1 WARN #96 — streak reset, benefits revoked
+⚠ [CAR 1] ACT=WARN REP=0.415 RWD=0.000 PNL=24.853 CREDIT=-2
+[ZONE-ROUTE] CID:1 zone=2 edge_port=9996
+[EDGE-RTT] CID:1 wall=1.1 ms  sim_delay=5.0 ms
+[CUSUM] CID:1 S=0.268/2.500 pEdge=0.207
+>>> [UAV->CLOUD] BLK:e6c1|TX:7.0.0.5|CID:1|TS:110.060|SPD:25.4|HDG:-1.6|PX:2443.9|PY:-20....
+[ECON-CLAWBACK] CID:1 ACT=WARN prior_payoff=-1239.491 extra_penalty=25.000 new_payoff=-1264.594
+[FORGIVENESS] CID:1 WARN #97 — streak reset, benefits revoked
+⚠ [CAR 1] ACT=WARN REP=0.391 RWD=0.000 PNL=25.103 CREDIT=-2
+[ZONE-ROUTE] CID:1 zone=2 edge_port=9996
+[EDGE-RTT] CID:1 wall=1.2 ms  sim_delay=5.0 ms
+[CUSUM] CID:1 S=0.271/2.500 pEdge=0.203
+>>> [UAV->CLOUD] BLK:4e01|TX:7.0.0.5|CID:1|TS:110.560|SPD:24.8|HDG:0.6|PX:2457.2|PY:-20.0...
+[ECON-CLAWBACK] CID:1 ACT=WARN prior_payoff=-1264.594 extra_penalty=25.250 new_payoff=-1289.946
+[FORGIVENESS] CID:1 WARN #98 — streak reset, benefits revoked
+⚠ [CAR 1] ACT=WARN REP=0.245 RWD=0.000 PNL=25.352 CREDIT=-2
+[ZONE-ROUTE] CID:1 zone=2 edge_port=9996
+[EDGE-RTT] CID:1 wall=1.4 ms  sim_delay=5.0 ms
+[CUSUM] CID:1 S=0.276/2.500 pEdge=0.205
+>>> [UAV->CLOUD] BLK:3646|TX:7.0.0.5|CID:1|TS:111.060|SPD:25.2|HDG:1.3|PX:2469.3|PY:-20.0...
+[ECON-CLAWBACK] CID:1 ACT=WARN prior_payoff=-1289.946 extra_penalty=25.500 new_payoff=-1315.548
+[FORGIVENESS] CID:1 WARN #99 — streak reset, benefits revoked
+⚠ [CAR 1] ACT=WARN REP=0.182 RWD=0.000 PNL=25.602 CREDIT=-2
+
+── PAYOFF SUMMARY ─────────────────────────────────
+[PAYOFF] CID:0 cumulative_payoff=-119.171 honest_wins=0 warn_count=28 adverse_count=0 demoted=NO return_threshold=0 lane_upgraded=NO scrutiny_reduced=NO malicious=YES
+[PAYOFF] CID:1 cumulative_payoff=-1315.548 honest_wins=0 warn_count=99 adverse_count=0 demoted=NO return_threshold=0 lane_upgraded=NO scrutiny_reduced=NO malicious=NO
+[PAYOFF] CID:2 cumulative_payoff=-39.261 honest_wins=0 warn_count=12 adverse_count=1 demoted=YES return_threshold=60 lane_upgraded=NO scrutiny_reduced=NO malicious=YES
+[PAYOFF] CID:3 cumulative_payoff=-39.261 honest_wins=0 warn_count=12 adverse_count=1 demoted=YES return_threshold=60 lane_upgraded=NO scrutiny_reduced=NO malicious=YES
+[PAYOFF] CID:4 cumulative_payoff=-39.261 honest_wins=0 warn_count=12 adverse_count=1 demoted=YES return_threshold=60 lane_upgraded=NO scrutiny_reduced=NO malicious=YES
+[PAYOFF] CID:5 cumulative_payoff=-82.363 honest_wins=0 warn_count=23 adverse_count=0 demoted=NO return_threshold=0 lane_upgraded=NO scrutiny_reduced=NO malicious=NO
+
+--------------------------------------------------
+ SIMULATION COMPLETE v90-multiuav (adaptive edge-cloud, bridge mode only)  nCars=6  attackRate=50%  attackType=5  RngRun=3
+--------------------------------------------------

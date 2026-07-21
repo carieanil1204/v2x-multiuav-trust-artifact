@@ -1,0 +1,4 @@
+baseline_variant,valid_seeds,caught,pooled_DR_percent,DR_mean_percent,DR_std,false_positive,pooled_FPR_percent,FPR_mean_percent,FPR_std,F1_mean,F1_std,raw_csv_path
+Full_VeReMi_window_K1_W5,15,101/105,96.19,96.19,6.54,44/45,97.78,97.78,8.61,0.81,0.04,/home/srmap/research/projects/v2x-multiuav-trust/results/final_locked_csv/baseline_veremi/veremi_baseline_n10_ar50_drop0_per_seed_raw.csv
+Full_VeReMi_window_K2_W5,15,101/105,96.19,96.19,6.54,44/45,97.78,97.78,8.61,0.81,0.04,/home/srmap/research/projects/v2x-multiuav-trust/results/final_locked_csv/baseline_veremi/veremi_baseline_n10_ar50_drop0_per_seed_raw.csv
+Full_VeReMi_window_K3_W5,15,101/105,96.19,96.19,6.54,0/45,0.0,0.0,0.0,0.98,0.04,/home/srmap/research/projects/v2x-multiuav-trust/results/final_locked_csv/baseline_veremi/veremi_baseline_n10_ar50_drop0_per_seed_raw.csv

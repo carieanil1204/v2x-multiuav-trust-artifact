@@ -1,0 +1,49 @@
+--- PAYOFF delta0.1_seed5 ---
+[PAYOFF] CID:0 cumulative_payoff=-127.269 honest_wins=0 warn_count=29 adverse_count=0 demoted=NO return_threshold=0 lane_upgraded=NO scrutiny_reduced=NO malicious=YES
+[PAYOFF] CID:1 cumulative_payoff=-181.072 honest_wins=0 warn_count=35 adverse_count=0 demoted=NO return_threshold=0 lane_upgraded=NO scrutiny_reduced=NO malicious=NO
+[PAYOFF] CID:2 cumulative_payoff=-39.269 honest_wins=0 warn_count=12 adverse_count=1 demoted=YES return_threshold=60 lane_upgraded=NO scrutiny_reduced=NO malicious=YES
+[PAYOFF] CID:3 cumulative_payoff=-211.236 honest_wins=0 warn_count=38 adverse_count=0 demoted=NO return_threshold=0 lane_upgraded=NO scrutiny_reduced=NO malicious=NO
+[PAYOFF] CID:4 cumulative_payoff=-39.269 honest_wins=0 warn_count=12 adverse_count=1 demoted=YES return_threshold=60 lane_upgraded=NO scrutiny_reduced=NO malicious=YES
+[PAYOFF] CID:5 cumulative_payoff=-39.261 honest_wins=0 warn_count=12 adverse_count=1 demoted=YES return_threshold=60 lane_upgraded=NO scrutiny_reduced=NO malicious=YES
+--- PAYOFF delta0.3_seed1 ---
+[PAYOFF] CID:0 cumulative_payoff=-186.678 honest_wins=0 warn_count=35 adverse_count=1 demoted=YES return_threshold=60 lane_upgraded=NO scrutiny_reduced=NO malicious=YES
+[PAYOFF] CID:1 cumulative_payoff=-39.260 honest_wins=0 warn_count=12 adverse_count=1 demoted=YES return_threshold=60 lane_upgraded=NO scrutiny_reduced=NO malicious=YES
+[PAYOFF] CID:2 cumulative_payoff=-39.269 honest_wins=0 warn_count=12 adverse_count=1 demoted=YES return_threshold=60 lane_upgraded=NO scrutiny_reduced=NO malicious=YES
+[PAYOFF] CID:3 cumulative_payoff=-341.646 honest_wins=0 warn_count=49 adverse_count=0 demoted=NO return_threshold=0 lane_upgraded=NO scrutiny_reduced=NO malicious=NO
+[PAYOFF] CID:4 cumulative_payoff=130.996 honest_wins=130 warn_count=0 adverse_count=0 demoted=NO return_threshold=0 lane_upgraded=YES scrutiny_reduced=YES malicious=NO
+[PAYOFF] CID:5 cumulative_payoff=-39.261 honest_wins=0 warn_count=12 adverse_count=1 demoted=YES return_threshold=60 lane_upgraded=NO scrutiny_reduced=NO malicious=YES
+--- PAYOFF delta0.3_seed5 ---
+[PAYOFF] CID:0 cumulative_payoff=-135.625 honest_wins=0 warn_count=30 adverse_count=0 demoted=NO return_threshold=0 lane_upgraded=NO scrutiny_reduced=NO malicious=YES
+[PAYOFF] CID:1 cumulative_payoff=-355.098 honest_wins=0 warn_count=50 adverse_count=0 demoted=NO return_threshold=0 lane_upgraded=NO scrutiny_reduced=NO malicious=NO
+[PAYOFF] CID:2 cumulative_payoff=-39.269 honest_wins=0 warn_count=12 adverse_count=1 demoted=YES return_threshold=60 lane_upgraded=NO scrutiny_reduced=NO malicious=YES
+[PAYOFF] CID:3 cumulative_payoff=-232.704 honest_wins=0 warn_count=40 adverse_count=0 demoted=NO return_threshold=0 lane_upgraded=NO scrutiny_reduced=NO malicious=NO
+[PAYOFF] CID:4 cumulative_payoff=-39.269 honest_wins=0 warn_count=12 adverse_count=1 demoted=YES return_threshold=60 lane_upgraded=NO scrutiny_reduced=NO malicious=YES
+[PAYOFF] CID:5 cumulative_payoff=-39.261 honest_wins=0 warn_count=12 adverse_count=1 demoted=YES return_threshold=60 lane_upgraded=NO scrutiny_reduced=NO malicious=YES
+--- PAYOFF delta0.5_seed1 ---
+[PAYOFF] CID:0 cumulative_payoff=-186.680 honest_wins=0 warn_count=35 adverse_count=1 demoted=YES return_threshold=60 lane_upgraded=NO scrutiny_reduced=NO malicious=YES
+[PAYOFF] CID:1 cumulative_payoff=-39.260 honest_wins=0 warn_count=12 adverse_count=1 demoted=YES return_threshold=60 lane_upgraded=NO scrutiny_reduced=NO malicious=YES
+[PAYOFF] CID:2 cumulative_payoff=-39.269 honest_wins=0 warn_count=12 adverse_count=1 demoted=YES return_threshold=60 lane_upgraded=NO scrutiny_reduced=NO malicious=YES
+[PAYOFF] CID:3 cumulative_payoff=-152.888 honest_wins=0 warn_count=32 adverse_count=0 demoted=NO return_threshold=0 lane_upgraded=NO scrutiny_reduced=NO malicious=NO
+[PAYOFF] CID:4 cumulative_payoff=-41.201 honest_wins=0 warn_count=16 adverse_count=0 demoted=NO return_threshold=0 lane_upgraded=NO scrutiny_reduced=NO malicious=NO
+[PAYOFF] CID:5 cumulative_payoff=-39.261 honest_wins=0 warn_count=12 adverse_count=1 demoted=YES return_threshold=60 lane_upgraded=NO scrutiny_reduced=NO malicious=YES
+--- PAYOFF delta0.5_seed5 ---
+[PAYOFF] CID:0 cumulative_payoff=-162.179 honest_wins=1 warn_count=33 adverse_count=0 demoted=NO return_threshold=0 lane_upgraded=NO scrutiny_reduced=NO malicious=YES
+[PAYOFF] CID:1 cumulative_payoff=-315.793 honest_wins=0 warn_count=47 adverse_count=0 demoted=NO return_threshold=0 lane_upgraded=NO scrutiny_reduced=NO malicious=NO
+[PAYOFF] CID:2 cumulative_payoff=-39.269 honest_wins=0 warn_count=12 adverse_count=1 demoted=YES return_threshold=60 lane_upgraded=NO scrutiny_reduced=NO malicious=YES
+[PAYOFF] CID:3 cumulative_payoff=-180.938 honest_wins=0 warn_count=35 adverse_count=0 demoted=NO return_threshold=0 lane_upgraded=NO scrutiny_reduced=NO malicious=NO
+[PAYOFF] CID:4 cumulative_payoff=-39.269 honest_wins=0 warn_count=12 adverse_count=1 demoted=YES return_threshold=60 lane_upgraded=NO scrutiny_reduced=NO malicious=YES
+[PAYOFF] CID:5 cumulative_payoff=-39.261 honest_wins=0 warn_count=12 adverse_count=1 demoted=YES return_threshold=60 lane_upgraded=NO scrutiny_reduced=NO malicious=YES
+--- PAYOFF delta1.0_seed1 ---
+[PAYOFF] CID:0 cumulative_payoff=-186.680 honest_wins=0 warn_count=35 adverse_count=1 demoted=YES return_threshold=60 lane_upgraded=NO scrutiny_reduced=NO malicious=YES
+[PAYOFF] CID:1 cumulative_payoff=-39.260 honest_wins=0 warn_count=12 adverse_count=1 demoted=YES return_threshold=60 lane_upgraded=NO scrutiny_reduced=NO malicious=YES
+[PAYOFF] CID:2 cumulative_payoff=-39.269 honest_wins=0 warn_count=12 adverse_count=1 demoted=YES return_threshold=60 lane_upgraded=NO scrutiny_reduced=NO malicious=YES
+[PAYOFF] CID:3 cumulative_payoff=-89.084 honest_wins=0 warn_count=24 adverse_count=0 demoted=NO return_threshold=0 lane_upgraded=NO scrutiny_reduced=NO malicious=NO
+[PAYOFF] CID:4 cumulative_payoff=-6.537 honest_wins=0 warn_count=7 adverse_count=0 demoted=NO return_threshold=0 lane_upgraded=NO scrutiny_reduced=NO malicious=NO
+[PAYOFF] CID:5 cumulative_payoff=-39.261 honest_wins=0 warn_count=12 adverse_count=1 demoted=YES return_threshold=60 lane_upgraded=NO scrutiny_reduced=NO malicious=YES
+--- PAYOFF delta1.0_seed5 ---
+[PAYOFF] CID:0 cumulative_payoff=-162.181 honest_wins=1 warn_count=33 adverse_count=0 demoted=NO return_threshold=0 lane_upgraded=NO scrutiny_reduced=NO malicious=YES
+[PAYOFF] CID:1 cumulative_payoff=-315.804 honest_wins=0 warn_count=47 adverse_count=0 demoted=NO return_threshold=0 lane_upgraded=NO scrutiny_reduced=NO malicious=NO
+[PAYOFF] CID:2 cumulative_payoff=-39.269 honest_wins=0 warn_count=12 adverse_count=1 demoted=YES return_threshold=60 lane_upgraded=NO scrutiny_reduced=NO malicious=YES
+[PAYOFF] CID:3 cumulative_payoff=-180.943 honest_wins=0 warn_count=35 adverse_count=0 demoted=NO return_threshold=0 lane_upgraded=NO scrutiny_reduced=NO malicious=NO
+[PAYOFF] CID:4 cumulative_payoff=-39.269 honest_wins=0 warn_count=12 adverse_count=1 demoted=YES return_threshold=60 lane_upgraded=NO scrutiny_reduced=NO malicious=YES
+[PAYOFF] CID:5 cumulative_payoff=-39.261 honest_wins=0 warn_count=12 adverse_count=1 demoted=YES return_threshold=60 lane_upgraded=NO scrutiny_reduced=NO malicious=YES

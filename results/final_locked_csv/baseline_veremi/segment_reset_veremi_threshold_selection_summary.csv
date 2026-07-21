@@ -1,0 +1,4 @@
+K,clean_false_positive,clean_FPR_percent,clean_safe,decision
+1,144/150,96.0,NO,excluded_due_to_clean_false_positives
+2,0/150,0.0,YES,eligible_for_fair_attack_comparison
+3,0/150,0.0,YES,eligible_for_fair_attack_comparison

@@ -1,0 +1,138 @@
+{
+  "timestamp": "2026-07-18T01:27:25.552204",
+  "version": "v90-multiuav",
+  "zone_id": 2,
+  "exp": "V2X-EXP-MULTIUAV",
+  "stats": {
+    "45": {
+      "safe": 11,
+      "warn": 0,
+      "ban": 0,
+      "pkt": 11
+    },
+    "31": {
+      "safe": 11,
+      "warn": 0,
+      "ban": 0,
+      "pkt": 11
+    },
+    "41": {
+      "safe": 11,
+      "warn": 0,
+      "ban": 0,
+      "pkt": 11
+    },
+    "22": {
+      "safe": 11,
+      "warn": 0,
+      "ban": 0,
+      "pkt": 11
+    },
+    "37": {
+      "safe": 11,
+      "warn": 0,
+      "ban": 0,
+      "pkt": 11
+    },
+    "48": {
+      "safe": 11,
+      "warn": 0,
+      "ban": 0,
+      "pkt": 11
+    },
+    "23": {
+      "safe": 11,
+      "warn": 0,
+      "ban": 0,
+      "pkt": 11
+    },
+    "15": {
+      "safe": 11,
+      "warn": 0,
+      "ban": 0,
+      "pkt": 11
+    },
+    "39": {
+      "safe": 9,
+      "warn": 2,
+      "ban": 0,
+      "pkt": 11
+    },
+    "33": {
+      "safe": 11,
+      "warn": 0,
+      "ban": 0,
+      "pkt": 11
+    },
+    "21": {
+      "safe": 11,
+      "warn": 0,
+      "ban": 0,
+      "pkt": 11
+    },
+    "28": {
+      "safe": 11,
+      "warn": 0,
+      "ban": 0,
+      "pkt": 11
+    },
+    "4": {
+      "safe": 3,
+      "warn": 1,
+      "ban": 0,
+      "pkt": 4
+    },
+    "30": {
+      "safe": 11,
+      "warn": 0,
+      "ban": 0,
+      "pkt": 11
+    },
+    "27": {
+      "safe": 11,
+      "warn": 0,
+      "ban": 0,
+      "pkt": 11
+    }
+  },
+  "confirmed_banned_cids": [
+    0,
+    1,
+    5,
+    6,
+    8,
+    12,
+    14,
+    16,
+    17,
+    18,
+    19,
+    20,
+    24,
+    25,
+    26,
+    29,
+    44
+  ],
+  "detection_latency": {
+    "39": 30.850993,
+    "4": 31.944493
+  },
+  "precloud_verdicts": {
+    "39": [
+      "WARN",
+      "WARN"
+    ],
+    "4": [
+      "WARN"
+    ]
+  },
+  "postcloud_verdicts": {},
+  "final_weights": {
+    "W1": 0.2727,
+    "W2": 0.1818,
+    "W3": 0.2273,
+    "W4": 0.1818,
+    "W5": 0.1364
+  }
+}

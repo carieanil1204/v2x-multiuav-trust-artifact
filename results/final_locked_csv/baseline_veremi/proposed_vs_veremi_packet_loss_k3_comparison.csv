@@ -1,0 +1,9 @@
+condition,method,caught,pooled_DR_percent,DR_mean_percent,DR_std,false_positive,pooled_FPR_percent,FPR_mean_percent,FPR_std,F1_mean
+DROP0,Proposed_UAV_Edge_Trust_Framework,101/105,96.19,96.19,6.54,0/45,0.0,0.0,0.0,
+DROP0,Local_CID_RXUAV_K3_W5,101/105,96.19,96.19,6.54,0/45,0.0,0.0,0.0,0.98
+DROP5,Proposed_UAV_Edge_Trust_Framework,99/105,94.29,94.28,9.04,0/45,0.0,0.0,0.0,
+DROP5,Local_CID_RXUAV_K3_W5,101/105,96.19,96.19,6.54,0/45,0.0,0.0,0.0,0.98
+DROP10,Proposed_UAV_Edge_Trust_Framework,96/105,91.43,91.43,10.53,0/45,0.0,0.0,0.0,
+DROP10,Local_CID_RXUAV_K3_W5,101/105,96.19,96.19,6.54,0/45,0.0,0.0,0.0,0.98
+DROP20,Proposed_UAV_Edge_Trust_Framework,96/105,91.43,91.43,9.04,0/45,0.0,0.0,0.0,
+DROP20,Local_CID_RXUAV_K3_W5,100/105,95.24,95.24,6.97,6/45,13.33,13.33,16.9,0.95

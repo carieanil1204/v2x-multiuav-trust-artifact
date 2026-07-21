@@ -1,0 +1,4 @@
+group,vehicles,proposed_detected,central_detected,rxuav_memory_detected,zone_memory_detected,rxuav_segment_detected,zone_segment_detected,strong_fragmentation_cases,architecture_gap_candidates
+ALL,150,101,101,101,101,89,89,12,0
+MALICIOUS,105,101,101,101,101,89,89,12,0
+HONEST,45,0,0,0,0,0,0,0,0

@@ -1,0 +1,6 @@
+method,state_model,caught,DR_percent,false_positive,FPR_percent,interpretation
+Proposed_UAV_Edge_Trust_Framework,trust_state_transferred_across_handover_with_HTD,101/105,96.19,0/45,0.0,proposed handover-aware trust continuity
+Centralized_Full_VeReMi_OBS_K3_W5,global_CID_history_oracle,101/105,96.19,0/45,0.0,upper-bound physical-consistency detector
+Local_Full_VeReMi_RXUAV_memory_OBS_K3_W5,per_CID_per_RXUAV_memory,101/105,96.19,0/45,0.0,local detector retaining prior vehicle state within same UAV identity
+Local_Full_VeReMi_RXUAV_segment_reset_OBS_K3_W5,memory_resets_at_each_contiguous_RXUAV_segment,89/105,84.76,0/45,0.0,handover-fragmented local physical detector
+Local_Full_VeReMi_ZONE_segment_reset_OBS_K3_W5,memory_resets_at_each_contiguous_zone_segment,89/105,84.76,0/45,0.0,zone-fragmented local physical detector

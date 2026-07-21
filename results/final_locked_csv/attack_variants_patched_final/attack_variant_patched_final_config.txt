@@ -1,0 +1,12 @@
+Final patched attack-variant robustness configuration
+VEREMI_EVIDENCE_ENABLE=1
+VEREMI_MODE=hard_only
+VEREMI_GATE=0.12
+VEREMI_SPEED_TOL=6.0
+VEREMI_POS_TOL=15.0
+VEREMI_MAX_GAP=3.0
+VEREMI_MIN_VIOLATIONS=2
+EDGE_OVERLAP_BAN_GUARD=1
+EDGE_OVERLAP_BAN_MIN_P=0.50
+CUSUM_INPUT_MODE=veremi
+Strong early-confirm override=enabled

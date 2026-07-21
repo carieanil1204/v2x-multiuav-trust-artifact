@@ -1,0 +1,4 @@
+experiment,condition,valid_seeds,caught,pooled_DR_percent,DR_mean_percent,DR_std,false_positive,pooled_FPR_percent,FPR_mean_percent,FPR_std,CUSUM_BAN_total,CUSUM_HOLD_total,PKT_DROP_LOGS_total,source_summary_path
+attack_rate_robustness,AR20_N10,15,43/45,95.56,95.56,11.73,0/105,0.0,0.0,0.0,7,0,0,/home/srmap/research/projects/v2x-multiuav-trust/results/ATTACK_RATE_ROBUSTNESS_EXTENDED_GUARDED_CUSUM_15SEED_SUMMARY.txt
+attack_rate_robustness,AR50_N10,15,101/105,96.19,96.19,6.54,0/45,0.0,0.0,0.0,25,7,0,/home/srmap/research/projects/v2x-multiuav-trust/results/ATTACK_RATE_ROBUSTNESS_EXTENDED_GUARDED_CUSUM_15SEED_SUMMARY.txt
+attack_rate_robustness,AR70_N10,15,130/135,96.3,96.3,5.42,0/15,0.0,0.0,0.0,31,0,0,/home/srmap/research/projects/v2x-multiuav-trust/results/ATTACK_RATE_ROBUSTNESS_EXTENDED_GUARDED_CUSUM_15SEED_SUMMARY.txt

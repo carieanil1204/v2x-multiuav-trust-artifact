@@ -1,0 +1,9 @@
+condition,method,threshold_policy,state_model,caught,pooled_DR_percent,DR_mean_percent,DR_std,false_positive,pooled_FPR_percent,FPR_mean_percent,FPR_std,F1_mean,note
+DROP0,Proposed_UAV_Edge_Trust_Framework,internal_guarded_trust_decision,trust_state_transferred_across_handover_with_HTD,101/105,96.19,96.19,6.54,0/45,0.0,0.0,0.0,,proposed complete system
+DROP0,Best_Clean_Safe_Local_Segment_Reset_VeReMi,best_clean_safe_K=2_W=5,memory_resets_at_each_contiguous_RXUAV_segment,101/105,96.19,96.19,6.54,0/45,0.0,0.0,0.0,0.98,proposed_DR_minus_baseline_DR=0.0_percentage_points
+DROP5,Proposed_UAV_Edge_Trust_Framework,internal_guarded_trust_decision,trust_state_transferred_across_handover_with_HTD,99/105,94.29,94.28,9.04,0/45,0.0,0.0,0.0,,proposed complete system
+DROP5,Best_Clean_Safe_Local_Segment_Reset_VeReMi,best_clean_safe_K=2_W=5,memory_resets_at_each_contiguous_RXUAV_segment,94/105,89.52,89.52,13.73,0/45,0.0,0.0,0.0,0.94,proposed_DR_minus_baseline_DR=4.77_percentage_points
+DROP10,Proposed_UAV_Edge_Trust_Framework,internal_guarded_trust_decision,trust_state_transferred_across_handover_with_HTD,96/105,91.43,91.43,10.53,0/45,0.0,0.0,0.0,,proposed complete system
+DROP10,Best_Clean_Safe_Local_Segment_Reset_VeReMi,best_clean_safe_K=2_W=5,memory_resets_at_each_contiguous_RXUAV_segment,89/105,84.76,84.76,10.05,1/45,2.22,2.22,8.61,0.91,proposed_DR_minus_baseline_DR=6.67_percentage_points
+DROP20,Proposed_UAV_Edge_Trust_Framework,internal_guarded_trust_decision,trust_state_transferred_across_handover_with_HTD,96/105,91.43,91.43,9.04,0/45,0.0,0.0,0.0,,proposed complete system
+DROP20,Best_Clean_Safe_Local_Segment_Reset_VeReMi,best_clean_safe_K=2_W=5,memory_resets_at_each_contiguous_RXUAV_segment,83/105,79.05,79.05,16.96,3/45,6.67,6.67,13.8,0.86,proposed_DR_minus_baseline_DR=12.38_percentage_points

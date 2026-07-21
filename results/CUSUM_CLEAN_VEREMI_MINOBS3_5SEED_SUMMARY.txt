@@ -1,0 +1,10 @@
+seed=01 FP=0/10 FPR=0.00% CUSUM_BAN=0 fps=[]
+seed=02 FP=0/10 FPR=0.00% CUSUM_BAN=0 fps=[]
+seed=03 FP=0/10 FPR=0.00% CUSUM_BAN=0 fps=[]
+seed=04 FP=0/10 FPR=0.00% CUSUM_BAN=0 fps=[]
+seed=05 FP=0/10 FPR=0.00% CUSUM_BAN=0 fps=[]
+
+SUMMARY
+Total FP=0/50
+Overall FPR=0.00%
+Total CUSUM_BAN=0

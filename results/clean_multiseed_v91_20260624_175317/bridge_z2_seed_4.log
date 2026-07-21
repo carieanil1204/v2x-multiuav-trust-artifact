@@ -1,0 +1,23 @@
+================================================================
+ V2X EDGE-CLOUD BRIDGE v8-handover-passthrough  --  Zone 2
+================================================================
+[BRIDGE-Z2] Edge   : 127.0.0.1:9995
+[BRIDGE-Z2] Cloud  : 127.0.0.1:6666
+[BRIDGE-Z2] Listen : 0.0.0.0:9996
+[BRIDGE-Z2] Trigger F: zone-entry baseline at 8s
+[BRIDGE-Z2] Trigger G: heartbeat every 30s
+[BRIDGE-Z2] Multi-zone: TRUST_HANDOVER_TRIGGER passthrough enabled
+
+[BRIDGE-Z2] Edge server reachable OK
+[BRIDGE-Z2] Cloud server reachable OK
+[BRIDGE-Z2-CALIB] Trigger G heartbeat started (every 30s)
+[BRIDGE-Z2] Ready -- listening on port 9996
+
+[BRIDGE-Z2-CALIB] First packet — Trigger F armed (fires in 8s)
+[BRIDGE-Z2-CALIB] Trigger B: window elapsed but not balanced
+[BRIDGE-Z2-CALIB] Trigger G: all-WARN zone — skipping
+[BRIDGE-Z2-CALIB] Trigger F: zone-entry baseline n=2 sim_ts=74.9
+[BRIDGE-Z2-CALIB] CALIBRATE n=2 (W=2 S=0) sep=0.00 reason=F_zone_entry_baseline
+[BRIDGE-Z2-CALIB] Cloud returned CALIBRATION_ERROR: CALIBRATION_ERROR ollama_bad_json
+[BRIDGE-Z2-CALIB] Trigger G: all-WARN zone — skipping
+[BRIDGE-Z2-CALIB] Trigger G: all-WARN zone — skipping

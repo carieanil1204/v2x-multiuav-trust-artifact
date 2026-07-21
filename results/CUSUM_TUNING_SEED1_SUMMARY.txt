@@ -1,0 +1,25 @@
+===== CUSUM PARAMETER TUNING: SEED 1 =====
+
+--- setting=current ---
+CLEAN: FP=0/10 FPR=0.00% CUSUM=108 CUSUM_BAN=0 fps=[]
+ATTACK CUSUM_ON: caught=6/7 DR=85.71% FP=0/3 confirmed=6 CUSUM=35 CUSUM_BAN=0 missed=[4] falsified=133
+ATTACK CUSUM_OFF: caught=6/7 DR=85.71% FP=0/3 confirmed=6 CUSUM=0 CUSUM_BAN=0 missed=[4] falsified=133
+GAIN: DR_gain=0.00 pp confirmed_gain=0 clean_FPR=0.00%
+
+--- setting=mid ---
+CLEAN: FP=0/10 FPR=0.00% CUSUM=108 CUSUM_BAN=0 fps=[]
+ATTACK CUSUM_ON: caught=6/7 DR=85.71% FP=0/3 confirmed=6 CUSUM=35 CUSUM_BAN=0 missed=[4] falsified=133
+ATTACK CUSUM_OFF: caught=6/7 DR=85.71% FP=0/3 confirmed=6 CUSUM=0 CUSUM_BAN=0 missed=[4] falsified=133
+GAIN: DR_gain=0.00 pp confirmed_gain=0 clean_FPR=0.00%
+
+--- setting=fast ---
+CLEAN: FP=0/10 FPR=0.00% CUSUM=108 CUSUM_BAN=0 fps=[]
+ATTACK CUSUM_ON: caught=6/7 DR=85.71% FP=0/3 confirmed=6 CUSUM=35 CUSUM_BAN=0 missed=[4] falsified=133
+ATTACK CUSUM_OFF: caught=6/7 DR=85.71% FP=0/3 confirmed=6 CUSUM=0 CUSUM_BAN=0 missed=[4] falsified=133
+GAIN: DR_gain=0.00 pp confirmed_gain=0 clean_FPR=0.00%
+
+--- setting=aggr ---
+CLEAN: FP=0/10 FPR=0.00% CUSUM=108 CUSUM_BAN=0 fps=[]
+ATTACK CUSUM_ON: caught=6/7 DR=85.71% FP=0/3 confirmed=6 CUSUM=35 CUSUM_BAN=0 missed=[4] falsified=133
+ATTACK CUSUM_OFF: caught=6/7 DR=85.71% FP=0/3 confirmed=6 CUSUM=0 CUSUM_BAN=0 missed=[4] falsified=133
+GAIN: DR_gain=0.00 pp confirmed_gain=0 clean_FPR=0.00%

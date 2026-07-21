@@ -1,0 +1,1794 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+# =============================================================================
+# edge_ai_server_v90_multiuav.py -- Layer 2 Edge AI Server (Multi-UAV Extension)
+#
+# Changes over v85_adaptive:
+#   [MU-1]  --zone-id CLI arg (default 1). Identifies this instance's zone.
+#   [MU-2]  --coordinator-host / --coordinator-port CLI args.
+#           All TRUST_HANDOVER outbound calls go to the coordinator, not to the
+#           peer edge directly.  The coordinator routes to the correct target zone.
+#   [MU-3]  TRUST_HANDOVER_LOAD inbound handler.
+#           Pre-seeds per-CID state (speed hist, ts hist, safe_wins, llm_feedback,
+#           ban/warn streaks, confirmed_banned_set) from inherited payload.
+#           Responds with JSON ACK so coordinator knows the load succeeded.
+#   [MU-4]  TRUST_HANDOVER_TRIGGER inbound handler.
+#           NS3 sends this when a car reaches x = L - HANDOVER_LEAD_M.
+#           Edge builds the TRUST_HANDOVER JSON from local state and forwards
+#           to coordinator.  NS3 never talks to the coordinator directly.
+#   [MU-5]  send_trust_handover() — assembles and sends TRUST_HANDOVER JSON
+#           to coordinator:COORD_PORT.  Called by TRUST_HANDOVER_TRIGGER handler.
+#   [MU-6]  send_overlap_score() — when a CID that arrived via TRUST_HANDOVER_LOAD
+#           is scored by this edge, an OVERLAP_SCORE message is sent to the
+#           coordinator so it can log cross-zone consensus.
+#   [MU-7]  RESET handler extended to clear _handover_state and _overlap_cids.
+#   [MU-8]  save_config_snapshot() and startup banner show ZONE_ID.
+#   [MU-9]  tcp_call_framed() helper (same pattern as trust_coordinator.py).
+#
+# All v85 logic is completely preserved.  Multi-UAV additions are contained
+# in clearly marked [MU-*] blocks.
+# =============================================================================
+
+import socket, struct, threading, math, os, argparse, json, datetime, signal, time
+from collections import defaultdict, deque
+try:
+    from decision_tracer import DecisionTracer, make_trace_id
+except ImportError:
+    class DecisionTracer:
+        def __init__(self, *a, **kw): pass
+        def event(self, *a, **kw):    pass
+    def make_trace_id(cid, ts):
+        return "%s_%.3f" % (cid, float(ts))
+
+TRACER = DecisionTracer("edge")
+
+def trace_event(stage, cid=None, sim_time=None, trace_id=None,
+                event_level="detail", **fields):
+    try:
+        TRACER.event(stage=stage, cid=cid, sim_time=sim_time,
+                     trace_id=trace_id, event_level=event_level, **fields)
+    except Exception:
+        pass
+
+def trace_decision(stage, cid, verdict, reason="", sim_time=None,
+                   trace_id=None, event_level="detail", **fields):
+    try:
+        TRACER.decision(stage=stage, cid=cid, verdict=verdict, reason=reason,
+                        sim_time=sim_time, trace_id=trace_id,
+                        event_level=event_level, **fields)
+    except Exception:
+        pass
+
+# =============================================================================
+# CLI ARGS  [MU-1][MU-2]
+# =============================================================================
+
+parser = argparse.ArgumentParser()
+parser.add_argument("--port",             type=int, default=9999,
+                    help="TCP port to listen on (default 9999)")
+parser.add_argument("--zone-id",          type=int,
+                    default=int(os.environ.get("ZONE_ID", 1)),
+                    help="Zone identifier for this edge instance (default 1)")
+parser.add_argument("--coordinator-host", type=str,
+                    default=os.environ.get("COORDINATOR_HOST", "127.0.0.1"),
+                    help="Trust coordinator host (default 127.0.0.1)")
+parser.add_argument("--coordinator-port", type=int,
+                    default=int(os.environ.get("COORDINATOR_PORT", 9997)),
+                    help="Trust coordinator port (default 9997)")
+args = parser.parse_args()
+
+HOST         = "0.0.0.0"
+PORT         = args.port
+ZONE_ID      = args.zone_id          # [MU-1]
+COORD_HOST   = args.coordinator_host  # [MU-2]
+COORD_PORT   = args.coordinator_port  # [MU-2]
+MAX_CLIENTS  = 40
+VERSION      = "v90-multiuav"
+EXP_NAME     = "V2X-EXP-MULTIUAV"
+
+# =============================================================================
+# CONFIG BLOCK -- all tunable via environment variables (unchanged from v85)
+# =============================================================================
+
+NASH_REWARD         = float(os.environ.get("NASH_REWARD",         1.0))
+NASH_FALSE_BAN_COST = float(os.environ.get("NASH_FALSE_BAN_COST", 0.5))
+NASH_BAN_REWARD     = float(os.environ.get("NASH_BAN_REWARD",     1.5))
+NASH_CHASE_COST     = float(os.environ.get("NASH_CHASE_COST",     1.0))
+NASH_P_STAR         = NASH_CHASE_COST / (NASH_BAN_REWARD + NASH_CHASE_COST)
+
+NASH_BAN_THRESHOLD = float(os.environ.get("NASH_BAN_THRESHOLD", NASH_P_STAR))
+NASH_BAN_CONFIRM_K = int(os.environ.get("NASH_BAN_CONFIRM_K", 1))
+EDGE_BAN_CONFIRM_K = int(os.environ.get("EDGE_BAN_CONFIRM_K", 1))
+
+GLOBAL_SPEED_HISTORY_MODE         = str(os.environ.get("GLOBAL_SPEED_HISTORY_MODE", "clean_only")).strip().lower()
+GLOBAL_SPEED_ACCEPT_SUSP_MAX      = float(os.environ.get("GLOBAL_SPEED_ACCEPT_SUSP_MAX", 0.12))
+GLOBAL_WEIGHT_UPDATE_ONLY_ACTIONABLE = int(os.environ.get("GLOBAL_WEIGHT_UPDATE_ONLY_ACTIONABLE", 1))
+GLOBAL_WEIGHT_UPDATE_MIN_SIGNAL   = float(os.environ.get("GLOBAL_WEIGHT_UPDATE_MIN_SIGNAL", 0.35))
+
+SAFEWIN_WARN_SUPPRESS     = int(os.environ.get("SAFEWIN_WARN_SUPPRESS", 0))
+SAFEWIN_WARN_SUPPRESS_MAX = float(os.environ.get("SAFEWIN_WARN_SUPPRESS_MAX", 0.18))
+
+EMG_BAN_REWARD_MULT = float(os.environ.get("EMG_BAN_REWARD_MULT", 1.5))
+EMG_FALSE_BAN_MULT  = float(os.environ.get("EMG_FALSE_BAN_MULT",  2.0))
+EMG_CHASE_COST_MULT = float(os.environ.get("EMG_CHASE_COST_MULT", 1.5))
+
+NASH_LLM_WEIGHT             = float(os.environ.get("NASH_LLM_WEIGHT",             0.6))
+DISABLE_LLM_DECISION        = int(os.environ.get("DISABLE_LLM_DECISION",        0))
+NASH_EDGE_WEIGHT            = float(os.environ.get("NASH_EDGE_WEIGHT",            0.4))
+NASH_SPD_WEIGHT             = float(os.environ.get("NASH_SPD_WEIGHT",             0.5))
+NASH_PX_WEIGHT              = float(os.environ.get("NASH_PX_WEIGHT",              0.5))
+NASH_EDGE_PRIOR_WEIGHT      = float(os.environ.get("NASH_EDGE_PRIOR_WEIGHT",      0.70))
+NASH_MIN_WARN_ON_EDGE_BAN   = int(os.environ.get("NASH_MIN_WARN_ON_EDGE_BAN",     1))
+NASH_EDGE_BAN_FLOOR         = float(os.environ.get("NASH_EDGE_BAN_FLOOR",         0.42))
+NASH_EDGE_BAN_STRONG_FLOOR  = float(os.environ.get("NASH_EDGE_BAN_STRONG_FLOOR",  0.50))
+NASH_EDGE_WARN_FLOOR        = float(os.environ.get("NASH_EDGE_WARN_FLOOR",        0.22))
+NASH_LLM_RESCUE_BAN         = float(os.environ.get("NASH_LLM_RESCUE_BAN",        0.45))
+NASH_LLM_TRUST_VETO         = float(os.environ.get("NASH_LLM_TRUST_VETO",        0.10))
+NASH_TEACH_DIRECT_WEIGHT    = float(os.environ.get("NASH_TEACH_DIRECT_WEIGHT",    0.18))
+NASH_HIDDEN_DIRECT_WEIGHT   = float(os.environ.get("NASH_HIDDEN_DIRECT_WEIGHT",   0.80))
+NASH_PROMOTE_WARN_FLOOR     = float(os.environ.get("NASH_PROMOTE_WARN_FLOOR",     0.28))
+NASH_PROMOTE_BAN_FLOOR      = float(os.environ.get("NASH_PROMOTE_BAN_FLOOR",      0.46))
+NASH_TEACH_BAN_GATE         = float(os.environ.get("NASH_TEACH_BAN_GATE",         0.45))
+
+W1    = float(os.environ.get("W1",    0.30))
+W2    = float(os.environ.get("W2",    0.20))
+W3    = float(os.environ.get("W3",    0.25))
+W4    = float(os.environ.get("W4",    0.20))
+W5    = float(os.environ.get("W5",    0.15))
+W_MIN = float(os.environ.get("W_MIN", 0.05))
+
+_w_init_total = W1 + W2 + W3 + W4 + W5
+if _w_init_total > 0:
+    W1 = round(W1 / _w_init_total, 4)
+    W2 = round(W2 / _w_init_total, 4)
+    W3 = round(W3 / _w_init_total, 4)
+    W4 = round(W4 / _w_init_total, 4)
+    W5 = round(W5 / _w_init_total, 4)
+
+M5_MIN_PKTS          = int(os.environ.get("M5_MIN_PKTS",          4))
+M5_RECENT_WIN        = int(os.environ.get("M5_RECENT_WIN",        6))
+M5_MIN_SPD           = float(os.environ.get("M5_MIN_SPD",         6.0))
+M5_TS_MEAN_THRESH    = float(os.environ.get("M5_TS_MEAN_THRESH",  -0.12))
+M5_TS_VAR_THRESH     = float(os.environ.get("M5_TS_VAR_THRESH",   0.020))
+M5_FROZEN_RATIO      = float(os.environ.get("M5_FROZEN_RATIO",    0.45))
+M5_TS_BASE           = float(os.environ.get("M5_TS_BASE",         0.12))
+M5_FROZEN_BASE       = float(os.environ.get("M5_FROZEN_BASE",     0.18))
+M5_SYNERGY_BONUS     = float(os.environ.get("M5_SYNERGY_BONUS",   0.18))
+M5_PATTERN_BOOST_CAP = float(os.environ.get("M5_PATTERN_BOOST_CAP", 0.20))
+
+ZONE_SAFE      = float(os.environ.get("ZONE_SAFE",      0.15))
+ZONE_MALICIOUS = float(os.environ.get("ZONE_MALICIOUS", 0.30))
+
+PX_HISTORY_MIN      = int(os.environ.get("PX_HISTORY_MIN",      2))
+SPEED_HISTORY_MAX   = int(os.environ.get("SPEED_HISTORY_MAX",   100))
+HEADING_HISTORY_MAX = int(os.environ.get("HEADING_HISTORY_MAX", 20))
+
+SPEED_THRESHOLD_CAP   = float(os.environ.get("SPEED_THRESHOLD_CAP",   30.0))
+SPEED_THRESHOLD_FLOOR = float(os.environ.get("SPEED_THRESHOLD_FLOOR", 21.0))
+
+M1_BASE_SCORE = float(os.environ.get("M1_BASE_SCORE", 0.1))
+M1_TANH_SCALE = float(os.environ.get("M1_TANH_SCALE", 2.0))
+
+TS_REPLAY_DELTA  = float(os.environ.get("TS_REPLAY_DELTA",  -0.3))
+TS_FUTURE_THRESH = float(os.environ.get("TS_FUTURE_THRESH",  5.0))
+TS_REPLAY_BASE   = float(os.environ.get("TS_REPLAY_BASE",    0.4))
+TS_REPLAY_SCALE  = float(os.environ.get("TS_REPLAY_SCALE",   0.6))
+TS_FUTURE_BASE   = float(os.environ.get("TS_FUTURE_BASE",    0.3))
+TS_FUTURE_SCALE  = float(os.environ.get("TS_FUTURE_SCALE",   0.5))
+TS_NORMAL_SCORE  = float(os.environ.get("TS_NORMAL_SCORE",   0.02))
+
+TS_BOOST_THRESHOLD = float(os.environ.get("TS_BOOST_THRESHOLD", -0.3))
+TS_BOOST_AMOUNT    = float(os.environ.get("TS_BOOST_AMOUNT",     0.15))
+TS_BOOST_MIN_PKTS  = int(os.environ.get("TS_BOOST_MIN_PKTS",    3))
+
+M3_SPD_RATIO_THRESH  = float(os.environ.get("M3_SPD_RATIO_THRESH",  3.0))
+M3_SPD_BASE          = float(os.environ.get("M3_SPD_BASE",          0.3))
+M3_SPD_SCALE         = float(os.environ.get("M3_SPD_SCALE",         0.5))
+M3_HDG_FROZEN_THRESH = float(os.environ.get("M3_HDG_FROZEN_THRESH", 0.01))
+M3_HDG_LOW_THRESH    = float(os.environ.get("M3_HDG_LOW_THRESH",    0.25))
+M3_HDG_FROZEN_SCORE  = float(os.environ.get("M3_HDG_FROZEN_SCORE",  0.55))
+M3_HDG_LOW_SCORE     = float(os.environ.get("M3_HDG_LOW_SCORE",     0.04))
+M3_HDG_MIN_HISTORY   = int(os.environ.get("M3_HDG_MIN_HISTORY",    3))
+M3_HDG_RECENT_WIN    = int(os.environ.get("M3_HDG_RECENT_WIN",     8))
+M3_GPS_RATE_THRESH   = float(os.environ.get("M3_GPS_RATE_THRESH",   0.10))
+M3_GPS_ANOMALY_SCORE = float(os.environ.get("M3_GPS_ANOMALY_SCORE", 0.10))
+M3_MIN_SPD_FOR_GPS   = float(os.environ.get("M3_MIN_SPD_FOR_GPS",   2.0))
+M3_DEFAULT_SCORE     = float(os.environ.get("M3_DEFAULT_SCORE",     0.00))
+
+M4_FROZEN_RATIO  = float(os.environ.get("M4_FROZEN_RATIO",  0.05))
+M4_DRIFT_RATIO   = float(os.environ.get("M4_DRIFT_RATIO",   0.30))
+M4_FROZEN_SCORE  = float(os.environ.get("M4_FROZEN_SCORE",  0.80))
+M4_DRIFT_SCALE   = float(os.environ.get("M4_DRIFT_SCALE",   0.60))
+M4_MIN_DT        = float(os.environ.get("M4_MIN_DT",        0.5))
+M4_SHADOW_MAXLEN = int(os.environ.get("M4_SHADOW_MAXLEN",  5))
+M4_NORMAL_MAXLEN = int(os.environ.get("M4_NORMAL_MAXLEN",  10))
+
+STOPPED_SPEED_MAX  = float(os.environ.get("STOPPED_SPEED_MAX",  2.0))
+STOPPED_IGNORE_HDG = int(os.environ.get("STOPPED_IGNORE_HDG",   1))
+
+REPUTATION_RATE        = float(os.environ.get("REPUTATION_RATE",        0.005))
+REPUTATION_CAP         = float(os.environ.get("REPUTATION_CAP",         0.10))
+REPUTATION_SOFT_CUTOFF = float(os.environ.get("REPUTATION_SOFT_CUTOFF", ZONE_SAFE))
+REPUTATION_HARD_CUTOFF = float(os.environ.get("REPUTATION_HARD_CUTOFF", ZONE_MALICIOUS))
+REPUTATION_SOFT_SCALE  = float(os.environ.get("REPUTATION_SOFT_SCALE",  0.35))
+REPUTATION_HARD_SCALE  = float(os.environ.get("REPUTATION_HARD_SCALE",  0.00))
+EARLY_TS_BONUS         = float(os.environ.get("EARLY_TS_BONUS",         0.08))
+EARLY_TS_STRONG        = float(os.environ.get("EARLY_TS_STRONG",        0.45))
+EARLY_FROZEN_PX_SCORE  = float(os.environ.get("EARLY_FROZEN_PX_SCORE",  0.20))
+
+LEARNING_RATE             = float(os.environ.get("LEARNING_RATE",             0.05))
+EDGE_CALIB_MIN_CONFIDENCE = float(os.environ.get("EDGE_CALIB_MIN_CONFIDENCE", 0.50))
+
+CLOUD_UPLINK_MS   = float(os.environ.get("CLOUD_UPLINK_MS",   50.0))
+CLOUD_PROC_MS     = float(os.environ.get("CLOUD_PROC_MS",     300.0))
+CLOUD_DOWNLINK_MS = float(os.environ.get("CLOUD_DOWNLINK_MS", 50.0))
+CLOUD_RTT_MS      = CLOUD_UPLINK_MS + CLOUD_PROC_MS + CLOUD_DOWNLINK_MS
+CLOUD_PRECLOUD_PKTS = max(1, int(CLOUD_RTT_MS / 100.0))
+
+# [MU-2] Coordinator outbound timeout
+COORD_TIMEOUT_S = float(os.environ.get("COORD_TIMEOUT_S", 3.0))
+
+# [HD-DEFENSE] Handover-aware trust control.  These knobs stop late-entry
+# attackers from receiving full inherited trust immediately after zone entry.
+HANDOVER_SAFEWIN_DECAY       = float(os.environ.get("HANDOVER_SAFEWIN_DECAY",       0.30))
+POST_HANDOVER_K              = int(os.environ.get("POST_HANDOVER_K",                8))
+POST_HANDOVER_REP_FACTOR     = float(os.environ.get("POST_HANDOVER_REP_FACTOR",     0.25))
+POST_HANDOVER_DISABLE_UPGRADE= int(os.environ.get("POST_HANDOVER_DISABLE_UPGRADE",  1))
+
+# =============================================================================
+# SHARED STATE
+# =============================================================================
+
+_state_lock  = threading.Lock()
+weight_lock  = threading.Lock()
+
+confirmed_banned_set = set()
+cid_history          = defaultdict(lambda: deque(maxlen=20))
+cid_ts_history       = defaultdict(lambda: deque(maxlen=20))
+cid_px_history       = defaultdict(lambda: deque(maxlen=M4_NORMAL_MAXLEN))
+cid_heading_history  = defaultdict(lambda: deque(maxlen=HEADING_HISTORY_MAX))
+cid_safeWins         = defaultdict(int)
+cid_vehicle_class    = defaultdict(int)
+llm_feedback         = {}
+stats                = defaultdict(lambda: {"safe": 0, "warn": 0, "ban": 0, "pkt": 0})
+detection_latency    = {}
+global_speed_history = deque(maxlen=SPEED_HISTORY_MAX)
+weights              = {"W1": W1, "W2": W2, "W3": W3, "W4": W4, "W5": W5}
+cid_last_scores      = {}
+
+cid_ban_streak       = defaultdict(int)
+cid_warn_streak      = defaultdict(int)
+cid_nash_ban_streak  = defaultdict(int)
+
+cid_first_warn_simts   = {}
+cid_cloud_fb_simts     = {}
+cid_precloud_verdicts  = defaultdict(list)
+cid_postcloud_verdicts = defaultdict(list)
+
+# [HYBRID-VEREMI] Online VeReMi-style physical evidence module.
+# This is used only in the hybrid edge server file, not the validated original.
+# Modes:
+#   shadow  : compute/log p_veremi but keep original p_edge unchanged
+#   replace : use p_veremi as the edge evidence score
+#   max     : use max(original p_edge, p_veremi)
+#   hard_only : only K=2/hard VeReMi evidence is allowed to influence p_edge
+#   guarded : hard VeReMi is always allowed; soft VeReMi is allowed only when old native p_edge is already suspicious
+VEREMI_EVIDENCE_ENABLE = os.environ.get("VEREMI_EVIDENCE_ENABLE", "0").strip() == "1"
+VEREMI_EVIDENCE_MODE   = os.environ.get("VEREMI_EVIDENCE_MODE", "shadow").strip().lower()
+
+VEREMI_MIN_VIOLATIONS  = int(os.environ.get("VEREMI_MIN_VIOLATIONS", "2"))
+VEREMI_TS_SLACK        = float(os.environ.get("VEREMI_TS_SLACK", "0.05"))
+VEREMI_POS_TOL         = float(os.environ.get("VEREMI_POS_TOL", "15.0"))
+VEREMI_SPEED_TOL       = float(os.environ.get("VEREMI_SPEED_TOL", "8.0"))
+VEREMI_MAX_GAP         = float(os.environ.get("VEREMI_MAX_GAP", "3.0"))
+VEREMI_MAX_SPEED       = float(os.environ.get("VEREMI_MAX_SPEED", "35.0"))
+
+VEREMI_HARD_SCORE      = float(os.environ.get("VEREMI_HARD_SCORE", "0.95"))
+VEREMI_SOFT_SCORE      = float(os.environ.get("VEREMI_SOFT_SCORE", "0.35"))
+VEREMI_CLEAN_SCORE     = float(os.environ.get("VEREMI_CLEAN_SCORE", "0.02"))
+VEREMI_SOFT_OLDP_GATE  = float(os.environ.get("VEREMI_SOFT_OLDP_GATE", "0.10"))
+
+_veremi_state = defaultdict(lambda: {
+    "prev_ts": None,
+    "prev_px": None,
+    "prev_spd": None,
+    "max_ts": None,
+    "streak": 0,
+})
+
+def veremi_physical_evidence(cid, ts, spd, px, sim_ts):
+    """
+    Online version of the Full-VeReMi combined_core idea:
+      - timestamp replay/non-monotonicity using high-water mark
+      - position prediction consistency
+      - speed-position consistency
+      - raw speed plausibility
+
+    It returns a physical suspicion score p_veremi.
+    K=2 means one replay/frozen packet plus the following recovery discontinuity
+    becomes strong physical evidence.
+    """
+    st = _veremi_state[cid]
+    reasons = []
+    details = {}
+
+    prev_ts = st["prev_ts"]
+    prev_px = st["prev_px"]
+    prev_spd = st["prev_spd"]
+    max_ts = st["max_ts"]
+
+    # C2b: claimed timestamp replay/non-monotonicity.
+    # Use max seen TS, not only immediate previous TS, so exact repeats are caught.
+    if max_ts is not None and ts <= max_ts + VEREMI_TS_SLACK:
+        reasons.append("ts_nonmonotonic")
+        details["ts"] = round(ts, 3)
+        details["max_ts"] = round(max_ts, 3)
+
+    # C4: raw speed sanity.
+    if abs(spd) > VEREMI_MAX_SPEED:
+        reasons.append("simple_speed")
+        details["spd"] = round(spd, 3)
+
+    # C1/C3: position prediction and speed-position consistency.
+    if prev_ts is not None and prev_px is not None and prev_spd is not None:
+        dt = ts - prev_ts
+        if dt > 0.0 and dt <= VEREMI_MAX_GAP:
+            expected_px = prev_px + prev_spd * dt
+            pos_err = abs(px - expected_px)
+            if pos_err > VEREMI_POS_TOL:
+                reasons.append("pos_pred_claimed")
+                details["pos_err"] = round(pos_err, 3)
+
+            derived_speed = abs((px - prev_px) / dt)
+            speed_err = abs(derived_speed - spd)
+            if speed_err > VEREMI_SPEED_TOL:
+                reasons.append("speed_pos_claimed")
+                details["speed_err"] = round(speed_err, 3)
+                details["derived_speed"] = round(derived_speed, 3)
+
+    if reasons:
+        st["streak"] = int(st.get("streak", 0)) + 1
+    else:
+        st["streak"] = 0
+
+    if st["streak"] >= VEREMI_MIN_VIOLATIONS:
+        p_veremi = VEREMI_HARD_SCORE
+    elif reasons:
+        p_veremi = VEREMI_SOFT_SCORE
+    else:
+        p_veremi = VEREMI_CLEAN_SCORE
+
+    # Update state after checking current packet.
+    st["prev_ts"] = ts
+    st["prev_px"] = px
+    st["prev_spd"] = spd
+    if max_ts is None or ts > max_ts:
+        st["max_ts"] = ts
+
+    return {
+        "p_veremi": max(0.0, min(1.0, p_veremi)),
+        "reasons": reasons,
+        "streak": st["streak"],
+        "details": details,
+    }
+
+# [HYBRID-VEREMI-END]
+
+
+# [MU-3] Handover state pre-loaded by TRUST_HANDOVER_LOAD
+#   {cid: {"alpha": f, "beta": f, "safe_wins": i, "ban_count": i,
+#          "loaded_wall_ts": f}}
+_handover_state = {}
+_handover_ready = {}   # [RACE-FIX] cid -> confirmed-ready to_zone, surfaced to the car via the regular TELEM response (HREADY:) instead of the deliberately non-blocking trigger ACK.
+
+# [HD-DEFENSE] CIDs in their first K packets after receiving TRUST_HANDOVER_LOAD.
+_handover_probation = {}      # cid -> metadata
+_post_handover_pkt_count = defaultdict(int)
+
+# [MU-6] CIDs currently in the overlap region (arrived via TRUST_HANDOVER_LOAD,
+# still being scored by this zone).  Used to decide when to send OVERLAP_SCORE.
+_overlap_cids = set()
+
+def _handover_discount_factor(cid):
+    """Return reputation-discount multiplier during post-handover probation."""
+    if cid in _handover_probation:
+        return max(0.0, min(1.0, POST_HANDOVER_REP_FACTOR))
+    return 1.0
+
+def _bump_post_handover_counter(cid, sim_ts=None):
+    """Advance probation packet count and expire probation after POST_HANDOVER_K packets."""
+    if cid not in _handover_probation:
+        return
+    _post_handover_pkt_count[cid] += 1
+    _handover_probation[cid]["pkt_count"] = _post_handover_pkt_count[cid]
+    if _post_handover_pkt_count[cid] >= POST_HANDOVER_K:
+        meta = _handover_probation.pop(cid, {})
+        trace_event("post_handover_probation_end", cid=cid, zone_id=ZONE_ID,
+                    pkt_count=_post_handover_pkt_count[cid],
+                    from_zone=meta.get("from_zone"), event_level="info")
+
+# =============================================================================
+# TCP FRAMING  (unchanged from v85)
+# =============================================================================
+
+def recv_framed(conn):
+    try:
+        raw = b""
+        while len(raw) < 4:
+            chunk = conn.recv(4 - len(raw))
+            if not chunk: return None
+            raw += chunk
+        length = struct.unpack("!I", raw)[0]
+        if length == 0 or length > 65536: return None
+        data = b""
+        while len(data) < length:
+            chunk = conn.recv(length - len(data))
+            if not chunk: return None
+            data += chunk
+        return data.decode("utf-8", errors="replace").strip()
+    except Exception:
+        return None
+
+def send_framed(conn, msg):
+    try:
+        encoded = msg.encode("utf-8")
+        conn.sendall(struct.pack("!I", len(encoded)) + encoded)
+        return True
+    except Exception:
+        return False
+
+# =============================================================================
+# [MU-2] OUTBOUND TCP HELPER  (coordinator calls)
+# =============================================================================
+
+def tcp_call_framed(host, port, payload_str,
+                    timeout_s=None, want_response=True):
+    """Send a framed message; optionally read a response. Returns str or None."""
+    ts = timeout_s or COORD_TIMEOUT_S
+    try:
+        s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+        s.settimeout(ts)
+        s.connect((host, port))
+        enc = payload_str.encode("utf-8")
+        s.sendall(struct.pack("!I", len(enc)) + enc)
+        if not want_response:
+            s.close()
+            return "SENT"
+        raw = b""
+        while len(raw) < 4:
+            chunk = s.recv(4 - len(raw))
+            if not chunk: break
+            raw += chunk
+        if len(raw) == 4:
+            length = struct.unpack("!I", raw)[0]
+            if 0 < length <= 131072:
+                data = b""
+                while len(data) < length:
+                    chunk = s.recv(length - len(data))
+                    if not chunk: break
+                    data += chunk
+                s.close()
+                return data.decode("utf-8", errors="replace").strip()
+        s.close()
+    except Exception:
+        pass
+    return None
+
+# =============================================================================
+# PARSERS  (unchanged from v85)
+# =============================================================================
+
+def parse_telem(msg):
+    parts = msg.split()
+    if not parts or parts[0] != "TELEM": return None
+    d = {}
+    for p in parts[1:]:
+        if ":" in p:
+            k, v = p.split(":", 1)
+            try:    d[k] = float(v)
+            except: d[k] = v
+    required = {"CID", "TS", "SPD", "HDG", "PX", "PY", "LAN", "SIMNOW",
+                "SAFE_WINS", "CLASS"}
+    if not required.issubset(d.keys()): return None
+    d["CID"]       = int(d["CID"])
+    d["LAN"]       = int(d["LAN"])
+    d["SAFE_WINS"] = int(d["SAFE_WINS"])
+    d["CLASS"]     = int(d["CLASS"])
+    return d
+
+def parse_cloud_fb(msg):
+    parts = msg.split()
+    if not parts or parts[0] != "CLOUD_FB": return None
+    d = {}
+    for p in parts[1:]:
+        if ":" in p:
+            k, v = p.split(":", 1)
+            d[k] = v
+    required = {"CID", "llm_susp", "dominant", "class"}
+    if not required.issubset(d.keys()): return None
+    if "safe_wins" not in d and "safeWins" not in d: return None
+    d["CID"]       = int(d["CID"])
+    d["llm_susp"]  = float(d["llm_susp"])
+    d["safe_wins"] = int(d.get("safe_wins", d.get("safeWins", 0)))
+    d["class"]     = int(d["class"])
+    d["sim_ts"]    = float(d.get("sim_ts", -1.0))
+    return d
+
+# =============================================================================
+# DYNAMIC SPEED THRESHOLD  (unchanged from v85)
+# =============================================================================
+
+def get_dynamic_speed_threshold():
+    with _state_lock:
+        speeds = list(global_speed_history)
+    if len(speeds) < 10:
+        return SPEED_THRESHOLD_FLOOR
+    clean = sorted(s for s in speeds if s <= SPEED_THRESHOLD_CAP)
+    if len(clean) < 5:
+        return SPEED_THRESHOLD_CAP
+    n   = len(clean)
+    lo  = max(1, int(n * 0.10))
+    hi  = min(n - 1, n - lo)
+    trimmed    = clean[lo:hi] if (hi - lo) >= 3 else clean
+    median_spd = trimmed[len(trimmed) // 2]
+    deviations = sorted(abs(s - median_spd) for s in trimmed)
+    mad        = deviations[len(deviations) // 2]
+    eff_mad    = max(mad, 0.5)
+    robust     = median_spd + 2.5 * eff_mad
+    return max(SPEED_THRESHOLD_FLOOR, min(robust, SPEED_THRESHOLD_CAP))
+
+# =============================================================================
+# MODELS M1-M5  (unchanged from v85)
+# =============================================================================
+
+def model1_speed(spd):
+    thresh = get_dynamic_speed_threshold()
+    if spd > thresh:
+        excess = spd - thresh
+        return min(1.0, M1_BASE_SCORE + 0.6 * math.tanh(excess / M1_TANH_SCALE))
+    return 0.0
+
+def model2_timestamp(ts, sim_ts, ts_tight_factor=1.0):
+    delta            = ts - sim_ts
+    tightened_replay = TS_REPLAY_DELTA * ts_tight_factor
+    if delta < tightened_replay:
+        severity = abs(delta - tightened_replay) / max(0.001, abs(tightened_replay))
+        return min(1.0, TS_REPLAY_BASE + TS_REPLAY_SCALE * math.tanh(severity))
+    if delta > TS_FUTURE_THRESH:
+        severity = (delta - TS_FUTURE_THRESH) / TS_FUTURE_THRESH
+        return min(1.0, TS_FUTURE_BASE + TS_FUTURE_SCALE * math.tanh(severity))
+    return TS_NORMAL_SCORE
+
+def model3_behaviour(cid, spd, px, py, hdg=None,
+                     px_snap=None, hdg_snap=None):
+    hist = list(cid_history[cid])
+    if len(hist) < 3:
+        return M3_DEFAULT_SCORE
+    avg_spd     = sum(hist) / len(hist)
+    spd_anomaly = M3_DEFAULT_SCORE
+    if avg_spd > 0:
+        ratio = spd / avg_spd
+        if ratio > M3_SPD_RATIO_THRESH:
+            spd_anomaly = min(1.0, M3_SPD_BASE
+                             + M3_SPD_SCALE * math.tanh(ratio - M3_SPD_RATIO_THRESH))
+    pos_anomaly = 0.0
+    ph = px_snap or []
+    if spd > M3_MIN_SPD_FOR_GPS and len(ph) >= 2:
+        dt = ph[-1][0] - ph[0][0]
+        if dt > 0.5:
+            gps_rate = abs(ph[-1][1] - ph[0][1]) / dt
+            if spd > 0 and (gps_rate / spd) < M3_GPS_RATE_THRESH:
+                pos_anomaly = M3_GPS_ANOMALY_SCORE
+    _ = py
+    hdg_anomaly = 0.0
+    if hdg is not None:
+        h_hist = hdg_snap or []
+        if len(h_hist) >= M3_HDG_MIN_HISTORY:
+            if not (STOPPED_IGNORE_HDG == 1 and spd <= STOPPED_SPEED_MAX):
+                recent = h_hist[-M3_HDG_RECENT_WIN:]
+                mean_h = sum(recent) / len(recent)
+                var_h  = sum((x - mean_h) ** 2 for x in recent) / len(recent)
+                if var_h < M3_HDG_FROZEN_THRESH:
+                    hdg_anomaly = M3_HDG_FROZEN_SCORE
+                elif var_h < M3_HDG_LOW_THRESH:
+                    hdg_anomaly = M3_HDG_LOW_SCORE
+    return min(1.0, spd_anomaly + hdg_anomaly + pos_anomaly)
+
+def model4_position_drift(cid, px, sim_ts, spd, px_snap=None):
+    fb            = llm_feedback.get(cid, {})
+    shadow_active = fb.get("shadow_boost", 1.0) > 1.2
+    maxlen        = M4_SHADOW_MAXLEN if shadow_active else M4_NORMAL_MAXLEN
+    with _state_lock:
+        hist = cid_px_history[cid]
+        if hist.maxlen != maxlen:
+            cid_px_history[cid] = deque(hist, maxlen=maxlen)
+    px_data = px_snap or []
+    if len(px_data) < PX_HISTORY_MIN:
+        return 0.0
+    oldest_ts, oldest_px = px_data[0]
+    newest_ts, newest_px = px_data[-1]
+    dt = newest_ts - oldest_ts
+    if dt < M4_MIN_DT:
+        return 0.0
+    if spd <= STOPPED_SPEED_MAX:
+        return 0.0
+    expected_disp = spd * dt
+    displacement  = abs(newest_px - oldest_px)
+    drift_ratio   = displacement / max(1.0, expected_disp)
+    if drift_ratio < M4_FROZEN_RATIO:
+        return M4_FROZEN_SCORE
+    elif drift_ratio < M4_DRIFT_RATIO:
+        return round(M4_DRIFT_SCALE * (1.0 - drift_ratio / M4_DRIFT_RATIO), 3)
+    return 0.0
+
+def model5_temporal(cid, spd, sim_ts, px_snap=None):
+    fb = llm_feedback.get(cid, {})
+    temporal_bias = float(fb.get("temporal_bias", 0.0))
+    with _state_lock:
+        spd_hist = list(cid_history[cid])
+        ts_hist  = list(cid_ts_history[cid])
+    if len(spd_hist) < 3:
+        return max(0.0, min(1.0, temporal_bias))
+    recent_spd = spd_hist[-5:]
+    avg_spd    = sum(recent_spd) / len(recent_spd)
+    replay_score = 0.0
+    recent_dt    = ts_hist[-5:]
+    if len(recent_dt) >= 3:
+        avg_delta = sum(recent_dt) / len(recent_dt)
+        if avg_delta < (TS_REPLAY_DELTA * 0.95):
+            replay_score = 0.35
+        elif avg_delta < (TS_REPLAY_DELTA * 0.70):
+            replay_score = 0.20
+    speed_score = 0.0
+    if avg_spd > SPEED_THRESHOLD_FLOOR:
+        denom = max(1.0, SPEED_THRESHOLD_CAP - SPEED_THRESHOLD_FLOOR)
+        speed_score = min(0.25, 0.25 * max(0.0, avg_spd - SPEED_THRESHOLD_FLOOR) / denom)
+    motion_score = 0.0
+    px_data = px_snap or []
+    if len(px_data) >= 3:
+        oldest_ts, oldest_px = px_data[0]
+        newest_ts, newest_px = px_data[-1]
+        dt = newest_ts - oldest_ts
+        if dt >= M4_MIN_DT and avg_spd > STOPPED_SPEED_MAX:
+            disp     = abs(newest_px - oldest_px)
+            expected = avg_spd * dt
+            ratio    = disp / max(1.0, expected)
+            if M4_FROZEN_RATIO <= ratio < 0.60:
+                motion_score = min(0.30, 0.30 * (0.60 - ratio)
+                                   / max(0.05, 0.60 - M4_FROZEN_RATIO))
+    m5 = replay_score + speed_score + motion_score + temporal_bias
+    return min(1.0, max(0.0, round(m5, 3)))
+
+# =============================================================================
+# ENSEMBLE SCORER  (unchanged from v85)
+# =============================================================================
+
+def ensemble_score(cid, ts, spd, hdg, px, py, lan, sim_ts,
+                   px_snap=None, hdg_snap=None):
+    fb           = llm_feedback.get(cid, {})
+    shadow_boost = fb.get("shadow_boost", 1.0)
+    ts_tight     = fb.get("ts_tight_factor", 1.0)
+    m1 = model1_speed(spd)
+    m2 = model2_timestamp(ts, sim_ts, ts_tight)
+    m3 = model3_behaviour(cid, spd, px, py, hdg,
+                          px_snap=px_snap, hdg_snap=hdg_snap)
+    m4 = model4_position_drift(cid, px, sim_ts, spd, px_snap=px_snap)
+    m5 = model5_temporal(cid, spd, sim_ts, px_snap=px_snap)
+    m2 = min(1.0, max(0.0, m2 + float(fb.get("ts_bias", 0.0))))
+    m4 = min(1.0, max(0.0, m4 + float(fb.get("px_bias", 0.0))))
+    m5 = min(1.0, max(0.0, m5 + float(fb.get("hidden_promote", 0.0))))
+    with _state_lock:
+        ts_deltas = list(cid_ts_history[cid])
+    if len(ts_deltas) >= TS_BOOST_MIN_PKTS:
+        avg_delta = sum(ts_deltas) / len(ts_deltas)
+        if avg_delta < TS_BOOST_THRESHOLD:
+            old_m2 = m2
+            m2 = min(1.0, m2 + TS_BOOST_AMOUNT)
+            print("[EDGE-TS-HIST] CID:%d avg_delta=%.3f m2 %.3f->%.3f"
+                  % (cid, avg_delta, old_m2, m2))
+    with weight_lock:
+        w1 = weights["W1"]; w2 = weights["W2"]
+        w3 = weights["W3"]; w4 = weights["W4"]; w5 = weights["W5"]
+    _wt = w1 + w2 + w3 + w4 + w5
+    if _wt > 0:
+        w1, w2, w3, w4, w5 = w1/_wt, w2/_wt, w3/_wt, w4/_wt, w5/_wt
+    raw_p_edge = (w1*m1 + w2*m2 + w3*m3 + w4*m4 + w5*m5) * shadow_boost
+    if len(px_snap or []) < 3 and m2 >= EARLY_TS_STRONG:
+        raw_p_edge = min(1.0, raw_p_edge + EARLY_TS_BONUS)
+    if len(px_snap or []) == 2 and m4 == 0.0:
+        dt = (px_snap[-1][0] - px_snap[0][0]) if px_snap else 0.0
+        if dt >= M4_MIN_DT:
+            expected_disp = spd * dt
+            displacement  = abs(px_snap[-1][1] - px_snap[0][1])
+            drift_ratio   = displacement / max(1.0, expected_disp)
+            if drift_ratio < M4_FROZEN_RATIO:
+                m4 = max(m4, EARLY_FROZEN_PX_SCORE)
+                raw_p_edge = min(1.0, (w1*m1 + w2*m2 + w3*m3 + w4*m4 + w5*m5) * shadow_boost)
+    p_edge    = raw_p_edge
+    safe_wins = cid_safeWins.get(cid, 0)
+    if safe_wins > 0:
+        discount = min(REPUTATION_CAP, safe_wins * REPUTATION_RATE)
+        discount *= _handover_discount_factor(cid)
+        if raw_p_edge >= REPUTATION_HARD_CUTOFF:
+            discount *= REPUTATION_HARD_SCALE
+        elif raw_p_edge >= REPUTATION_SOFT_CUTOFF:
+            discount *= REPUTATION_SOFT_SCALE
+        p_edge = max(0.0, raw_p_edge - discount)
+    p_edge = min(1.0, max(0.0, p_edge))
+    with weight_lock:
+        cid_last_scores[cid] = {"m1": m1, "m2": m2, "m3": m3, "m4": m4, "m5": m5}
+    return m1, m2, m3, m4, m5, p_edge
+
+# =============================================================================
+# NASH VERDICT  (unchanged from v85)
+# =============================================================================
+
+def nash_verdict(cid, llm_susp):
+    with _state_lock:
+        spd_hist        = list(cid_history[cid])
+        px_hist         = list(cid_px_history[cid])
+        vclass          = cid_vehicle_class.get(cid, 0)
+        safe_wins       = cid_safeWins.get(cid, 0)
+        edge_ban_streak  = int(cid_ban_streak[cid])
+        edge_warn_streak = int(cid_warn_streak[cid])
+        was_edge_banned  = (cid in confirmed_banned_set)
+        fb = dict(llm_feedback.get(cid, {}))
+    spd_susp = model1_speed(sum(spd_hist) / len(spd_hist)) if spd_hist else 0.0
+    px_susp  = 0.0
+    if len(px_hist) >= PX_HISTORY_MIN:
+        oldest_ts, oldest_px = px_hist[0]
+        newest_ts, newest_px = px_hist[-1]
+        dt = newest_ts - oldest_ts
+        if dt > 0.5:
+            avg_spd = sum(spd_hist) / len(spd_hist) if spd_hist else 20.0
+            if avg_spd > STOPPED_SPEED_MAX:
+                expected_disp = avg_spd * dt
+                disp  = abs(newest_px - oldest_px)
+                ratio = disp / max(1.0, expected_disp)
+                if ratio < M4_FROZEN_RATIO:
+                    px_susp = M4_FROZEN_SCORE
+                elif ratio < M4_DRIFT_RATIO:
+                    px_susp = round(M4_DRIFT_SCALE * (1.0 - ratio / M4_DRIFT_RATIO), 3)
+    spd_px_edge_susp = NASH_SPD_WEIGHT * spd_susp + NASH_PX_WEIGHT * px_susp
+    with weight_lock:
+        last = dict(cid_last_scores.get(cid, {}))
+        w1 = float(weights.get("W1", W1)); w2 = float(weights.get("W2", W2))
+        w3 = float(weights.get("W3", W3)); w4 = float(weights.get("W4", W4))
+        w5 = float(weights.get("W5", W5))
+    _wt = w1 + w2 + w3 + w4 + w5
+    if _wt > 0:
+        w1, w2, w3, w4, w5 = w1/_wt, w2/_wt, w3/_wt, w4/_wt, w5/_wt
+    prior_edge_susp = 0.0
+    if last:
+        prior_edge_susp = min(1.0, max(0.0,
+            w1*float(last.get("m1",0.0)) + w2*float(last.get("m2",0.0))
+          + w3*float(last.get("m3",0.0)) + w4*float(last.get("m4",0.0))
+          + w5*float(last.get("m5",0.0))))
+    edge_evidence = max(
+        spd_px_edge_susp,
+        NASH_EDGE_PRIOR_WEIGHT * prior_edge_susp
+        + (1.0 - NASH_EDGE_PRIOR_WEIGHT) * spd_px_edge_susp,
+    )
+    strong_edge_ban  = (was_edge_banned or edge_ban_streak > 0
+                        or prior_edge_susp >= ZONE_MALICIOUS)
+    repeated_edge_ban = (edge_ban_streak >= 2 or prior_edge_susp >= 0.50)
+    teach   = float(fb.get("teach_strength", 0.0))
+    hidden  = float(fb.get("hidden_promote", 0.0))
+    promote = int(fb.get("promote_safe", 0))
+    llm_effective = min(1.0, max(0.0,
+        llm_susp + float(fb.get("edge_delta", 0.0))
+        + NASH_TEACH_DIRECT_WEIGHT * teach
+        + NASH_HIDDEN_DIRECT_WEIGHT * hidden))
+    # [OPTION-A] Decouple LLM from the verdict path for determinism/safety.
+    # llm_effective is zeroed (not just NASH_LLM_WEIGHT) so every downstream
+    # use -- the weighted sum in p_comb AND the independent threshold gates
+    # (NASH_LLM_RESCUE_BAN, NASH_LLM_TRUST_VETO) -- is consistently disabled.
+    # The Ollama call above is UNCHANGED and still runs, so dominant_anomaly/
+    # summary remain available for human-readable logging; only the numeric
+    # contribution to the verdict is removed.
+    if DISABLE_LLM_DECISION:
+        llm_effective = 0.0
+    tuned_edge_evidence = min(1.0, max(0.0,
+        edge_evidence + 0.20*teach + 0.35*hidden))
+    p_comb = min(1.0, max(0.0,
+        NASH_LLM_WEIGHT * llm_effective + NASH_EDGE_WEIGHT * tuned_edge_evidence))
+    if promote == 1:
+        p_comb = max(p_comb,
+                     NASH_PROMOTE_WARN_FLOOR + 0.10*min(1.0,hidden) + 0.05*min(1.0,teach))
+    if strong_edge_ban:
+        p_comb = max(p_comb, NASH_EDGE_WARN_FLOOR)
+        if repeated_edge_ban or llm_effective >= NASH_LLM_RESCUE_BAN or promote == 1:
+            floor = NASH_EDGE_BAN_STRONG_FLOOR if repeated_edge_ban else NASH_EDGE_BAN_FLOOR
+            if promote == 1 and (teach >= NASH_TEACH_BAN_GATE or hidden >= 0.08):
+                floor = max(floor, NASH_PROMOTE_BAN_FLOOR)
+            p_comb = max(p_comb, floor)
+    if safe_wins > 0:
+        rep_disc = min(REPUTATION_CAP, safe_wins * REPUTATION_RATE)
+        rep_disc *= _handover_discount_factor(cid)
+        if p_comb >= REPUTATION_HARD_CUTOFF:
+            rep_disc *= REPUTATION_HARD_SCALE
+        elif p_comb >= REPUTATION_SOFT_CUTOFF:
+            rep_disc *= REPUTATION_SOFT_SCALE
+        p_comb = max(0.0, p_comb - rep_disc)
+        if strong_edge_ban:
+            p_comb = max(p_comb, NASH_EDGE_WARN_FLOOR)
+    thr = float(NASH_BAN_THRESHOLD)
+    if vclass == 1:
+        ban_reward     = NASH_BAN_REWARD     * EMG_BAN_REWARD_MULT
+        false_ban_cost = NASH_FALSE_BAN_COST * EMG_FALSE_BAN_MULT
+        chase_cost     = NASH_CHASE_COST     * EMG_CHASE_COST_MULT
+    else:
+        ban_reward     = NASH_BAN_REWARD
+        false_ban_cost = NASH_FALSE_BAN_COST
+        chase_cost     = NASH_CHASE_COST
+    eu_ban   = p_comb * ban_reward - (1.0 - p_comb) * false_ban_cost
+    eu_trust = (1.0 - p_comb) * NASH_REWARD - p_comb * chase_cost
+    ban_candidate = (p_comb > thr and eu_ban > eu_trust)
+    if strong_edge_ban and not ban_candidate and NASH_MIN_WARN_ON_EDGE_BAN == 1 and llm_effective > NASH_LLM_TRUST_VETO:
+        warn_candidate = True
+    else:
+        warn_candidate = (edge_warn_streak > 0 and p_comb >= ZONE_SAFE)
+    if not warn_candidate and not ban_candidate:
+        if promote == 1 and (teach >= 0.35 or hidden >= 0.05) and (strong_edge_ban or edge_warn_streak > 0):
+            warn_candidate = True
+        elif hidden >= 0.08 and llm_effective >= 0.35:
+            warn_candidate = True
+    with _state_lock:
+        if ban_candidate:
+            cid_nash_ban_streak[cid] += 1
+        else:
+            cid_nash_ban_streak[cid] = 0
+        streak = cid_nash_ban_streak[cid]
+    strong_cloud_ban = (
+        strong_edge_ban and promote == 1
+        and llm_effective >= 0.90
+        and p_comb >= max(float(NASH_BAN_THRESHOLD), NASH_PROMOTE_BAN_FLOOR)
+    )
+    verdict = "TRUST"
+    if ban_candidate:
+        if strong_cloud_ban or streak >= max(1, int(NASH_BAN_CONFIRM_K)):
+            verdict = "BAN"
+            with _state_lock:
+                confirmed_banned_set.add(cid)
+                cid_nash_ban_streak[cid] = max(
+                    cid_nash_ban_streak[cid], max(1, int(NASH_BAN_CONFIRM_K)))
+        else:
+            verdict = "WARN"
+    elif warn_candidate:
+        verdict = "WARN"
+    return {
+        "verdict":      verdict,
+        "p_comb":       round(p_comb, 3),
+        "nash_p*":      round(thr, 4),
+        "eu_ban":       round(eu_ban, 3),
+        "eu_trust":     round(eu_trust, 3),
+        "ban_k":        int(NASH_BAN_CONFIRM_K),
+        "ban_streak":   int(streak),
+        "edge_prior":   round(prior_edge_susp, 3),
+        "edge_evidence":round(edge_evidence, 3),
+    }
+
+# =============================================================================
+# ONLINE WEIGHT LEARNING  (unchanged from v85)
+# =============================================================================
+
+def update_weights(cid, llm_susp):
+    # [OPTION-A] Weights (W1-W5) are adaptive/online-learned from LLM-derived
+    # feedback (teach_strength, hidden_promote, dominant anomaly class) --
+    # this is a second, independent channel through which non-deterministic
+    # LLM/cloud feedback could influence future verdicts (in addition to the
+    # llm_effective gate already neutralized above). The LEARNING_RATE=0
+    # env var alone only freezes the gradient-descent term; the dominant/
+    # teach/hidden additions below it are unconditional and NOT covered by
+    # LEARNING_RATE. Disabling the whole function keeps weights fixed at
+    # their initial W1..W5 values for the full run when DISABLE_LLM_DECISION
+    # is set, closing this second leak in one place.
+    if DISABLE_LLM_DECISION:
+        return
+    with weight_lock:
+        scores = cid_last_scores.get(cid)
+        if scores is None:
+            print("[WEIGHT-UPDATE] CID:%d -- no cached scores, skipping" % cid)
+            return
+        m1 = scores["m1"]; m2 = scores["m2"]
+        m3 = scores["m3"]; m4 = scores["m4"]; m5 = scores.get("m5", 0.0)
+        w1 = weights["W1"]; w2 = weights["W2"]
+        w3 = weights["W3"]; w4 = weights["W4"]; w5 = weights["W5"]
+        fb     = dict(llm_feedback.get(cid, {}))
+        teach  = float(fb.get("teach_strength", 0.0))
+        hidden = float(fb.get("hidden_promote", 0.0))
+        target = min(1.0, max(0.0,
+            llm_susp + float(fb.get("edge_delta", 0.0)) + 0.15*teach + 0.40*hidden))
+        ensemble = w1*m1 + w2*m2 + w3*m3 + w4*m4 + w5*m5
+        error    = ensemble - target
+        weights["W1"] = max(0.0, min(1.0, w1 - LEARNING_RATE*error*m1))
+        weights["W2"] = max(0.0, min(1.0, w2 - LEARNING_RATE*error*m2))
+        weights["W3"] = max(0.0, min(1.0, w3 - LEARNING_RATE*error*m3))
+        weights["W4"] = max(0.0, min(1.0, w4 - LEARNING_RATE*error*m4))
+        weights["W5"] = max(0.0, min(1.0, w5 - LEARNING_RATE*error*m5))
+        dominant = str(fb.get("dominant", ""))
+        if dominant in ("replay_ts", "slight_ts_offset"):
+            weights["W2"] += 0.05*teach; weights["W5"] += 0.04*teach
+        elif dominant in ("frozen_position",):
+            weights["W4"] += 0.06*teach; weights["W5"] += 0.05*teach
+        elif dominant in ("stealthy_speed", "speed_spike"):
+            weights["W1"] += 0.05*teach; weights["W5"] += 0.04*teach
+        if hidden > 0.0:
+            weights["W5"] += 0.05*hidden
+        for k in weights:
+            if weights[k] < W_MIN: weights[k] = W_MIN
+        total = sum(weights[k] for k in weights)
+        if total > 0:
+            for k in weights: weights[k] = round(weights[k] / total, 4)
+        print("[WEIGHT-UPDATE] CID:%d ensemble=%.3f target=%.3f error=%.3f "
+              "W1=%.3f W2=%.3f W3=%.3f W4=%.3f W5=%.3f"
+              % (cid, ensemble, target, error,
+                 weights["W1"], weights["W2"], weights["W3"],
+                 weights["W4"], weights["W5"]))
+
+# =============================================================================
+# BUILD TELEM RESPONSE  (unchanged from v85)
+# =============================================================================
+
+def build_telem_response(cid, ts, spd, hdg, px, py, lan,
+                          m1, m2, m3, m4, m5, p_edge, verdict, sim_ts):
+    susp       = round(p_edge, 3)
+    clean_conf = round(max(0.0, 1.0 - p_edge), 3)
+    prefix     = "BAN" if verdict == "BAN" else "WARN" if verdict == "WARN" else "SAFE"
+    with _state_lock:
+        first_flag = detection_latency.get(cid, sim_ts)
+        hready = _handover_ready.get(cid, 0)
+    lat = round(sim_ts - first_flag, 3)
+    return (prefix
+            + " CID:" + str(cid)
+            + " TS:"  + str(round(ts,  3))
+            + " SPD:" + str(round(spd, 1))
+            + " HDG:" + str(round(hdg, 3))
+            + " PX:"  + str(round(px,  3))
+            + " PY:"  + str(round(py,  3))
+            + " LAN:" + str(lan)
+            + " BRK:0"
+            + " M1:"  + str(round(m1, 3))
+            + " M2:"  + str(round(m2, 3))
+            + " M3:"  + str(round(m3, 3))
+            + " M4:"  + str(round(m4, 3))
+            + " M5:"  + str(round(m5, 3))
+            + " SUSP:"        + str(susp)
+            + " CLEAN_CONF:"  + str(clean_conf)
+            + " LAT:"         + str(lat)
+            + " HREADY:"       + str(hready))
+
+# =============================================================================
+# CALIBRATION_RESULT HANDLER  (unchanged from v85)
+# =============================================================================
+
+def apply_calibration_result(msg):
+    import json as _json, time as _time
+    global ZONE_MALICIOUS
+    json_str = msg[len("CALIBRATION_RESULT"):].strip()
+    if not json_str:
+        print("[EDGE-CALIB] Empty calibration payload"); return "CALIB_IGNORED empty"
+    try:
+        data = _json.loads(json_str)
+    except Exception as e:
+        print("[EDGE-CALIB] Bad JSON: %s" % e); return "CALIB_IGNORED bad_json"
+    attack = data.get("attack_type_detected", "unknown")
+    conf   = float(data.get("confidence", 0.0))
+    sim_ts = float(data.get("sim_ts", 0.0))
+    print("[EDGE-CALIB] Received calibration: attack=%s conf=%.2f" % (attack, conf))
+    if conf < EDGE_CALIB_MIN_CONFIDENCE:
+        print("[EDGE-CALIB] Confidence %.2f < %.2f — ignoring" % (conf, EDGE_CALIB_MIN_CONFIDENCE))
+        return "CALIB_IGNORED low_confidence"
+    changes = []
+    with weight_lock:
+        for wk in ("W1","W2","W3","W4","W5"):
+            delta = float(data.get(wk + "_delta", 0.0))
+            if abs(delta) > 1e-6:
+                old_val = weights[wk]
+                weights[wk] = round(max(W_MIN, min(1.0, old_val + LEARNING_RATE*delta)), 4)
+                changes.append("%s: %.4f→%.4f (Δ%.4f)" % (wk, old_val, weights[wk], delta))
+        total = sum(weights[k] for k in weights)
+        if total > 0:
+            for k in weights: weights[k] = round(weights[k] / total, 4)
+    zm_delta = float(data.get("ZONE_MALICIOUS_delta", 0.0))
+    if abs(zm_delta) > 1e-6:
+        old_zm = ZONE_MALICIOUS
+        ZONE_MALICIOUS = round(max(0.10, min(0.60,
+            ZONE_MALICIOUS + LEARNING_RATE * zm_delta)), 3)
+        changes.append("ZONE_MAL: %.3f→%.3f" % (old_zm, ZONE_MALICIOUS))
+    if changes:
+        print("[EDGE-CALIB] Applied: " + "  ".join(changes))
+        print("[EDGE-CALIB] New weights: W1=%.3f W2=%.3f W3=%.3f W4=%.3f W5=%.3f"
+              % (weights["W1"], weights["W2"], weights["W3"],
+                 weights["W4"], weights["W5"]))
+        try:
+            with open("parameter_history.jsonl", "a") as f:
+                f.write(_json.dumps({
+                    "zone_id": ZONE_ID,
+                    "sim_ts": sim_ts, "wall_ts": _time.time(),
+                    "attack": attack, "conf": conf, "changes": changes,
+                    "W1": weights["W1"], "W2": weights["W2"],
+                    "W3": weights["W3"], "W4": weights["W4"],
+                    "W5": weights["W5"], "ZONE_MALICIOUS": ZONE_MALICIOUS,
+                }) + "\n")
+        except Exception:
+            pass
+    return "CALIB_APPLIED changes=%d sep_before=%.2f sep_after=%.2f" % (
+        len(changes),
+        float(data.get("sep_before", 0.0)),
+        float(data.get("sep_after", 0.0)))
+
+# =============================================================================
+# METRICS  (unchanged from v85, zone_id added to snapshot)
+# =============================================================================
+
+def print_metrics():
+    print("\n" + "=" * 64)
+    print(" EDGE-AI METRICS %s  ZONE:%d  %s" % (VERSION, ZONE_ID, EXP_NAME))
+    print("=" * 64)
+    with _state_lock:
+        total_pkt  = sum(s["pkt"]  for s in stats.values())
+        total_safe = sum(s["safe"] for s in stats.values())
+        total_warn = sum(s["warn"] for s in stats.values())
+        total_ban  = sum(s["ban"]  for s in stats.values())
+        banned     = sorted(confirmed_banned_set)
+        det_lat    = dict(detection_latency)
+        pre_cloud  = {k: list(v) for k, v in cid_precloud_verdicts.items()}
+        post_cloud = {k: list(v) for k, v in cid_postcloud_verdicts.items()}
+        ho_loaded  = len(_handover_state)
+    print(" Packets processed    : %d" % total_pkt)
+    print(" SAFE / WARN / BAN    : %d / %d / %d" % (total_safe, total_warn, total_ban))
+    print(" Confirmed banned CIDs: %s" % banned)
+    print(" Handover state loaded: %d CIDs" % ho_loaded)
+    if det_lat:
+        print("-" * 64)
+        for cid, t in sorted(det_lat.items()):
+            print("  CID%-3d first flagged at sim_ts=%.3fs" % (cid, t))
+    with weight_lock:
+        w = dict(weights)
+    print("-" * 64)
+    print(" Final weights: W1=%.3f W2=%.3f W3=%.3f W4=%.3f W5=%.3f"
+          % (w["W1"], w["W2"], w["W3"], w["W4"], w.get("W5", 0.0)))
+    print("=" * 64 + "\n")
+
+def save_metrics_json():
+    with _state_lock:
+        out = {
+            "timestamp": datetime.datetime.now().isoformat(),
+            "version":   VERSION, "zone_id": ZONE_ID, "exp": EXP_NAME,
+            "stats":     {str(k): dict(v) for k, v in stats.items()},
+            "confirmed_banned_cids": sorted(confirmed_banned_set),
+            "detection_latency": {str(k): v for k, v in detection_latency.items()},
+            "precloud_verdicts":  {str(k): list(v) for k, v in cid_precloud_verdicts.items()},
+            "postcloud_verdicts": {str(k): list(v) for k, v in cid_postcloud_verdicts.items()},
+        }
+    with weight_lock:
+        out["final_weights"] = dict(weights)
+    _log_dir = os.path.dirname(os.environ.get("TRACE_DIR", "logs/traces"))
+    os.makedirs(_log_dir, exist_ok=True)
+    fname = os.path.join(_log_dir, "edge_ai_z%d_metrics_%s.json" %
+                         (ZONE_ID, datetime.datetime.now().strftime("%Y%m%d_%H%M%S")))
+    with open(fname, "w") as f:
+        json.dump(out, f, indent=2)
+    print("[EDGE-AI] Metrics saved -> %s" % fname)
+
+def save_config_snapshot():
+    config = {
+        "VERSION": VERSION, "ZONE_ID": ZONE_ID, "EXP_NAME": EXP_NAME, "PORT": PORT,
+        "COORD_HOST": COORD_HOST, "COORD_PORT": COORD_PORT,
+        "W1": W1, "W2": W2, "W3": W3, "W4": W4, "W5": W5, "W_MIN": W_MIN,
+        "ZONE_SAFE": ZONE_SAFE, "ZONE_MALICIOUS": ZONE_MALICIOUS,
+        "HANDOVER_SAFEWIN_DECAY": HANDOVER_SAFEWIN_DECAY,
+        "POST_HANDOVER_K": POST_HANDOVER_K,
+        "POST_HANDOVER_REP_FACTOR": POST_HANDOVER_REP_FACTOR,
+        "POST_HANDOVER_DISABLE_UPGRADE": POST_HANDOVER_DISABLE_UPGRADE,
+        "LEARNING_RATE": LEARNING_RATE, "NASH_P_STAR": round(NASH_P_STAR, 4),
+    }
+    _log_dir = os.path.dirname(os.environ.get("TRACE_DIR", "logs/traces"))
+    os.makedirs(_log_dir, exist_ok=True)
+    fname = os.path.join(_log_dir, "edge_ai_z%d_config_%s.json" %
+                         (ZONE_ID, datetime.datetime.now().strftime("%Y%m%d_%H%M%S")))
+    with open(fname, "w") as f:
+        json.dump(config, f, indent=2)
+    print("[EDGE-AI] Config snapshot saved -> %s" % fname)
+
+# =============================================================================
+# [MU-5]  SEND TRUST_HANDOVER TO COORDINATOR
+# =============================================================================
+
+def send_trust_handover(cid, to_zone, sim_ts):
+    """
+    Build a TRUST_HANDOVER JSON from local per-CID state and send it to the
+    coordinator. Called when this edge receives a TRUST_HANDOVER_TRIGGER from NS3.
+
+    The coordinator forwards it as TRUST_HANDOVER_LOAD to the target zone's edge.
+    Returns True if the coordinator acknowledged with "loaded": True.
+    """
+    with _state_lock:
+        spd_hist  = list(cid_history[cid])[-10:]
+        ts_hist   = list(cid_ts_history[cid])[-10:]
+        safe_wins = cid_safeWins.get(cid, 0)
+        w_biases  = dict(llm_feedback.get(cid, {}))
+        ban_str   = int(cid_ban_streak[cid])
+        warn_str  = int(cid_warn_streak[cid])
+        ban_count = stats[cid].get("ban", 0)
+        vclass    = cid_vehicle_class.get(cid, 0)
+        is_banned = cid in confirmed_banned_set
+
+    with weight_lock:
+        last_scores = dict(cid_last_scores.get(cid, {}))
+
+    last_score_vals = list(last_scores.values())
+    p_edge_last = (sum(last_score_vals) / len(last_score_vals)
+                   if last_score_vals else 0.0)
+
+    if is_banned:
+        last_verdict = "BAN"
+    elif warn_str > 0:
+        last_verdict = "WARN"
+    else:
+        last_verdict = "SAFE"
+
+    payload = {
+        "msg_type":         "TRUST_HANDOVER",
+        "from_zone":        ZONE_ID,
+        "to_zone":          to_zone,
+        "cid":              cid,
+        # Bayesian state -- alpha/beta live in NS3; edge defaults if not provided
+        # NS3 TRUST_HANDOVER_TRIGGER carries these; see handle_trust_handover_trigger
+        "alpha":            2.0,
+        "beta":             1.0,
+        "safe_wins":        safe_wins,
+        "ban_count":        ban_count,
+        "p_edge_avg":       p_edge_last,
+        "p_edge_last":      p_edge_last,
+        "last_verdict":     last_verdict,
+        "ban_streak":       ban_str,
+        "warn_streak":      warn_str,
+        "w_biases": {
+            "b_ts":          float(w_biases.get("ts_bias",       0.0)),
+            "b_px":          float(w_biases.get("px_bias",       0.0)),
+            "temporal_bias": float(w_biases.get("temporal_bias", 0.0)),
+            "shadow_boost":  float(w_biases.get("shadow_boost",  1.0)),
+        },
+        "spd_hist":         spd_hist,
+        "ts_hist":          ts_hist,
+        "vehicle_class":    vclass,
+        "handover_sim_ts":  sim_ts,
+        "handover_wall_ts": time.time(),
+        "handover_defense": {
+            "trust_decay": True,
+            "probation": True,
+            "cusum_reset": True,
+            "safewin_decay": HANDOVER_SAFEWIN_DECAY,
+            "probation_k": POST_HANDOVER_K,
+            "rep_factor": POST_HANDOVER_REP_FACTOR,
+        },
+    }
+
+    resp_str = tcp_call_framed(COORD_HOST, COORD_PORT,
+                               json.dumps(payload),
+                               timeout_s=COORD_TIMEOUT_S)
+    if resp_str:
+        try:
+            rd = json.loads(resp_str)
+            if rd.get("loaded"):
+                print("[EDGE-Z%d] HANDOVER OK   CID:%-4d --> Z%d  verdict=%s"
+                      % (ZONE_ID, cid, to_zone, last_verdict))
+                trace_event("handover_sent_ok", cid=cid, to_zone=to_zone,
+                            sim_time=sim_ts, last_verdict=last_verdict)
+                return True
+        except Exception:
+            pass
+
+    print("[EDGE-Z%d] HANDOVER FAIL CID:%-4d --> Z%d  coord_resp=%s"
+          % (ZONE_ID, cid, to_zone, repr(resp_str)[:60]))
+    trace_event("handover_sent_fail", cid=cid, to_zone=to_zone,
+                sim_time=sim_ts, coord_resp=repr(resp_str)[:60])
+    return False
+
+# =============================================================================
+# [MU-6]  SEND OVERLAP_SCORE TO COORDINATOR
+# =============================================================================
+
+def send_overlap_score(cid, verdict, p_edge, sim_ts):
+    """
+    Notify coordinator that this zone is scoring a CID that arrived via
+    TRUST_HANDOVER_LOAD (i.e., it's in the overlap region, being scored by both
+    zones simultaneously). Non-blocking — failures are silently ignored.
+    """
+    payload = {
+        "msg_type": "OVERLAP_SCORE",
+        "zone_id":  ZONE_ID,
+        "cid":      cid,
+        "verdict":  verdict,
+        "p_edge":   round(p_edge, 4),
+        "sim_ts":   sim_ts,
+    }
+    try:
+        tcp_call_framed(COORD_HOST, COORD_PORT,
+                        json.dumps(payload),
+                        timeout_s=1.5,
+                        want_response=False)
+    except Exception:
+        pass
+
+# =============================================================================
+# [MU-3]  HANDLE TRUST_HANDOVER_LOAD  (inbound from coordinator)
+# =============================================================================
+
+def handle_trust_handover_load(payload, conn):
+    """
+    Pre-seed all relevant per-CID state from the inherited trust payload.
+    Called when a vehicle is approaching from the upstream zone.
+
+    After this call the edge is ready to score the vehicle's first TELEM
+    packet with full history and bias context — no cold start.
+    """
+    try:
+        cid = int(payload.get("cid", -1))
+        if cid < 0:
+            send_framed(conn, json.dumps({"status": "ERROR",
+                                          "reason": "missing_cid"}))
+            return
+
+        from_zone  = int(payload.get("from_zone", -1))
+        sim_ts     = float(payload.get("handover_sim_ts", 0.0))
+        last_v     = str(payload.get("last_verdict", "SAFE"))
+        safe_wins_raw = int(payload.get("safe_wins",   0))
+        safe_wins  = int(max(0, round(safe_wins_raw * HANDOVER_SAFEWIN_DECAY)))
+        ban_count  = int(payload.get("ban_count",   0))
+        ban_str    = int(payload.get("ban_streak",  0))
+        warn_str   = int(payload.get("warn_streak", 0))
+        w_biases   = payload.get("w_biases", {})
+        spd_hist   = payload.get("spd_hist", [])
+        ts_hist    = payload.get("ts_hist",  [])
+        vclass     = int(payload.get("vehicle_class", 0))
+
+        with _state_lock:
+            # 1. Pre-seed speed history for M1 dynamic threshold
+            for v in spd_hist[-10:]:
+                cid_history[cid].append(float(v))
+                if GLOBAL_SPEED_HISTORY_MODE == "clean_only" and float(v) < ZONE_MALICIOUS:
+                    global_speed_history.append(float(v))
+
+            # 2. Pre-seed timestamp delta history for M2 boost
+            for v in ts_hist[-10:]:
+                cid_ts_history[cid].append(float(v))
+
+            # 3. safe_wins and vehicle class
+            cid_safeWins[cid]      = safe_wins
+            cid_vehicle_class[cid] = vclass
+            _handover_probation[cid] = {
+                "from_zone": from_zone,
+                "to_zone": ZONE_ID,
+                "started_sim_ts": sim_ts,
+                "raw_safe_wins": safe_wins_raw,
+                "decayed_safe_wins": safe_wins,
+                "pkt_count": 0,
+            }
+            _post_handover_pkt_count[cid] = 0
+
+            # 4. Streak counters for FP guardrails
+            cid_ban_streak[cid]  = ban_str
+            cid_warn_streak[cid] = warn_str
+
+            # 5. If upstream had confirmed ban, flag immediately
+            if last_v == "BAN":
+                confirmed_banned_set.add(cid)
+
+            # 6. Store Bayesian state for NS3 context (informational; not used
+            #    directly by ensemble but logged and available for diagnostics)
+            _handover_state[cid] = {
+                "from_zone":        from_zone,
+                "alpha":            float(payload.get("alpha", 2.0)),
+                "beta":             float(payload.get("beta",  1.0)),
+                "safe_wins":        safe_wins,
+                "safe_wins_raw":    safe_wins_raw,
+                "safewin_decay":    HANDOVER_SAFEWIN_DECAY,
+                "probation_k":      POST_HANDOVER_K,
+                "ban_count":        ban_count,
+                "last_verdict":     last_v,
+                "loaded_wall_ts":   time.time(),
+                "handover_sim_ts":  sim_ts,
+            }
+
+            # 7. Track this CID as in the overlap region
+            _overlap_cids.add(cid)
+
+        # 8. Apply cloud teaching biases from upstream zone
+        if w_biases:
+            with _state_lock:
+                llm_feedback[cid] = {
+                    "shadow_boost":   float(w_biases.get("shadow_boost",   1.0)),
+                    "temporal_bias":  float(w_biases.get("temporal_bias",  0.0)),
+                    "ts_bias":        float(w_biases.get("b_ts",           0.0)),
+                    "px_bias":        float(w_biases.get("b_px",           0.0)),
+                    "teach_strength": 0.0,
+                    "hidden_promote": 0.0,
+                    "promote_safe":   0,
+                    "dominant":       "",
+                }
+
+        print("[EDGE-Z%d] HANDOVER_LOAD  CID:%-4d  from_Z%d  "
+              "safe_wins_raw=%d decayed=%d decay=%.2f probationK=%d  "
+              "ban_str=%d  warn_str=%d  verdict=%s  spd_seeded=%d  ts_seeded=%d"
+              % (ZONE_ID, cid, from_zone, safe_wins_raw, safe_wins,
+                 HANDOVER_SAFEWIN_DECAY, POST_HANDOVER_K, ban_str, warn_str,
+                 last_v, len(spd_hist), len(ts_hist)))
+        trace_event("handover_load_applied",
+                    cid=cid, from_zone=from_zone, sim_time=sim_ts,
+                    safe_wins_raw=safe_wins_raw, safe_wins=safe_wins,
+                    safewin_decay=HANDOVER_SAFEWIN_DECAY,
+                    probation_k=POST_HANDOVER_K,
+                    rep_factor=POST_HANDOVER_REP_FACTOR,
+                    ban_streak=ban_str, warn_streak=warn_str,
+                    last_verdict=last_v, spd_seeded=len(spd_hist),
+                    ts_seeded=len(ts_hist), event_level="info")
+
+        ack = json.dumps({"status": "ACK", "cid": cid,
+                          "msg_type": "TRUST_HANDOVER_LOAD_ACK",
+                          "zone_id":  ZONE_ID})
+        send_framed(conn, ack)
+
+    except Exception as exc:
+        print("[EDGE-Z%d] HANDOVER_LOAD exception CID=%s: %s"
+              % (ZONE_ID, payload.get("cid", "?"), exc))
+        try:
+            send_framed(conn, json.dumps({"status": "ERROR", "reason": str(exc)}))
+        except Exception:
+            pass
+
+# =============================================================================
+# [MU-4]  HANDLE TRUST_HANDOVER_TRIGGER  (inbound from NS3 via bridge)
+# =============================================================================
+
+def handle_trust_handover_trigger(msg, conn):
+    """
+    NS3 sends:
+        TRUST_HANDOVER_TRIGGER CID:3 FROM_ZONE:1 TO_ZONE:2 SIM_TS:67.4
+        [optional: ALPHA:2.3 BETA:4.8]
+
+    The edge builds the full TRUST_HANDOVER payload from local state (plus
+    any ALPHA/BETA if NS3 provides them) and forwards to the coordinator.
+    """
+    parts = msg.split()
+    d = {}
+    for p in parts[1:]:
+        if ":" in p:
+            k, v = p.split(":", 1)
+            d[k.upper()] = v
+
+    try:
+        cid     = int(d.get("CID",       -1))
+        to_zone = int(d.get("TO_ZONE",    2))
+        sim_ts  = float(d.get("SIM_TS",  0.0))
+        # If NS3 provides alpha/beta in this message, patch them into local state
+        # before calling send_trust_handover() so they're included in the payload.
+        alpha   = float(d.get("ALPHA",   0.0))
+        beta    = float(d.get("BETA",    0.0))
+    except Exception as exc:
+        print("[EDGE-Z%d] TRUST_HANDOVER_TRIGGER parse error: %s" % (ZONE_ID, exc))
+        send_framed(conn, "ERROR handover_trigger_parse: %s" % exc)
+        return
+
+    if cid < 0:
+        send_framed(conn, "ERROR missing_cid")
+        return
+
+    # Patch alpha/beta into _handover_state if provided by NS3
+    if alpha > 0.0 or beta > 0.0:
+        with _state_lock:
+            if cid in _handover_state:
+                if alpha > 0.0: _handover_state[cid]["alpha"] = alpha
+                if beta  > 0.0: _handover_state[cid]["beta"]  = beta
+            else:
+                _handover_state[cid] = {
+                    "alpha": alpha if alpha > 0.0 else 2.0,
+                    "beta":  beta  if beta  > 0.0 else 1.0,
+                }
+
+    # Build and dispatch handover in a background thread so NS3 gets an
+    # immediate ACK and is not blocked waiting for coordinator round-trip.
+    def _dispatch():
+        # Reload alpha/beta from patched state for inclusion in payload
+        with _state_lock:
+            hs = _handover_state.get(cid, {})
+
+        ok = send_trust_handover(cid, to_zone, sim_ts)
+        if ok:
+            with _state_lock:
+                _handover_ready[cid] = to_zone
+            # Patch alpha/beta back into payload that was already forwarded
+            # (coordinator received it; nothing to patch retroactively, but
+            #  log it for diagnostics)
+            print("[EDGE-Z%d] HANDOVER_TRIGGER complete  CID:%-4d  "
+                  "alpha=%.2f  beta=%.2f"
+                  % (ZONE_ID, cid,
+                     hs.get("alpha", 2.0),
+                     hs.get("beta",  1.0)))
+
+    threading.Thread(target=_dispatch, daemon=True).start()
+    send_framed(conn, "HANDOVER_TRIGGER_ACK CID:%d TO_ZONE:%d" % (cid, to_zone))
+
+# =============================================================================
+# CLIENT HANDLER
+# =============================================================================
+
+def handle_client(conn, addr):
+    try:
+        conn.settimeout(10.0)
+        msg = recv_framed(conn)
+        if msg is None: return
+
+        # ------------------------------------------------------------------
+        # RESET  [MU-7] clears handover state too
+        # ------------------------------------------------------------------
+        if msg.strip() == "RESET":
+            with _state_lock:
+                should_print = bool(stats)
+            if should_print:
+                print_metrics()
+            with _state_lock:
+                confirmed_banned_set.clear()
+                cid_history.clear()
+                cid_ts_history.clear()
+                cid_px_history.clear()
+                cid_heading_history.clear()
+                llm_feedback.clear()
+                detection_latency.clear()
+                cid_safeWins.clear()
+                cid_vehicle_class.clear()
+                global_speed_history.clear()
+                cid_first_warn_simts.clear()
+                cid_cloud_fb_simts.clear()
+                cid_precloud_verdicts.clear()
+                cid_postcloud_verdicts.clear()
+                cid_ban_streak.clear()
+                cid_warn_streak.clear()
+                cid_nash_ban_streak.clear()
+                _handover_state.clear()   # [MU-7]
+                _handover_probation.clear()  # [HD-DEFENSE]
+                _post_handover_pkt_count.clear()  # [HD-DEFENSE]
+                _overlap_cids.clear()     # [MU-7]
+                for k in list(stats.keys()):
+                    stats[k] = {"safe": 0, "warn": 0, "ban": 0, "pkt": 0}
+            with weight_lock:
+                weights["W1"] = W1; weights["W2"] = W2
+                weights["W3"] = W3; weights["W4"] = W4; weights["W5"] = W5
+                cid_last_scores.clear()
+            print("[EDGE-Z%d] RESET -- all state cleared (zone %d)"
+                  % (ZONE_ID, ZONE_ID))
+            trace_event("reset", event_level="info", zone_id=ZONE_ID,
+                        action="state_cleared",
+                        weights={"W1": W1, "W2": W2, "W3": W3, "W4": W4, "W5": W5})
+            send_framed(conn, "RESET_OK banned_cleared")
+            return
+
+        # ------------------------------------------------------------------
+        # CALIBRATION_RESULT  (unchanged)
+        # ------------------------------------------------------------------
+        if msg.startswith("CALIBRATION_RESULT"):
+            result = apply_calibration_result(msg)
+            send_framed(conn, result)
+            return
+
+        # ------------------------------------------------------------------
+        # CLOUD_FB  (unchanged)
+        # ------------------------------------------------------------------
+        if msg.startswith("CLOUD_FB"):
+            fb = parse_cloud_fb(msg)
+            if fb is None:
+                send_framed(conn, "ERROR invalid CLOUD_FB"); return
+            cid      = fb["CID"]
+            llm_susp = fb["llm_susp"]
+            dominant = fb["dominant"]
+            fb_simts = fb["sim_ts"]
+            trace_id = make_trace_id(cid, fb_simts if fb_simts >= 0 else 0.0)
+            with _state_lock:
+                teach_strength = float(fb.get("teach", max(0.0, min(1.0, llm_susp))))
+                llm_feedback[cid] = {
+                    "shadow_boost":    round(1.0 + llm_susp + max(0.0, float(fb.get("edge_delta", 0.0))), 3),
+                    "ts_tight_factor": max(0.35, min(1.0, 1.0 - float(fb.get("ts_bias", 0.0))*2.0))
+                                       if dominant in ("replay_ts", "slight_ts_offset") else 1.0,
+                    "temporal_bias":   float(fb.get("edge_delta", 0.0)) * 0.15,
+                    "ts_bias":         float(fb.get("ts_bias",    0.0)),
+                    "px_bias":         float(fb.get("px_bias",    0.0)),
+                    "hidden_promote":  float(fb.get("hidden_promote", 0.0)),
+                    "teach_strength":  teach_strength,
+                    "promote_safe":    int(float(fb.get("promote", 0))),
+                    "dominant":        dominant,
+                }
+                cid_safeWins[cid]       = fb["safe_wins"]
+                cid_vehicle_class[cid]  = fb["class"]
+                cid_cloud_fb_simts[cid] = fb_simts
+                first_warn              = cid_first_warn_simts.get(cid, -1.0)
+            if first_warn >= 0 and fb_simts > 0:
+                effective_rtt_ms = (fb_simts - first_warn) * 1000.0
+            else:
+                effective_rtt_ms = CLOUD_RTT_MS
+            result = nash_verdict(cid, llm_susp)
+            print("[NASH-GT] Z%d CID:%d llm=%.3f p_comb=%.3f thr=%.4f -> %s"
+                  % (ZONE_ID, cid, llm_susp, result["p_comb"],
+                     result["nash_p*"], result["verdict"]))
+            fb_signal = max(llm_susp, teach_strength,
+                            float(fb.get("hidden_promote", 0.0)),
+                            float(fb.get("edge_delta", 0.0)),
+                            float(result.get("p_comb", 0.0)))
+            if GLOBAL_WEIGHT_UPDATE_ONLY_ACTIONABLE and result["verdict"] == "TRUST" and fb_signal < GLOBAL_WEIGHT_UPDATE_MIN_SIGNAL:
+                print("[WEIGHT-UPDATE] CID:%d skipped (non-actionable fb_signal=%.3f)" % (cid, fb_signal))
+            else:
+                update_weights(cid, llm_susp)
+            resp = ("NASH_VERDICT CID:" + str(cid)
+                    + " verdict:"  + result["verdict"]
+                    + " p_comb:"   + str(result["p_comb"])
+                    + " nash_p*:"  + str(result["nash_p*"])
+                    + " eu_ban:"   + str(result["eu_ban"])
+                    + " eu_trust:" + str(result["eu_trust"])
+                    + " dominant:" + dominant
+                    + " rtt_ms:"   + str(round(effective_rtt_ms, 1)))
+            send_framed(conn, resp)
+            return
+
+        # ------------------------------------------------------------------
+        # [MU-3]  TRUST_HANDOVER_LOAD  (JSON from coordinator)
+        # ------------------------------------------------------------------
+        if msg.startswith("{"):
+            try:
+                payload = json.loads(msg)
+                mt = str(payload.get("msg_type", "")).upper()
+                if mt == "TRUST_HANDOVER_LOAD":
+                    handle_trust_handover_load(payload, conn)
+                    return
+            except json.JSONDecodeError:
+                pass
+
+        # ------------------------------------------------------------------
+        # [MU-4]  TRUST_HANDOVER_TRIGGER  (space-separated KV from NS3/bridge)
+        # ------------------------------------------------------------------
+        if msg.startswith("TRUST_HANDOVER_TRIGGER"):
+            handle_trust_handover_trigger(msg, conn)
+            return
+
+        # ------------------------------------------------------------------
+        # TELEM  (unchanged logic, + overlap score notification [MU-6])
+        # ------------------------------------------------------------------
+        if msg.startswith("TELEM"):
+            pkt = parse_telem(msg)
+            if pkt is None:
+                send_framed(conn, "ERROR invalid TELEM"); return
+
+            cid    = pkt["CID"]; ts     = pkt["TS"];   spd  = pkt["SPD"]
+            hdg    = pkt["HDG"]; px     = pkt["PX"];   py   = pkt["PY"]
+            lan    = pkt["LAN"]; sim_ts = pkt["SIMNOW"]
+            safeWins = pkt["SAFE_WINS"]; vclass = pkt["CLASS"]
+            trace_id = make_trace_id(cid, sim_ts)
+
+            with _state_lock:
+                cid_history[cid].append(spd)
+                cid_ts_history[cid].append(ts - sim_ts)
+                cid_heading_history[cid].append(hdg)
+                cid_px_history[cid].append((sim_ts, px))
+                cid_safeWins[cid]      = safeWins
+                cid_vehicle_class[cid] = vclass
+                already_banned         = cid in confirmed_banned_set
+                px_snap                = list(cid_px_history[cid])
+                hdg_snap               = list(cid_heading_history[cid])
+                cloud_fb_received      = cid in cid_cloud_fb_simts
+                in_overlap             = cid in _overlap_cids   # [MU-6]
+
+            if already_banned:
+                with weight_lock:
+                    last = cid_last_scores.get(
+                        cid, {"m1":1.0,"m2":1.0,"m3":1.0,"m4":1.0,"m5":1.0})
+                resp = ("BAN CID:" + str(cid)
+                        + " TS:"  + str(round(ts,  3))
+                        + " SPD:" + str(round(spd, 1))
+                        + " HDG:" + str(round(hdg, 3))
+                        + " PX:"  + str(round(px,  3))
+                        + " PY:"  + str(round(py,  3))
+                        + " LAN:" + str(lan)
+                        + " BRK:0"
+                        + " M1:"  + str(round(last["m1"], 3))
+                        + " M2:"  + str(round(last["m2"], 3))
+                        + " M3:"  + str(round(last["m3"], 3))
+                        + " M4:"  + str(round(last["m4"], 3))
+                        + " M5:"  + str(round(last.get("m5", 1.0), 3))
+                        + " SUSP:1.000 CLEAN_CONF:0.000 LAT:0.000")
+                send_framed(conn, resp)
+                with _state_lock:
+                    stats[cid]["pkt"] += 1
+                    stats[cid]["ban"] += 1
+                print("[EDGE-Z%d] CID:%d -> FASTBAN" % (ZONE_ID, cid))
+                return
+
+            _bump_post_handover_counter(cid, sim_ts)
+            m1, m2, m3, m4, m5, p_edge = ensemble_score(
+                cid, ts, spd, hdg, px, py, lan, sim_ts,
+                px_snap=px_snap, hdg_snap=hdg_snap)
+
+            # [HYBRID-VEREMI] Compute physical-consistency evidence online.
+            veremi_ev = veremi_physical_evidence(cid, ts, spd, px, sim_ts)
+            p_veremi = float(veremi_ev.get("p_veremi", 0.0))
+            old_p_edge = p_edge
+            
+            if VEREMI_EVIDENCE_ENABLE:
+                if VEREMI_EVIDENCE_MODE == "replace":
+                    p_edge = p_veremi
+                elif VEREMI_EVIDENCE_MODE == "max":
+                    p_edge = max(p_edge, p_veremi)
+                elif VEREMI_EVIDENCE_MODE == "hard_only":
+                    if p_veremi >= VEREMI_HARD_SCORE:
+                        p_edge = max(p_edge, p_veremi)
+                elif VEREMI_EVIDENCE_MODE == "guarded":
+                    if p_veremi >= VEREMI_HARD_SCORE:
+                        p_edge = max(p_edge, p_veremi)
+                    elif p_veremi >= VEREMI_SOFT_SCORE and old_p_edge >= VEREMI_SOFT_OLDP_GATE:
+                        p_edge = max(p_edge, p_veremi)
+                # shadow mode intentionally leaves p_edge unchanged.
+            
+            if VEREMI_EVIDENCE_ENABLE and (p_veremi >= VEREMI_SOFT_SCORE or veremi_ev.get("reasons")):
+                print("[VEREMI-EVIDENCE] Z%d CID:%d mode=%s old_p=%.3f p_veremi=%.3f p_edge=%.3f streak=%d reasons=%s details=%s" %
+                      (ZONE_ID, cid, VEREMI_EVIDENCE_MODE, old_p_edge, p_veremi, p_edge,
+                       int(veremi_ev.get("streak", 0)),
+                       ",".join(veremi_ev.get("reasons", [])) or "-",
+                       veremi_ev.get("details", {})))
+
+            # Global speed baseline
+            accept_global = False
+            mode = GLOBAL_SPEED_HISTORY_MODE
+            if mode == "all":
+                accept_global = True
+            elif mode == "safe_only":
+                accept_global = (p_edge < ZONE_SAFE)
+            else:
+                accept_global = (p_edge < min(ZONE_SAFE, GLOBAL_SPEED_ACCEPT_SUSP_MAX))
+            if accept_global and spd <= SPEED_THRESHOLD_CAP:
+                with _state_lock:
+                    global_speed_history.append(spd)
+
+            # Zone decision
+            if p_edge >= ZONE_MALICIOUS:
+                base = "BAN"
+            elif p_edge >= ZONE_SAFE:
+                base = "WARN"
+            else:
+                base = "SAFE"
+
+            with _state_lock:
+                if base == "BAN":
+                    cid_ban_streak[cid]  += 1
+                    cid_warn_streak[cid]  = 0
+                elif base == "WARN":
+                    cid_warn_streak[cid] += 1
+                    cid_ban_streak[cid]   = 0
+                else:
+                    cid_ban_streak[cid]   = 0
+                    cid_warn_streak[cid]  = 0
+                ban_streak  = cid_ban_streak[cid]
+                warn_streak = cid_warn_streak[cid]
+
+            verdict = base
+            if base == "BAN" and int(EDGE_BAN_CONFIRM_K) > 1 and ban_streak < int(EDGE_BAN_CONFIRM_K):
+                verdict = "WARN"
+
+            if verdict == "BAN":
+                with _state_lock:
+                    confirmed_banned_set.add(cid)
+
+            if verdict == "WARN" and SAFEWIN_WARN_SUPPRESS == 1 and safeWins > 0 and p_edge < SAFEWIN_WARN_SUPPRESS_MAX:
+                verdict = "SAFE"
+                with _state_lock:
+                    cid_warn_streak[cid] = 0
+
+            if verdict in ("WARN", "BAN"):
+                with _state_lock:
+                    if cid not in detection_latency:
+                        detection_latency[cid] = sim_ts
+                    if cid not in cid_first_warn_simts:
+                        cid_first_warn_simts[cid] = sim_ts
+                    if cloud_fb_received:
+                        cid_postcloud_verdicts[cid].append(verdict)
+                    else:
+                        cid_precloud_verdicts[cid].append(verdict)
+
+            print("[EDGE-Z%d-ENSEMBLE] CID:%d m1=%.3f m2=%.3f m3=%.3f m4=%.3f m5=%.3f "
+                  "p=%.3f cloud=%s overlap=%s -> %s"
+                  % (ZONE_ID, cid, m1, m2, m3, m4, m5, p_edge,
+                     "POST" if cloud_fb_received else "PRE",
+                     "YES" if in_overlap else "NO",
+                     verdict))
+
+            # [MU-6] Send OVERLAP_SCORE if this CID arrived via handover
+            if in_overlap:
+                threading.Thread(
+                    target=send_overlap_score,
+                    args=(cid, verdict, p_edge, sim_ts),
+                    daemon=True
+                ).start()
+
+            resp = build_telem_response(cid, ts, spd, hdg, px, py, lan,
+                                         m1, m2, m3, m4, m5, p_edge, verdict, sim_ts)
+            send_framed(conn, resp)
+            with _state_lock:
+                stats[cid]["pkt"]           += 1
+                stats[cid][verdict.lower()] += 1
+            return
+
+        print("[EDGE-Z%d] Unknown msg: %s" % (ZONE_ID, msg[:80]))
+        send_framed(conn, "ERROR unknown_message")
+
+    except Exception as e:
+        print("[EDGE-Z%d] Handler error %s: %s" % (ZONE_ID, str(addr), str(e)))
+    finally:
+        try: conn.close()
+        except: pass
+
+# =============================================================================
+# MAIN
+# =============================================================================
+
+def main():
+    print("=" * 64)
+    print(" EDGE AI SERVER %s -- Zone %d" % (VERSION, ZONE_ID))
+    print("=" * 64)
+    print("[EDGE-Z%d] Port              : %d" % (ZONE_ID, PORT))
+    print("[EDGE-Z%d] Coordinator       : %s:%d" % (ZONE_ID, COORD_HOST, COORD_PORT))
+    print("[EDGE-Z%d] ZONE_SAFE=%.2f  ZONE_MALICIOUS=%.2f  NASH_P*=%.4f"
+          % (ZONE_ID, ZONE_SAFE, ZONE_MALICIOUS, NASH_P_STAR))
+    print("[EDGE-Z%d] Weights: W1=%.2f W2=%.2f W3=%.2f W4=%.2f W5=%.2f"
+          % (ZONE_ID, W1, W2, W3, W4, W5))
+    print("[EDGE-Z%d] LEARNING_RATE=%.3f  W_MIN=%.2f  NASH_BAN_CONFIRM_K=%d"
+          % (ZONE_ID, LEARNING_RATE, W_MIN, NASH_BAN_CONFIRM_K))
+    print("[CLOUD-DELAY] RTT=%.0fms  pre-cloud-pkts=%d"
+          % (CLOUD_RTT_MS, CLOUD_PRECLOUD_PKTS))
+
+    save_config_snapshot()
+    trace_event("startup", event_level="info",
+                port=PORT, zone_id=ZONE_ID, version=VERSION,
+                coord_host=COORD_HOST, coord_port=COORD_PORT,
+                weights={"W1": W1, "W2": W2, "W3": W3, "W4": W4, "W5": W5},
+                zone_safe=ZONE_SAFE, zone_malicious=ZONE_MALICIOUS,
+                nash_p_star=round(NASH_P_STAR, 4))
+
+    srv = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+    srv.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
+    srv.bind((HOST, PORT))
+    srv.listen(MAX_CLIENTS)
+
+    _shutdown_flag = threading.Event()
+
+    def _shutdown_handler(signum, frame):
+        print("[EDGE-Z%d] Signal %d — shutting down..." % (ZONE_ID, signum))
+        _shutdown_flag.set()
+        srv.close()
+
+    signal.signal(signal.SIGTERM, _shutdown_handler)
+    signal.signal(signal.SIGINT,  _shutdown_handler)
+
+    print("[EDGE-Z%d] Ready on port %d\n" % (ZONE_ID, PORT))
+
+    try:
+        while not _shutdown_flag.is_set():
+            try:
+                conn, addr = srv.accept()
+                threading.Thread(target=handle_client,
+                                 args=(conn, addr),
+                                 daemon=True).start()
+            except OSError:
+                break
+            except KeyboardInterrupt:
+                break
+            except Exception as e:
+                if not _shutdown_flag.is_set():
+                    print("[EDGE-Z%d] Accept error: %s" % (ZONE_ID, e))
+    finally:
+        print("[EDGE-Z%d] Saving metrics before exit..." % ZONE_ID)
+        print_metrics()
+        save_metrics_json()
+        try: srv.close()
+        except: pass
+
+
+if __name__ == "__main__":
+    main()

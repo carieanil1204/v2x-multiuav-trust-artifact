@@ -1,0 +1,65 @@
+====================================================================
+ CLOUD LLM SERVER v84-adaptive -- Layer 3 (V2X-EXP1-STEALTHY-ATTACKER)
+====================================================================
+[CLOUD-LLM] FLEX additions over v79:
+  [FLEX-1] SPEED_NORMAL=20.0 SPEED_CLEAN_GATE=20.5 PX_CLEAN_GATE=75
+  [FLEX-2] SHADOW_W=0.005 BAN_W=0.10 SPD_RATE=0.030
+           REP_DISC=0.005 REP_CAP=0.10
+           FROZEN_HARD=0.25 FROZEN_SOFT=0.15 MOVING_DISC=0.15
+  [FLEX-3] CLEAN_GATE: PX=0.05 NPN=0.08
+  [FLEX-4] PX_FROZEN_HARD=5.0 PX_FROZEN_SOFT=20.0
+           SPD_STEALTHY=1.5-10.0 AVG_EDGE_SUSP_SPIKE=0.70
+           FLAT_SCORE=[0.45, 0.55] bonuses shd=0.10 spd=0.12 frozen=0.18
+  [FLEX-5] Prompt: SPD_NORMAL=20.0 PX_GATE=75
+[CLOUD-LLM] Retained: per-CID alert_mode, cache isolation,
+  BAN window reset, NEUTRAL=0.250, FP-FIX-1/2/3, subprocess env
+[CLOUD-LLM] Hybrid: 70% LLM + 30% rule | Model: llama3:latest
+[CLOUD-LLM] Evolving: hidden=0.18 repeat_warn=0.14 ban_confirm=0.14 safe_esc_hidden=0.06 teach_cap=0.22 ts_bias=0.20 px_bias=0.16
+====================================================================
+[CLOUD-LLM] Listening on port 6666 -- ready
+[CLOUD-LLM] Query from ('127.0.0.1', 33072)
+[CLOUD-LLM] Query from ('127.0.0.1', 33076)
+[CLOUD-LLM] Query from ('127.0.0.1', 54784)
+[CLOUD-LLM] Received: {"msg_type": "CALIBRATE", "sim_ts": 3.080493, "fire_reason": "F_zone_entry_baseline", "zone_id": 1, "zone_context": {"zo
+[CLOUD-CALIB-LLM] Ollama OK: attack=none conf=0.00 reason=No clear attack signal detected, but timestamp replay separation score is low an
+[CLOUD-CALIB] CALIBRATION_RESULT attack=none conf=0.00 llm=True W2d=0.020 W4d=0.000 ZONE_d=0.000 sep=0.00->0.00
+[CLOUD-LLM] Query from ('127.0.0.1', 33854)
+[CLOUD-LLM] Received: {"msg_type": "CALIBRATE", "sim_ts": 6.478493, "fire_reason": "A_batch_full(n=4)", "zone_id": 1, "zone_context": {"zone_i
+[CLOUD-CALIB-LLM] Ollama OK: attack=ts_replay conf=0.90 reason=The dominant attack signal is timestamp replay, with a high separation score ind
+[CLOUD-CALIB] CALIBRATION_RESULT attack=ts_replay conf=0.90 llm=True W2d=0.020 W4d=0.000 ZONE_d=0.005 sep=29092.95->33456.90
+[CLOUD-LLM] Query from ('127.0.0.1', 41530)
+[CLOUD-LLM] Received: {"msg_type": "CALIBRATE", "sim_ts": 7.270493, "fire_reason": "A_batch_full(n=4)", "zone_id": 1, "zone_context": {"zone_i
+[CLOUD-CALIB-LLM] Ollama OK: attack=ts_replay conf=0.90 reason=The dominant attack signal is timestamp replay, with a high separation score ind
+[CLOUD-CALIB] CALIBRATION_RESULT attack=ts_replay conf=0.90 llm=True W2d=0.040 W4d=0.000 ZONE_d=0.010 sep=35.55->40.88
+[CLOUD-LLM] Query from ('127.0.0.1', 47114)
+[CLOUD-LLM] Received: {"msg_type": "CALIBRATE", "sim_ts": 8.478493, "fire_reason": "A_batch_full(n=4)", "zone_id": 1, "zone_context": {"zone_i
+[CLOUD-CALIB-LLM] Ollama OK: attack=ts_replay conf=0.95 reason=The dominant attack signal is timestamp replay due to the high separation score 
+[CLOUD-CALIB] CALIBRATION_RESULT attack=ts_replay conf=0.95 llm=True W2d=0.040 W4d=0.000 ZONE_d=0.010 sep=67.57->77.71
+[CLOUD-LLM] Query from ('127.0.0.1', 34498)
+[CLOUD-LLM] Received: {"msg_type": "CALIBRATE", "sim_ts": 9.320493, "fire_reason": "A_batch_full(n=4)", "zone_id": 1, "zone_context": {"zone_i
+[CLOUD-CALIB-LLM] Ollama OK: attack=ts_replay conf=0.90 reason=The dominant attack signal is timestamp replay, with a high separation score ind
+[CLOUD-CALIB] CALIBRATION_RESULT attack=ts_replay conf=0.90 llm=True W2d=0.040 W4d=0.000 ZONE_d=0.010 sep=31553.21->36286.19
+[CLOUD-LLM] Query from ('127.0.0.1', 33170)
+[CLOUD-LLM] Received: {"msg_type": "CALIBRATE", "sim_ts": 71.432118, "fire_reason": "A_batch_full(n=4)", "zone_id": 1, "zone_context": {"zone_
+[CLOUD-CALIB-LLM] Ollama OK: attack=ts_replay conf=0.95 reason=The dominant attack signal is timestamp replay due to the high separation score 
+[CLOUD-CALIB] CALIBRATION_RESULT attack=ts_replay conf=0.95 llm=True W2d=0.040 W4d=0.000 ZONE_d=0.005 sep=7.68->8.83
+[CLOUD-LLM] Query from ('127.0.0.1', 59332)
+[CLOUD-LLM] Received: {"msg_type": "CALIBRATE", "sim_ts": 73.878118, "fire_reason": "A_batch_full(n=4)", "zone_id": 1, "zone_context": {"zone_
+[CLOUD-CALIB-LLM] Ollama OK: attack=speed_attack conf=0.95 reason=The dominant attack signal is speed anomaly, with a high separation score indica
+[CLOUD-CALIB] CALIBRATION_RESULT attack=speed_attack conf=0.95 llm=True W2d=0.000 W4d=0.000 ZONE_d=0.005 sep=42.88->49.31
+[CLOUD-LLM] Query from ('127.0.0.1', 58150)
+[CLOUD-LLM] Received: {"msg_type": "CALIBRATE", "sim_ts": 74.823368, "fire_reason": "A_batch_full(n=4)", "zone_id": 1, "zone_context": {"zone_
+[CLOUD-CALIB-LLM] Ollama OK: attack=ts_replay conf=0.90 reason=The dominant attack signal is timestamp replay due to the high separation score 
+[CLOUD-CALIB] CALIBRATION_RESULT attack=ts_replay conf=0.90 llm=True W2d=0.040 W4d=0.000 ZONE_d=0.010 sep=7.23->8.32
+[CLOUD-LLM] Query from ('127.0.0.1', 56980)
+[CLOUD-LLM] Received: {"msg_type": "CALIBRATE", "sim_ts": 75.375993, "fire_reason": "A_batch_full(n=4)", "zone_id": 1, "zone_context": {"zone_
+[CLOUD-CALIB-LLM] Ollama OK: attack=speed_attack conf=0.95 reason=The dominant signal is speed anomaly, with a high separation score indicating a 
+[CLOUD-CALIB] CALIBRATION_RESULT attack=speed_attack conf=0.95 llm=True W2d=0.000 W4d=0.000 ZONE_d=0.005 sep=65.12->74.89
+[CLOUD-LLM] Query from ('127.0.0.1', 37598)
+[CLOUD-LLM] Received: {"msg_type": "CALIBRATE", "sim_ts": 91.884993, "fire_reason": "G_heartbeat_balanced", "zone_id": 1, "zone_context": {"zo
+[CLOUD-CALIB-LLM] Ollama OK: attack=ts_replay conf=0.85 reason=The dominant attack signal is timestamp replay due to the high separation score 
+[CLOUD-CALIB] CALIBRATION_RESULT attack=ts_replay conf=0.85 llm=True W2d=0.040 W4d=0.000 ZONE_d=0.010 sep=1.91->2.20
+[CLOUD-LLM] Query from ('127.0.0.1', 42560)
+[CLOUD-LLM] Received: {"msg_type": "CALIBRATE", "sim_ts": 125.197493, "fire_reason": "G_heartbeat_balanced", "zone_id": 1, "zone_context": {"z
+[CLOUD-CALIB-LLM] Ollama OK: attack=ts_replay conf=0.85 reason=The dominant attack signal is timestamp replay, with a high separation score ind
+[CLOUD-CALIB] CALIBRATION_RESULT attack=ts_replay conf=0.85 llm=True W2d=0.040 W4d=0.000 ZONE_d=0.010 sep=2.05->2.36

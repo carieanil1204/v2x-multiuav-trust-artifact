@@ -1,0 +1,256 @@
+=== SEED 1 START Sunday 05 July 2026 08:35:28 PM IST ===
+Stopping cloud pid=2505093
+Stopping coordinator pid=2505095
+Stopping edge_z1 pid=2505099
+Stopping edge_z2 pid=2505101
+Stopping bridge_z1 pid=2505103
+Stopping bridge_z2 pid=2505108
+Pipeline stopped.
+============================================================
+ Launching V2X Multi-UAV Handover Defense Pipeline
+ Workstation mode: local NS-3 + local Edge + local Cloud LLM
+ Ollama model: llama3:latest
+============================================================
+
+[CHECK] Ollama availability
+[OK] Ollama found and llama3:latest available
+
+[1/6] Starting local Cloud LLM on 127.0.0.1:6666
+[2/6] Starting Trust Coordinator on 127.0.0.1:9997
+[3/6] Starting Edge AI Zone 1 on 127.0.0.1:9999
+[4/6] Starting Edge AI Zone 2 on 127.0.0.1:9995
+[5/6] Starting Bridge Zone 1 on 127.0.0.1:9998
+[6/6] Starting Bridge Zone 2 on 127.0.0.1:9996
+
+============================================================
+ Pipeline started
+============================================================
+Cloud LLM       : 127.0.0.1:6666
+Coordinator     : 127.0.0.1:9997
+Edge Zone 1     : 127.0.0.1:9999
+Bridge Zone 1   : 127.0.0.1:9998
+Edge Zone 2     : 127.0.0.1:9995
+Bridge Zone 2   : 127.0.0.1:9996
+Ollama          : 127.0.0.1:11434
+Model           : llama3:latest
+
+[PORT CHECK]
+LISTEN 0      4096                                127.0.0.1:11434      0.0.0.0:*                                            
+LISTEN 0      20                                    0.0.0.0:6666       0.0.0.0:*    users:(("python3",pid=2506847,fd=4))    
+LISTEN 0      40                                    0.0.0.0:9995       0.0.0.0:*    users:(("python3",pid=2506855,fd=3))    
+LISTEN 0      150                                   0.0.0.0:9996       0.0.0.0:*    users:(("python3",pid=2506862,fd=3))    
+LISTEN 0      40                                    0.0.0.0:9997       0.0.0.0:*    users:(("python3",pid=2506849,fd=4))    
+LISTEN 0      150                                   0.0.0.0:9998       0.0.0.0:*    users:(("python3",pid=2506857,fd=3))    
+LISTEN 0      40                                    0.0.0.0:9999       0.0.0.0:*    users:(("python3",pid=2506853,fd=3))    
+
+[LOG CHECK]
+tail -n 40 logs/cloud.log
+tail -n 40 logs/bridge_z1.log
+tail -n 40 logs/edge_z1.log
+tail -n 40 logs/edge_z2.log
+=== SEED 1 DONE Sunday 05 July 2026 08:38:25 PM IST ===
+=== SEED 2 START Sunday 05 July 2026 08:38:25 PM IST ===
+Stopping cloud pid=2506847
+Stopping coordinator pid=2506849
+Stopping edge_z1 pid=2506853
+Stopping edge_z2 pid=2506855
+Stopping bridge_z1 pid=2506857
+Stopping bridge_z2 pid=2506862
+Pipeline stopped.
+============================================================
+ Launching V2X Multi-UAV Handover Defense Pipeline
+ Workstation mode: local NS-3 + local Edge + local Cloud LLM
+ Ollama model: llama3:latest
+============================================================
+
+[CHECK] Ollama availability
+[OK] Ollama found and llama3:latest available
+
+[1/6] Starting local Cloud LLM on 127.0.0.1:6666
+[2/6] Starting Trust Coordinator on 127.0.0.1:9997
+[3/6] Starting Edge AI Zone 1 on 127.0.0.1:9999
+[4/6] Starting Edge AI Zone 2 on 127.0.0.1:9995
+[5/6] Starting Bridge Zone 1 on 127.0.0.1:9998
+[6/6] Starting Bridge Zone 2 on 127.0.0.1:9996
+
+============================================================
+ Pipeline started
+============================================================
+Cloud LLM       : 127.0.0.1:6666
+Coordinator     : 127.0.0.1:9997
+Edge Zone 1     : 127.0.0.1:9999
+Bridge Zone 1   : 127.0.0.1:9998
+Edge Zone 2     : 127.0.0.1:9995
+Bridge Zone 2   : 127.0.0.1:9996
+Ollama          : 127.0.0.1:11434
+Model           : llama3:latest
+
+[PORT CHECK]
+LISTEN 0      4096                                127.0.0.1:11434      0.0.0.0:*                                            
+LISTEN 0      20                                    0.0.0.0:6666       0.0.0.0:*    users:(("python3",pid=2508617,fd=4))    
+LISTEN 0      40                                    0.0.0.0:9995       0.0.0.0:*    users:(("python3",pid=2508625,fd=3))    
+LISTEN 0      150                                   0.0.0.0:9996       0.0.0.0:*    users:(("python3",pid=2508632,fd=3))    
+LISTEN 0      40                                    0.0.0.0:9997       0.0.0.0:*    users:(("python3",pid=2508619,fd=4))    
+LISTEN 0      150                                   0.0.0.0:9998       0.0.0.0:*    users:(("python3",pid=2508627,fd=3))    
+LISTEN 0      40                                    0.0.0.0:9999       0.0.0.0:*    users:(("python3",pid=2508623,fd=3))    
+
+[LOG CHECK]
+tail -n 40 logs/cloud.log
+tail -n 40 logs/bridge_z1.log
+tail -n 40 logs/edge_z1.log
+tail -n 40 logs/edge_z2.log
+=== SEED 2 DONE Sunday 05 July 2026 08:41:09 PM IST ===
+=== SEED 3 START Sunday 05 July 2026 08:41:09 PM IST ===
+Stopping cloud pid=2508617
+Stopping coordinator pid=2508619
+Stopping edge_z1 pid=2508623
+Stopping edge_z2 pid=2508625
+Stopping bridge_z1 pid=2508627
+Stopping bridge_z2 pid=2508632
+Pipeline stopped.
+============================================================
+ Launching V2X Multi-UAV Handover Defense Pipeline
+ Workstation mode: local NS-3 + local Edge + local Cloud LLM
+ Ollama model: llama3:latest
+============================================================
+
+[CHECK] Ollama availability
+[OK] Ollama found and llama3:latest available
+
+[1/6] Starting local Cloud LLM on 127.0.0.1:6666
+[2/6] Starting Trust Coordinator on 127.0.0.1:9997
+[3/6] Starting Edge AI Zone 1 on 127.0.0.1:9999
+[4/6] Starting Edge AI Zone 2 on 127.0.0.1:9995
+[5/6] Starting Bridge Zone 1 on 127.0.0.1:9998
+[6/6] Starting Bridge Zone 2 on 127.0.0.1:9996
+
+============================================================
+ Pipeline started
+============================================================
+Cloud LLM       : 127.0.0.1:6666
+Coordinator     : 127.0.0.1:9997
+Edge Zone 1     : 127.0.0.1:9999
+Bridge Zone 1   : 127.0.0.1:9998
+Edge Zone 2     : 127.0.0.1:9995
+Bridge Zone 2   : 127.0.0.1:9996
+Ollama          : 127.0.0.1:11434
+Model           : llama3:latest
+
+[PORT CHECK]
+LISTEN 0      4096                                127.0.0.1:11434      0.0.0.0:*                                            
+LISTEN 0      20                                    0.0.0.0:6666       0.0.0.0:*    users:(("python3",pid=2510184,fd=4))    
+LISTEN 0      40                                    0.0.0.0:9995       0.0.0.0:*    users:(("python3",pid=2510192,fd=3))    
+LISTEN 0      150                                   0.0.0.0:9996       0.0.0.0:*    users:(("python3",pid=2510199,fd=3))    
+LISTEN 0      40                                    0.0.0.0:9997       0.0.0.0:*    users:(("python3",pid=2510186,fd=4))    
+LISTEN 0      150                                   0.0.0.0:9998       0.0.0.0:*    users:(("python3",pid=2510194,fd=3))    
+LISTEN 0      40                                    0.0.0.0:9999       0.0.0.0:*    users:(("python3",pid=2510190,fd=3))    
+
+[LOG CHECK]
+tail -n 40 logs/cloud.log
+tail -n 40 logs/bridge_z1.log
+tail -n 40 logs/edge_z1.log
+tail -n 40 logs/edge_z2.log
+=== SEED 3 DONE Sunday 05 July 2026 08:44:19 PM IST ===
+=== SEED 4 START Sunday 05 July 2026 08:44:19 PM IST ===
+Stopping cloud pid=2510184
+Stopping coordinator pid=2510186
+Stopping edge_z1 pid=2510190
+Stopping edge_z2 pid=2510192
+Stopping bridge_z1 pid=2510194
+Stopping bridge_z2 pid=2510199
+Pipeline stopped.
+============================================================
+ Launching V2X Multi-UAV Handover Defense Pipeline
+ Workstation mode: local NS-3 + local Edge + local Cloud LLM
+ Ollama model: llama3:latest
+============================================================
+
+[CHECK] Ollama availability
+[OK] Ollama found and llama3:latest available
+
+[1/6] Starting local Cloud LLM on 127.0.0.1:6666
+[2/6] Starting Trust Coordinator on 127.0.0.1:9997
+[3/6] Starting Edge AI Zone 1 on 127.0.0.1:9999
+[4/6] Starting Edge AI Zone 2 on 127.0.0.1:9995
+[5/6] Starting Bridge Zone 1 on 127.0.0.1:9998
+[6/6] Starting Bridge Zone 2 on 127.0.0.1:9996
+
+============================================================
+ Pipeline started
+============================================================
+Cloud LLM       : 127.0.0.1:6666
+Coordinator     : 127.0.0.1:9997
+Edge Zone 1     : 127.0.0.1:9999
+Bridge Zone 1   : 127.0.0.1:9998
+Edge Zone 2     : 127.0.0.1:9995
+Bridge Zone 2   : 127.0.0.1:9996
+Ollama          : 127.0.0.1:11434
+Model           : llama3:latest
+
+[PORT CHECK]
+LISTEN 0      4096                                127.0.0.1:11434      0.0.0.0:*                                            
+LISTEN 0      20                                    0.0.0.0:6666       0.0.0.0:*    users:(("python3",pid=2512145,fd=4))    
+LISTEN 0      40                                    0.0.0.0:9995       0.0.0.0:*    users:(("python3",pid=2512153,fd=3))    
+LISTEN 0      150                                   0.0.0.0:9996       0.0.0.0:*    users:(("python3",pid=2512160,fd=3))    
+LISTEN 0      40                                    0.0.0.0:9997       0.0.0.0:*    users:(("python3",pid=2512147,fd=4))    
+LISTEN 0      150                                   0.0.0.0:9998       0.0.0.0:*    users:(("python3",pid=2512155,fd=3))    
+LISTEN 0      40                                    0.0.0.0:9999       0.0.0.0:*    users:(("python3",pid=2512151,fd=3))    
+
+[LOG CHECK]
+tail -n 40 logs/cloud.log
+tail -n 40 logs/bridge_z1.log
+tail -n 40 logs/edge_z1.log
+tail -n 40 logs/edge_z2.log
+=== SEED 4 DONE Sunday 05 July 2026 08:47:24 PM IST ===
+=== SEED 5 START Sunday 05 July 2026 08:47:24 PM IST ===
+Stopping cloud pid=2512145
+Stopping coordinator pid=2512147
+Stopping edge_z1 pid=2512151
+Stopping edge_z2 pid=2512153
+Stopping bridge_z1 pid=2512155
+Stopping bridge_z2 pid=2512160
+Pipeline stopped.
+============================================================
+ Launching V2X Multi-UAV Handover Defense Pipeline
+ Workstation mode: local NS-3 + local Edge + local Cloud LLM
+ Ollama model: llama3:latest
+============================================================
+
+[CHECK] Ollama availability
+[OK] Ollama found and llama3:latest available
+
+[1/6] Starting local Cloud LLM on 127.0.0.1:6666
+[2/6] Starting Trust Coordinator on 127.0.0.1:9997
+[3/6] Starting Edge AI Zone 1 on 127.0.0.1:9999
+[4/6] Starting Edge AI Zone 2 on 127.0.0.1:9995
+[5/6] Starting Bridge Zone 1 on 127.0.0.1:9998
+[6/6] Starting Bridge Zone 2 on 127.0.0.1:9996
+
+============================================================
+ Pipeline started
+============================================================
+Cloud LLM       : 127.0.0.1:6666
+Coordinator     : 127.0.0.1:9997
+Edge Zone 1     : 127.0.0.1:9999
+Bridge Zone 1   : 127.0.0.1:9998
+Edge Zone 2     : 127.0.0.1:9995
+Bridge Zone 2   : 127.0.0.1:9996
+Ollama          : 127.0.0.1:11434
+Model           : llama3:latest
+
+[PORT CHECK]
+LISTEN 0      4096                                127.0.0.1:11434      0.0.0.0:*                                            
+LISTEN 0      20                                    0.0.0.0:6666       0.0.0.0:*    users:(("python3",pid=2514205,fd=4))    
+LISTEN 0      40                                    0.0.0.0:9995       0.0.0.0:*    users:(("python3",pid=2514213,fd=3))    
+LISTEN 0      150                                   0.0.0.0:9996       0.0.0.0:*    users:(("python3",pid=2514220,fd=3))    
+LISTEN 0      40                                    0.0.0.0:9997       0.0.0.0:*    users:(("python3",pid=2514207,fd=4))    
+LISTEN 0      150                                   0.0.0.0:9998       0.0.0.0:*    users:(("python3",pid=2514215,fd=3))    
+LISTEN 0      40                                    0.0.0.0:9999       0.0.0.0:*    users:(("python3",pid=2514211,fd=3))    
+
+[LOG CHECK]
+tail -n 40 logs/cloud.log
+tail -n 40 logs/bridge_z1.log
+tail -n 40 logs/edge_z1.log
+tail -n 40 logs/edge_z2.log
+=== SEED 5 DONE Sunday 05 July 2026 08:50:18 PM IST ===
+=== ALL SEEDS COMPLETE ===

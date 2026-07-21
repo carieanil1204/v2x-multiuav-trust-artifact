@@ -1,0 +1,32 @@
+====================================================================
+ CLOUD LLM SERVER v84-adaptive -- Layer 3 (V2X-EXP1-STEALTHY-ATTACKER)
+====================================================================
+[CLOUD-LLM] FLEX additions over v79:
+  [FLEX-1] SPEED_NORMAL=20.0 SPEED_CLEAN_GATE=20.5 PX_CLEAN_GATE=75
+  [FLEX-2] SHADOW_W=0.005 BAN_W=0.10 SPD_RATE=0.030
+           REP_DISC=0.005 REP_CAP=0.10
+           FROZEN_HARD=0.25 FROZEN_SOFT=0.15 MOVING_DISC=0.15
+  [FLEX-3] CLEAN_GATE: PX=0.05 NPN=0.08
+  [FLEX-4] PX_FROZEN_HARD=5.0 PX_FROZEN_SOFT=20.0
+           SPD_STEALTHY=1.5-10.0 AVG_EDGE_SUSP_SPIKE=0.70
+           FLAT_SCORE=[0.45, 0.55] bonuses shd=0.10 spd=0.12 frozen=0.18
+  [FLEX-5] Prompt: SPD_NORMAL=20.0 PX_GATE=75
+[CLOUD-LLM] Retained: per-CID alert_mode, cache isolation,
+  BAN window reset, NEUTRAL=0.250, FP-FIX-1/2/3, subprocess env
+[CLOUD-LLM] Hybrid: 70% LLM + 30% rule | Model: llama3:latest
+[CLOUD-LLM] Evolving: hidden=0.18 repeat_warn=0.14 ban_confirm=0.14 safe_esc_hidden=0.06 teach_cap=0.22 ts_bias=0.20 px_bias=0.16
+====================================================================
+[CLOUD-LLM] Listening on port 6666 -- ready
+[CLOUD-LLM] Query from ('127.0.0.1', 53044)
+[CLOUD-LLM] Query from ('127.0.0.1', 53056)
+[CLOUD-LLM] Query from ('127.0.0.1', 46836)
+[CLOUD-LLM] Received: {"msg_type": "CALIBRATE", "sim_ts": 3.404493, "fire_reason": "A_batch_full(n=4)", "zone_id": 1, "zone_context": {"zone_i
+[CLOUD-CALIB-LLM] Ollama OK: attack=ts_replay conf=0.98 reason=The dominant signal is a timestamp replay attack due to the very high feature se
+[CLOUD-CALIB] CALIBRATION_RESULT attack=ts_replay conf=0.98 llm=True W2d=0.040 W4d=0.000 ZONE_d=0.005 sep=4883.30->5615.80
+[CLOUD-LLM] Query from ('127.0.0.1', 33308)
+[CLOUD-LLM] Received: {"msg_type": "CALIBRATE", "sim_ts": 50.073993, "fire_reason": "G_heartbeat_balanced", "zone_id": 1, "zone_context": {"zo
+[CLOUD-CALIB-LLM] Ollama bad JSON response — refusing calibration
+[CLOUD-LLM] Query from ('127.0.0.1', 43954)
+[CLOUD-LLM] Received: {"msg_type": "CALIBRATE", "sim_ts": 71.076993, "fire_reason": "F_zone_entry_baseline", "zone_id": 2, "zone_context": {"z
+[CLOUD-CALIB-LLM] Ollama OK: attack=timestamp replay conf=1.00 reason=The dominant attack type is timestamp replay, with a high separation score and s
+[CLOUD-CALIB] CALIBRATION_RESULT attack=timestamp replay conf=1.00 llm=True W2d=0.040 W4d=0.000 ZONE_d=0.010 sep=0.00->0.00

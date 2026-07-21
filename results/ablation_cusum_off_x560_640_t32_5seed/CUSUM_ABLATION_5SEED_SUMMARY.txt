@@ -1,0 +1,27 @@
+
+===== CUSUM_ON =====
+seed=01 caught=7/7 DR=100.00% FP=0/3 confirmed=7 missed=[] attack_emit=69 falsified=69 HTD=2 CUSUM=8
+seed=02 caught=7/7 DR=100.00% FP=0/3 confirmed=7 missed=[] attack_emit=66 falsified=66 HTD=3 CUSUM=12
+seed=03 caught=7/7 DR=100.00% FP=0/3 confirmed=7 missed=[] attack_emit=60 falsified=60 HTD=3 CUSUM=12
+seed=04 caught=6/7 DR=85.71% FP=0/3 confirmed=6 missed=[5] attack_emit=66 falsified=66 HTD=3 CUSUM=12
+seed=05 caught=7/7 DR=100.00% FP=0/3 confirmed=7 missed=[] attack_emit=67 falsified=67 HTD=3 CUSUM=12
+SUMMARY
+DR mean: 97.14 std: 6.39
+FPR mean: 0.0 std: 0.0
+confirmed BAN mean: 6.8 std: 0.45
+
+===== CUSUM_OFF =====
+seed=01 caught=7/7 DR=100.00% FP=0/3 confirmed=7 missed=[] attack_emit=69 falsified=69 HTD=2 CUSUM=0
+seed=02 caught=7/7 DR=100.00% FP=0/3 confirmed=7 missed=[] attack_emit=66 falsified=66 HTD=3 CUSUM=0
+seed=03 caught=7/7 DR=100.00% FP=0/3 confirmed=7 missed=[] attack_emit=60 falsified=60 HTD=3 CUSUM=0
+seed=04 caught=6/7 DR=85.71% FP=0/3 confirmed=6 missed=[5] attack_emit=66 falsified=66 HTD=3 CUSUM=0
+seed=05 caught=7/7 DR=100.00% FP=0/3 confirmed=7 missed=[] attack_emit=67 falsified=67 HTD=3 CUSUM=0
+SUMMARY
+DR mean: 97.14 std: 6.39
+FPR mean: 0.0 std: 0.0
+confirmed BAN mean: 6.8 std: 0.45
+
+===== CUSUM ON - CUSUM OFF =====
+Per-seed DR gains: [0.0, 0.0, 0.0, 0.0, 0.0]
+Mean DR gain: 0.0
+Gain std: 0.0

@@ -1,0 +1,12 @@
+================================================================
+ EDGE AI SERVER v90-multiuav -- Zone 2
+================================================================
+[EDGE-Z2] Port              : 9995
+[EDGE-Z2] Coordinator       : 127.0.0.1:9997
+[EDGE-Z2] ZONE_SAFE=0.15  ZONE_MALICIOUS=0.30  NASH_P*=0.4000
+[EDGE-Z2] Weights: W1=0.27 W2=0.18 W3=0.23 W4=0.18 W5=0.14
+[EDGE-Z2] LEARNING_RATE=0.000  W_MIN=0.05  NASH_BAN_CONFIRM_K=1
+[CLOUD-DELAY] RTT=400ms  pre-cloud-pkts=4
+[EDGE-AI] Config snapshot saved -> logs/edge_ai_z2_config_20260715_142843.json
+[EDGE-Z2] Ready on port 9995
+

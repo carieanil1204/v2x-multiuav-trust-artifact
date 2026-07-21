@@ -1,0 +1,16 @@
+================================================================
+  TRUST COORDINATOR v1.0  --  Multi-UAV V2X
+================================================================
+[COORD] Listen port       : 9997
+[COORD] Registered zones  :
+  Zone 1  : 127.0.0.1:9999
+  Zone 2  : 127.0.0.1:9995
+[COORD] Health interval   : 10s  |  Stale after: 30s
+[COORD] Overlap window    : 5.0s
+[COORD] Max transit CIDs  : 500
+[COORD] Trace log         : logs/traces/coordinator_decision_trace.jsonl
+[COORD] Health monitor started  (interval=10s  stale_after=30s)
+[COORD] HEALTH MISS  Zone 1   127.0.0.1:9999  last_seen=1784105920s ago  status=OFFLINE[COORD] Ready — listening on port 9997
+
+
+[COORD] HEALTH MISS  Zone 2   127.0.0.1:9995  last_seen=1784105920s ago  status=OFFLINE

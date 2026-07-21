@@ -1,0 +1,407 @@
+nohup: ignoring input
+===== RUN exp=clean_safety_final_patch mode=ON seed=1 attack_rate=0 drop=0 disable_handover=0 disable_cusum=0 =====
+Pipeline stopped.
+Saved consistency log: results/final_code_consistency_rerun/clean_safety_final_patch/ON_seed1_drop0_x-1_-1_t36.log
+===== RUN exp=clean_safety_final_patch mode=ON seed=2 attack_rate=0 drop=0 disable_handover=0 disable_cusum=0 =====
+Pipeline stopped.
+Saved consistency log: results/final_code_consistency_rerun/clean_safety_final_patch/ON_seed2_drop0_x-1_-1_t36.log
+===== RUN exp=clean_safety_final_patch mode=ON seed=3 attack_rate=0 drop=0 disable_handover=0 disable_cusum=0 =====
+Pipeline stopped.
+Saved consistency log: results/final_code_consistency_rerun/clean_safety_final_patch/ON_seed3_drop0_x-1_-1_t36.log
+===== RUN exp=clean_safety_final_patch mode=ON seed=4 attack_rate=0 drop=0 disable_handover=0 disable_cusum=0 =====
+Pipeline stopped.
+Saved consistency log: results/final_code_consistency_rerun/clean_safety_final_patch/ON_seed4_drop0_x-1_-1_t36.log
+===== RUN exp=clean_safety_final_patch mode=ON seed=5 attack_rate=0 drop=0 disable_handover=0 disable_cusum=0 =====
+Pipeline stopped.
+Saved consistency log: results/final_code_consistency_rerun/clean_safety_final_patch/ON_seed5_drop0_x-1_-1_t36.log
+===== RUN exp=clean_safety_final_patch mode=ON seed=6 attack_rate=0 drop=0 disable_handover=0 disable_cusum=0 =====
+Pipeline stopped.
+Saved consistency log: results/final_code_consistency_rerun/clean_safety_final_patch/ON_seed6_drop0_x-1_-1_t36.log
+===== RUN exp=clean_safety_final_patch mode=ON seed=7 attack_rate=0 drop=0 disable_handover=0 disable_cusum=0 =====
+Pipeline stopped.
+Saved consistency log: results/final_code_consistency_rerun/clean_safety_final_patch/ON_seed7_drop0_x-1_-1_t36.log
+===== RUN exp=clean_safety_final_patch mode=ON seed=8 attack_rate=0 drop=0 disable_handover=0 disable_cusum=0 =====
+Pipeline stopped.
+Saved consistency log: results/final_code_consistency_rerun/clean_safety_final_patch/ON_seed8_drop0_x-1_-1_t36.log
+===== RUN exp=clean_safety_final_patch mode=ON seed=9 attack_rate=0 drop=0 disable_handover=0 disable_cusum=0 =====
+Pipeline stopped.
+Saved consistency log: results/final_code_consistency_rerun/clean_safety_final_patch/ON_seed9_drop0_x-1_-1_t36.log
+===== RUN exp=clean_safety_final_patch mode=ON seed=10 attack_rate=0 drop=0 disable_handover=0 disable_cusum=0 =====
+Pipeline stopped.
+Saved consistency log: results/final_code_consistency_rerun/clean_safety_final_patch/ON_seed10_drop0_x-1_-1_t36.log
+===== RUN exp=clean_safety_final_patch mode=ON seed=11 attack_rate=0 drop=0 disable_handover=0 disable_cusum=0 =====
+Pipeline stopped.
+Saved consistency log: results/final_code_consistency_rerun/clean_safety_final_patch/ON_seed11_drop0_x-1_-1_t36.log
+===== RUN exp=clean_safety_final_patch mode=ON seed=12 attack_rate=0 drop=0 disable_handover=0 disable_cusum=0 =====
+Pipeline stopped.
+Saved consistency log: results/final_code_consistency_rerun/clean_safety_final_patch/ON_seed12_drop0_x-1_-1_t36.log
+===== RUN exp=clean_safety_final_patch mode=ON seed=13 attack_rate=0 drop=0 disable_handover=0 disable_cusum=0 =====
+Pipeline stopped.
+Saved consistency log: results/final_code_consistency_rerun/clean_safety_final_patch/ON_seed13_drop0_x-1_-1_t36.log
+===== RUN exp=clean_safety_final_patch mode=ON seed=14 attack_rate=0 drop=0 disable_handover=0 disable_cusum=0 =====
+Pipeline stopped.
+Saved consistency log: results/final_code_consistency_rerun/clean_safety_final_patch/ON_seed14_drop0_x-1_-1_t36.log
+===== RUN exp=clean_safety_final_patch mode=ON seed=15 attack_rate=0 drop=0 disable_handover=0 disable_cusum=0 =====
+Pipeline stopped.
+Saved consistency log: results/final_code_consistency_rerun/clean_safety_final_patch/ON_seed15_drop0_x-1_-1_t36.log
+===== RUN exp=packet_loss_final_patch_DROP0 mode=ON seed=1 attack_rate=50 drop=0 disable_handover=0 disable_cusum=0 =====
+Pipeline stopped.
+Saved consistency log: results/final_code_consistency_rerun/packet_loss_final_patch_DROP0/ON_seed1_drop0_x560_720_t36.log
+===== RUN exp=packet_loss_final_patch_DROP0 mode=ON seed=2 attack_rate=50 drop=0 disable_handover=0 disable_cusum=0 =====
+Pipeline stopped.
+Saved consistency log: results/final_code_consistency_rerun/packet_loss_final_patch_DROP0/ON_seed2_drop0_x560_720_t36.log
+===== RUN exp=packet_loss_final_patch_DROP0 mode=ON seed=3 attack_rate=50 drop=0 disable_handover=0 disable_cusum=0 =====
+Pipeline stopped.
+Saved consistency log: results/final_code_consistency_rerun/packet_loss_final_patch_DROP0/ON_seed3_drop0_x560_720_t36.log
+===== RUN exp=packet_loss_final_patch_DROP0 mode=ON seed=4 attack_rate=50 drop=0 disable_handover=0 disable_cusum=0 =====
+Pipeline stopped.
+Saved consistency log: results/final_code_consistency_rerun/packet_loss_final_patch_DROP0/ON_seed4_drop0_x560_720_t36.log
+===== RUN exp=packet_loss_final_patch_DROP0 mode=ON seed=5 attack_rate=50 drop=0 disable_handover=0 disable_cusum=0 =====
+Pipeline stopped.
+Saved consistency log: results/final_code_consistency_rerun/packet_loss_final_patch_DROP0/ON_seed5_drop0_x560_720_t36.log
+===== RUN exp=packet_loss_final_patch_DROP0 mode=ON seed=6 attack_rate=50 drop=0 disable_handover=0 disable_cusum=0 =====
+Pipeline stopped.
+Saved consistency log: results/final_code_consistency_rerun/packet_loss_final_patch_DROP0/ON_seed6_drop0_x560_720_t36.log
+===== RUN exp=packet_loss_final_patch_DROP0 mode=ON seed=7 attack_rate=50 drop=0 disable_handover=0 disable_cusum=0 =====
+Pipeline stopped.
+Saved consistency log: results/final_code_consistency_rerun/packet_loss_final_patch_DROP0/ON_seed7_drop0_x560_720_t36.log
+===== RUN exp=packet_loss_final_patch_DROP0 mode=ON seed=8 attack_rate=50 drop=0 disable_handover=0 disable_cusum=0 =====
+Pipeline stopped.
+Saved consistency log: results/final_code_consistency_rerun/packet_loss_final_patch_DROP0/ON_seed8_drop0_x560_720_t36.log
+===== RUN exp=packet_loss_final_patch_DROP0 mode=ON seed=9 attack_rate=50 drop=0 disable_handover=0 disable_cusum=0 =====
+Pipeline stopped.
+Saved consistency log: results/final_code_consistency_rerun/packet_loss_final_patch_DROP0/ON_seed9_drop0_x560_720_t36.log
+===== RUN exp=packet_loss_final_patch_DROP0 mode=ON seed=10 attack_rate=50 drop=0 disable_handover=0 disable_cusum=0 =====
+Pipeline stopped.
+Saved consistency log: results/final_code_consistency_rerun/packet_loss_final_patch_DROP0/ON_seed10_drop0_x560_720_t36.log
+===== RUN exp=packet_loss_final_patch_DROP0 mode=ON seed=11 attack_rate=50 drop=0 disable_handover=0 disable_cusum=0 =====
+Pipeline stopped.
+Saved consistency log: results/final_code_consistency_rerun/packet_loss_final_patch_DROP0/ON_seed11_drop0_x560_720_t36.log
+===== RUN exp=packet_loss_final_patch_DROP0 mode=ON seed=12 attack_rate=50 drop=0 disable_handover=0 disable_cusum=0 =====
+Pipeline stopped.
+Saved consistency log: results/final_code_consistency_rerun/packet_loss_final_patch_DROP0/ON_seed12_drop0_x560_720_t36.log
+===== RUN exp=packet_loss_final_patch_DROP0 mode=ON seed=13 attack_rate=50 drop=0 disable_handover=0 disable_cusum=0 =====
+Pipeline stopped.
+Saved consistency log: results/final_code_consistency_rerun/packet_loss_final_patch_DROP0/ON_seed13_drop0_x560_720_t36.log
+===== RUN exp=packet_loss_final_patch_DROP0 mode=ON seed=14 attack_rate=50 drop=0 disable_handover=0 disable_cusum=0 =====
+Pipeline stopped.
+Saved consistency log: results/final_code_consistency_rerun/packet_loss_final_patch_DROP0/ON_seed14_drop0_x560_720_t36.log
+===== RUN exp=packet_loss_final_patch_DROP0 mode=ON seed=15 attack_rate=50 drop=0 disable_handover=0 disable_cusum=0 =====
+Pipeline stopped.
+Saved consistency log: results/final_code_consistency_rerun/packet_loss_final_patch_DROP0/ON_seed15_drop0_x560_720_t36.log
+===== RUN exp=packet_loss_final_patch_DROP5 mode=ON seed=1 attack_rate=50 drop=5 disable_handover=0 disable_cusum=0 =====
+Pipeline stopped.
+Saved consistency log: results/final_code_consistency_rerun/packet_loss_final_patch_DROP5/ON_seed1_drop5_x560_720_t36.log
+===== RUN exp=packet_loss_final_patch_DROP5 mode=ON seed=2 attack_rate=50 drop=5 disable_handover=0 disable_cusum=0 =====
+Pipeline stopped.
+Saved consistency log: results/final_code_consistency_rerun/packet_loss_final_patch_DROP5/ON_seed2_drop5_x560_720_t36.log
+===== RUN exp=packet_loss_final_patch_DROP5 mode=ON seed=3 attack_rate=50 drop=5 disable_handover=0 disable_cusum=0 =====
+Pipeline stopped.
+Saved consistency log: results/final_code_consistency_rerun/packet_loss_final_patch_DROP5/ON_seed3_drop5_x560_720_t36.log
+===== RUN exp=packet_loss_final_patch_DROP5 mode=ON seed=4 attack_rate=50 drop=5 disable_handover=0 disable_cusum=0 =====
+Pipeline stopped.
+Saved consistency log: results/final_code_consistency_rerun/packet_loss_final_patch_DROP5/ON_seed4_drop5_x560_720_t36.log
+===== RUN exp=packet_loss_final_patch_DROP5 mode=ON seed=5 attack_rate=50 drop=5 disable_handover=0 disable_cusum=0 =====
+Pipeline stopped.
+Saved consistency log: results/final_code_consistency_rerun/packet_loss_final_patch_DROP5/ON_seed5_drop5_x560_720_t36.log
+===== RUN exp=packet_loss_final_patch_DROP5 mode=ON seed=6 attack_rate=50 drop=5 disable_handover=0 disable_cusum=0 =====
+Pipeline stopped.
+Saved consistency log: results/final_code_consistency_rerun/packet_loss_final_patch_DROP5/ON_seed6_drop5_x560_720_t36.log
+===== RUN exp=packet_loss_final_patch_DROP5 mode=ON seed=7 attack_rate=50 drop=5 disable_handover=0 disable_cusum=0 =====
+Pipeline stopped.
+Saved consistency log: results/final_code_consistency_rerun/packet_loss_final_patch_DROP5/ON_seed7_drop5_x560_720_t36.log
+===== RUN exp=packet_loss_final_patch_DROP5 mode=ON seed=8 attack_rate=50 drop=5 disable_handover=0 disable_cusum=0 =====
+Pipeline stopped.
+Saved consistency log: results/final_code_consistency_rerun/packet_loss_final_patch_DROP5/ON_seed8_drop5_x560_720_t36.log
+===== RUN exp=packet_loss_final_patch_DROP5 mode=ON seed=9 attack_rate=50 drop=5 disable_handover=0 disable_cusum=0 =====
+Pipeline stopped.
+Saved consistency log: results/final_code_consistency_rerun/packet_loss_final_patch_DROP5/ON_seed9_drop5_x560_720_t36.log
+===== RUN exp=packet_loss_final_patch_DROP5 mode=ON seed=10 attack_rate=50 drop=5 disable_handover=0 disable_cusum=0 =====
+Pipeline stopped.
+Saved consistency log: results/final_code_consistency_rerun/packet_loss_final_patch_DROP5/ON_seed10_drop5_x560_720_t36.log
+===== RUN exp=packet_loss_final_patch_DROP5 mode=ON seed=11 attack_rate=50 drop=5 disable_handover=0 disable_cusum=0 =====
+Pipeline stopped.
+Saved consistency log: results/final_code_consistency_rerun/packet_loss_final_patch_DROP5/ON_seed11_drop5_x560_720_t36.log
+===== RUN exp=packet_loss_final_patch_DROP5 mode=ON seed=12 attack_rate=50 drop=5 disable_handover=0 disable_cusum=0 =====
+Pipeline stopped.
+Saved consistency log: results/final_code_consistency_rerun/packet_loss_final_patch_DROP5/ON_seed12_drop5_x560_720_t36.log
+===== RUN exp=packet_loss_final_patch_DROP5 mode=ON seed=13 attack_rate=50 drop=5 disable_handover=0 disable_cusum=0 =====
+Pipeline stopped.
+Saved consistency log: results/final_code_consistency_rerun/packet_loss_final_patch_DROP5/ON_seed13_drop5_x560_720_t36.log
+===== RUN exp=packet_loss_final_patch_DROP5 mode=ON seed=14 attack_rate=50 drop=5 disable_handover=0 disable_cusum=0 =====
+Pipeline stopped.
+Saved consistency log: results/final_code_consistency_rerun/packet_loss_final_patch_DROP5/ON_seed14_drop5_x560_720_t36.log
+===== RUN exp=packet_loss_final_patch_DROP5 mode=ON seed=15 attack_rate=50 drop=5 disable_handover=0 disable_cusum=0 =====
+Pipeline stopped.
+Saved consistency log: results/final_code_consistency_rerun/packet_loss_final_patch_DROP5/ON_seed15_drop5_x560_720_t36.log
+===== RUN exp=packet_loss_final_patch_DROP10 mode=ON seed=1 attack_rate=50 drop=10 disable_handover=0 disable_cusum=0 =====
+Pipeline stopped.
+Saved consistency log: results/final_code_consistency_rerun/packet_loss_final_patch_DROP10/ON_seed1_drop10_x560_720_t36.log
+===== RUN exp=packet_loss_final_patch_DROP10 mode=ON seed=2 attack_rate=50 drop=10 disable_handover=0 disable_cusum=0 =====
+Pipeline stopped.
+Saved consistency log: results/final_code_consistency_rerun/packet_loss_final_patch_DROP10/ON_seed2_drop10_x560_720_t36.log
+===== RUN exp=packet_loss_final_patch_DROP10 mode=ON seed=3 attack_rate=50 drop=10 disable_handover=0 disable_cusum=0 =====
+Pipeline stopped.
+Saved consistency log: results/final_code_consistency_rerun/packet_loss_final_patch_DROP10/ON_seed3_drop10_x560_720_t36.log
+===== RUN exp=packet_loss_final_patch_DROP10 mode=ON seed=4 attack_rate=50 drop=10 disable_handover=0 disable_cusum=0 =====
+Pipeline stopped.
+Saved consistency log: results/final_code_consistency_rerun/packet_loss_final_patch_DROP10/ON_seed4_drop10_x560_720_t36.log
+===== RUN exp=packet_loss_final_patch_DROP10 mode=ON seed=5 attack_rate=50 drop=10 disable_handover=0 disable_cusum=0 =====
+Pipeline stopped.
+Saved consistency log: results/final_code_consistency_rerun/packet_loss_final_patch_DROP10/ON_seed5_drop10_x560_720_t36.log
+===== RUN exp=packet_loss_final_patch_DROP10 mode=ON seed=6 attack_rate=50 drop=10 disable_handover=0 disable_cusum=0 =====
+Pipeline stopped.
+Saved consistency log: results/final_code_consistency_rerun/packet_loss_final_patch_DROP10/ON_seed6_drop10_x560_720_t36.log
+===== RUN exp=packet_loss_final_patch_DROP10 mode=ON seed=7 attack_rate=50 drop=10 disable_handover=0 disable_cusum=0 =====
+Pipeline stopped.
+Saved consistency log: results/final_code_consistency_rerun/packet_loss_final_patch_DROP10/ON_seed7_drop10_x560_720_t36.log
+===== RUN exp=packet_loss_final_patch_DROP10 mode=ON seed=8 attack_rate=50 drop=10 disable_handover=0 disable_cusum=0 =====
+Pipeline stopped.
+Saved consistency log: results/final_code_consistency_rerun/packet_loss_final_patch_DROP10/ON_seed8_drop10_x560_720_t36.log
+===== RUN exp=packet_loss_final_patch_DROP10 mode=ON seed=9 attack_rate=50 drop=10 disable_handover=0 disable_cusum=0 =====
+Pipeline stopped.
+Saved consistency log: results/final_code_consistency_rerun/packet_loss_final_patch_DROP10/ON_seed9_drop10_x560_720_t36.log
+===== RUN exp=packet_loss_final_patch_DROP10 mode=ON seed=10 attack_rate=50 drop=10 disable_handover=0 disable_cusum=0 =====
+Pipeline stopped.
+Saved consistency log: results/final_code_consistency_rerun/packet_loss_final_patch_DROP10/ON_seed10_drop10_x560_720_t36.log
+===== RUN exp=packet_loss_final_patch_DROP10 mode=ON seed=11 attack_rate=50 drop=10 disable_handover=0 disable_cusum=0 =====
+Pipeline stopped.
+Saved consistency log: results/final_code_consistency_rerun/packet_loss_final_patch_DROP10/ON_seed11_drop10_x560_720_t36.log
+===== RUN exp=packet_loss_final_patch_DROP10 mode=ON seed=12 attack_rate=50 drop=10 disable_handover=0 disable_cusum=0 =====
+Pipeline stopped.
+Saved consistency log: results/final_code_consistency_rerun/packet_loss_final_patch_DROP10/ON_seed12_drop10_x560_720_t36.log
+===== RUN exp=packet_loss_final_patch_DROP10 mode=ON seed=13 attack_rate=50 drop=10 disable_handover=0 disable_cusum=0 =====
+Pipeline stopped.
+Saved consistency log: results/final_code_consistency_rerun/packet_loss_final_patch_DROP10/ON_seed13_drop10_x560_720_t36.log
+===== RUN exp=packet_loss_final_patch_DROP10 mode=ON seed=14 attack_rate=50 drop=10 disable_handover=0 disable_cusum=0 =====
+Pipeline stopped.
+Saved consistency log: results/final_code_consistency_rerun/packet_loss_final_patch_DROP10/ON_seed14_drop10_x560_720_t36.log
+===== RUN exp=packet_loss_final_patch_DROP10 mode=ON seed=15 attack_rate=50 drop=10 disable_handover=0 disable_cusum=0 =====
+Pipeline stopped.
+Saved consistency log: results/final_code_consistency_rerun/packet_loss_final_patch_DROP10/ON_seed15_drop10_x560_720_t36.log
+===== RUN exp=packet_loss_final_patch_DROP20 mode=ON seed=1 attack_rate=50 drop=20 disable_handover=0 disable_cusum=0 =====
+Pipeline stopped.
+Saved consistency log: results/final_code_consistency_rerun/packet_loss_final_patch_DROP20/ON_seed1_drop20_x560_720_t36.log
+===== RUN exp=packet_loss_final_patch_DROP20 mode=ON seed=2 attack_rate=50 drop=20 disable_handover=0 disable_cusum=0 =====
+Pipeline stopped.
+Saved consistency log: results/final_code_consistency_rerun/packet_loss_final_patch_DROP20/ON_seed2_drop20_x560_720_t36.log
+===== RUN exp=packet_loss_final_patch_DROP20 mode=ON seed=3 attack_rate=50 drop=20 disable_handover=0 disable_cusum=0 =====
+Pipeline stopped.
+Saved consistency log: results/final_code_consistency_rerun/packet_loss_final_patch_DROP20/ON_seed3_drop20_x560_720_t36.log
+===== RUN exp=packet_loss_final_patch_DROP20 mode=ON seed=4 attack_rate=50 drop=20 disable_handover=0 disable_cusum=0 =====
+Pipeline stopped.
+Saved consistency log: results/final_code_consistency_rerun/packet_loss_final_patch_DROP20/ON_seed4_drop20_x560_720_t36.log
+===== RUN exp=packet_loss_final_patch_DROP20 mode=ON seed=5 attack_rate=50 drop=20 disable_handover=0 disable_cusum=0 =====
+Pipeline stopped.
+Saved consistency log: results/final_code_consistency_rerun/packet_loss_final_patch_DROP20/ON_seed5_drop20_x560_720_t36.log
+===== RUN exp=packet_loss_final_patch_DROP20 mode=ON seed=6 attack_rate=50 drop=20 disable_handover=0 disable_cusum=0 =====
+Pipeline stopped.
+Saved consistency log: results/final_code_consistency_rerun/packet_loss_final_patch_DROP20/ON_seed6_drop20_x560_720_t36.log
+===== RUN exp=packet_loss_final_patch_DROP20 mode=ON seed=7 attack_rate=50 drop=20 disable_handover=0 disable_cusum=0 =====
+Pipeline stopped.
+Saved consistency log: results/final_code_consistency_rerun/packet_loss_final_patch_DROP20/ON_seed7_drop20_x560_720_t36.log
+===== RUN exp=packet_loss_final_patch_DROP20 mode=ON seed=8 attack_rate=50 drop=20 disable_handover=0 disable_cusum=0 =====
+Pipeline stopped.
+Saved consistency log: results/final_code_consistency_rerun/packet_loss_final_patch_DROP20/ON_seed8_drop20_x560_720_t36.log
+===== RUN exp=packet_loss_final_patch_DROP20 mode=ON seed=9 attack_rate=50 drop=20 disable_handover=0 disable_cusum=0 =====
+Pipeline stopped.
+Saved consistency log: results/final_code_consistency_rerun/packet_loss_final_patch_DROP20/ON_seed9_drop20_x560_720_t36.log
+===== RUN exp=packet_loss_final_patch_DROP20 mode=ON seed=10 attack_rate=50 drop=20 disable_handover=0 disable_cusum=0 =====
+Pipeline stopped.
+Saved consistency log: results/final_code_consistency_rerun/packet_loss_final_patch_DROP20/ON_seed10_drop20_x560_720_t36.log
+===== RUN exp=packet_loss_final_patch_DROP20 mode=ON seed=11 attack_rate=50 drop=20 disable_handover=0 disable_cusum=0 =====
+Pipeline stopped.
+Saved consistency log: results/final_code_consistency_rerun/packet_loss_final_patch_DROP20/ON_seed11_drop20_x560_720_t36.log
+===== RUN exp=packet_loss_final_patch_DROP20 mode=ON seed=12 attack_rate=50 drop=20 disable_handover=0 disable_cusum=0 =====
+Pipeline stopped.
+Saved consistency log: results/final_code_consistency_rerun/packet_loss_final_patch_DROP20/ON_seed12_drop20_x560_720_t36.log
+===== RUN exp=packet_loss_final_patch_DROP20 mode=ON seed=13 attack_rate=50 drop=20 disable_handover=0 disable_cusum=0 =====
+Pipeline stopped.
+Saved consistency log: results/final_code_consistency_rerun/packet_loss_final_patch_DROP20/ON_seed13_drop20_x560_720_t36.log
+===== RUN exp=packet_loss_final_patch_DROP20 mode=ON seed=14 attack_rate=50 drop=20 disable_handover=0 disable_cusum=0 =====
+Pipeline stopped.
+Saved consistency log: results/final_code_consistency_rerun/packet_loss_final_patch_DROP20/ON_seed14_drop20_x560_720_t36.log
+===== RUN exp=packet_loss_final_patch_DROP20 mode=ON seed=15 attack_rate=50 drop=20 disable_handover=0 disable_cusum=0 =====
+Pipeline stopped.
+Saved consistency log: results/final_code_consistency_rerun/packet_loss_final_patch_DROP20/ON_seed15_drop20_x560_720_t36.log
+===== RUN exp=handover_final_patch_ON mode=ON seed=1 attack_rate=50 drop=0 disable_handover=0 disable_cusum=0 =====
+Pipeline stopped.
+Saved consistency log: results/final_code_consistency_rerun/handover_final_patch_ON/ON_seed1_drop0_x560_720_t36.log
+===== RUN exp=handover_final_patch_ON mode=ON seed=2 attack_rate=50 drop=0 disable_handover=0 disable_cusum=0 =====
+Pipeline stopped.
+Saved consistency log: results/final_code_consistency_rerun/handover_final_patch_ON/ON_seed2_drop0_x560_720_t36.log
+===== RUN exp=handover_final_patch_ON mode=ON seed=3 attack_rate=50 drop=0 disable_handover=0 disable_cusum=0 =====
+Pipeline stopped.
+Saved consistency log: results/final_code_consistency_rerun/handover_final_patch_ON/ON_seed3_drop0_x560_720_t36.log
+===== RUN exp=handover_final_patch_ON mode=ON seed=4 attack_rate=50 drop=0 disable_handover=0 disable_cusum=0 =====
+Pipeline stopped.
+Saved consistency log: results/final_code_consistency_rerun/handover_final_patch_ON/ON_seed4_drop0_x560_720_t36.log
+===== RUN exp=handover_final_patch_ON mode=ON seed=5 attack_rate=50 drop=0 disable_handover=0 disable_cusum=0 =====
+Pipeline stopped.
+Saved consistency log: results/final_code_consistency_rerun/handover_final_patch_ON/ON_seed5_drop0_x560_720_t36.log
+===== RUN exp=handover_final_patch_ON mode=ON seed=6 attack_rate=50 drop=0 disable_handover=0 disable_cusum=0 =====
+Pipeline stopped.
+Saved consistency log: results/final_code_consistency_rerun/handover_final_patch_ON/ON_seed6_drop0_x560_720_t36.log
+===== RUN exp=handover_final_patch_ON mode=ON seed=7 attack_rate=50 drop=0 disable_handover=0 disable_cusum=0 =====
+Pipeline stopped.
+Saved consistency log: results/final_code_consistency_rerun/handover_final_patch_ON/ON_seed7_drop0_x560_720_t36.log
+===== RUN exp=handover_final_patch_ON mode=ON seed=8 attack_rate=50 drop=0 disable_handover=0 disable_cusum=0 =====
+Pipeline stopped.
+Saved consistency log: results/final_code_consistency_rerun/handover_final_patch_ON/ON_seed8_drop0_x560_720_t36.log
+===== RUN exp=handover_final_patch_ON mode=ON seed=9 attack_rate=50 drop=0 disable_handover=0 disable_cusum=0 =====
+Pipeline stopped.
+Saved consistency log: results/final_code_consistency_rerun/handover_final_patch_ON/ON_seed9_drop0_x560_720_t36.log
+===== RUN exp=handover_final_patch_ON mode=ON seed=10 attack_rate=50 drop=0 disable_handover=0 disable_cusum=0 =====
+Pipeline stopped.
+Saved consistency log: results/final_code_consistency_rerun/handover_final_patch_ON/ON_seed10_drop0_x560_720_t36.log
+===== RUN exp=handover_final_patch_ON mode=ON seed=11 attack_rate=50 drop=0 disable_handover=0 disable_cusum=0 =====
+Pipeline stopped.
+Saved consistency log: results/final_code_consistency_rerun/handover_final_patch_ON/ON_seed11_drop0_x560_720_t36.log
+===== RUN exp=handover_final_patch_ON mode=ON seed=12 attack_rate=50 drop=0 disable_handover=0 disable_cusum=0 =====
+Pipeline stopped.
+Saved consistency log: results/final_code_consistency_rerun/handover_final_patch_ON/ON_seed12_drop0_x560_720_t36.log
+===== RUN exp=handover_final_patch_ON mode=ON seed=13 attack_rate=50 drop=0 disable_handover=0 disable_cusum=0 =====
+Pipeline stopped.
+Saved consistency log: results/final_code_consistency_rerun/handover_final_patch_ON/ON_seed13_drop0_x560_720_t36.log
+===== RUN exp=handover_final_patch_ON mode=ON seed=14 attack_rate=50 drop=0 disable_handover=0 disable_cusum=0 =====
+Pipeline stopped.
+Saved consistency log: results/final_code_consistency_rerun/handover_final_patch_ON/ON_seed14_drop0_x560_720_t36.log
+===== RUN exp=handover_final_patch_ON mode=ON seed=15 attack_rate=50 drop=0 disable_handover=0 disable_cusum=0 =====
+Pipeline stopped.
+Saved consistency log: results/final_code_consistency_rerun/handover_final_patch_ON/ON_seed15_drop0_x560_720_t36.log
+===== RUN exp=handover_final_patch_OFF mode=OFF seed=1 attack_rate=50 drop=0 disable_handover=1 disable_cusum=0 =====
+Pipeline stopped.
+Saved consistency log: results/final_code_consistency_rerun/handover_final_patch_OFF/OFF_seed1_drop0_x560_720_t36.log
+===== RUN exp=handover_final_patch_OFF mode=OFF seed=2 attack_rate=50 drop=0 disable_handover=1 disable_cusum=0 =====
+Pipeline stopped.
+Saved consistency log: results/final_code_consistency_rerun/handover_final_patch_OFF/OFF_seed2_drop0_x560_720_t36.log
+===== RUN exp=handover_final_patch_OFF mode=OFF seed=3 attack_rate=50 drop=0 disable_handover=1 disable_cusum=0 =====
+Pipeline stopped.
+Saved consistency log: results/final_code_consistency_rerun/handover_final_patch_OFF/OFF_seed3_drop0_x560_720_t36.log
+===== RUN exp=handover_final_patch_OFF mode=OFF seed=4 attack_rate=50 drop=0 disable_handover=1 disable_cusum=0 =====
+Pipeline stopped.
+Saved consistency log: results/final_code_consistency_rerun/handover_final_patch_OFF/OFF_seed4_drop0_x560_720_t36.log
+===== RUN exp=handover_final_patch_OFF mode=OFF seed=5 attack_rate=50 drop=0 disable_handover=1 disable_cusum=0 =====
+Pipeline stopped.
+Saved consistency log: results/final_code_consistency_rerun/handover_final_patch_OFF/OFF_seed5_drop0_x560_720_t36.log
+===== RUN exp=handover_final_patch_OFF mode=OFF seed=6 attack_rate=50 drop=0 disable_handover=1 disable_cusum=0 =====
+Pipeline stopped.
+Saved consistency log: results/final_code_consistency_rerun/handover_final_patch_OFF/OFF_seed6_drop0_x560_720_t36.log
+===== RUN exp=handover_final_patch_OFF mode=OFF seed=7 attack_rate=50 drop=0 disable_handover=1 disable_cusum=0 =====
+Pipeline stopped.
+Saved consistency log: results/final_code_consistency_rerun/handover_final_patch_OFF/OFF_seed7_drop0_x560_720_t36.log
+===== RUN exp=handover_final_patch_OFF mode=OFF seed=8 attack_rate=50 drop=0 disable_handover=1 disable_cusum=0 =====
+Pipeline stopped.
+Saved consistency log: results/final_code_consistency_rerun/handover_final_patch_OFF/OFF_seed8_drop0_x560_720_t36.log
+===== RUN exp=handover_final_patch_OFF mode=OFF seed=9 attack_rate=50 drop=0 disable_handover=1 disable_cusum=0 =====
+Pipeline stopped.
+Saved consistency log: results/final_code_consistency_rerun/handover_final_patch_OFF/OFF_seed9_drop0_x560_720_t36.log
+===== RUN exp=handover_final_patch_OFF mode=OFF seed=10 attack_rate=50 drop=0 disable_handover=1 disable_cusum=0 =====
+Pipeline stopped.
+Saved consistency log: results/final_code_consistency_rerun/handover_final_patch_OFF/OFF_seed10_drop0_x560_720_t36.log
+===== RUN exp=handover_final_patch_OFF mode=OFF seed=11 attack_rate=50 drop=0 disable_handover=1 disable_cusum=0 =====
+Pipeline stopped.
+Saved consistency log: results/final_code_consistency_rerun/handover_final_patch_OFF/OFF_seed11_drop0_x560_720_t36.log
+===== RUN exp=handover_final_patch_OFF mode=OFF seed=12 attack_rate=50 drop=0 disable_handover=1 disable_cusum=0 =====
+Pipeline stopped.
+Saved consistency log: results/final_code_consistency_rerun/handover_final_patch_OFF/OFF_seed12_drop0_x560_720_t36.log
+===== RUN exp=handover_final_patch_OFF mode=OFF seed=13 attack_rate=50 drop=0 disable_handover=1 disable_cusum=0 =====
+Pipeline stopped.
+Saved consistency log: results/final_code_consistency_rerun/handover_final_patch_OFF/OFF_seed13_drop0_x560_720_t36.log
+===== RUN exp=handover_final_patch_OFF mode=OFF seed=14 attack_rate=50 drop=0 disable_handover=1 disable_cusum=0 =====
+Pipeline stopped.
+Saved consistency log: results/final_code_consistency_rerun/handover_final_patch_OFF/OFF_seed14_drop0_x560_720_t36.log
+===== RUN exp=handover_final_patch_OFF mode=OFF seed=15 attack_rate=50 drop=0 disable_handover=1 disable_cusum=0 =====
+Pipeline stopped.
+Saved consistency log: results/final_code_consistency_rerun/handover_final_patch_OFF/OFF_seed15_drop0_x560_720_t36.log
+===== RUN exp=cusum_final_patch_ON mode=ON seed=1 attack_rate=50 drop=0 disable_handover=0 disable_cusum=0 =====
+Pipeline stopped.
+Saved consistency log: results/final_code_consistency_rerun/cusum_final_patch_ON/ON_seed1_drop0_x560_720_t36.log
+===== RUN exp=cusum_final_patch_ON mode=ON seed=2 attack_rate=50 drop=0 disable_handover=0 disable_cusum=0 =====
+Pipeline stopped.
+Saved consistency log: results/final_code_consistency_rerun/cusum_final_patch_ON/ON_seed2_drop0_x560_720_t36.log
+===== RUN exp=cusum_final_patch_ON mode=ON seed=3 attack_rate=50 drop=0 disable_handover=0 disable_cusum=0 =====
+Pipeline stopped.
+Saved consistency log: results/final_code_consistency_rerun/cusum_final_patch_ON/ON_seed3_drop0_x560_720_t36.log
+===== RUN exp=cusum_final_patch_ON mode=ON seed=4 attack_rate=50 drop=0 disable_handover=0 disable_cusum=0 =====
+Pipeline stopped.
+Saved consistency log: results/final_code_consistency_rerun/cusum_final_patch_ON/ON_seed4_drop0_x560_720_t36.log
+===== RUN exp=cusum_final_patch_ON mode=ON seed=5 attack_rate=50 drop=0 disable_handover=0 disable_cusum=0 =====
+Pipeline stopped.
+Saved consistency log: results/final_code_consistency_rerun/cusum_final_patch_ON/ON_seed5_drop0_x560_720_t36.log
+===== RUN exp=cusum_final_patch_ON mode=ON seed=6 attack_rate=50 drop=0 disable_handover=0 disable_cusum=0 =====
+Pipeline stopped.
+Saved consistency log: results/final_code_consistency_rerun/cusum_final_patch_ON/ON_seed6_drop0_x560_720_t36.log
+===== RUN exp=cusum_final_patch_ON mode=ON seed=7 attack_rate=50 drop=0 disable_handover=0 disable_cusum=0 =====
+Pipeline stopped.
+Saved consistency log: results/final_code_consistency_rerun/cusum_final_patch_ON/ON_seed7_drop0_x560_720_t36.log
+===== RUN exp=cusum_final_patch_ON mode=ON seed=8 attack_rate=50 drop=0 disable_handover=0 disable_cusum=0 =====
+Pipeline stopped.
+Saved consistency log: results/final_code_consistency_rerun/cusum_final_patch_ON/ON_seed8_drop0_x560_720_t36.log
+===== RUN exp=cusum_final_patch_ON mode=ON seed=9 attack_rate=50 drop=0 disable_handover=0 disable_cusum=0 =====
+Pipeline stopped.
+Saved consistency log: results/final_code_consistency_rerun/cusum_final_patch_ON/ON_seed9_drop0_x560_720_t36.log
+===== RUN exp=cusum_final_patch_ON mode=ON seed=10 attack_rate=50 drop=0 disable_handover=0 disable_cusum=0 =====
+Pipeline stopped.
+Saved consistency log: results/final_code_consistency_rerun/cusum_final_patch_ON/ON_seed10_drop0_x560_720_t36.log
+===== RUN exp=cusum_final_patch_ON mode=ON seed=11 attack_rate=50 drop=0 disable_handover=0 disable_cusum=0 =====
+Pipeline stopped.
+Saved consistency log: results/final_code_consistency_rerun/cusum_final_patch_ON/ON_seed11_drop0_x560_720_t36.log
+===== RUN exp=cusum_final_patch_ON mode=ON seed=12 attack_rate=50 drop=0 disable_handover=0 disable_cusum=0 =====
+Pipeline stopped.
+Saved consistency log: results/final_code_consistency_rerun/cusum_final_patch_ON/ON_seed12_drop0_x560_720_t36.log
+===== RUN exp=cusum_final_patch_ON mode=ON seed=13 attack_rate=50 drop=0 disable_handover=0 disable_cusum=0 =====
+Pipeline stopped.
+Saved consistency log: results/final_code_consistency_rerun/cusum_final_patch_ON/ON_seed13_drop0_x560_720_t36.log
+===== RUN exp=cusum_final_patch_ON mode=ON seed=14 attack_rate=50 drop=0 disable_handover=0 disable_cusum=0 =====
+Pipeline stopped.
+Saved consistency log: results/final_code_consistency_rerun/cusum_final_patch_ON/ON_seed14_drop0_x560_720_t36.log
+===== RUN exp=cusum_final_patch_ON mode=ON seed=15 attack_rate=50 drop=0 disable_handover=0 disable_cusum=0 =====
+Pipeline stopped.
+Saved consistency log: results/final_code_consistency_rerun/cusum_final_patch_ON/ON_seed15_drop0_x560_720_t36.log
+===== RUN exp=cusum_final_patch_OFF mode=ON seed=1 attack_rate=50 drop=0 disable_handover=0 disable_cusum=1 =====
+Pipeline stopped.
+Saved consistency log: results/final_code_consistency_rerun/cusum_final_patch_OFF/ON_seed1_drop0_x560_720_t36.log
+===== RUN exp=cusum_final_patch_OFF mode=ON seed=2 attack_rate=50 drop=0 disable_handover=0 disable_cusum=1 =====
+Pipeline stopped.
+Saved consistency log: results/final_code_consistency_rerun/cusum_final_patch_OFF/ON_seed2_drop0_x560_720_t36.log
+===== RUN exp=cusum_final_patch_OFF mode=ON seed=3 attack_rate=50 drop=0 disable_handover=0 disable_cusum=1 =====
+Pipeline stopped.
+Saved consistency log: results/final_code_consistency_rerun/cusum_final_patch_OFF/ON_seed3_drop0_x560_720_t36.log
+===== RUN exp=cusum_final_patch_OFF mode=ON seed=4 attack_rate=50 drop=0 disable_handover=0 disable_cusum=1 =====
+Pipeline stopped.
+Saved consistency log: results/final_code_consistency_rerun/cusum_final_patch_OFF/ON_seed4_drop0_x560_720_t36.log
+===== RUN exp=cusum_final_patch_OFF mode=ON seed=5 attack_rate=50 drop=0 disable_handover=0 disable_cusum=1 =====
+Pipeline stopped.
+Saved consistency log: results/final_code_consistency_rerun/cusum_final_patch_OFF/ON_seed5_drop0_x560_720_t36.log
+===== RUN exp=cusum_final_patch_OFF mode=ON seed=6 attack_rate=50 drop=0 disable_handover=0 disable_cusum=1 =====
+Pipeline stopped.
+Saved consistency log: results/final_code_consistency_rerun/cusum_final_patch_OFF/ON_seed6_drop0_x560_720_t36.log
+===== RUN exp=cusum_final_patch_OFF mode=ON seed=7 attack_rate=50 drop=0 disable_handover=0 disable_cusum=1 =====
+Pipeline stopped.
+Saved consistency log: results/final_code_consistency_rerun/cusum_final_patch_OFF/ON_seed7_drop0_x560_720_t36.log
+===== RUN exp=cusum_final_patch_OFF mode=ON seed=8 attack_rate=50 drop=0 disable_handover=0 disable_cusum=1 =====
+Pipeline stopped.
+Saved consistency log: results/final_code_consistency_rerun/cusum_final_patch_OFF/ON_seed8_drop0_x560_720_t36.log
+===== RUN exp=cusum_final_patch_OFF mode=ON seed=9 attack_rate=50 drop=0 disable_handover=0 disable_cusum=1 =====
+Pipeline stopped.
+Saved consistency log: results/final_code_consistency_rerun/cusum_final_patch_OFF/ON_seed9_drop0_x560_720_t36.log
+===== RUN exp=cusum_final_patch_OFF mode=ON seed=10 attack_rate=50 drop=0 disable_handover=0 disable_cusum=1 =====
+Pipeline stopped.
+Saved consistency log: results/final_code_consistency_rerun/cusum_final_patch_OFF/ON_seed10_drop0_x560_720_t36.log
+===== RUN exp=cusum_final_patch_OFF mode=ON seed=11 attack_rate=50 drop=0 disable_handover=0 disable_cusum=1 =====
+Pipeline stopped.
+Saved consistency log: results/final_code_consistency_rerun/cusum_final_patch_OFF/ON_seed11_drop0_x560_720_t36.log
+===== RUN exp=cusum_final_patch_OFF mode=ON seed=12 attack_rate=50 drop=0 disable_handover=0 disable_cusum=1 =====
+Pipeline stopped.
+Saved consistency log: results/final_code_consistency_rerun/cusum_final_patch_OFF/ON_seed12_drop0_x560_720_t36.log
+===== RUN exp=cusum_final_patch_OFF mode=ON seed=13 attack_rate=50 drop=0 disable_handover=0 disable_cusum=1 =====
+Pipeline stopped.
+Saved consistency log: results/final_code_consistency_rerun/cusum_final_patch_OFF/ON_seed13_drop0_x560_720_t36.log
+===== RUN exp=cusum_final_patch_OFF mode=ON seed=14 attack_rate=50 drop=0 disable_handover=0 disable_cusum=1 =====
+Pipeline stopped.
+Saved consistency log: results/final_code_consistency_rerun/cusum_final_patch_OFF/ON_seed14_drop0_x560_720_t36.log
+===== RUN exp=cusum_final_patch_OFF mode=ON seed=15 attack_rate=50 drop=0 disable_handover=0 disable_cusum=1 =====
+Pipeline stopped.
+Saved consistency log: results/final_code_consistency_rerun/cusum_final_patch_OFF/ON_seed15_drop0_x560_720_t36.log
+ALL FINAL-CODE CONSISTENCY RERUNS COMPLETE

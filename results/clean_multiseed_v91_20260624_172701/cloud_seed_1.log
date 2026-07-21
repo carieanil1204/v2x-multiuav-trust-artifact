@@ -1,0 +1,33 @@
+====================================================================
+ CLOUD LLM SERVER v84-adaptive -- Layer 3 (V2X-EXP1-STEALTHY-ATTACKER)
+====================================================================
+[CLOUD-LLM] FLEX additions over v79:
+  [FLEX-1] SPEED_NORMAL=20.0 SPEED_CLEAN_GATE=20.5 PX_CLEAN_GATE=75
+  [FLEX-2] SHADOW_W=0.005 BAN_W=0.10 SPD_RATE=0.030
+           REP_DISC=0.005 REP_CAP=0.10
+           FROZEN_HARD=0.25 FROZEN_SOFT=0.15 MOVING_DISC=0.15
+  [FLEX-3] CLEAN_GATE: PX=0.05 NPN=0.08
+  [FLEX-4] PX_FROZEN_HARD=5.0 PX_FROZEN_SOFT=20.0
+           SPD_STEALTHY=1.5-10.0 AVG_EDGE_SUSP_SPIKE=0.70
+           FLAT_SCORE=[0.45, 0.55] bonuses shd=0.10 spd=0.12 frozen=0.18
+  [FLEX-5] Prompt: SPD_NORMAL=20.0 PX_GATE=75
+[CLOUD-LLM] Retained: per-CID alert_mode, cache isolation,
+  BAN window reset, NEUTRAL=0.250, FP-FIX-1/2/3, subprocess env
+[CLOUD-LLM] Hybrid: 70% LLM + 30% rule | Model: llama3:latest
+[CLOUD-LLM] Evolving: hidden=0.18 repeat_warn=0.14 ban_confirm=0.14 safe_esc_hidden=0.06 teach_cap=0.22 ts_bias=0.20 px_bias=0.16
+====================================================================
+[CLOUD-LLM] Listening on port 6666 -- ready
+[CLOUD-LLM] Query from ('127.0.0.1', 40292)
+[CLOUD-LLM] Query from ('127.0.0.1', 40298)
+[CLOUD-LLM] Query from ('127.0.0.1', 57484)
+[CLOUD-LLM] Received: {"msg_type": "CALIBRATE", "sim_ts": 3.596493, "fire_reason": "A_batch_full(n=4)", "zone_id": 1, "zone_context": {"zone_i
+[CLOUD-CALIB-LLM] Ollama OK: attack=ts_replay conf=0.85 reason=The dominant signal is timestamp replay, with a high separation score and suspic
+[CLOUD-CALIB] CALIBRATION_RESULT attack=ts_replay conf=0.85 llm=True W2d=0.040 W4d=0.000 ZONE_d=0.015 sep=2480.43->2852.50
+[CLOUD-LLM] Query from ('127.0.0.1', 59058)
+[CLOUD-LLM] Received: {"msg_type": "CALIBRATE", "sim_ts": 51.526993, "fire_reason": "G_heartbeat_balanced", "zone_id": 1, "zone_context": {"zo
+[CLOUD-CALIB-LLM] Ollama OK: attack=ts_replay conf=0.95 reason=The dominant attack signal is timestamp replay, with a high feature separation s
+[CLOUD-CALIB] CALIBRATION_RESULT attack=ts_replay conf=0.95 llm=True W2d=0.020 W4d=0.000 ZONE_d=0.005 sep=462.21->531.54
+[CLOUD-LLM] Query from ('127.0.0.1', 38884)
+[CLOUD-LLM] Received: {"msg_type": "CALIBRATE", "sim_ts": 72.524493, "fire_reason": "F_zone_entry_baseline", "zone_id": 2, "zone_context": {"z
+[CLOUD-CALIB-LLM] Ollama OK: attack=speed_attack conf=1.00 reason=The dominant attack signal is speed anomaly, indicating malicious behavior with 
+[CLOUD-CALIB] CALIBRATION_RESULT attack=speed_attack conf=1.00 llm=True W2d=0.000 W4d=0.000 ZONE_d=0.005 sep=0.00->0.00

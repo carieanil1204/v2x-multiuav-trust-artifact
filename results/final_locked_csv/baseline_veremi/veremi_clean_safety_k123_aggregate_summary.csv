@@ -1,0 +1,4 @@
+condition,baseline_variant,valid_seeds,honest,false_positive,overall_FPR_percent,FPR_mean_percent,FPR_std,raw_csv_path
+CLEAN_HONEST,Local_CID_RXUAV_SEGMENT_RESET_OBS_K1_W5,15,150,144/150,96.0,96.0,5.07,/home/srmap/research/projects/v2x-multiuav-trust/results/final_locked_csv/baseline_veremi/veremi_clean_safety_k123_per_seed_raw.csv
+CLEAN_HONEST,Local_CID_RXUAV_SEGMENT_RESET_OBS_K2_W5,15,150,0/150,0.0,0.0,0.0,/home/srmap/research/projects/v2x-multiuav-trust/results/final_locked_csv/baseline_veremi/veremi_clean_safety_k123_per_seed_raw.csv
+CLEAN_HONEST,Local_CID_RXUAV_SEGMENT_RESET_OBS_K3_W5,15,150,0/150,0.0,0.0,0.0,/home/srmap/research/projects/v2x-multiuav-trust/results/final_locked_csv/baseline_veremi/veremi_clean_safety_k123_per_seed_raw.csv

@@ -1,0 +1,7 @@
+experiment,condition,valid_rows,valid_seeds,caught,pooled_DR_percent,DR_mean_percent,DR_std,false_positive,pooled_FPR_percent,FPR_mean_percent,FPR_std,CUSUM_BAN_total,CUSUM_HOLD_total,NASH_GATE_total,HANDOVER_HTD_LOGS_total,runtime_mean_sec,runtime_std_sec,raw_csv_path
+htd_sensitivity,HTD_0.1,15,15,101/105,96.19,96.19,6.54,0/45,0.0,0.0,0.0,25,7,185,234,,,/home/srmap/research/projects/v2x-multiuav-trust/results/htd_sensitivity_per_seed_raw.csv
+htd_sensitivity,HTD_0.3,15,15,101/105,96.19,96.19,6.54,0/45,0.0,0.0,0.0,25,7,185,234,,,/home/srmap/research/projects/v2x-multiuav-trust/results/htd_sensitivity_per_seed_raw.csv
+htd_sensitivity,HTD_0.5,15,15,101/105,96.19,96.19,6.54,0/45,0.0,0.0,0.0,25,7,185,234,,,/home/srmap/research/projects/v2x-multiuav-trust/results/htd_sensitivity_per_seed_raw.csv
+htd_sensitivity,HTD_0.7,15,15,101/105,96.19,96.19,6.54,0/45,0.0,0.0,0.0,26,7,182,235,,,/home/srmap/research/projects/v2x-multiuav-trust/results/htd_sensitivity_per_seed_raw.csv
+htd_sensitivity,HTD_1.0,15,15,101/105,96.19,96.19,6.54,1/45,2.22,2.22,8.61,25,0,178,234,,,/home/srmap/research/projects/v2x-multiuav-trust/results/htd_sensitivity_per_seed_raw.csv
+htd_sensitivity,HTD_UNKNOWN,8,2,28/32,87.5,87.5,13.36,0/16,0.0,0.0,0.0,0,0,320,79,,,/home/srmap/research/projects/v2x-multiuav-trust/results/htd_sensitivity_per_seed_raw.csv

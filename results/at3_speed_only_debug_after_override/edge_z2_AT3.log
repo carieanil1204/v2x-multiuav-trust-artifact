@@ -1,0 +1,147 @@
+================================================================
+ EDGE AI SERVER v90-multiuav -- Zone 2
+================================================================
+[EDGE-Z2] Port              : 9995
+[EDGE-Z2] Coordinator       : 127.0.0.1:9997
+[EDGE-Z2] ZONE_SAFE=0.15  ZONE_MALICIOUS=0.30  NASH_P*=0.4000
+[EDGE-Z2] Weights: W1=0.27 W2=0.18 W3=0.23 W4=0.18 W5=0.14
+[EDGE-Z2] LEARNING_RATE=0.000  W_MIN=0.05  NASH_BAN_CONFIRM_K=1
+[CLOUD-DELAY] RTT=400ms  pre-cloud-pkts=4
+[EDGE-AI] Config snapshot saved -> logs/edge_ai_z2_config_20260719_060512.json
+[EDGE-Z2] Ready on port 9995
+
+[EDGE-Z2] HANDOVER_LOAD  CID:0     from_Z1  safe_wins_raw=0 decayed=0 decay=0.30 probationK=8  ban_str=0  warn_str=2  verdict=WARN  spd_seeded=10  ts_seeded=10
+[EDGE-Z2] HANDOVER_LOAD  CID:1     from_Z1  safe_wins_raw=0 decayed=0 decay=0.30 probationK=8  ban_str=0  warn_str=3  verdict=WARN  spd_seeded=10  ts_seeded=10
+[EDGE-Z2] HANDOVER_LOAD  CID:2     from_Z1  safe_wins_raw=0 decayed=0 decay=0.30 probationK=8  ban_str=0  warn_str=2  verdict=WARN  spd_seeded=10  ts_seeded=10
+[EDGE-Z2] HANDOVER_LOAD  CID:3     from_Z1  safe_wins_raw=0 decayed=0 decay=0.30 probationK=8  ban_str=0  warn_str=0  verdict=SAFE  spd_seeded=10  ts_seeded=10
+[EDGE-Z2] HANDOVER_LOAD  CID:4     from_Z1  safe_wins_raw=4 decayed=1 decay=0.30 probationK=8  ban_str=0  warn_str=1  verdict=WARN  spd_seeded=10  ts_seeded=10
+[EDGE-Z2] HANDOVER_LOAD  CID:5     from_Z1  safe_wins_raw=0 decayed=0 decay=0.30 probationK=8  ban_str=0  warn_str=4  verdict=WARN  spd_seeded=10  ts_seeded=10
+[EDGE-Z2] HANDOVER_LOAD  CID:6     from_Z1  safe_wins_raw=0 decayed=0 decay=0.30 probationK=8  ban_str=0  warn_str=4  verdict=WARN  spd_seeded=10  ts_seeded=10
+[EDGE-Z2] HANDOVER_LOAD  CID:7     from_Z1  safe_wins_raw=0 decayed=0 decay=0.30 probationK=8  ban_str=0  warn_str=4  verdict=WARN  spd_seeded=10  ts_seeded=10
+[EDGE-Z2] HANDOVER_LOAD  CID:8     from_Z1  safe_wins_raw=0 decayed=0 decay=0.30 probationK=8  ban_str=0  warn_str=0  verdict=SAFE  spd_seeded=10  ts_seeded=10
+[EDGE-Z2] HANDOVER_LOAD  CID:9     from_Z1  safe_wins_raw=16 decayed=5 decay=0.30 probationK=8  ban_str=0  warn_str=0  verdict=SAFE  spd_seeded=10  ts_seeded=10
+[EDGE-Z2-ENSEMBLE] CID:4 m1=0.481 m2=0.020 m3=0.000 m4=0.000 m5=0.050 p=0.142 cloud=PRE overlap=YES -> SAFE
+[EDGE-Z2-ENSEMBLE] CID:0 m1=0.515 m2=0.020 m3=0.000 m4=0.000 m5=0.046 p=0.150 cloud=PRE overlap=YES -> WARN
+[EDGE-Z2-ENSEMBLE] CID:6 m1=0.400 m2=0.020 m3=0.000 m4=0.000 m5=0.034 p=0.117 cloud=PRE overlap=YES -> SAFE
+[EDGE-Z2-ENSEMBLE] CID:5 m1=0.530 m2=0.020 m3=0.000 m4=0.000 m5=0.042 p=0.154 cloud=PRE overlap=YES -> WARN
+[EDGE-Z2-ENSEMBLE] CID:3 m1=0.000 m2=0.020 m3=0.000 m4=0.000 m5=0.000 p=0.001 cloud=PRE overlap=YES -> SAFE
+[EDGE-Z2-ENSEMBLE] CID:7 m1=0.544 m2=0.020 m3=0.000 m4=0.000 m5=0.044 p=0.158 cloud=PRE overlap=YES -> WARN
+[EDGE-Z2-ENSEMBLE] CID:1 m1=0.544 m2=0.020 m3=0.000 m4=0.000 m5=0.046 p=0.158 cloud=PRE overlap=YES -> WARN
+[EDGE-Z2-ENSEMBLE] CID:2 m1=0.481 m2=0.020 m3=0.000 m4=0.000 m5=0.040 p=0.140 cloud=PRE overlap=YES -> SAFE
+[EDGE-Z2-ENSEMBLE] CID:8 m1=0.000 m2=0.020 m3=0.000 m4=0.000 m5=0.004 p=0.002 cloud=PRE overlap=YES -> SAFE
+[EDGE-Z2-ENSEMBLE] CID:4 m1=0.515 m2=0.020 m3=0.000 m4=0.000 m5=0.049 p=0.150 cloud=PRE overlap=YES -> WARN
+[EDGE-Z2-ENSEMBLE] CID:0 m1=0.544 m2=0.020 m3=0.000 m4=0.000 m5=0.049 p=0.159 cloud=PRE overlap=YES -> WARN
+[EDGE-Z2-ENSEMBLE] CID:6 m1=0.422 m2=0.020 m3=0.000 m4=0.000 m5=0.035 p=0.122 cloud=PRE overlap=YES -> SAFE
+[EDGE-Z2-ENSEMBLE] CID:5 m1=0.515 m2=0.020 m3=0.000 m4=0.000 m5=0.043 p=0.150 cloud=PRE overlap=YES -> SAFE
+[EDGE-Z2-ENSEMBLE] CID:7 m1=0.515 m2=0.020 m3=0.000 m4=0.000 m5=0.047 p=0.150 cloud=PRE overlap=YES -> WARN
+[EDGE-Z2-ENSEMBLE] CID:3 m1=0.000 m2=0.020 m3=0.000 m4=0.000 m5=0.000 p=0.000 cloud=PRE overlap=YES -> SAFE
+[EDGE-Z2-ENSEMBLE] CID:1 m1=0.463 m2=0.020 m3=0.000 m4=0.000 m5=0.043 p=0.136 cloud=PRE overlap=YES -> SAFE
+[EDGE-Z2-ENSEMBLE] CID:2 m1=0.443 m2=0.020 m3=0.000 m4=0.000 m5=0.039 p=0.129 cloud=PRE overlap=YES -> SAFE
+[EDGE-Z2-ENSEMBLE] CID:8 m1=0.000 m2=0.020 m3=0.000 m4=0.000 m5=0.000 p=0.000 cloud=PRE overlap=YES -> SAFE
+[EDGE-Z2-ENSEMBLE] CID:4 m1=0.443 m2=0.020 m3=0.550 m4=0.000 m5=0.046 p=0.256 cloud=PRE overlap=YES -> WARN
+[EDGE-Z2-ENSEMBLE] CID:0 m1=0.443 m2=0.020 m3=0.550 m4=0.000 m5=0.048 p=0.256 cloud=PRE overlap=YES -> WARN
+[EDGE-Z2-ENSEMBLE] CID:6 m1=0.463 m2=0.020 m3=0.550 m4=0.000 m5=0.033 p=0.258 cloud=PRE overlap=YES -> WARN
+[EDGE-Z2-ENSEMBLE] CID:5 m1=0.498 m2=0.020 m3=0.550 m4=0.000 m5=0.045 p=0.270 cloud=PRE overlap=YES -> WARN
+[EDGE-Z2-ENSEMBLE] CID:3 m1=0.000 m2=0.020 m3=0.000 m4=0.000 m5=0.000 p=0.000 cloud=PRE overlap=YES -> SAFE
+[EDGE-Z2-ENSEMBLE] CID:7 m1=0.481 m2=0.020 m3=0.550 m4=0.000 m5=0.047 p=0.266 cloud=PRE overlap=YES -> WARN
+[EDGE-Z2-ENSEMBLE] CID:1 m1=0.400 m2=0.020 m3=0.550 m4=0.000 m5=0.043 p=0.243 cloud=PRE overlap=YES -> WARN
+[EDGE-Z2-ENSEMBLE] CID:2 m1=0.400 m2=0.020 m3=0.550 m4=0.000 m5=0.039 p=0.242 cloud=PRE overlap=YES -> WARN
+[EDGE-Z2-ENSEMBLE] CID:8 m1=0.000 m2=0.020 m3=0.000 m4=0.000 m5=0.000 p=0.000 cloud=PRE overlap=YES -> SAFE
+[EDGE-Z2-ENSEMBLE] CID:4 m1=0.515 m2=0.020 m3=0.550 m4=0.000 m5=0.045 p=0.275 cloud=PRE overlap=YES -> WARN
+[EDGE-Z2-ENSEMBLE] CID:0 m1=0.530 m2=0.020 m3=0.550 m4=0.000 m5=0.048 p=0.280 cloud=PRE overlap=YES -> WARN
+[EDGE-Z2-ENSEMBLE] CID:6 m1=0.481 m2=0.020 m3=0.550 m4=0.000 m5=0.036 p=0.265 cloud=PRE overlap=YES -> WARN
+[EDGE-Z2-ENSEMBLE] CID:5 m1=0.481 m2=0.020 m3=0.550 m4=0.000 m5=0.044 p=0.266 cloud=PRE overlap=YES -> WARN
+[EDGE-Z2-ENSEMBLE] CID:3 m1=0.000 m2=0.020 m3=0.000 m4=0.000 m5=0.000 p=0.000 cloud=PRE overlap=YES -> SAFE
+[EDGE-Z2-ENSEMBLE] CID:7 m1=0.400 m2=0.020 m3=0.550 m4=0.000 m5=0.042 p=0.244 cloud=PRE overlap=YES -> WARN
+[EDGE-Z2-ENSEMBLE] CID:1 m1=0.481 m2=0.020 m3=0.550 m4=0.000 m5=0.042 p=0.266 cloud=PRE overlap=YES -> WARN
+[EDGE-Z2-ENSEMBLE] CID:2 m1=0.400 m2=0.020 m3=0.550 m4=0.000 m5=0.036 p=0.243 cloud=PRE overlap=YES -> WARN
+[EDGE-Z2-ENSEMBLE] CID:8 m1=0.000 m2=0.020 m3=0.000 m4=0.000 m5=0.000 p=0.000 cloud=PRE overlap=YES -> SAFE
+[EDGE-Z2-ENSEMBLE] CID:4 m1=0.515 m2=0.020 m3=0.550 m4=0.000 m5=0.044 p=0.275 cloud=PRE overlap=YES -> WARN
+[EDGE-Z2-ENSEMBLE] CID:0 m1=0.463 m2=0.020 m3=0.550 m4=0.000 m5=0.045 p=0.261 cloud=PRE overlap=YES -> WARN
+[EDGE-Z2-ENSEMBLE] CID:6 m1=0.422 m2=0.020 m3=0.550 m4=0.000 m5=0.036 p=0.249 cloud=PRE overlap=YES -> WARN
+[EDGE-Z2-ENSEMBLE] CID:5 m1=0.530 m2=0.020 m3=0.550 m4=0.000 m5=0.047 p=0.280 cloud=PRE overlap=YES -> WARN
+[EDGE-Z2-ENSEMBLE] CID:3 m1=0.000 m2=0.020 m3=0.000 m4=0.000 m5=0.000 p=0.000 cloud=PRE overlap=YES -> SAFE
+[EDGE-Z2-ENSEMBLE] CID:7 m1=0.515 m2=0.020 m3=0.550 m4=0.000 m5=0.044 p=0.275 cloud=PRE overlap=YES -> WARN
+[EDGE-Z2-ENSEMBLE] CID:1 m1=0.498 m2=0.020 m3=0.550 m4=0.000 m5=0.042 p=0.270 cloud=PRE overlap=YES -> WARN
+[EDGE-Z2-ENSEMBLE] CID:2 m1=0.530 m2=0.020 m3=0.550 m4=0.000 m5=0.038 p=0.278 cloud=PRE overlap=YES -> WARN
+[EDGE-Z2-ENSEMBLE] CID:8 m1=0.000 m2=0.020 m3=0.000 m4=0.000 m5=0.000 p=0.000 cloud=PRE overlap=YES -> SAFE
+[EDGE-Z2-ENSEMBLE] CID:4 m1=0.481 m2=0.020 m3=0.550 m4=0.000 m5=0.044 p=0.266 cloud=PRE overlap=YES -> WARN
+[EDGE-Z2-ENSEMBLE] CID:0 m1=0.481 m2=0.020 m3=0.550 m4=0.000 m5=0.044 p=0.266 cloud=PRE overlap=YES -> WARN
+[EDGE-Z2-ENSEMBLE] CID:6 m1=0.530 m2=0.020 m3=0.550 m4=0.000 m5=0.039 p=0.278 cloud=PRE overlap=YES -> WARN
+[EDGE-Z2-ENSEMBLE] CID:5 m1=0.463 m2=0.020 m3=0.550 m4=0.000 m5=0.044 p=0.261 cloud=PRE overlap=YES -> WARN
+[EDGE-Z2-ENSEMBLE] CID:3 m1=0.000 m2=0.020 m3=0.000 m4=0.000 m5=0.000 p=0.000 cloud=PRE overlap=YES -> SAFE
+[EDGE-Z2-ENSEMBLE] CID:7 m1=0.422 m2=0.020 m3=0.550 m4=0.000 m5=0.040 p=0.249 cloud=PRE overlap=YES -> WARN
+[EDGE-Z2-ENSEMBLE] CID:1 m1=0.422 m2=0.020 m3=0.550 m4=0.000 m5=0.038 p=0.249 cloud=PRE overlap=YES -> WARN
+[EDGE-Z2-ENSEMBLE] CID:2 m1=0.443 m2=0.020 m3=0.550 m4=0.000 m5=0.037 p=0.255 cloud=PRE overlap=YES -> WARN
+[EDGE-Z2-ENSEMBLE] CID:8 m1=0.000 m2=0.020 m3=0.000 m4=0.000 m5=0.000 p=0.000 cloud=PRE overlap=YES -> SAFE
+[EDGE-Z2-ENSEMBLE] CID:4 m1=0.000 m2=0.020 m3=0.000 m4=0.000 m5=0.002 p=0.004 cloud=PRE overlap=YES -> SAFE
+[EDGE-Z2-ENSEMBLE] CID:0 m1=0.498 m2=0.020 m3=0.550 m4=0.000 m5=0.042 p=0.270 cloud=PRE overlap=YES -> WARN
+[EDGE-Z2-ENSEMBLE] CID:6 m1=0.481 m2=0.020 m3=0.550 m4=0.000 m5=0.041 p=0.265 cloud=PRE overlap=YES -> WARN
+[EDGE-Z2-ENSEMBLE] CID:5 m1=0.463 m2=0.020 m3=0.550 m4=0.000 m5=0.043 p=0.261 cloud=PRE overlap=YES -> WARN
+[EDGE-Z2-ENSEMBLE] CID:3 m1=0.000 m2=0.020 m3=0.000 m4=0.000 m5=0.000 p=0.000 cloud=PRE overlap=YES -> SAFE
+[EDGE-Z2-ENSEMBLE] CID:7 m1=0.000 m2=0.020 m3=0.000 m4=0.000 m5=0.000 p=0.004 cloud=PRE overlap=YES -> SAFE
+[EDGE-Z2-ENSEMBLE] CID:1 m1=0.400 m2=0.020 m3=0.550 m4=0.000 m5=0.036 p=0.243 cloud=PRE overlap=YES -> WARN
+[EDGE-Z2-ENSEMBLE] CID:2 m1=0.544 m2=0.020 m3=0.550 m4=0.000 m5=0.040 p=0.282 cloud=PRE overlap=YES -> WARN
+[EDGE-Z2-ENSEMBLE] CID:8 m1=0.000 m2=0.020 m3=0.000 m4=0.000 m5=0.000 p=0.000 cloud=PRE overlap=YES -> SAFE
+[EDGE-Z2-ENSEMBLE] CID:4 m1=0.000 m2=0.020 m3=0.000 m4=0.000 m5=0.000 p=0.000 cloud=PRE overlap=YES -> SAFE
+[EDGE-Z2-ENSEMBLE] CID:0 m1=0.377 m2=0.020 m3=0.550 m4=0.000 m5=0.041 p=0.237 cloud=PRE overlap=YES -> WARN
+[EDGE-Z2-ENSEMBLE] CID:6 m1=0.530 m2=0.020 m3=0.550 m4=0.000 m5=0.043 p=0.279 cloud=PRE overlap=YES -> WARN
+[EDGE-Z2-ENSEMBLE] CID:5 m1=0.515 m2=0.020 m3=0.550 m4=0.000 m5=0.043 p=0.275 cloud=PRE overlap=YES -> WARN
+[EDGE-Z2-ENSEMBLE] CID:3 m1=0.000 m2=0.020 m3=0.000 m4=0.000 m5=0.000 p=0.000 cloud=PRE overlap=YES -> SAFE
+[EDGE-Z2-ENSEMBLE] CID:7 m1=0.000 m2=0.020 m3=0.000 m4=0.000 m5=0.000 p=0.000 cloud=PRE overlap=YES -> SAFE
+[EDGE-Z2-ENSEMBLE] CID:1 m1=0.557 m2=0.020 m3=0.550 m4=0.000 m5=0.041 p=0.286 cloud=PRE overlap=YES -> WARN
+[EDGE-Z2-ENSEMBLE] CID:2 m1=0.557 m2=0.020 m3=0.550 m4=0.000 m5=0.045 p=0.287 cloud=PRE overlap=YES -> WARN
+[EDGE-Z2-ENSEMBLE] CID:8 m1=0.000 m2=0.020 m3=0.000 m4=0.000 m5=0.000 p=0.000 cloud=PRE overlap=YES -> SAFE
+[EDGE-Z2-ENSEMBLE] CID:4 m1=0.000 m2=0.020 m3=0.000 m4=0.000 m5=0.000 p=0.000 cloud=PRE overlap=YES -> SAFE
+[EDGE-Z2-ENSEMBLE] CID:0 m1=0.544 m2=0.020 m3=0.550 m4=0.000 m5=0.041 p=0.283 cloud=PRE overlap=YES -> WARN
+[EDGE-Z2-ENSEMBLE] CID:6 m1=0.000 m2=0.020 m3=0.040 m4=0.000 m5=0.004 p=0.013 cloud=PRE overlap=YES -> SAFE
+[EDGE-Z2-ENSEMBLE] CID:5 m1=0.463 m2=0.020 m3=0.550 m4=0.000 m5=0.043 p=0.261 cloud=PRE overlap=YES -> WARN
+[EDGE-Z2-ENSEMBLE] CID:3 m1=0.000 m2=0.020 m3=0.000 m4=0.000 m5=0.000 p=0.000 cloud=PRE overlap=YES -> SAFE
+[EDGE-Z2-ENSEMBLE] CID:7 m1=0.000 m2=0.020 m3=0.000 m4=0.000 m5=0.000 p=0.000 cloud=PRE overlap=YES -> SAFE
+[EDGE-Z2-ENSEMBLE] CID:1 m1=0.443 m2=0.020 m3=0.550 m4=0.000 m5=0.040 p=0.255 cloud=PRE overlap=YES -> WARN
+[EDGE-Z2-ENSEMBLE] CID:2 m1=0.000 m2=0.020 m3=0.040 m4=0.000 m5=0.004 p=0.013 cloud=PRE overlap=YES -> SAFE
+[EDGE-Z2-ENSEMBLE] CID:8 m1=0.000 m2=0.020 m3=0.000 m4=0.000 m5=0.000 p=0.000 cloud=PRE overlap=YES -> SAFE
+[EDGE-Z2-ENSEMBLE] CID:4 m1=0.000 m2=0.020 m3=0.000 m4=0.000 m5=0.000 p=0.000 cloud=PRE overlap=YES -> SAFE
+[EDGE-Z2-ENSEMBLE] CID:0 m1=0.463 m2=0.020 m3=0.550 m4=0.000 m5=0.041 p=0.260 cloud=PRE overlap=YES -> WARN
+[EDGE-Z2-ENSEMBLE] CID:6 m1=0.000 m2=0.020 m3=0.000 m4=0.000 m5=0.000 p=0.000 cloud=PRE overlap=YES -> SAFE
+[EDGE-Z2-ENSEMBLE] CID:5 m1=0.000 m2=0.020 m3=0.000 m4=0.000 m5=0.000 p=0.004 cloud=PRE overlap=YES -> SAFE
+[EDGE-Z2-ENSEMBLE] CID:3 m1=0.000 m2=0.020 m3=0.000 m4=0.000 m5=0.000 p=0.000 cloud=PRE overlap=YES -> SAFE
+[EDGE-Z2-ENSEMBLE] CID:7 m1=0.000 m2=0.020 m3=0.000 m4=0.000 m5=0.000 p=0.000 cloud=PRE overlap=YES -> SAFE
+[EDGE-CALIB] Received calibration: attack=speed_attack conf=0.85
+[EDGE-CALIB] Applied: W1: 0.2727→0.2727 (Δ0.0200)  ZONE_MAL: 0.300→0.300
+[EDGE-CALIB] New weights: W1=0.273 W2=0.182 W3=0.227 W4=0.182 W5=0.136
+[EDGE-Z2-ENSEMBLE] CID:1 m1=0.481 m2=0.020 m3=0.550 m4=0.000 m5=0.039 p=0.265 cloud=PRE overlap=YES -> WARN
+[EDGE-Z2-ENSEMBLE] CID:2 m1=0.000 m2=0.020 m3=0.000 m4=0.000 m5=0.000 p=0.000 cloud=PRE overlap=YES -> SAFE
+[EDGE-Z2-ENSEMBLE] CID:8 m1=0.000 m2=0.020 m3=0.000 m4=0.000 m5=0.000 p=0.000 cloud=PRE overlap=YES -> SAFE
+[EDGE-Z2-ENSEMBLE] CID:4 m1=0.000 m2=0.020 m3=0.000 m4=0.000 m5=0.000 p=0.000 cloud=PRE overlap=YES -> SAFE
+[EDGE-Z2-ENSEMBLE] CID:0 m1=0.463 m2=0.020 m3=0.550 m4=0.000 m5=0.041 p=0.260 cloud=PRE overlap=YES -> WARN
+[EDGE-Z2-ENSEMBLE] CID:6 m1=0.000 m2=0.020 m3=0.000 m4=0.000 m5=0.000 p=0.000 cloud=PRE overlap=YES -> SAFE
+[EDGE-Z2-ENSEMBLE] CID:5 m1=0.000 m2=0.020 m3=0.000 m4=0.000 m5=0.000 p=0.000 cloud=PRE overlap=YES -> SAFE
+[EDGE-Z2-ENSEMBLE] CID:3 m1=0.000 m2=0.020 m3=0.000 m4=0.000 m5=0.000 p=0.000 cloud=PRE overlap=YES -> SAFE
+[EDGE-Z2-ENSEMBLE] CID:7 m1=0.000 m2=0.020 m3=0.000 m4=0.000 m5=0.000 p=0.000 cloud=PRE overlap=YES -> SAFE
+[EDGE-Z2-ENSEMBLE] CID:1 m1=0.000 m2=0.020 m3=0.000 m4=0.000 m5=0.001 p=0.004 cloud=PRE overlap=YES -> SAFE
+[EDGE-Z2-ENSEMBLE] CID:2 m1=0.000 m2=0.020 m3=0.000 m4=0.000 m5=0.000 p=0.000 cloud=PRE overlap=YES -> SAFE
+[EDGE-Z2-ENSEMBLE] CID:8 m1=0.000 m2=0.020 m3=0.000 m4=0.000 m5=0.000 p=0.000 cloud=PRE overlap=YES -> SAFE
+[EDGE-Z2] Signal 15 — shutting down...
+[EDGE-Z2] Saving metrics before exit...
+
+================================================================
+ EDGE-AI METRICS v90-multiuav  ZONE:2  V2X-EXP-MULTIUAV
+================================================================
+ Packets processed    : 99
+ SAFE / WARN / BAN    : 48 / 51 / 0
+ Confirmed banned CIDs: []
+ Handover state loaded: 10 CIDs
+----------------------------------------------------------------
+  CID0   first flagged at sim_ts=30.524s
+  CID1   first flagged at sim_ts=30.884s
+  CID2   first flagged at sim_ts=31.924s
+  CID4   first flagged at sim_ts=31.004s
+  CID5   first flagged at sim_ts=30.599s
+  CID6   first flagged at sim_ts=31.586s
+  CID7   first flagged at sim_ts=30.846s
+----------------------------------------------------------------
+ Final weights: W1=0.273 W2=0.182 W3=0.227 W4=0.182 W5=0.136
+================================================================
+
+[EDGE-AI] Metrics saved -> logs/edge_ai_z2_metrics_20260719_060631.json

@@ -1,0 +1,130 @@
+================================================================
+ V2X EDGE-CLOUD BRIDGE v8-handover-passthrough  --  Zone 2
+================================================================
+[BRIDGE-Z2] Edge   : 127.0.0.1:9995
+[BRIDGE-Z2] Cloud  : 127.0.0.1:6666
+[BRIDGE-Z2] Listen : 0.0.0.0:9996
+[BRIDGE-Z2] Trigger F: zone-entry baseline at 8s
+[BRIDGE-Z2] Trigger G: heartbeat every 30s
+[BRIDGE-Z2] Multi-zone: TRUST_HANDOVER_TRIGGER passthrough enabled
+
+[BRIDGE-Z2] Edge server reachable OK
+[BRIDGE-Z2] Cloud server reachable OK
+[BRIDGE-Z2-CALIB] Trigger G heartbeat started (every 30s)
+[BRIDGE-Z2] Ready -- listening on port 9996
+
+[BRIDGE-Z2-CALIB] First packet — Trigger F armed (fires in 8s)
+[BRIDGE-Z2-CALIB] Trigger F: zone-entry baseline n=1 sim_ts=66.2
+[BRIDGE-Z2-CALIB] CALIBRATE n=1 (W=0 S=1) sep=0.00 reason=F_zone_entry_baseline
+[BRIDGE-Z2-CALIB] Got LLM-backed CALIBRATION_RESULT [F_zone_entry_baseline] — forwarding to edge
+[BRIDGE-Z2-CALIB] Edge accepted calibration: CALIB_APPLIED changes=0 sep_before=0.00 sep_after=0.00
+[BRIDGE-Z2-CALIB] Trigger G: heartbeat SAFE-only n=1
+[BRIDGE-Z2-CALIB] CALIBRATE n=1 (W=0 S=1) sep=0.00 reason=G_heartbeat_safe_only
+[BRIDGE-Z2-CALIB] Got LLM-backed CALIBRATION_RESULT [G_heartbeat_safe_only] — forwarding to edge
+[BRIDGE-Z2-CALIB] Edge accepted calibration: CALIB_IGNORED low_confidence
+[BRIDGE-Z2-CALIB] Trigger D: dominant shifted no_attack -> none
+[BRIDGE-Z2-CALIB] Trigger D: dominant changed
+[BRIDGE-Z2-CALIB] Trigger B: window elapsed but not balanced
+[BRIDGE-Z2-CALIB] Trigger B: window elapsed but not balanced
+[BRIDGE-Z2-CALIB] sep=0.00 < 1.00 — skipping [A_batch_full(n=4)]
+[BRIDGE-Z2-CALIB] sep=0.00 < 1.00 — skipping [A_batch_full(n=4)]
+[BRIDGE-Z2-CALIB] sep=0.00 < 1.00 — skipping [A_batch_full(n=4)]
+[BRIDGE-Z2-CALIB] sep=0.00 < 1.00 — skipping [A_batch_full(n=4)]
+[BRIDGE-Z2-CALIB] sep=0.00 < 1.00 — skipping [A_batch_full(n=4)]
+[BRIDGE-Z2-CALIB] sep=0.00 < 1.00 — skipping [A_batch_full(n=4)]
+[BRIDGE-Z2-CALIB] sep=0.00 < 1.00 — skipping [A_batch_full(n=4)]
+[BRIDGE-Z2-CALIB] sep=0.00 < 1.00 — skipping [A_batch_full(n=4)]
+[BRIDGE-Z2-CALIB] sep=0.00 < 1.00 — skipping [A_batch_full(n=4)]
+[BRIDGE-Z2-CALIB] sep=0.00 < 1.00 — skipping [A_batch_full(n=4)]
+[BRIDGE-Z2-CALIB] CALIBRATE n=4 (W=2 S=2) sep=10.21 reason=A_batch_full(n=4)
+[BRIDGE-Z2-CALIB] Got LLM-backed CALIBRATION_RESULT [A_batch_full(n=4)] — forwarding to edge
+[BRIDGE-Z2-CALIB] Edge accepted calibration: CALIB_APPLIED changes=2 sep_before=10.21 sep_after=11.74
+[BRIDGE-Z2-CALIB] Trigger D: dominant shifted none -> speed_attack
+[BRIDGE-Z2-CALIB] Trigger D: dominant changed
+[BRIDGE-Z2-CALIB] CALIBRATE n=4 (W=2 S=2) sep=18.92 reason=A_batch_full(n=4)
+[BRIDGE-Z2-CALIB] Got LLM-backed CALIBRATION_RESULT [A_batch_full(n=4)] — forwarding to edge
+[BRIDGE-Z2-CALIB] Edge accepted calibration: CALIB_APPLIED changes=2 sep_before=18.92 sep_after=21.76
+[BRIDGE-Z2-CALIB] CALIBRATE n=4 (W=2 S=2) sep=41.19 reason=A_batch_full(n=4)
+[BRIDGE-Z2-CALIB] Got LLM-backed CALIBRATION_RESULT [A_batch_full(n=4)] — forwarding to edge
+[BRIDGE-Z2-CALIB] Edge accepted calibration: CALIB_APPLIED changes=2 sep_before=41.19 sep_after=47.37
+[BRIDGE-Z2-CALIB] sep=0.00 < 1.00 — skipping [A_batch_full(n=4)]
+[BRIDGE-Z2-CALIB] CALIBRATE n=4 (W=2 S=2) sep=2.46 reason=A_batch_full(n=4)
+[BRIDGE-Z2-CALIB] Trigger C: spike 0.101 > 1.5x avg=0.054
+[BRIDGE-Z2-CALIB] Trigger C fired but not balanced
+[BRIDGE-Z2-CALIB] Trigger C: spike 0.102 > 1.5x avg=0.054
+[BRIDGE-Z2-CALIB] Trigger C fired but not balanced
+[BRIDGE-Z2-CALIB] Got LLM-backed CALIBRATION_RESULT [A_batch_full(n=4)] — forwarding to edge
+[BRIDGE-Z2-CALIB] Edge accepted calibration: CALIB_APPLIED changes=3 sep_before=2.46 sep_after=2.83
+[BRIDGE-Z2-CALIB] Trigger D: dominant shifted speed_attack -> ts_replay
+[BRIDGE-Z2-CALIB] Trigger D: dominant changed
+[BRIDGE-Z2-CALIB] Trigger C: spike 0.103 > 1.5x avg=0.054
+[BRIDGE-Z2-CALIB] Trigger C fired but not balanced
+[BRIDGE-Z2-CALIB] sep=0.00 < 1.00 — skipping [A_batch_full(n=4)]
+[BRIDGE-Z2-CALIB] Trigger C: spike 0.104 > 1.5x avg=0.063
+[BRIDGE-Z2-CALIB] Trigger C fired but not balanced
+[BRIDGE-Z2-CALIB] Trigger C: spike 0.104 > 1.5x avg=0.063
+[BRIDGE-Z2-CALIB] Trigger C fired but not balanced
+[BRIDGE-Z2-CALIB] Trigger C: spike 0.103 > 1.5x avg=0.063
+[BRIDGE-Z2-CALIB] Trigger C fired but not balanced
+[BRIDGE-Z2-CALIB] sep=0.00 < 1.00 — skipping [A_batch_full(n=4)]
+[BRIDGE-Z2-CALIB] Trigger C: spike 0.105 > 1.5x avg=0.069
+[BRIDGE-Z2-CALIB] Trigger C fired but not balanced
+[BRIDGE-Z2-CALIB] Trigger C: spike 0.108 > 1.5x avg=0.069
+[BRIDGE-Z2-CALIB] Trigger E: rate floor 5.0s, only 2.6s elapsed [C_spike]
+[BRIDGE-Z2-CALIB] sep=0.00 < 1.00 — skipping [A_batch_full(n=4)]
+[BRIDGE-Z2-CALIB] sep=0.00 < 1.00 — skipping [A_batch_full(n=4)]
+[BRIDGE-Z2-CALIB] Trigger E: rate floor 5.0s, only 3.5s elapsed [A_batch_full(n=4)]
+[BRIDGE-Z2-CALIB] sep=0.00 < 1.00 — skipping [A_batch_full(n=4)]
+[BRIDGE-Z2-CALIB] sep=0.00 < 1.00 — skipping [A_batch_full(n=4)]
+[BRIDGE-Z2-CALIB] sep=0.00 < 1.00 — skipping [A_batch_full(n=4)]
+[BRIDGE-Z2-CALIB] sep=0.00 < 1.00 — skipping [A_batch_full(n=4)]
+[BRIDGE-Z2-CALIB] sep=0.00 < 1.00 — skipping [A_batch_full(n=4)]
+[BRIDGE-Z2-CALIB] sep=0.00 < 1.00 — skipping [A_batch_full(n=4)]
+[BRIDGE-Z2-CALIB] CALIBRATE n=4 (W=2 S=2) sep=1.62 reason=A_batch_full(n=4)
+[BRIDGE-Z2-CALIB] Cloud returned CALIBRATION_ERROR: CALIBRATION_ERROR ollama_bad_json
+[BRIDGE-Z2-CALIB] sep=0.00 < 1.00 — skipping [A_batch_full(n=4)]
+[BRIDGE-Z2-CALIB] sep=0.00 < 1.00 — skipping [A_batch_full(n=4)]
+[BRIDGE-Z2-CALIB] CALIBRATE n=4 (W=2 S=2) sep=52.68 reason=A_batch_full(n=4)
+[BRIDGE-Z2-CALIB] Got LLM-backed CALIBRATION_RESULT [A_batch_full(n=4)] — forwarding to edge
+[BRIDGE-Z2-CALIB] Edge accepted calibration: CALIB_APPLIED changes=3 sep_before=52.68 sep_after=60.58
+[BRIDGE-Z2-CALIB] Trigger E: rate floor 5.0s, only 4.7s elapsed [A_batch_full(n=4)]
+[BRIDGE-Z2-CALIB] CALIBRATE n=4 (W=2 S=2) sep=7.61 reason=A_batch_full(n=4)
+[BRIDGE-Z2-CALIB] Got LLM-backed CALIBRATION_RESULT [A_batch_full(n=4)] — forwarding to edge
+[BRIDGE-Z2-CALIB] Edge accepted calibration: CALIB_APPLIED changes=2 sep_before=7.61 sep_after=8.75
+[BRIDGE-Z2-CALIB] Trigger D: dominant shifted ts_replay -> speed_attack
+[BRIDGE-Z2-CALIB] Trigger D: dominant changed
+[BRIDGE-Z2-CALIB] sep=0.00 < 1.00 — skipping [A_batch_full(n=4)]
+[BRIDGE-Z2-CALIB] sep=0.00 < 1.00 — skipping [A_batch_full(n=4)]
+[BRIDGE-Z2-CALIB] CALIBRATE n=4 (W=2 S=2) sep=73.87 reason=A_batch_full(n=4)
+[BRIDGE-Z2-CALIB] Got LLM-backed CALIBRATION_RESULT [A_batch_full(n=4)] — forwarding to edge
+[BRIDGE-Z2-CALIB] Edge accepted calibration: CALIB_APPLIED changes=3 sep_before=73.87 sep_after=84.95
+[BRIDGE-Z2-CALIB] Trigger D: dominant shifted speed_attack -> ts_replay
+[BRIDGE-Z2-CALIB] Trigger D: dominant changed
+[BRIDGE-Z2-CALIB] Trigger C: spike 0.140 > 1.5x avg=0.089
+[BRIDGE-Z2-CALIB] Trigger C fired but not balanced
+[BRIDGE-Z2-CALIB] Trigger C: spike 0.140 > 1.5x avg=0.089
+[BRIDGE-Z2-CALIB] Trigger C fired but not balanced
+[BRIDGE-Z2-CALIB] sep=0.00 < 1.00 — skipping [A_batch_full(n=4)]
+[BRIDGE-Z2-CALIB] Trigger C: spike 0.155 > 1.5x avg=0.095
+[BRIDGE-Z2-CALIB] Trigger C fired but not balanced
+[BRIDGE-Z2-CALIB] Trigger C: spike 0.223 > 1.5x avg=0.095
+[BRIDGE-Z2-CALIB] Trigger E: rate floor 5.0s, only 4.7s elapsed [C_spike]
+[BRIDGE-Z2-CALIB] Trigger C: spike 0.223 > 1.5x avg=0.108
+[BRIDGE-Z2-CALIB] Trigger C fired but not balanced
+[BRIDGE-Z2-CALIB] Trigger C: spike 0.224 > 1.5x avg=0.108
+[BRIDGE-Z2-CALIB] Trigger C fired but not balanced
+[BRIDGE-Z2-CALIB] Trigger C: spike 0.292 > 1.5x avg=0.108
+[BRIDGE-Z2-CALIB] Trigger C fired but not balanced
+[BRIDGE-Z2-CALIB] sep=0.00 < 1.00 — skipping [A_batch_full(n=4)]
+[BRIDGE-Z2-CALIB] Trigger C: spike 0.302 > 1.5x avg=0.129
+[BRIDGE-Z2-CALIB] Trigger C fired but not balanced
+[BRIDGE-Z2-CALIB] Trigger C: spike 0.301 > 1.5x avg=0.129
+[BRIDGE-Z2-CALIB] Trigger C fired but not balanced
+[BRIDGE-Z2-CALIB] Trigger C: spike 0.330 > 1.5x avg=0.129
+[BRIDGE-Z2-CALIB] Trigger C fired but not balanced
+[BRIDGE-Z2-CALIB] Trigger G: heartbeat balanced n=8
+[BRIDGE-Z2-CALIB] CALIBRATE n=8 (W=5 S=3) sep=3.31 reason=G_heartbeat_balanced
+[BRIDGE-Z2-CALIB] Got LLM-backed CALIBRATION_RESULT [G_heartbeat_balanced] — forwarding to edge
+[BRIDGE-Z2-CALIB] Edge accepted calibration: CALIB_APPLIED changes=4 sep_before=3.31 sep_after=3.81
+[BRIDGE-Z2-CALIB] Trigger D: dominant shifted ts_replay -> speed_attack
+[BRIDGE-Z2-CALIB] Trigger D: dominant changed

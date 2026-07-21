@@ -1,0 +1,440 @@
+{
+  "timestamp": "2026-07-15T15:03:08.801715",
+  "version": "v90-multiuav",
+  "zone_id": 1,
+  "exp": "V2X-EXP-MULTIUAV",
+  "stats": {
+    "15": {
+      "safe": 95,
+      "warn": 0,
+      "ban": 0,
+      "pkt": 95
+    },
+    "12": {
+      "safe": 2,
+      "warn": 0,
+      "ban": 13,
+      "pkt": 15
+    },
+    "24": {
+      "safe": 2,
+      "warn": 0,
+      "ban": 13,
+      "pkt": 15
+    },
+    "28": {
+      "safe": 137,
+      "warn": 0,
+      "ban": 0,
+      "pkt": 137
+    },
+    "16": {
+      "safe": 139,
+      "warn": 0,
+      "ban": 0,
+      "pkt": 139
+    },
+    "1": {
+      "safe": 2,
+      "warn": 0,
+      "ban": 13,
+      "pkt": 15
+    },
+    "18": {
+      "safe": 2,
+      "warn": 0,
+      "ban": 13,
+      "pkt": 15
+    },
+    "4": {
+      "safe": 68,
+      "warn": 0,
+      "ban": 2,
+      "pkt": 70
+    },
+    "6": {
+      "safe": 66,
+      "warn": 0,
+      "ban": 2,
+      "pkt": 68
+    },
+    "21": {
+      "safe": 138,
+      "warn": 47,
+      "ban": 0,
+      "pkt": 185
+    },
+    "11": {
+      "safe": 2,
+      "warn": 0,
+      "ban": 13,
+      "pkt": 15
+    },
+    "17": {
+      "safe": 138,
+      "warn": 0,
+      "ban": 0,
+      "pkt": 138
+    },
+    "0": {
+      "safe": 2,
+      "warn": 0,
+      "ban": 13,
+      "pkt": 15
+    },
+    "8": {
+      "safe": 144,
+      "warn": 0,
+      "ban": 0,
+      "pkt": 144
+    },
+    "29": {
+      "safe": 148,
+      "warn": 13,
+      "ban": 0,
+      "pkt": 161
+    },
+    "19": {
+      "safe": 2,
+      "warn": 0,
+      "ban": 13,
+      "pkt": 15
+    },
+    "5": {
+      "safe": 64,
+      "warn": 0,
+      "ban": 2,
+      "pkt": 66
+    },
+    "2": {
+      "safe": 21,
+      "warn": 0,
+      "ban": 0,
+      "pkt": 21
+    },
+    "3": {
+      "safe": 2,
+      "warn": 0,
+      "ban": 13,
+      "pkt": 15
+    },
+    "14": {
+      "safe": 2,
+      "warn": 0,
+      "ban": 13,
+      "pkt": 15
+    },
+    "13": {
+      "safe": 2,
+      "warn": 0,
+      "ban": 13,
+      "pkt": 15
+    },
+    "27": {
+      "safe": 9,
+      "warn": 0,
+      "ban": 0,
+      "pkt": 9
+    },
+    "26": {
+      "safe": 2,
+      "warn": 0,
+      "ban": 13,
+      "pkt": 15
+    },
+    "25": {
+      "safe": 2,
+      "warn": 0,
+      "ban": 13,
+      "pkt": 15
+    },
+    "23": {
+      "safe": 2,
+      "warn": 0,
+      "ban": 13,
+      "pkt": 15
+    },
+    "9": {
+      "safe": 18,
+      "warn": 0,
+      "ban": 0,
+      "pkt": 18
+    },
+    "10": {
+      "safe": 133,
+      "warn": 13,
+      "ban": 0,
+      "pkt": 146
+    },
+    "22": {
+      "safe": 141,
+      "warn": 63,
+      "ban": 0,
+      "pkt": 204
+    },
+    "7": {
+      "safe": 2,
+      "warn": 0,
+      "ban": 13,
+      "pkt": 15
+    },
+    "20": {
+      "safe": 1,
+      "warn": 0,
+      "ban": 14,
+      "pkt": 15
+    }
+  },
+  "confirmed_banned_cids": [
+    0,
+    1,
+    3,
+    4,
+    5,
+    6,
+    7,
+    11,
+    12,
+    13,
+    14,
+    18,
+    19,
+    20,
+    23,
+    24,
+    25,
+    26
+  ],
+  "detection_latency": {
+    "12": 3.138493,
+    "24": 3.192493,
+    "1": 3.334493,
+    "18": 3.360493,
+    "11": 3.478493,
+    "0": 3.523368,
+    "19": 3.590493,
+    "3": 3.606993,
+    "14": 3.657743,
+    "13": 3.718493,
+    "26": 3.774493,
+    "25": 3.824493,
+    "23": 3.842493,
+    "7": 3.904868,
+    "20": 3.912368,
+    "5": 35.096493,
+    "6": 35.418993,
+    "4": 36.404493,
+    "10": 69.380993,
+    "21": 71.432118,
+    "22": 73.382493,
+    "29": 77.585493
+  },
+  "precloud_verdicts": {
+    "12": [
+      "BAN"
+    ],
+    "24": [
+      "BAN"
+    ],
+    "1": [
+      "BAN"
+    ],
+    "18": [
+      "BAN"
+    ],
+    "11": [
+      "BAN"
+    ],
+    "0": [
+      "BAN"
+    ],
+    "19": [
+      "BAN"
+    ],
+    "3": [
+      "BAN"
+    ],
+    "14": [
+      "BAN"
+    ],
+    "13": [
+      "BAN"
+    ],
+    "26": [
+      "BAN"
+    ],
+    "25": [
+      "BAN"
+    ],
+    "23": [
+      "BAN"
+    ],
+    "7": [
+      "BAN"
+    ],
+    "20": [
+      "BAN"
+    ],
+    "5": [
+      "BAN"
+    ],
+    "6": [
+      "BAN"
+    ],
+    "4": [
+      "BAN"
+    ],
+    "10": [
+      "WARN",
+      "WARN",
+      "WARN",
+      "WARN",
+      "WARN",
+      "WARN",
+      "WARN",
+      "WARN",
+      "WARN",
+      "WARN",
+      "WARN",
+      "WARN",
+      "WARN"
+    ],
+    "21": [
+      "WARN",
+      "WARN",
+      "WARN",
+      "WARN",
+      "WARN",
+      "WARN",
+      "WARN",
+      "WARN",
+      "WARN",
+      "WARN",
+      "WARN",
+      "WARN",
+      "WARN",
+      "WARN",
+      "WARN",
+      "WARN",
+      "WARN",
+      "WARN",
+      "WARN",
+      "WARN",
+      "WARN",
+      "WARN",
+      "WARN",
+      "WARN",
+      "WARN",
+      "WARN",
+      "WARN",
+      "WARN",
+      "WARN",
+      "WARN",
+      "WARN",
+      "WARN",
+      "WARN",
+      "WARN",
+      "WARN",
+      "WARN",
+      "WARN",
+      "WARN",
+      "WARN",
+      "WARN",
+      "WARN",
+      "WARN",
+      "WARN",
+      "WARN",
+      "WARN",
+      "WARN",
+      "WARN"
+    ],
+    "22": [
+      "WARN",
+      "WARN",
+      "WARN",
+      "WARN",
+      "WARN",
+      "WARN",
+      "WARN",
+      "WARN",
+      "WARN",
+      "WARN",
+      "WARN",
+      "WARN",
+      "WARN",
+      "WARN",
+      "WARN",
+      "WARN",
+      "WARN",
+      "WARN",
+      "WARN",
+      "WARN",
+      "WARN",
+      "WARN",
+      "WARN",
+      "WARN",
+      "WARN",
+      "WARN",
+      "WARN",
+      "WARN",
+      "WARN",
+      "WARN",
+      "WARN",
+      "WARN",
+      "WARN",
+      "WARN",
+      "WARN",
+      "WARN",
+      "WARN",
+      "WARN",
+      "WARN",
+      "WARN",
+      "WARN",
+      "WARN",
+      "WARN",
+      "WARN",
+      "WARN",
+      "WARN",
+      "WARN",
+      "WARN",
+      "WARN",
+      "WARN",
+      "WARN",
+      "WARN",
+      "WARN",
+      "WARN",
+      "WARN",
+      "WARN",
+      "WARN",
+      "WARN",
+      "WARN",
+      "WARN",
+      "WARN",
+      "WARN",
+      "WARN"
+    ],
+    "29": [
+      "WARN",
+      "WARN",
+      "WARN",
+      "WARN",
+      "WARN",
+      "WARN",
+      "WARN",
+      "WARN",
+      "WARN",
+      "WARN",
+      "WARN",
+      "WARN",
+      "WARN"
+    ]
+  },
+  "postcloud_verdicts": {},
+  "final_weights": {
+    "W1": 0.2727,
+    "W2": 0.1818,
+    "W3": 0.2273,
+    "W4": 0.1818,
+    "W5": 0.1364
+  }
+}

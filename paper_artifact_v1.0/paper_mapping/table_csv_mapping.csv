@@ -1,0 +1,10 @@
+Paper Table,Experiment,CSV Source
+Table VII,Handover Ablation,handover_onoff_aggregate_summary.csv
+Table VIII,HTD Sensitivity,htd_sensitivity_aggregate_summary.csv
+Table IX,CUSUM Ablation,guarded_cusum_onoff_aggregate_summary.csv
+Table X,Attack Variants,attack_variants_patched_final_aggregate_summary.csv
+Table XI,Beacon Falsification Probability,attack_rate_robustness_extended_aggregate_summary.csv
+Table XII,Packet Loss,packet_loss_robustness_aggregate_summary.csv
+Table XIII,Baseline Comparison,reviewer_ready_baseline_master_summary.csv
+Table XIV,Scalability,scalability_aggregate_summary.csv
+Table XV,Overlap Guard,overlap_guard_ablation_summary.csv

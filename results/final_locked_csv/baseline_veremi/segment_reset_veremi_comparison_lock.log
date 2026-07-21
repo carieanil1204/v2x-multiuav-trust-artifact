@@ -1,0 +1,7 @@
+Saved: results/final_locked_csv/baseline_veremi/proposed_vs_veremi_segment_reset_handover_comparison.csv
+
+{'method': 'Proposed_UAV_Edge_Trust_Framework', 'state_model': 'trust_state_transferred_across_handover_with_HTD', 'caught': '101/105', 'DR_percent': 96.19, 'false_positive': '0/45', 'FPR_percent': 0.0, 'interpretation': 'proposed handover-aware trust continuity'}
+{'method': 'Centralized_Full_VeReMi_OBS_K3_W5', 'state_model': 'global_CID_history_oracle', 'caught': '101/105', 'DR_percent': 96.19, 'false_positive': '0/45', 'FPR_percent': 0.0, 'interpretation': 'upper-bound physical-consistency detector'}
+{'method': 'Local_Full_VeReMi_RXUAV_memory_OBS_K3_W5', 'state_model': 'per_CID_per_RXUAV_memory', 'caught': '101/105', 'DR_percent': 96.19, 'false_positive': '0/45', 'FPR_percent': 0.0, 'interpretation': 'local detector retaining prior vehicle state within same UAV identity'}
+{'method': 'Local_Full_VeReMi_RXUAV_segment_reset_OBS_K3_W5', 'state_model': 'memory_resets_at_each_contiguous_RXUAV_segment', 'caught': '89/105', 'DR_percent': 84.76, 'false_positive': '0/45', 'FPR_percent': 0.0, 'interpretation': 'handover-fragmented local physical detector'}
+{'method': 'Local_Full_VeReMi_ZONE_segment_reset_OBS_K3_W5', 'state_model': 'memory_resets_at_each_contiguous_zone_segment', 'caught': '89/105', 'DR_percent': 84.76, 'false_positive': '0/45', 'FPR_percent': 0.0, 'interpretation': 'zone-fragmented local physical detector'}

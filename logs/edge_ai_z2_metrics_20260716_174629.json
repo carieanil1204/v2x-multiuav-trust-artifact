@@ -1,0 +1,70 @@
+{
+  "timestamp": "2026-07-16T17:46:29.218268",
+  "version": "v90-multiuav",
+  "zone_id": 2,
+  "exp": "V2X-EXP-MULTIUAV",
+  "stats": {
+    "3": {
+      "safe": 3,
+      "warn": 1,
+      "ban": 0,
+      "pkt": 4
+    },
+    "7": {
+      "safe": 11,
+      "warn": 0,
+      "ban": 0,
+      "pkt": 11
+    },
+    "9": {
+      "safe": 9,
+      "warn": 2,
+      "ban": 0,
+      "pkt": 11
+    },
+    "6": {
+      "safe": 11,
+      "warn": 0,
+      "ban": 0,
+      "pkt": 11
+    },
+    "4": {
+      "safe": 3,
+      "warn": 1,
+      "ban": 0,
+      "pkt": 4
+    }
+  },
+  "confirmed_banned_cids": [
+    0,
+    1,
+    2,
+    5,
+    8
+  ],
+  "detection_latency": {
+    "9": 30.816493,
+    "3": 31.606993,
+    "4": 31.974493
+  },
+  "precloud_verdicts": {
+    "9": [
+      "WARN",
+      "WARN"
+    ],
+    "3": [
+      "WARN"
+    ],
+    "4": [
+      "WARN"
+    ]
+  },
+  "postcloud_verdicts": {},
+  "final_weights": {
+    "W1": 0.2727,
+    "W2": 0.1818,
+    "W3": 0.2273,
+    "W4": 0.1818,
+    "W5": 0.1364
+  }
+}

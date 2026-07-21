@@ -1,0 +1,5 @@
+method,caught,pooled_DR_percent,DR_mean_percent,DR_std,false_positive,pooled_FPR_percent
+Proposed_UAV_Edge_Trust_Framework,101/105,96.19,96.19,6.54,0/45,0.0
+Full_VeReMi_window_K1_W5,101/105,96.19,96.19,6.54,44/45,97.78
+Full_VeReMi_window_K2_W5,101/105,96.19,96.19,6.54,44/45,97.78
+Full_VeReMi_window_K3_W5,101/105,96.19,96.19,6.54,0/45,0.0

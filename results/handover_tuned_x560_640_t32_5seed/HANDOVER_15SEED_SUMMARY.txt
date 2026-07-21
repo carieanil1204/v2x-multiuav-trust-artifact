@@ -1,0 +1,57 @@
+
+===== ON =====
+seed=01 caught=7/7 DR=100.00% FP=0/3 confirmed=7 missed=[] attack_emit=69 falsified=69 HTD=2 CUSUM=8 COLD=0
+seed=02 caught=7/7 DR=100.00% FP=0/3 confirmed=7 missed=[] attack_emit=66 falsified=66 HTD=3 CUSUM=12 COLD=0
+seed=03 caught=7/7 DR=100.00% FP=0/3 confirmed=7 missed=[] attack_emit=60 falsified=60 HTD=3 CUSUM=12 COLD=0
+seed=04 caught=6/7 DR=85.71% FP=0/3 confirmed=6 missed=[5] attack_emit=66 falsified=66 HTD=3 CUSUM=12 COLD=0
+seed=05 caught=7/7 DR=100.00% FP=0/3 confirmed=7 missed=[] attack_emit=67 falsified=67 HTD=3 CUSUM=12 COLD=0
+seed=06 caught=7/7 DR=100.00% FP=0/3 confirmed=7 missed=[] attack_emit=64 falsified=64 HTD=3 CUSUM=12 COLD=0
+seed=07 caught=7/7 DR=100.00% FP=0/3 confirmed=7 missed=[] attack_emit=68 falsified=68 HTD=3 CUSUM=12 COLD=0
+seed=08 caught=6/7 DR=85.71% FP=0/3 confirmed=6 missed=[4] attack_emit=64 falsified=64 HTD=3 CUSUM=12 COLD=0
+seed=09 caught=7/7 DR=100.00% FP=0/3 confirmed=7 missed=[] attack_emit=65 falsified=65 HTD=3 CUSUM=12 COLD=0
+seed=10 caught=7/7 DR=100.00% FP=0/3 confirmed=7 missed=[] attack_emit=64 falsified=64 HTD=3 CUSUM=12 COLD=0
+seed=11 caught=6/7 DR=85.71% FP=0/3 confirmed=6 missed=[0] attack_emit=69 falsified=69 HTD=3 CUSUM=12 COLD=0
+seed=12 caught=7/7 DR=100.00% FP=0/3 confirmed=7 missed=[] attack_emit=69 falsified=69 HTD=3 CUSUM=12 COLD=0
+seed=13 caught=7/7 DR=100.00% FP=0/3 confirmed=7 missed=[] attack_emit=69 falsified=69 HTD=3 CUSUM=12 COLD=0
+seed=14 caught=7/7 DR=100.00% FP=0/3 confirmed=7 missed=[] attack_emit=63 falsified=63 HTD=3 CUSUM=12 COLD=0
+seed=15 caught=6/7 DR=85.71% FP=0/3 confirmed=6 missed=[5] attack_emit=66 falsified=66 HTD=3 CUSUM=12 COLD=0
+
+SUMMARY
+n: 15
+DR mean: 96.19
+DR std : 6.54
+FPR mean: 0.0
+FPR std : 0.0
+Confirmed BAN mean: 6.73
+Confirmed BAN std : 0.46
+
+===== OFF =====
+seed=01 caught=3/7 DR=42.86% FP=0/3 confirmed=3 missed=[0, 1, 4, 5] attack_emit=69 falsified=69 HTD=0 CUSUM=0 COLD=9
+seed=02 caught=4/7 DR=57.14% FP=0/3 confirmed=4 missed=[0, 4, 5] attack_emit=66 falsified=66 HTD=0 CUSUM=0 COLD=10
+seed=03 caught=2/7 DR=28.57% FP=0/3 confirmed=2 missed=[0, 1, 3, 4, 8] attack_emit=60 falsified=60 HTD=0 CUSUM=0 COLD=10
+seed=04 caught=2/7 DR=28.57% FP=0/3 confirmed=2 missed=[0, 1, 3, 5, 9] attack_emit=66 falsified=66 HTD=0 CUSUM=0 COLD=9
+seed=05 caught=2/7 DR=28.57% FP=0/3 confirmed=2 missed=[0, 1, 4, 5, 8] attack_emit=67 falsified=67 HTD=0 CUSUM=0 COLD=10
+seed=06 caught=4/7 DR=57.14% FP=0/3 confirmed=4 missed=[0, 1, 3] attack_emit=64 falsified=64 HTD=0 CUSUM=0 COLD=10
+seed=07 caught=4/7 DR=57.14% FP=0/3 confirmed=4 missed=[0, 1, 9] attack_emit=68 falsified=68 HTD=0 CUSUM=0 COLD=10
+seed=08 caught=2/7 DR=28.57% FP=0/3 confirmed=2 missed=[0, 1, 3, 4, 9] attack_emit=64 falsified=64 HTD=0 CUSUM=0 COLD=9
+seed=09 caught=3/7 DR=42.86% FP=0/3 confirmed=3 missed=[0, 1, 3, 9] attack_emit=65 falsified=65 HTD=0 CUSUM=0 COLD=10
+seed=10 caught=3/7 DR=42.86% FP=0/3 confirmed=3 missed=[0, 1, 4, 8] attack_emit=64 falsified=64 HTD=0 CUSUM=0 COLD=10
+seed=11 caught=4/7 DR=57.14% FP=0/3 confirmed=4 missed=[0, 5, 9] attack_emit=69 falsified=69 HTD=0 CUSUM=0 COLD=9
+seed=12 caught=4/7 DR=57.14% FP=0/3 confirmed=4 missed=[0, 1, 5] attack_emit=69 falsified=69 HTD=0 CUSUM=0 COLD=10
+seed=13 caught=2/7 DR=28.57% FP=0/3 confirmed=2 missed=[0, 1, 3, 4, 5] attack_emit=69 falsified=69 HTD=0 CUSUM=0 COLD=10
+seed=14 caught=2/7 DR=28.57% FP=0/3 confirmed=2 missed=[0, 1, 3, 4, 5] attack_emit=63 falsified=63 HTD=0 CUSUM=0 COLD=10
+seed=15 caught=3/7 DR=42.86% FP=0/3 confirmed=3 missed=[0, 1, 5, 9] attack_emit=66 falsified=66 HTD=0 CUSUM=0 COLD=9
+
+SUMMARY
+n: 15
+DR mean: 41.9
+DR std : 12.62
+FPR mean: 0.0
+FPR std : 0.0
+Confirmed BAN mean: 2.93
+Confirmed BAN std : 0.88
+
+===== ON vs OFF GAIN =====
+Mean DR gain: 54.29 percentage points
+Gain std: 13.44
+Per-seed gains: [57.14, 42.86, 71.43, 57.14, 71.43, 42.86, 42.86, 57.14, 57.14, 57.14, 28.57, 42.86, 71.43, 71.43, 42.86]

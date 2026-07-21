@@ -1,0 +1,143 @@
+{
+  "timestamp": "2026-07-20T10:11:46.034097",
+  "version": "v90-multiuav",
+  "zone_id": 2,
+  "exp": "V2X-EXP-MULTIUAV",
+  "stats": {
+    "6": {
+      "safe": 2,
+      "warn": 1,
+      "ban": 2,
+      "pkt": 5
+    },
+    "7": {
+      "safe": 2,
+      "warn": 1,
+      "ban": 2,
+      "pkt": 5
+    },
+    "8": {
+      "safe": 12,
+      "warn": 6,
+      "ban": 0,
+      "pkt": 18
+    },
+    "5": {
+      "safe": 18,
+      "warn": 0,
+      "ban": 0,
+      "pkt": 18
+    },
+    "9": {
+      "safe": 2,
+      "warn": 1,
+      "ban": 2,
+      "pkt": 5
+    },
+    "2": {
+      "safe": 1,
+      "warn": 1,
+      "ban": 2,
+      "pkt": 4
+    },
+    "3": {
+      "safe": 2,
+      "warn": 1,
+      "ban": 2,
+      "pkt": 5
+    },
+    "1": {
+      "safe": 2,
+      "warn": 1,
+      "ban": 2,
+      "pkt": 5
+    },
+    "4": {
+      "safe": 9,
+      "warn": 7,
+      "ban": 0,
+      "pkt": 16
+    },
+    "0": {
+      "safe": 2,
+      "warn": 1,
+      "ban": 2,
+      "pkt": 5
+    }
+  },
+  "confirmed_banned_cids": [
+    0,
+    1,
+    2,
+    3,
+    6,
+    7,
+    9
+  ],
+  "detection_latency": {
+    "8": 27.096493,
+    "6": 27.166493,
+    "7": 27.436493,
+    "2": 28.104493,
+    "4": 28.444493,
+    "9": 28.546993,
+    "3": 28.844493,
+    "1": 29.193993,
+    "0": 29.906993
+  },
+  "precloud_verdicts": {
+    "8": [
+      "WARN",
+      "WARN",
+      "WARN",
+      "WARN",
+      "WARN",
+      "WARN"
+    ],
+    "6": [
+      "WARN",
+      "BAN"
+    ],
+    "7": [
+      "WARN",
+      "BAN"
+    ],
+    "2": [
+      "WARN",
+      "BAN"
+    ],
+    "4": [
+      "WARN",
+      "WARN",
+      "WARN",
+      "WARN",
+      "WARN",
+      "WARN",
+      "WARN"
+    ],
+    "9": [
+      "WARN",
+      "BAN"
+    ],
+    "3": [
+      "WARN",
+      "BAN"
+    ],
+    "1": [
+      "WARN",
+      "BAN"
+    ],
+    "0": [
+      "WARN",
+      "BAN"
+    ]
+  },
+  "postcloud_verdicts": {},
+  "final_weights": {
+    "W1": 0.2727,
+    "W2": 0.1818,
+    "W3": 0.2273,
+    "W4": 0.1818,
+    "W5": 0.1364
+  }
+}

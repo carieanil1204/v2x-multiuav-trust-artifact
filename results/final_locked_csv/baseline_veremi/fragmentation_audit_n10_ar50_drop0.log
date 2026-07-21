@@ -1,0 +1,23 @@
+Saved:
+results/final_locked_csv/baseline_veremi/fragmentation_audit_n10_ar50_drop0_per_cid.csv
+results/final_locked_csv/baseline_veremi/fragmentation_audit_n10_ar50_drop0_summary.csv
+
+===== FRAGMENTATION SUMMARY =====
+{'group': 'ALL', 'vehicles': 150, 'proposed_detected': 101, 'central_detected': 101, 'rxuav_memory_detected': 101, 'zone_memory_detected': 101, 'rxuav_segment_detected': 89, 'zone_segment_detected': 89, 'strong_fragmentation_cases': 12, 'architecture_gap_candidates': 0}
+{'group': 'MALICIOUS', 'vehicles': 105, 'proposed_detected': 101, 'central_detected': 101, 'rxuav_memory_detected': 101, 'zone_memory_detected': 101, 'rxuav_segment_detected': 89, 'zone_segment_detected': 89, 'strong_fragmentation_cases': 12, 'architecture_gap_candidates': 0}
+{'group': 'HONEST', 'vehicles': 45, 'proposed_detected': 0, 'central_detected': 0, 'rxuav_memory_detected': 0, 'zone_memory_detected': 0, 'rxuav_segment_detected': 0, 'zone_segment_detected': 0, 'strong_fragmentation_cases': 0, 'architecture_gap_candidates': 0}
+
+===== MALICIOUS STRONG FRAGMENTATION CASES =====
+count: 12
+seed=1 cid=2 proposed=YES central_max=5 rxseg_max=3 zoneseg_max=3 rx_changes=11
+seed=2 cid=2 proposed=YES central_max=5 rxseg_max=3 zoneseg_max=3 rx_changes=11
+seed=3 cid=2 proposed=YES central_max=5 rxseg_max=3 zoneseg_max=3 rx_changes=11
+seed=4 cid=2 proposed=YES central_max=5 rxseg_max=3 zoneseg_max=3 rx_changes=11
+seed=5 cid=2 proposed=YES central_max=5 rxseg_max=3 zoneseg_max=3 rx_changes=11
+seed=6 cid=2 proposed=YES central_max=5 rxseg_max=3 zoneseg_max=3 rx_changes=11
+seed=8 cid=2 proposed=YES central_max=5 rxseg_max=2 zoneseg_max=2 rx_changes=11
+seed=9 cid=2 proposed=YES central_max=5 rxseg_max=3 zoneseg_max=3 rx_changes=11
+seed=10 cid=2 proposed=YES central_max=5 rxseg_max=3 zoneseg_max=3 rx_changes=11
+seed=12 cid=2 proposed=YES central_max=5 rxseg_max=2 zoneseg_max=2 rx_changes=11
+seed=13 cid=2 proposed=YES central_max=5 rxseg_max=3 zoneseg_max=3 rx_changes=11
+seed=14 cid=2 proposed=YES central_max=5 rxseg_max=3 zoneseg_max=3 rx_changes=11

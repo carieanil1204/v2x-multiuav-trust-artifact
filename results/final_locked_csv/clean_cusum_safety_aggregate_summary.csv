@@ -1,0 +1,2 @@
+experiment,condition,valid_seeds,honest,false_positive,overall_FPR_percent,CUSUM_BAN_total,CUSUM_HOLD_total,result,source_summary_path
+clean_cusum_safety,CLEAN_HONEST,15,150,0/150,0.0,0,0,PASS,/home/srmap/research/projects/v2x-multiuav-trust/results/CUSUM_CLEAN_H08_MINOBS3_EDGEMAX05_15SEED_SUMMARY.txt

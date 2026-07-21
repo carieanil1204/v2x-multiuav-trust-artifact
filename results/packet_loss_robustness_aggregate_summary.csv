@@ -1,0 +1,5 @@
+experiment,condition,valid_rows,valid_seeds,caught,pooled_DR_percent,DR_mean_percent,DR_std,false_positive,pooled_FPR_percent,FPR_mean_percent,FPR_std,CUSUM_BAN_total,CUSUM_HOLD_total,NASH_GATE_total,HANDOVER_HTD_LOGS_total,runtime_mean_sec,runtime_std_sec,raw_csv_path
+packet_loss_robustness,DROP_0.0,15,15,101/105,96.19,96.19,6.54,0/45,0.0,0.0,0.0,24,0,178,233,,,/home/srmap/research/projects/v2x-multiuav-trust/results/packet_loss_robustness_per_seed_raw.csv
+packet_loss_robustness,DROP_10.0,15,15,96/105,91.43,91.43,10.53,0/45,0.0,0.0,0.0,42,0,143,257,,,/home/srmap/research/projects/v2x-multiuav-trust/results/packet_loss_robustness_per_seed_raw.csv
+packet_loss_robustness,DROP_20.0,15,15,96/105,91.43,91.43,9.04,0/45,0.0,0.0,0.0,61,0,108,275,,,/home/srmap/research/projects/v2x-multiuav-trust/results/packet_loss_robustness_per_seed_raw.csv
+packet_loss_robustness,DROP_5.0,15,15,99/105,94.29,94.28,9.04,0/45,0.0,0.0,0.0,33,0,160,244,,,/home/srmap/research/projects/v2x-multiuav-trust/results/packet_loss_robustness_per_seed_raw.csv

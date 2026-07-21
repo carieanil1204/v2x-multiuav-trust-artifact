@@ -1,0 +1,28 @@
+Saved: results/final_locked_csv/baseline_veremi/handover_exposure_audit_n10_ar50_drop0.csv
+
+===== HANDOVER EXPOSURE SUMMARY =====
+ALL: vehicles=150, zone_movers=145, rxuav_movers=145
+MALICIOUS: vehicles=105, zone_movers=101, rxuav_movers=101
+HONEST: vehicles=45, zone_movers=44, rxuav_movers=44
+
+===== TOP MOVERS =====
+seed=1 cid=1 mal=YES beacons=67 zones=2 rxuavs=2 zone_changes=11 rxuav_changes=11
+seed=1 cid=2 mal=YES beacons=67 zones=2 rxuavs=2 zone_changes=11 rxuav_changes=11
+seed=1 cid=5 mal=YES beacons=67 zones=2 rxuavs=2 zone_changes=11 rxuav_changes=11
+seed=1 cid=6 mal=YES beacons=68 zones=2 rxuavs=2 zone_changes=11 rxuav_changes=11
+seed=1 cid=7 mal=YES beacons=68 zones=2 rxuavs=2 zone_changes=11 rxuav_changes=11
+seed=2 cid=1 mal=YES beacons=67 zones=2 rxuavs=2 zone_changes=11 rxuav_changes=11
+seed=2 cid=2 mal=YES beacons=67 zones=2 rxuavs=2 zone_changes=11 rxuav_changes=11
+seed=2 cid=5 mal=YES beacons=68 zones=2 rxuavs=2 zone_changes=11 rxuav_changes=11
+seed=3 cid=1 mal=YES beacons=68 zones=2 rxuavs=2 zone_changes=11 rxuav_changes=11
+seed=3 cid=2 mal=YES beacons=68 zones=2 rxuavs=2 zone_changes=11 rxuav_changes=11
+seed=4 cid=1 mal=YES beacons=68 zones=2 rxuavs=2 zone_changes=11 rxuav_changes=11
+seed=4 cid=2 mal=YES beacons=67 zones=2 rxuavs=2 zone_changes=11 rxuav_changes=11
+seed=5 cid=1 mal=YES beacons=67 zones=2 rxuavs=2 zone_changes=11 rxuav_changes=11
+seed=5 cid=2 mal=YES beacons=67 zones=2 rxuavs=2 zone_changes=11 rxuav_changes=11
+seed=5 cid=5 mal=YES beacons=68 zones=2 rxuavs=2 zone_changes=11 rxuav_changes=11
+seed=6 cid=1 mal=YES beacons=67 zones=2 rxuavs=2 zone_changes=11 rxuav_changes=11
+seed=6 cid=2 mal=YES beacons=68 zones=2 rxuavs=2 zone_changes=11 rxuav_changes=11
+seed=7 cid=1 mal=YES beacons=67 zones=2 rxuavs=2 zone_changes=11 rxuav_changes=11
+seed=7 cid=2 mal=YES beacons=68 zones=2 rxuavs=2 zone_changes=11 rxuav_changes=11
+seed=7 cid=6 mal=YES beacons=68 zones=2 rxuavs=2 zone_changes=11 rxuav_changes=11

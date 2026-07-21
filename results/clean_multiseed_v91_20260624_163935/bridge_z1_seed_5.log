@@ -1,0 +1,46 @@
+================================================================
+ V2X EDGE-CLOUD BRIDGE v8-handover-passthrough  --  Zone 1
+================================================================
+[BRIDGE-Z1] Edge   : 127.0.0.1:9999
+[BRIDGE-Z1] Cloud  : 127.0.0.1:6666
+[BRIDGE-Z1] Listen : 0.0.0.0:9998
+[BRIDGE-Z1] Trigger F: zone-entry baseline at 8s
+[BRIDGE-Z1] Trigger G: heartbeat every 30s
+[BRIDGE-Z1] Multi-zone: TRUST_HANDOVER_TRIGGER passthrough enabled
+
+[BRIDGE-Z1] Edge server reachable OK
+[BRIDGE-Z1] Cloud server reachable OK
+[BRIDGE-Z1-CALIB] Trigger G heartbeat started (every 30s)
+[BRIDGE-Z1] Ready -- listening on port 9998
+
+[BRIDGE-Z1-CALIB] First packet — Trigger F armed (fires in 8s)
+[BRIDGE-Z1-CALIB] sep=0.00 < 1.00 — skipping [A_batch_full(n=4)]
+[BRIDGE-Z1-CALIB] Trigger E: rate floor 5.0s, only 0.3s elapsed [A_batch_full(n=4)]
+[BRIDGE-Z1-CALIB] Trigger E: rate floor 5.0s, only 0.6s elapsed [A_batch_full(n=4)]
+[BRIDGE-Z1-CALIB] Trigger E: rate floor 5.0s, only 1.0s elapsed [A_batch_full(n=4)]
+[BRIDGE-Z1-CALIB] Trigger E: rate floor 5.0s, only 1.3s elapsed [A_batch_full(n=4)]
+[BRIDGE-Z1-CALIB] Trigger E: rate floor 5.0s, only 1.5s elapsed [A_batch_full(n=4)]
+[BRIDGE-Z1-CALIB] Trigger E: rate floor 5.0s, only 1.9s elapsed [A_batch_full(n=4)]
+[BRIDGE-Z1-CALIB] Trigger E: rate floor 5.0s, only 2.1s elapsed [A_batch_full(n=4)]
+[BRIDGE-Z1-CALIB] Trigger E: rate floor 5.0s, only 2.4s elapsed [A_batch_full(n=4)]
+[BRIDGE-Z1-CALIB] Trigger E: rate floor 5.0s, only 2.7s elapsed [A_batch_full(n=4)]
+[BRIDGE-Z1-CALIB] Trigger E: rate floor 5.0s, only 3.0s elapsed [A_batch_full(n=4)]
+[BRIDGE-Z1-CALIB] Trigger E: rate floor 5.0s, only 3.3s elapsed [A_batch_full(n=4)]
+[BRIDGE-Z1-CALIB] Trigger E: rate floor 5.0s, only 3.6s elapsed [A_batch_full(n=4)]
+[BRIDGE-Z1-CALIB] Trigger E: rate floor 5.0s, only 3.9s elapsed [A_batch_full(n=4)]
+[BRIDGE-Z1-CALIB] Trigger E: rate floor 5.0s, only 4.2s elapsed [A_batch_full(n=4)]
+[BRIDGE-Z1-CALIB] Trigger E: rate floor 5.0s, only 4.5s elapsed [A_batch_full(n=4)]
+[BRIDGE-Z1-CALIB] Trigger E: rate floor 5.0s, only 4.8s elapsed [A_batch_full(n=4)]
+[BRIDGE-Z1-CALIB] sep=0.00 < 1.00 — skipping [A_batch_full(n=4)]
+[BRIDGE-Z1-CALIB] Trigger F: zone-entry baseline n=6 sim_ts=11.3
+[BRIDGE-Z1-CALIB] Trigger E: rate floor 5.0s, only 1.6s elapsed [F_zone_entry_baseline]
+[BRIDGE-Z1-CALIB] Trigger G: heartbeat balanced n=6
+[BRIDGE-Z1-CALIB] CALIBRATE n=6 (W=3 S=3) sep=1895.85 reason=G_heartbeat_balanced
+[BRIDGE-Z1-CALIB] Got LLM-backed CALIBRATION_RESULT [G_heartbeat_balanced] — forwarding to edge
+[BRIDGE-Z1-CALIB] Edge accepted calibration: CALIB_APPLIED changes=2 sep_before=1895.85 sep_after=2180.23
+[BRIDGE-Z1] TRUST_HANDOVER_TRIGGER  CID:0    — forwarding to edge
+[BRIDGE-Z1] TRUST_HANDOVER_TRIGGER  CID:1    — forwarding to edge
+[BRIDGE-Z1] TRUST_HANDOVER_TRIGGER  CID:2    — forwarding to edge
+[BRIDGE-Z1] TRUST_HANDOVER_TRIGGER  CID:3    — forwarding to edge
+[BRIDGE-Z1] TRUST_HANDOVER_TRIGGER  CID:4    — forwarding to edge
+[BRIDGE-Z1] TRUST_HANDOVER_TRIGGER  CID:5    — forwarding to edge

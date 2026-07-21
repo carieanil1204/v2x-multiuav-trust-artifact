@@ -1,0 +1,7 @@
+--- PAYOFF delta0.1_seed1 ---
+[PAYOFF] CID:0 cumulative_payoff=-186.678 honest_wins=0 warn_count=35 adverse_count=1 demoted=YES return_threshold=60 lane_upgraded=NO scrutiny_reduced=NO malicious=YES
+[PAYOFF] CID:1 cumulative_payoff=-39.260 honest_wins=0 warn_count=12 adverse_count=1 demoted=YES return_threshold=60 lane_upgraded=NO scrutiny_reduced=NO malicious=YES
+[PAYOFF] CID:2 cumulative_payoff=-39.269 honest_wins=0 warn_count=12 adverse_count=1 demoted=YES return_threshold=60 lane_upgraded=NO scrutiny_reduced=NO malicious=YES
+[PAYOFF] CID:3 cumulative_payoff=-144.048 honest_wins=0 warn_count=31 adverse_count=0 demoted=NO return_threshold=0 lane_upgraded=NO scrutiny_reduced=NO malicious=NO
+[PAYOFF] CID:4 cumulative_payoff=-31.748 honest_wins=0 warn_count=14 adverse_count=0 demoted=NO return_threshold=0 lane_upgraded=NO scrutiny_reduced=NO malicious=NO
+[PAYOFF] CID:5 cumulative_payoff=-39.261 honest_wins=0 warn_count=12 adverse_count=1 demoted=YES return_threshold=60 lane_upgraded=NO scrutiny_reduced=NO malicious=YES

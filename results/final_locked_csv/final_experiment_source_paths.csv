@@ -1,0 +1,10 @@
+experiment,source_path
+handover_onoff,/home/srmap/research/projects/v2x-multiuav-trust/results/handover_tuned_x560_640_t32_5seed/HANDOVER_15SEED_SUMMARY.txt
+guarded_cusum_onoff,/home/srmap/research/projects/v2x-multiuav-trust/results/CUSUM_H08_MINOBS3_EDGEMAX05_15SEED_SUMMARY.txt
+clean_cusum_safety,/home/srmap/research/projects/v2x-multiuav-trust/results/CUSUM_CLEAN_H08_MINOBS3_EDGEMAX05_15SEED_SUMMARY.txt
+htd_sensitivity,/home/srmap/research/projects/v2x-multiuav-trust/results/HTD_SENSITIVITY_GUARDED_CUSUM_15SEED_SUMMARY.txt
+attack_rate_robustness,/home/srmap/research/projects/v2x-multiuav-trust/results/ATTACK_RATE_ROBUSTNESS_EXTENDED_GUARDED_CUSUM_15SEED_SUMMARY.txt
+packet_loss_robustness,/home/srmap/research/projects/v2x-multiuav-trust/results/PACKET_LOSS_ROBUSTNESS_GUARDED_CUSUM_15SEED_SUMMARY.txt
+scalability,/home/srmap/research/projects/v2x-multiuav-trust/results/SCALABILITY_GUARDED_CUSUM_AR50_15SEED_FINAL_SUMMARY.txt
+runtime_overhead,/home/srmap/research/projects/v2x-multiuav-trust/results/scalability_runtime_overhead.csv
+bayesian_nash_gate_audit,/home/srmap/research/projects/v2x-multiuav-trust/results/BAYESIAN_NASH_GATE_AUDIT_FINAL_V2.csv

@@ -1,0 +1,73 @@
+================================================================
+ EDGE AI SERVER v90-multiuav -- Zone 2
+================================================================
+[EDGE-Z2] Port              : 9995
+[EDGE-Z2] Coordinator       : 127.0.0.1:9997
+[EDGE-Z2] ZONE_SAFE=0.15  ZONE_MALICIOUS=0.30  NASH_P*=0.4000
+[EDGE-Z2] Weights: W1=0.27 W2=0.18 W3=0.23 W4=0.18 W5=0.14
+[EDGE-Z2] LEARNING_RATE=0.000  W_MIN=0.05  NASH_BAN_CONFIRM_K=1
+[CLOUD-DELAY] RTT=400ms  pre-cloud-pkts=4
+[EDGE-AI] Config snapshot saved -> logs/edge_ai_z2_config_20260719_061100.json
+[EDGE-Z2] Ready on port 9995
+
+[EDGE-Z2] HANDOVER_LOAD  CID:0     from_Z1  safe_wins_raw=4 decayed=1 decay=0.30 probationK=8  ban_str=1  warn_str=0  verdict=BAN  spd_seeded=10  ts_seeded=10
+[EDGE-Z2] HANDOVER_LOAD  CID:1     from_Z1  safe_wins_raw=3 decayed=1 decay=0.30 probationK=8  ban_str=1  warn_str=0  verdict=BAN  spd_seeded=10  ts_seeded=10
+[EDGE-Z2] HANDOVER_LOAD  CID:2     from_Z1  safe_wins_raw=5 decayed=2 decay=0.30 probationK=8  ban_str=1  warn_str=0  verdict=BAN  spd_seeded=10  ts_seeded=10
+[EDGE-Z2] HANDOVER_LOAD  CID:3     from_Z1  safe_wins_raw=0 decayed=0 decay=0.30 probationK=8  ban_str=0  warn_str=0  verdict=SAFE  spd_seeded=10  ts_seeded=10
+[EDGE-Z2] HANDOVER_LOAD  CID:4     from_Z1  safe_wins_raw=0 decayed=0 decay=0.30 probationK=8  ban_str=0  warn_str=0  verdict=SAFE  spd_seeded=10  ts_seeded=10
+[EDGE-Z2] HANDOVER_LOAD  CID:5     from_Z1  safe_wins_raw=3 decayed=1 decay=0.30 probationK=8  ban_str=1  warn_str=0  verdict=BAN  spd_seeded=10  ts_seeded=10
+[EDGE-Z2] HANDOVER_LOAD  CID:6     from_Z1  safe_wins_raw=5 decayed=2 decay=0.30 probationK=8  ban_str=1  warn_str=0  verdict=BAN  spd_seeded=10  ts_seeded=10
+[EDGE-Z2] HANDOVER_LOAD  CID:7     from_Z1  safe_wins_raw=0 decayed=0 decay=0.30 probationK=8  ban_str=1  warn_str=0  verdict=BAN  spd_seeded=10  ts_seeded=10
+[EDGE-Z2] HANDOVER_LOAD  CID:8     from_Z1  safe_wins_raw=0 decayed=0 decay=0.30 probationK=8  ban_str=0  warn_str=0  verdict=SAFE  spd_seeded=10  ts_seeded=10
+[EDGE-Z2] HANDOVER_LOAD  CID:9     from_Z1  safe_wins_raw=16 decayed=5 decay=0.30 probationK=8  ban_str=0  warn_str=0  verdict=SAFE  spd_seeded=10  ts_seeded=10
+[EDGE-Z2-ENSEMBLE] CID:4 m1=0.443 m2=0.020 m3=0.000 m4=0.000 m5=0.040 p=0.130 cloud=PRE overlap=YES -> SAFE
+[EDGE-Z2-ENSEMBLE] CID:3 m1=0.000 m2=0.020 m3=0.000 m4=0.000 m5=0.000 p=0.001 cloud=PRE overlap=YES -> SAFE
+[EDGE-Z2-ENSEMBLE] CID:8 m1=0.000 m2=0.020 m3=0.000 m4=0.000 m5=0.001 p=0.001 cloud=PRE overlap=YES -> SAFE
+[EDGE-Z2-ENSEMBLE] CID:4 m1=0.498 m2=0.020 m3=0.000 m4=0.000 m5=0.042 p=0.144 cloud=PRE overlap=YES -> SAFE
+[EDGE-Z2-ENSEMBLE] CID:3 m1=0.000 m2=0.020 m3=0.000 m4=0.000 m5=0.000 p=0.000 cloud=PRE overlap=YES -> SAFE
+[EDGE-Z2-ENSEMBLE] CID:8 m1=0.000 m2=0.020 m3=0.000 m4=0.000 m5=0.000 p=0.000 cloud=PRE overlap=YES -> SAFE
+[EDGE-Z2-ENSEMBLE] CID:4 m1=0.498 m2=0.020 m3=0.550 m4=0.000 m5=0.042 p=0.269 cloud=PRE overlap=YES -> WARN
+[EDGE-Z2-ENSEMBLE] CID:3 m1=0.000 m2=0.020 m3=0.000 m4=0.000 m5=0.000 p=0.000 cloud=PRE overlap=YES -> SAFE
+[EDGE-Z2-ENSEMBLE] CID:8 m1=0.000 m2=0.020 m3=0.040 m4=0.000 m5=0.000 p=0.008 cloud=PRE overlap=YES -> SAFE
+[EDGE-Z2-ENSEMBLE] CID:4 m1=0.530 m2=0.020 m3=0.550 m4=0.000 m5=0.042 p=0.279 cloud=PRE overlap=YES -> WARN
+[EDGE-Z2-ENSEMBLE] CID:3 m1=0.000 m2=0.020 m3=0.000 m4=0.000 m5=0.000 p=0.000 cloud=PRE overlap=YES -> SAFE
+[EDGE-Z2-ENSEMBLE] CID:8 m1=0.000 m2=0.020 m3=0.040 m4=0.000 m5=0.000 p=0.006 cloud=PRE overlap=YES -> SAFE
+[VEREMI-EVIDENCE] Z2 CID:4 mode=hard_only old_p=0.279 p_veremi=0.350 p_edge=0.279 streak=1 reasons=speed_pos_claimed details={'speed_err': 7.8, 'derived_speed': 15.0}
+[EDGE-Z2-ENSEMBLE] CID:4 m1=0.530 m2=0.020 m3=0.550 m4=0.000 m5=0.045 p=0.279 cloud=PRE overlap=YES -> WARN
+[EDGE-Z2-ENSEMBLE] CID:3 m1=0.000 m2=0.020 m3=0.000 m4=0.000 m5=0.000 p=0.000 cloud=PRE overlap=YES -> SAFE
+[EDGE-Z2-ENSEMBLE] CID:8 m1=0.000 m2=0.020 m3=0.000 m4=0.000 m5=0.000 p=0.000 cloud=PRE overlap=YES -> SAFE
+[VEREMI-EVIDENCE] Z2 CID:4 mode=hard_only old_p=0.275 p_veremi=0.950 p_edge=0.950 streak=2 reasons=speed_pos_claimed details={'speed_err': 7.7, 'derived_speed': 15.0}
+[EDGE-Z2-ENSEMBLE] CID:4 m1=0.515 m2=0.020 m3=0.550 m4=0.000 m5=0.047 p=0.950 cloud=PRE overlap=YES -> BAN
+[EDGE-Z2-ENSEMBLE] CID:3 m1=0.000 m2=0.020 m3=0.000 m4=0.000 m5=0.000 p=0.000 cloud=PRE overlap=YES -> SAFE
+[EDGE-Z2-ENSEMBLE] CID:8 m1=0.000 m2=0.020 m3=0.000 m4=0.000 m5=0.000 p=0.000 cloud=PRE overlap=YES -> SAFE
+[EDGE-Z2] CID:4 -> FASTBAN
+[EDGE-Z2-ENSEMBLE] CID:3 m1=0.000 m2=0.020 m3=0.000 m4=0.000 m5=0.000 p=0.000 cloud=PRE overlap=YES -> SAFE
+[EDGE-Z2-ENSEMBLE] CID:8 m1=0.000 m2=0.020 m3=0.000 m4=0.000 m5=0.000 p=0.000 cloud=PRE overlap=YES -> SAFE
+[EDGE-Z2] CID:4 -> FASTBAN
+[EDGE-Z2-ENSEMBLE] CID:3 m1=0.000 m2=0.020 m3=0.000 m4=0.000 m5=0.000 p=0.000 cloud=PRE overlap=YES -> SAFE
+[EDGE-Z2-ENSEMBLE] CID:8 m1=0.000 m2=0.020 m3=0.000 m4=0.000 m5=0.000 p=0.000 cloud=PRE overlap=YES -> SAFE
+[EDGE-Z2] CID:4 -> FASTBAN
+[EDGE-Z2-ENSEMBLE] CID:3 m1=0.000 m2=0.020 m3=0.000 m4=0.000 m5=0.000 p=0.000 cloud=PRE overlap=YES -> SAFE
+[EDGE-Z2-ENSEMBLE] CID:8 m1=0.000 m2=0.020 m3=0.000 m4=0.000 m5=0.000 p=0.000 cloud=PRE overlap=YES -> SAFE
+[EDGE-Z2] CID:4 -> FASTBAN
+[EDGE-Z2-ENSEMBLE] CID:3 m1=0.000 m2=0.020 m3=0.000 m4=0.000 m5=0.000 p=0.000 cloud=PRE overlap=YES -> SAFE
+[EDGE-Z2-ENSEMBLE] CID:8 m1=0.000 m2=0.020 m3=0.000 m4=0.000 m5=0.000 p=0.000 cloud=PRE overlap=YES -> SAFE
+[EDGE-Z2-ENSEMBLE] CID:3 m1=0.000 m2=0.020 m3=0.000 m4=0.000 m5=0.000 p=0.000 cloud=PRE overlap=YES -> SAFE
+[EDGE-Z2-ENSEMBLE] CID:8 m1=0.000 m2=0.020 m3=0.000 m4=0.000 m5=0.000 p=0.000 cloud=PRE overlap=YES -> SAFE
+[EDGE-Z2] Signal 15 — shutting down...
+[EDGE-Z2] Saving metrics before exit...
+
+================================================================
+ EDGE-AI METRICS v90-multiuav  ZONE:2  V2X-EXP-MULTIUAV
+================================================================
+ Packets processed    : 32
+ SAFE / WARN / BAN    : 24 / 3 / 5
+ Confirmed banned CIDs: [0, 1, 2, 4, 5, 6, 7]
+ Handover state loaded: 10 CIDs
+----------------------------------------------------------------
+  CID4   first flagged at sim_ts=31.503s
+----------------------------------------------------------------
+ Final weights: W1=0.273 W2=0.182 W3=0.227 W4=0.182 W5=0.136
+================================================================
+
+[EDGE-AI] Metrics saved -> logs/edge_ai_z2_metrics_20260719_061219.json

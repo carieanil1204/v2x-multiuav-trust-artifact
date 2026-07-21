@@ -1,0 +1,98 @@
+
+================ ATTACK_MIXED ================
+seed=01 NASH_LINES=1 EDGE_BAN_PROPOSALS=1 hon_EDGE_BAN=0 hon_to_WARN=0 hon_to_BAN=0 mal_EDGE_BAN=1 mal_to_WARN=1 mal_to_BAN=0 FINAL_TP=7/7 FINAL_FP=0/3 CUSUM_BAN=1 CUSUM_HOLD=0
+seed=02 NASH_LINES=0 EDGE_BAN_PROPOSALS=0 hon_EDGE_BAN=0 hon_to_WARN=0 hon_to_BAN=0 mal_EDGE_BAN=0 mal_to_WARN=0 mal_to_BAN=0 FINAL_TP=7/7 FINAL_FP=0/3 CUSUM_BAN=2 CUSUM_HOLD=0
+seed=03 NASH_LINES=1 EDGE_BAN_PROPOSALS=1 hon_EDGE_BAN=0 hon_to_WARN=0 hon_to_BAN=0 mal_EDGE_BAN=1 mal_to_WARN=1 mal_to_BAN=0 FINAL_TP=7/7 FINAL_FP=0/3 CUSUM_BAN=2 CUSUM_HOLD=0
+seed=04 NASH_LINES=0 EDGE_BAN_PROPOSALS=0 hon_EDGE_BAN=0 hon_to_WARN=0 hon_to_BAN=0 mal_EDGE_BAN=0 mal_to_WARN=0 mal_to_BAN=0 FINAL_TP=6/7 FINAL_FP=0/3 CUSUM_BAN=1 CUSUM_HOLD=0
+seed=05 NASH_LINES=1 EDGE_BAN_PROPOSALS=1 hon_EDGE_BAN=0 hon_to_WARN=0 hon_to_BAN=0 mal_EDGE_BAN=1 mal_to_WARN=1 mal_to_BAN=0 FINAL_TP=7/7 FINAL_FP=0/3 CUSUM_BAN=2 CUSUM_HOLD=0
+seed=06 NASH_LINES=0 EDGE_BAN_PROPOSALS=0 hon_EDGE_BAN=0 hon_to_WARN=0 hon_to_BAN=0 mal_EDGE_BAN=0 mal_to_WARN=0 mal_to_BAN=0 FINAL_TP=7/7 FINAL_FP=0/3 CUSUM_BAN=2 CUSUM_HOLD=0
+seed=07 NASH_LINES=0 EDGE_BAN_PROPOSALS=0 hon_EDGE_BAN=0 hon_to_WARN=0 hon_to_BAN=0 mal_EDGE_BAN=0 mal_to_WARN=0 mal_to_BAN=0 FINAL_TP=7/7 FINAL_FP=0/3 CUSUM_BAN=3 CUSUM_HOLD=0
+seed=08 NASH_LINES=0 EDGE_BAN_PROPOSALS=0 hon_EDGE_BAN=0 hon_to_WARN=0 hon_to_BAN=0 mal_EDGE_BAN=0 mal_to_WARN=0 mal_to_BAN=0 FINAL_TP=6/7 FINAL_FP=0/3 CUSUM_BAN=2 CUSUM_HOLD=0
+seed=09 NASH_LINES=1 EDGE_BAN_PROPOSALS=1 hon_EDGE_BAN=0 hon_to_WARN=0 hon_to_BAN=0 mal_EDGE_BAN=1 mal_to_WARN=1 mal_to_BAN=0 FINAL_TP=7/7 FINAL_FP=0/3 CUSUM_BAN=1 CUSUM_HOLD=0
+seed=10 NASH_LINES=0 EDGE_BAN_PROPOSALS=0 hon_EDGE_BAN=0 hon_to_WARN=0 hon_to_BAN=0 mal_EDGE_BAN=0 mal_to_WARN=0 mal_to_BAN=0 FINAL_TP=7/7 FINAL_FP=0/3 CUSUM_BAN=2 CUSUM_HOLD=0
+seed=11 NASH_LINES=0 EDGE_BAN_PROPOSALS=0 hon_EDGE_BAN=0 hon_to_WARN=0 hon_to_BAN=0 mal_EDGE_BAN=0 mal_to_WARN=0 mal_to_BAN=0 FINAL_TP=6/7 FINAL_FP=0/3 CUSUM_BAN=1 CUSUM_HOLD=0
+seed=12 NASH_LINES=9 EDGE_BAN_PROPOSALS=9 hon_EDGE_BAN=9 hon_to_WARN=9 hon_to_BAN=0 mal_EDGE_BAN=0 mal_to_WARN=0 mal_to_BAN=0 FINAL_TP=7/7 FINAL_FP=0/3 CUSUM_BAN=2 CUSUM_HOLD=7
+seed=13 NASH_LINES=0 EDGE_BAN_PROPOSALS=0 hon_EDGE_BAN=0 hon_to_WARN=0 hon_to_BAN=0 mal_EDGE_BAN=0 mal_to_WARN=0 mal_to_BAN=0 FINAL_TP=7/7 FINAL_FP=0/3 CUSUM_BAN=2 CUSUM_HOLD=0
+seed=14 NASH_LINES=0 EDGE_BAN_PROPOSALS=0 hon_EDGE_BAN=0 hon_to_WARN=0 hon_to_BAN=0 mal_EDGE_BAN=0 mal_to_WARN=0 mal_to_BAN=0 FINAL_TP=7/7 FINAL_FP=0/3 CUSUM_BAN=2 CUSUM_HOLD=0
+seed=15 NASH_LINES=0 EDGE_BAN_PROPOSALS=0 hon_EDGE_BAN=0 hon_to_WARN=0 hon_to_BAN=0 mal_EDGE_BAN=0 mal_to_WARN=0 mal_to_BAN=0 FINAL_TP=6/7 FINAL_FP=0/3 CUSUM_BAN=0 CUSUM_HOLD=0
+
+SUMMARY
+NASH gate lines: 13
+EDGE=BAN proposals reaching Nash gate: 13
+
+Honest vehicles:
+Honest EDGE=BAN proposals: 9
+Honest EDGE=BAN converted to WARN: 9
+Honest EDGE=BAN converted to BAN: 0
+Honest protected by gate: 9
+
+Malicious vehicles:
+Malicious EDGE=BAN proposals: 4
+Malicious EDGE=BAN converted to WARN: 4
+Malicious EDGE=BAN converted to BAN: 0
+Malicious confirmed by gate: 0
+Malicious delayed by gate: 4
+
+Final payoff result:
+Final TP=101/105
+Final FP=0/45
+CUSUM_BAN total=25
+CUSUM_HOLD total=7
+
+RESULT: PASS — Bayesian/Nash gate preserved safety for honest vehicles.
+
+================ CLEAN ================
+seed=01 NASH_LINES=0 EDGE_BAN_PROPOSALS=0 hon_EDGE_BAN=0 hon_to_WARN=0 hon_to_BAN=0 mal_EDGE_BAN=0 mal_to_WARN=0 mal_to_BAN=0 FINAL_TP=0/0 FINAL_FP=0/10 CUSUM_BAN=0 CUSUM_HOLD=0
+seed=02 NASH_LINES=0 EDGE_BAN_PROPOSALS=0 hon_EDGE_BAN=0 hon_to_WARN=0 hon_to_BAN=0 mal_EDGE_BAN=0 mal_to_WARN=0 mal_to_BAN=0 FINAL_TP=0/0 FINAL_FP=0/10 CUSUM_BAN=0 CUSUM_HOLD=0
+seed=03 NASH_LINES=0 EDGE_BAN_PROPOSALS=0 hon_EDGE_BAN=0 hon_to_WARN=0 hon_to_BAN=0 mal_EDGE_BAN=0 mal_to_WARN=0 mal_to_BAN=0 FINAL_TP=0/0 FINAL_FP=0/10 CUSUM_BAN=0 CUSUM_HOLD=0
+seed=04 NASH_LINES=0 EDGE_BAN_PROPOSALS=0 hon_EDGE_BAN=0 hon_to_WARN=0 hon_to_BAN=0 mal_EDGE_BAN=0 mal_to_WARN=0 mal_to_BAN=0 FINAL_TP=0/0 FINAL_FP=0/10 CUSUM_BAN=0 CUSUM_HOLD=0
+seed=05 NASH_LINES=0 EDGE_BAN_PROPOSALS=0 hon_EDGE_BAN=0 hon_to_WARN=0 hon_to_BAN=0 mal_EDGE_BAN=0 mal_to_WARN=0 mal_to_BAN=0 FINAL_TP=0/0 FINAL_FP=0/10 CUSUM_BAN=0 CUSUM_HOLD=0
+seed=06 NASH_LINES=0 EDGE_BAN_PROPOSALS=0 hon_EDGE_BAN=0 hon_to_WARN=0 hon_to_BAN=0 mal_EDGE_BAN=0 mal_to_WARN=0 mal_to_BAN=0 FINAL_TP=0/0 FINAL_FP=0/10 CUSUM_BAN=0 CUSUM_HOLD=0
+seed=07 NASH_LINES=0 EDGE_BAN_PROPOSALS=0 hon_EDGE_BAN=0 hon_to_WARN=0 hon_to_BAN=0 mal_EDGE_BAN=0 mal_to_WARN=0 mal_to_BAN=0 FINAL_TP=0/0 FINAL_FP=0/10 CUSUM_BAN=0 CUSUM_HOLD=0
+seed=08 NASH_LINES=0 EDGE_BAN_PROPOSALS=0 hon_EDGE_BAN=0 hon_to_WARN=0 hon_to_BAN=0 mal_EDGE_BAN=0 mal_to_WARN=0 mal_to_BAN=0 FINAL_TP=0/0 FINAL_FP=0/10 CUSUM_BAN=0 CUSUM_HOLD=0
+seed=09 NASH_LINES=0 EDGE_BAN_PROPOSALS=0 hon_EDGE_BAN=0 hon_to_WARN=0 hon_to_BAN=0 mal_EDGE_BAN=0 mal_to_WARN=0 mal_to_BAN=0 FINAL_TP=0/0 FINAL_FP=0/10 CUSUM_BAN=0 CUSUM_HOLD=0
+seed=10 NASH_LINES=0 EDGE_BAN_PROPOSALS=0 hon_EDGE_BAN=0 hon_to_WARN=0 hon_to_BAN=0 mal_EDGE_BAN=0 mal_to_WARN=0 mal_to_BAN=0 FINAL_TP=0/0 FINAL_FP=0/10 CUSUM_BAN=0 CUSUM_HOLD=0
+seed=11 NASH_LINES=0 EDGE_BAN_PROPOSALS=0 hon_EDGE_BAN=0 hon_to_WARN=0 hon_to_BAN=0 mal_EDGE_BAN=0 mal_to_WARN=0 mal_to_BAN=0 FINAL_TP=0/0 FINAL_FP=0/10 CUSUM_BAN=0 CUSUM_HOLD=0
+seed=12 NASH_LINES=0 EDGE_BAN_PROPOSALS=0 hon_EDGE_BAN=0 hon_to_WARN=0 hon_to_BAN=0 mal_EDGE_BAN=0 mal_to_WARN=0 mal_to_BAN=0 FINAL_TP=0/0 FINAL_FP=0/10 CUSUM_BAN=0 CUSUM_HOLD=0
+seed=13 NASH_LINES=0 EDGE_BAN_PROPOSALS=0 hon_EDGE_BAN=0 hon_to_WARN=0 hon_to_BAN=0 mal_EDGE_BAN=0 mal_to_WARN=0 mal_to_BAN=0 FINAL_TP=0/0 FINAL_FP=0/10 CUSUM_BAN=0 CUSUM_HOLD=0
+seed=14 NASH_LINES=0 EDGE_BAN_PROPOSALS=0 hon_EDGE_BAN=0 hon_to_WARN=0 hon_to_BAN=0 mal_EDGE_BAN=0 mal_to_WARN=0 mal_to_BAN=0 FINAL_TP=0/0 FINAL_FP=0/10 CUSUM_BAN=0 CUSUM_HOLD=0
+seed=15 NASH_LINES=0 EDGE_BAN_PROPOSALS=0 hon_EDGE_BAN=0 hon_to_WARN=0 hon_to_BAN=0 mal_EDGE_BAN=0 mal_to_WARN=0 mal_to_BAN=0 FINAL_TP=0/0 FINAL_FP=0/10 CUSUM_BAN=0 CUSUM_HOLD=0
+
+SUMMARY
+NASH gate lines: 0
+EDGE=BAN proposals reaching Nash gate: 0
+
+Honest vehicles:
+Honest EDGE=BAN proposals: 0
+Honest EDGE=BAN converted to WARN: 0
+Honest EDGE=BAN converted to BAN: 0
+Honest protected by gate: 0
+
+Malicious vehicles:
+Malicious EDGE=BAN proposals: 0
+Malicious EDGE=BAN converted to WARN: 0
+Malicious EDGE=BAN converted to BAN: 0
+Malicious confirmed by gate: 0
+Malicious delayed by gate: 0
+
+Final payoff result:
+Final TP=0/0
+Final FP=0/150
+CUSUM_BAN total=0
+CUSUM_HOLD total=0
+
+RESULT: PASS — Bayesian/Nash gate preserved safety for honest vehicles.
+
+CSV saved to: results/BAYESIAN_NASH_GATE_AUDIT_FINAL.csv
+
+Skipped malformed NASH-GATE lines: 171
+ATTACK_MIXED seed=1: [NASH-GATE] CID:5 p=0.4 p*=0.3 rho_hat=0.4 Nash=BAN windowHits=1/4 -> WARN (pending confirmation)
+ATTACK_MIXED seed=1: [NASH-GATE] CID:7 p=0.4 p*=0.3 rho_hat=0.4 Nash=BAN windowHits=1/4 -> WARN (pending confirmation)
+ATTACK_MIXED seed=1: [NASH-GATE] CID:6 p=1.000 p*=0.321 rho_hat=0.411 streak=2 windowHits=2/4 EU_ban=1.500 -> CONFIRMED BAN (SLOW_LANE punishment sent)
+ATTACK_MIXED seed=1: [NASH-GATE] CID:5 p=1.000 p*=0.320 rho_hat=0.416 streak=2 windowHits=2/4 EU_ban=1.500 -> CONFIRMED BAN (SLOW_LANE punishment sent)
+ATTACK_MIXED seed=1: [NASH-GATE] CID:7 p=1.000 p*=0.319 rho_hat=0.420 streak=2 windowHits=2/4 EU_ban=1.500 -> CONFIRMED BAN (SLOW_LANE punishment sent)
+ATTACK_MIXED seed=1: [NASH-GATE] CID:1 p=0.4 p*=0.3 rho_hat=0.4 Nash=BAN windowHits=1/4 -> WARN (pending confirmation)
+ATTACK_MIXED seed=1: [NASH-GATE] CID:0 p=0.4 p*=0.3 rho_hat=0.4 Nash=BAN windowHits=1/4 -> WARN (pending confirmation)
+ATTACK_MIXED seed=1: [NASH-GATE] CID:1 p=1.000 p*=0.317 rho_hat=0.435 streak=2 windowHits=2/4 EU_ban=1.500 -> CONFIRMED BAN (SLOW_LANE punishment sent)
+ATTACK_MIXED seed=1: [NASH-GATE] CID:2 p=0.4 p*=0.3 rho_hat=0.4 Nash=BAN windowHits=1/4 -> WARN (pending confirmation)
+ATTACK_MIXED seed=1: [NASH-GATE] CID:0 p=1.000 p*=0.316 rho_hat=0.443 streak=2 windowHits=2/4 EU_ban=1.500 -> CONFIRMED BAN (SLOW_LANE punishment sent)

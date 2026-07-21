@@ -1,0 +1,28 @@
+================================================================
+  TRUST COORDINATOR v1.0  --  Multi-UAV V2X
+================================================================
+[COORD] Listen port       : 9997
+[COORD] Registered zones  :
+  Zone 1  : 127.0.0.1:9999
+  Zone 2  : 127.0.0.1:9995
+[COORD] Health interval   : 10s  |  Stale after: 30s
+[COORD] Overlap window    : 5.0s
+[COORD] Max transit CIDs  : 500
+[COORD] Trace log         : logs/traces/coordinator_decision_trace.jsonl
+[COORD] Health monitor started  (interval=10s  stale_after=30s)
+[COORD] HEALTH MISS  Zone 1   127.0.0.1:9999  last_seen=1782302946s ago  status=OFFLINE
+[COORD] Ready — listening on port 9997
+
+[COORD] HEALTH MISS  Zone 2   127.0.0.1:9995  last_seen=1782302946s ago  status=OFFLINE
+[COORD] HANDOVER  CID:0     Z1 --> Z2  verdict=WARN  p_edge=0.162  sim_ts=70.0
+[COORD] LOAD OK   CID:0     Z2  (127.0.0.1:9995)
+[COORD] HANDOVER  CID:1     Z1 --> Z2  verdict=WARN  p_edge=0.158  sim_ts=70.0
+[COORD] HANDOVER  CID:2     Z1 --> Z2  verdict=BAN   p_edge=0.519  sim_ts=70.0
+[COORD] LOAD OK   CID:1     Z2  (127.0.0.1:9995)
+[COORD] LOAD OK   CID:2     Z2  (127.0.0.1:9995)
+[COORD] HANDOVER  CID:3     Z1 --> Z2  verdict=WARN  p_edge=0.160  sim_ts=70.0
+[COORD] LOAD OK   CID:3     Z2  (127.0.0.1:9995)
+[COORD] HANDOVER  CID:4     Z1 --> Z2  verdict=BAN   p_edge=0.519  sim_ts=70.0
+[COORD] HANDOVER  CID:5     Z1 --> Z2  verdict=BAN   p_edge=0.507  sim_ts=70.0
+[COORD] LOAD OK   CID:4     Z2  (127.0.0.1:9995)
+[COORD] LOAD OK   CID:5     Z2  (127.0.0.1:9995)

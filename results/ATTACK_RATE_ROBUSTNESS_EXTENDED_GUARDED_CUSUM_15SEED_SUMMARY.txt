@@ -1,0 +1,128 @@
+
+===== AR20_N10 =====
+seed=01 COMPLETE caught=3/3 DR=100.00% FP=0/7 FPR=0.00% CUSUM_BAN=0 CUSUM_HOLD=0 missed=[] fps=[]
+seed=02 COMPLETE caught=3/3 DR=100.00% FP=0/7 FPR=0.00% CUSUM_BAN=1 CUSUM_HOLD=0 missed=[] fps=[]
+seed=03 COMPLETE caught=3/3 DR=100.00% FP=0/7 FPR=0.00% CUSUM_BAN=1 CUSUM_HOLD=0 missed=[] fps=[]
+seed=04 COMPLETE caught=3/3 DR=100.00% FP=0/7 FPR=0.00% CUSUM_BAN=0 CUSUM_HOLD=0 missed=[] fps=[]
+seed=05 COMPLETE caught=3/3 DR=100.00% FP=0/7 FPR=0.00% CUSUM_BAN=0 CUSUM_HOLD=0 missed=[] fps=[]
+seed=06 COMPLETE caught=3/3 DR=100.00% FP=0/7 FPR=0.00% CUSUM_BAN=1 CUSUM_HOLD=0 missed=[] fps=[]
+seed=07 COMPLETE caught=3/3 DR=100.00% FP=0/7 FPR=0.00% CUSUM_BAN=2 CUSUM_HOLD=0 missed=[] fps=[]
+seed=08 COMPLETE caught=3/3 DR=100.00% FP=0/7 FPR=0.00% CUSUM_BAN=0 CUSUM_HOLD=0 missed=[] fps=[]
+seed=09 COMPLETE caught=3/3 DR=100.00% FP=0/7 FPR=0.00% CUSUM_BAN=0 CUSUM_HOLD=0 missed=[] fps=[]
+seed=10 COMPLETE caught=3/3 DR=100.00% FP=0/7 FPR=0.00% CUSUM_BAN=0 CUSUM_HOLD=0 missed=[] fps=[]
+seed=11 COMPLETE caught=2/3 DR=66.67% FP=0/7 FPR=0.00% CUSUM_BAN=0 CUSUM_HOLD=0 missed=[0] fps=[]
+seed=12 COMPLETE caught=3/3 DR=100.00% FP=0/7 FPR=0.00% CUSUM_BAN=1 CUSUM_HOLD=0 missed=[] fps=[]
+seed=13 COMPLETE caught=3/3 DR=100.00% FP=0/7 FPR=0.00% CUSUM_BAN=0 CUSUM_HOLD=0 missed=[] fps=[]
+seed=14 COMPLETE caught=3/3 DR=100.00% FP=0/7 FPR=0.00% CUSUM_BAN=0 CUSUM_HOLD=0 missed=[] fps=[]
+seed=15 COMPLETE caught=2/3 DR=66.67% FP=0/7 FPR=0.00% CUSUM_BAN=1 CUSUM_HOLD=0 missed=[5] fps=[]
+SUMMARY
+Total caught=43/45
+Total FP=0/105
+DR mean: 95.56 std: 11.73
+FPR mean: 0.0 std: 0.0
+CUSUM_BAN total: 7
+CUSUM_HOLD total: 0
+
+===== AR50_N10 =====
+seed=01 COMPLETE caught=7/7 DR=100.00% FP=0/3 FPR=0.00% CUSUM_BAN=1 CUSUM_HOLD=0 missed=[] fps=[]
+seed=02 COMPLETE caught=7/7 DR=100.00% FP=0/3 FPR=0.00% CUSUM_BAN=2 CUSUM_HOLD=0 missed=[] fps=[]
+seed=03 COMPLETE caught=7/7 DR=100.00% FP=0/3 FPR=0.00% CUSUM_BAN=2 CUSUM_HOLD=0 missed=[] fps=[]
+seed=04 COMPLETE caught=6/7 DR=85.71% FP=0/3 FPR=0.00% CUSUM_BAN=1 CUSUM_HOLD=0 missed=[5] fps=[]
+seed=05 COMPLETE caught=7/7 DR=100.00% FP=0/3 FPR=0.00% CUSUM_BAN=2 CUSUM_HOLD=0 missed=[] fps=[]
+seed=06 COMPLETE caught=7/7 DR=100.00% FP=0/3 FPR=0.00% CUSUM_BAN=2 CUSUM_HOLD=0 missed=[] fps=[]
+seed=07 COMPLETE caught=7/7 DR=100.00% FP=0/3 FPR=0.00% CUSUM_BAN=3 CUSUM_HOLD=0 missed=[] fps=[]
+seed=08 COMPLETE caught=6/7 DR=85.71% FP=0/3 FPR=0.00% CUSUM_BAN=2 CUSUM_HOLD=0 missed=[4] fps=[]
+seed=09 COMPLETE caught=7/7 DR=100.00% FP=0/3 FPR=0.00% CUSUM_BAN=1 CUSUM_HOLD=0 missed=[] fps=[]
+seed=10 COMPLETE caught=7/7 DR=100.00% FP=0/3 FPR=0.00% CUSUM_BAN=2 CUSUM_HOLD=0 missed=[] fps=[]
+seed=11 COMPLETE caught=6/7 DR=85.71% FP=0/3 FPR=0.00% CUSUM_BAN=1 CUSUM_HOLD=0 missed=[0] fps=[]
+seed=12 COMPLETE caught=7/7 DR=100.00% FP=0/3 FPR=0.00% CUSUM_BAN=2 CUSUM_HOLD=7 missed=[] fps=[]
+seed=13 COMPLETE caught=7/7 DR=100.00% FP=0/3 FPR=0.00% CUSUM_BAN=2 CUSUM_HOLD=0 missed=[] fps=[]
+seed=14 COMPLETE caught=7/7 DR=100.00% FP=0/3 FPR=0.00% CUSUM_BAN=2 CUSUM_HOLD=0 missed=[] fps=[]
+seed=15 COMPLETE caught=6/7 DR=85.71% FP=0/3 FPR=0.00% CUSUM_BAN=0 CUSUM_HOLD=0 missed=[5] fps=[]
+SUMMARY
+Total caught=101/105
+Total FP=0/45
+DR mean: 96.19 std: 6.54
+FPR mean: 0.0 std: 0.0
+CUSUM_BAN total: 25
+CUSUM_HOLD total: 7
+
+===== AR70_N10 =====
+seed=01 COMPLETE caught=8/9 DR=88.89% FP=0/1 FPR=0.00% CUSUM_BAN=2 CUSUM_HOLD=0 missed=[9] fps=[]
+seed=02 COMPLETE caught=9/9 DR=100.00% FP=0/1 FPR=0.00% CUSUM_BAN=1 CUSUM_HOLD=0 missed=[] fps=[]
+seed=03 COMPLETE caught=9/9 DR=100.00% FP=0/1 FPR=0.00% CUSUM_BAN=2 CUSUM_HOLD=0 missed=[] fps=[]
+seed=04 COMPLETE caught=8/9 DR=88.89% FP=0/1 FPR=0.00% CUSUM_BAN=1 CUSUM_HOLD=0 missed=[5] fps=[]
+seed=05 COMPLETE caught=9/9 DR=100.00% FP=0/1 FPR=0.00% CUSUM_BAN=2 CUSUM_HOLD=0 missed=[] fps=[]
+seed=06 COMPLETE caught=9/9 DR=100.00% FP=0/1 FPR=0.00% CUSUM_BAN=2 CUSUM_HOLD=0 missed=[] fps=[]
+seed=07 COMPLETE caught=9/9 DR=100.00% FP=0/1 FPR=0.00% CUSUM_BAN=2 CUSUM_HOLD=0 missed=[] fps=[]
+seed=08 COMPLETE caught=8/9 DR=88.89% FP=0/1 FPR=0.00% CUSUM_BAN=2 CUSUM_HOLD=0 missed=[4] fps=[]
+seed=09 COMPLETE caught=9/9 DR=100.00% FP=0/1 FPR=0.00% CUSUM_BAN=3 CUSUM_HOLD=0 missed=[] fps=[]
+seed=10 COMPLETE caught=9/9 DR=100.00% FP=0/1 FPR=0.00% CUSUM_BAN=2 CUSUM_HOLD=0 missed=[] fps=[]
+seed=11 COMPLETE caught=8/9 DR=88.89% FP=0/1 FPR=0.00% CUSUM_BAN=2 CUSUM_HOLD=0 missed=[0] fps=[]
+seed=12 COMPLETE caught=9/9 DR=100.00% FP=0/1 FPR=0.00% CUSUM_BAN=2 CUSUM_HOLD=0 missed=[] fps=[]
+seed=13 COMPLETE caught=9/9 DR=100.00% FP=0/1 FPR=0.00% CUSUM_BAN=3 CUSUM_HOLD=0 missed=[] fps=[]
+seed=14 COMPLETE caught=9/9 DR=100.00% FP=0/1 FPR=0.00% CUSUM_BAN=2 CUSUM_HOLD=0 missed=[] fps=[]
+seed=15 COMPLETE caught=8/9 DR=88.89% FP=0/1 FPR=0.00% CUSUM_BAN=3 CUSUM_HOLD=0 missed=[5] fps=[]
+SUMMARY
+Total caught=130/135
+Total FP=0/15
+DR mean: 96.3 std: 5.42
+FPR mean: 0.0 std: 0.0
+CUSUM_BAN total: 31
+CUSUM_HOLD total: 0
+
+===== AR80_N10 =====
+seed=01 COMPLETE caught=9/10 DR=90.00% FP=0/0 FPR=N/A CUSUM_BAN=2 CUSUM_HOLD=0 missed=[9] fps=[]
+seed=02 COMPLETE caught=10/10 DR=100.00% FP=0/0 FPR=N/A CUSUM_BAN=3 CUSUM_HOLD=0 missed=[] fps=[]
+seed=03 COMPLETE caught=10/10 DR=100.00% FP=0/0 FPR=N/A CUSUM_BAN=2 CUSUM_HOLD=0 missed=[] fps=[]
+seed=04 COMPLETE caught=9/10 DR=90.00% FP=0/0 FPR=N/A CUSUM_BAN=3 CUSUM_HOLD=0 missed=[5] fps=[]
+seed=05 COMPLETE caught=10/10 DR=100.00% FP=0/0 FPR=N/A CUSUM_BAN=2 CUSUM_HOLD=0 missed=[] fps=[]
+seed=06 COMPLETE caught=10/10 DR=100.00% FP=0/0 FPR=N/A CUSUM_BAN=2 CUSUM_HOLD=0 missed=[] fps=[]
+seed=07 COMPLETE caught=10/10 DR=100.00% FP=0/0 FPR=N/A CUSUM_BAN=2 CUSUM_HOLD=0 missed=[] fps=[]
+seed=08 COMPLETE caught=9/10 DR=90.00% FP=0/0 FPR=N/A CUSUM_BAN=2 CUSUM_HOLD=0 missed=[4] fps=[]
+seed=09 COMPLETE caught=10/10 DR=100.00% FP=0/0 FPR=N/A CUSUM_BAN=3 CUSUM_HOLD=0 missed=[] fps=[]
+seed=10 COMPLETE caught=10/10 DR=100.00% FP=0/0 FPR=N/A CUSUM_BAN=3 CUSUM_HOLD=0 missed=[] fps=[]
+seed=11 COMPLETE caught=9/10 DR=90.00% FP=0/0 FPR=N/A CUSUM_BAN=3 CUSUM_HOLD=0 missed=[0] fps=[]
+seed=12 COMPLETE caught=10/10 DR=100.00% FP=0/0 FPR=N/A CUSUM_BAN=2 CUSUM_HOLD=0 missed=[] fps=[]
+seed=13 COMPLETE caught=10/10 DR=100.00% FP=0/0 FPR=N/A CUSUM_BAN=2 CUSUM_HOLD=0 missed=[] fps=[]
+seed=14 COMPLETE caught=10/10 DR=100.00% FP=0/0 FPR=N/A CUSUM_BAN=2 CUSUM_HOLD=0 missed=[] fps=[]
+seed=15 COMPLETE caught=9/10 DR=90.00% FP=0/0 FPR=N/A CUSUM_BAN=2 CUSUM_HOLD=0 missed=[5] fps=[]
+SUMMARY
+Total caught=145/150
+Total FP=0/0
+DR mean: 96.67 std: 4.88
+FPR mean: N/A std: N/A
+CUSUM_BAN total: 35
+CUSUM_HOLD total: 0
+
+===== AR80_N20 =====
+seed=01 COMPLETE caught=15/20 DR=75.00% FP=0/0 FPR=N/A CUSUM_BAN=2 CUSUM_HOLD=0 missed=[0, 9, 16, 17, 18] fps=[]
+seed=02 COMPLETE caught=19/20 DR=95.00% FP=0/0 FPR=N/A CUSUM_BAN=1 CUSUM_HOLD=0 missed=[4] fps=[]
+seed=03 COMPLETE caught=18/20 DR=90.00% FP=0/0 FPR=N/A CUSUM_BAN=2 CUSUM_HOLD=0 missed=[3, 19] fps=[]
+seed=04 COMPLETE caught=13/20 DR=65.00% FP=0/0 FPR=N/A CUSUM_BAN=0 CUSUM_HOLD=0 missed=[0, 3, 4, 5, 15, 16, 19] fps=[]
+seed=05 COMPLETE caught=18/20 DR=90.00% FP=0/0 FPR=N/A CUSUM_BAN=3 CUSUM_HOLD=0 missed=[1, 2] fps=[]
+seed=06 COMPLETE caught=15/20 DR=75.00% FP=0/0 FPR=N/A CUSUM_BAN=1 CUSUM_HOLD=0 missed=[1, 4, 15, 16, 17] fps=[]
+seed=07 COMPLETE caught=18/20 DR=90.00% FP=0/0 FPR=N/A CUSUM_BAN=3 CUSUM_HOLD=0 missed=[1, 15] fps=[]
+seed=08 COMPLETE caught=18/20 DR=90.00% FP=0/0 FPR=N/A CUSUM_BAN=2 CUSUM_HOLD=0 missed=[4, 17] fps=[]
+seed=09 COMPLETE caught=19/20 DR=95.00% FP=0/0 FPR=N/A CUSUM_BAN=2 CUSUM_HOLD=0 missed=[19] fps=[]
+seed=10 COMPLETE caught=15/20 DR=75.00% FP=0/0 FPR=N/A CUSUM_BAN=2 CUSUM_HOLD=0 missed=[0, 2, 3, 16, 19] fps=[]
+seed=11 COMPLETE caught=16/20 DR=80.00% FP=0/0 FPR=N/A CUSUM_BAN=4 CUSUM_HOLD=0 missed=[0, 15, 17, 19] fps=[]
+seed=12 COMPLETE caught=16/20 DR=80.00% FP=0/0 FPR=N/A CUSUM_BAN=1 CUSUM_HOLD=0 missed=[1, 3, 4, 16] fps=[]
+seed=13 COMPLETE caught=17/20 DR=85.00% FP=0/0 FPR=N/A CUSUM_BAN=2 CUSUM_HOLD=0 missed=[1, 2, 15] fps=[]
+seed=14 COMPLETE caught=20/20 DR=100.00% FP=0/0 FPR=N/A CUSUM_BAN=2 CUSUM_HOLD=0 missed=[] fps=[]
+seed=15 COMPLETE caught=16/20 DR=80.00% FP=0/0 FPR=N/A CUSUM_BAN=3 CUSUM_HOLD=0 missed=[4, 5, 16, 19] fps=[]
+SUMMARY
+Total caught=253/300
+Total FP=0/0
+DR mean: 84.33 std: 9.61
+FPR mean: N/A std: N/A
+CUSUM_BAN total: 30
+CUSUM_HOLD total: 0
+
+===== COMPACT EXTENDED ATTACK-RATE SUMMARY =====
+Case	Caught	DR_mean	DR_std	FP	FPR_mean	CUSUM_BAN	CUSUM_HOLD
+AR20_N10	43/45	95.56	11.73	0/105	0.00	7	0
+AR50_N10	101/105	96.19	6.54	0/45	0.00	25	7
+AR70_N10	130/135	96.30	5.42	0/15	0.00	31	0
+AR80_N10	145/150	96.67	4.88	0/0	N/A	35	0
+AR80_N20	253/300	84.33	9.61	0/0	N/A	30	0

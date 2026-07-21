@@ -1,0 +1,27 @@
+===== CLEAN GUARDED CUSUM SAFETY TEST =====
+seed=01 COMPLETE FP=0/10 FPR=0.00% CUSUM_BAN=0 CUSUM_HOLD=0 confirmed=0 fps=[] malicious_found=[]
+seed=02 COMPLETE FP=0/10 FPR=0.00% CUSUM_BAN=0 CUSUM_HOLD=0 confirmed=0 fps=[] malicious_found=[]
+seed=03 COMPLETE FP=0/10 FPR=0.00% CUSUM_BAN=0 CUSUM_HOLD=0 confirmed=0 fps=[] malicious_found=[]
+seed=04 COMPLETE FP=0/10 FPR=0.00% CUSUM_BAN=0 CUSUM_HOLD=0 confirmed=0 fps=[] malicious_found=[]
+seed=05 COMPLETE FP=0/10 FPR=0.00% CUSUM_BAN=0 CUSUM_HOLD=0 confirmed=0 fps=[] malicious_found=[]
+seed=06 COMPLETE FP=0/10 FPR=0.00% CUSUM_BAN=0 CUSUM_HOLD=0 confirmed=0 fps=[] malicious_found=[]
+seed=07 COMPLETE FP=0/10 FPR=0.00% CUSUM_BAN=0 CUSUM_HOLD=0 confirmed=0 fps=[] malicious_found=[]
+seed=08 COMPLETE FP=0/10 FPR=0.00% CUSUM_BAN=0 CUSUM_HOLD=0 confirmed=0 fps=[] malicious_found=[]
+seed=09 COMPLETE FP=0/10 FPR=0.00% CUSUM_BAN=0 CUSUM_HOLD=0 confirmed=0 fps=[] malicious_found=[]
+seed=10 COMPLETE FP=0/10 FPR=0.00% CUSUM_BAN=0 CUSUM_HOLD=0 confirmed=0 fps=[] malicious_found=[]
+seed=11 COMPLETE FP=0/10 FPR=0.00% CUSUM_BAN=0 CUSUM_HOLD=0 confirmed=0 fps=[] malicious_found=[]
+seed=12 COMPLETE FP=0/10 FPR=0.00% CUSUM_BAN=0 CUSUM_HOLD=0 confirmed=0 fps=[] malicious_found=[]
+seed=13 COMPLETE FP=0/10 FPR=0.00% CUSUM_BAN=0 CUSUM_HOLD=0 confirmed=0 fps=[] malicious_found=[]
+seed=14 COMPLETE FP=0/10 FPR=0.00% CUSUM_BAN=0 CUSUM_HOLD=0 confirmed=0 fps=[] malicious_found=[]
+seed=15 COMPLETE FP=0/10 FPR=0.00% CUSUM_BAN=0 CUSUM_HOLD=0 confirmed=0 fps=[] malicious_found=[]
+
+SUMMARY
+Total honest vehicles=150
+Total malicious vehicles found in clean run=0
+Total FP=0/150
+Overall FPR=0.00%
+Mean FPR: 0.0 std: 0.0
+CUSUM_BAN total=0
+CUSUM_HOLD total=0
+
+RESULT: PASS — clean guarded CUSUM safety confirmed.

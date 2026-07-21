@@ -1,0 +1,16 @@
+seed,nCars,log_path,proposed_detected,proposed_malicious,proposed_DR_percent,proposed_false_positive,proposed_honest,proposed_FPR_percent
+1,10,/home/srmap/research/projects/v2x-multiuav-trust/results/scalability_N10_AR50_guarded_cusum_15seed/ON_seed1_x560_720_t36.log,7,7,100.0,0,3,0.0
+2,10,/home/srmap/research/projects/v2x-multiuav-trust/results/scalability_N10_AR50_guarded_cusum_15seed/ON_seed2_x560_720_t36.log,7,7,100.0,0,3,0.0
+3,10,/home/srmap/research/projects/v2x-multiuav-trust/results/scalability_N10_AR50_guarded_cusum_15seed/ON_seed3_x560_720_t36.log,7,7,100.0,0,3,0.0
+4,10,/home/srmap/research/projects/v2x-multiuav-trust/results/scalability_N10_AR50_guarded_cusum_15seed/ON_seed4_x560_720_t36.log,6,7,85.71,0,3,0.0
+5,10,/home/srmap/research/projects/v2x-multiuav-trust/results/scalability_N10_AR50_guarded_cusum_15seed/ON_seed5_x560_720_t36.log,7,7,100.0,0,3,0.0
+6,10,/home/srmap/research/projects/v2x-multiuav-trust/results/scalability_N10_AR50_guarded_cusum_15seed/ON_seed6_x560_720_t36.log,7,7,100.0,0,3,0.0
+7,10,/home/srmap/research/projects/v2x-multiuav-trust/results/scalability_N10_AR50_guarded_cusum_15seed/ON_seed7_x560_720_t36.log,7,7,100.0,0,3,0.0
+8,10,/home/srmap/research/projects/v2x-multiuav-trust/results/scalability_N10_AR50_guarded_cusum_15seed/ON_seed8_x560_720_t36.log,6,7,85.71,0,3,0.0
+9,10,/home/srmap/research/projects/v2x-multiuav-trust/results/scalability_N10_AR50_guarded_cusum_15seed/ON_seed9_x560_720_t36.log,7,7,100.0,0,3,0.0
+10,10,/home/srmap/research/projects/v2x-multiuav-trust/results/scalability_N10_AR50_guarded_cusum_15seed/ON_seed10_x560_720_t36.log,7,7,100.0,0,3,0.0
+11,10,/home/srmap/research/projects/v2x-multiuav-trust/results/scalability_N10_AR50_guarded_cusum_15seed/ON_seed11_x560_720_t36.log,6,7,85.71,0,3,0.0
+12,10,/home/srmap/research/projects/v2x-multiuav-trust/results/scalability_N10_AR50_guarded_cusum_15seed/ON_seed12_x560_720_t36.log,7,7,100.0,0,3,0.0
+13,10,/home/srmap/research/projects/v2x-multiuav-trust/results/scalability_N10_AR50_guarded_cusum_15seed/ON_seed13_x560_720_t36.log,7,7,100.0,0,3,0.0
+14,10,/home/srmap/research/projects/v2x-multiuav-trust/results/scalability_N10_AR50_guarded_cusum_15seed/ON_seed14_x560_720_t36.log,7,7,100.0,0,3,0.0
+15,10,/home/srmap/research/projects/v2x-multiuav-trust/results/scalability_N10_AR50_guarded_cusum_15seed/ON_seed15_x560_720_t36.log,6,7,85.71,0,3,0.0

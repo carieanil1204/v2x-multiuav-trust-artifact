@@ -1,0 +1,16 @@
+condition,seed,proposed_honest,proposed_false_positive,proposed_FPR_percent,log_path
+CLEAN_HONEST,1,10,0,0.00,/home/srmap/research/projects/v2x-multiuav-trust/results/cusum_clean_veremi_on_H08_minobs3_edgemax05_15seed/ON_seed1_x-1_-1_t36.log
+CLEAN_HONEST,2,10,0,0.00,/home/srmap/research/projects/v2x-multiuav-trust/results/cusum_clean_veremi_on_H08_minobs3_edgemax05_15seed/ON_seed2_x-1_-1_t36.log
+CLEAN_HONEST,3,10,0,0.00,/home/srmap/research/projects/v2x-multiuav-trust/results/cusum_clean_veremi_on_H08_minobs3_edgemax05_15seed/ON_seed3_x-1_-1_t36.log
+CLEAN_HONEST,4,10,0,0.00,/home/srmap/research/projects/v2x-multiuav-trust/results/cusum_clean_veremi_on_H08_minobs3_edgemax05_15seed/ON_seed4_x-1_-1_t36.log
+CLEAN_HONEST,5,10,0,0.00,/home/srmap/research/projects/v2x-multiuav-trust/results/cusum_clean_veremi_on_H08_minobs3_edgemax05_15seed/ON_seed5_x-1_-1_t36.log
+CLEAN_HONEST,6,10,0,0.00,/home/srmap/research/projects/v2x-multiuav-trust/results/cusum_clean_veremi_on_H08_minobs3_edgemax05_15seed/ON_seed6_x-1_-1_t36.log
+CLEAN_HONEST,7,10,0,0.00,/home/srmap/research/projects/v2x-multiuav-trust/results/cusum_clean_veremi_on_H08_minobs3_edgemax05_15seed/ON_seed7_x-1_-1_t36.log
+CLEAN_HONEST,8,10,0,0.00,/home/srmap/research/projects/v2x-multiuav-trust/results/cusum_clean_veremi_on_H08_minobs3_edgemax05_15seed/ON_seed8_x-1_-1_t36.log
+CLEAN_HONEST,9,10,0,0.00,/home/srmap/research/projects/v2x-multiuav-trust/results/cusum_clean_veremi_on_H08_minobs3_edgemax05_15seed/ON_seed9_x-1_-1_t36.log
+CLEAN_HONEST,10,10,0,0.00,/home/srmap/research/projects/v2x-multiuav-trust/results/cusum_clean_veremi_on_H08_minobs3_edgemax05_15seed/ON_seed10_x-1_-1_t36.log
+CLEAN_HONEST,11,10,0,0.00,/home/srmap/research/projects/v2x-multiuav-trust/results/cusum_clean_veremi_on_H08_minobs3_edgemax05_15seed/ON_seed11_x-1_-1_t36.log
+CLEAN_HONEST,12,10,0,0.00,/home/srmap/research/projects/v2x-multiuav-trust/results/cusum_clean_veremi_on_H08_minobs3_edgemax05_15seed/ON_seed12_x-1_-1_t36.log
+CLEAN_HONEST,13,10,0,0.00,/home/srmap/research/projects/v2x-multiuav-trust/results/cusum_clean_veremi_on_H08_minobs3_edgemax05_15seed/ON_seed13_x-1_-1_t36.log
+CLEAN_HONEST,14,10,0,0.00,/home/srmap/research/projects/v2x-multiuav-trust/results/cusum_clean_veremi_on_H08_minobs3_edgemax05_15seed/ON_seed14_x-1_-1_t36.log
+CLEAN_HONEST,15,10,0,0.00,/home/srmap/research/projects/v2x-multiuav-trust/results/cusum_clean_veremi_on_H08_minobs3_edgemax05_15seed/ON_seed15_x-1_-1_t36.log

@@ -1,0 +1,9 @@
+condition,method,state_model,caught,pooled_DR_percent,DR_mean_percent,DR_std,false_positive,pooled_FPR_percent,FPR_mean_percent,FPR_std,F1_mean
+DROP0,Proposed_UAV_Edge_Trust_Framework,trust_state_transferred_across_handover_with_HTD,101/105,96.19,96.19,6.54,0/45,0.0,0.0,0.0,
+DROP0,Local_Full_VeReMi_RXUAV_segment_reset_OBS_K3_W5,memory_resets_at_each_contiguous_RXUAV_segment,89/105,84.76,84.76,6.54,0/45,0.0,0.0,0.0,0.92
+DROP5,Proposed_UAV_Edge_Trust_Framework,trust_state_transferred_across_handover_with_HTD,99/105,94.29,94.28,9.04,0/45,0.0,0.0,0.0,
+DROP5,Local_Full_VeReMi_RXUAV_segment_reset_OBS_K3_W5,memory_resets_at_each_contiguous_RXUAV_segment,78/105,74.29,74.28,14.49,0/45,0.0,0.0,0.0,0.84
+DROP10,Proposed_UAV_Edge_Trust_Framework,trust_state_transferred_across_handover_with_HTD,96/105,91.43,91.43,10.53,0/45,0.0,0.0,0.0,
+DROP10,Local_Full_VeReMi_RXUAV_segment_reset_OBS_K3_W5,memory_resets_at_each_contiguous_RXUAV_segment,71/105,67.62,67.62,15.71,0/45,0.0,0.0,0.0,0.8
+DROP20,Proposed_UAV_Edge_Trust_Framework,trust_state_transferred_across_handover_with_HTD,96/105,91.43,91.43,9.04,0/45,0.0,0.0,0.0,
+DROP20,Local_Full_VeReMi_RXUAV_segment_reset_OBS_K3_W5,memory_resets_at_each_contiguous_RXUAV_segment,57/105,54.29,54.29,16.38,0/45,0.0,0.0,0.0,0.69

@@ -1,0 +1,58 @@
+
+===== CUSUM_ON_GUARDED =====
+seed=01 caught=7/7 DR=100.00% FP=0/3 FPR=0.00% CUSUM_BAN=1 CUSUM_HOLD=0 confirmed=6 missed=[] fps=[]
+seed=02 caught=7/7 DR=100.00% FP=0/3 FPR=0.00% CUSUM_BAN=2 CUSUM_HOLD=0 confirmed=5 missed=[] fps=[]
+seed=03 caught=7/7 DR=100.00% FP=0/3 FPR=0.00% CUSUM_BAN=2 CUSUM_HOLD=0 confirmed=5 missed=[] fps=[]
+seed=04 caught=6/7 DR=85.71% FP=0/3 FPR=0.00% CUSUM_BAN=1 CUSUM_HOLD=0 confirmed=5 missed=[5] fps=[]
+seed=05 caught=7/7 DR=100.00% FP=0/3 FPR=0.00% CUSUM_BAN=2 CUSUM_HOLD=0 confirmed=5 missed=[] fps=[]
+seed=06 caught=7/7 DR=100.00% FP=0/3 FPR=0.00% CUSUM_BAN=2 CUSUM_HOLD=0 confirmed=5 missed=[] fps=[]
+seed=07 caught=7/7 DR=100.00% FP=0/3 FPR=0.00% CUSUM_BAN=3 CUSUM_HOLD=0 confirmed=4 missed=[] fps=[]
+seed=08 caught=6/7 DR=85.71% FP=0/3 FPR=0.00% CUSUM_BAN=2 CUSUM_HOLD=0 confirmed=4 missed=[4] fps=[]
+seed=09 caught=7/7 DR=100.00% FP=0/3 FPR=0.00% CUSUM_BAN=1 CUSUM_HOLD=0 confirmed=6 missed=[] fps=[]
+seed=10 caught=7/7 DR=100.00% FP=0/3 FPR=0.00% CUSUM_BAN=2 CUSUM_HOLD=0 confirmed=5 missed=[] fps=[]
+seed=11 caught=6/7 DR=85.71% FP=0/3 FPR=0.00% CUSUM_BAN=1 CUSUM_HOLD=0 confirmed=5 missed=[0] fps=[]
+seed=12 caught=7/7 DR=100.00% FP=0/3 FPR=0.00% CUSUM_BAN=2 CUSUM_HOLD=7 confirmed=5 missed=[] fps=[]
+seed=13 caught=7/7 DR=100.00% FP=0/3 FPR=0.00% CUSUM_BAN=2 CUSUM_HOLD=0 confirmed=5 missed=[] fps=[]
+seed=14 caught=7/7 DR=100.00% FP=0/3 FPR=0.00% CUSUM_BAN=2 CUSUM_HOLD=0 confirmed=5 missed=[] fps=[]
+seed=15 caught=6/7 DR=85.71% FP=0/3 FPR=0.00% CUSUM_BAN=0 CUSUM_HOLD=0 confirmed=6 missed=[5] fps=[]
+SUMMARY
+Total caught=101/105
+Total FP=0/45
+DR mean: 96.19 std: 6.54
+FPR mean: 0.0 std: 0.0
+CUSUM_BAN total: 25
+CUSUM_HOLD total: 7
+
+===== CUSUM_OFF =====
+seed=01 caught=6/7 DR=85.71% FP=0/3 FPR=0.00% CUSUM_BAN=0 CUSUM_HOLD=0 confirmed=6 missed=[4] fps=[]
+seed=02 caught=5/7 DR=71.43% FP=0/3 FPR=0.00% CUSUM_BAN=0 CUSUM_HOLD=0 confirmed=5 missed=[3, 4] fps=[]
+seed=03 caught=5/7 DR=71.43% FP=0/3 FPR=0.00% CUSUM_BAN=0 CUSUM_HOLD=0 confirmed=5 missed=[3, 4] fps=[]
+seed=04 caught=5/7 DR=71.43% FP=0/3 FPR=0.00% CUSUM_BAN=0 CUSUM_HOLD=0 confirmed=5 missed=[3, 5] fps=[]
+seed=05 caught=5/7 DR=71.43% FP=0/3 FPR=0.00% CUSUM_BAN=0 CUSUM_HOLD=0 confirmed=5 missed=[3, 4] fps=[]
+seed=06 caught=5/7 DR=71.43% FP=0/3 FPR=0.00% CUSUM_BAN=0 CUSUM_HOLD=0 confirmed=5 missed=[3, 4] fps=[]
+seed=07 caught=4/7 DR=57.14% FP=0/3 FPR=0.00% CUSUM_BAN=0 CUSUM_HOLD=0 confirmed=4 missed=[0, 3, 9] fps=[]
+seed=08 caught=4/7 DR=57.14% FP=0/3 FPR=0.00% CUSUM_BAN=0 CUSUM_HOLD=0 confirmed=4 missed=[2, 4, 9] fps=[]
+seed=09 caught=6/7 DR=85.71% FP=0/3 FPR=0.00% CUSUM_BAN=0 CUSUM_HOLD=0 confirmed=6 missed=[3] fps=[]
+seed=10 caught=5/7 DR=71.43% FP=0/3 FPR=0.00% CUSUM_BAN=0 CUSUM_HOLD=0 confirmed=5 missed=[3, 4] fps=[]
+seed=11 caught=5/7 DR=71.43% FP=0/3 FPR=0.00% CUSUM_BAN=0 CUSUM_HOLD=0 confirmed=5 missed=[0, 9] fps=[]
+seed=12 caught=5/7 DR=71.43% FP=0/3 FPR=0.00% CUSUM_BAN=0 CUSUM_HOLD=0 confirmed=5 missed=[2, 3] fps=[]
+seed=13 caught=5/7 DR=71.43% FP=0/3 FPR=0.00% CUSUM_BAN=0 CUSUM_HOLD=0 confirmed=5 missed=[3, 4] fps=[]
+seed=14 caught=5/7 DR=71.43% FP=0/3 FPR=0.00% CUSUM_BAN=0 CUSUM_HOLD=0 confirmed=5 missed=[3, 4] fps=[]
+seed=15 caught=5/7 DR=71.43% FP=0/3 FPR=0.00% CUSUM_BAN=0 CUSUM_HOLD=0 confirmed=5 missed=[5, 8] fps=[]
+SUMMARY
+Total caught=75/105
+Total FP=0/45
+DR mean: 71.43 std: 7.64
+FPR mean: 0.0 std: 0.0
+CUSUM_BAN total: 0
+CUSUM_HOLD total: 0
+
+===== GUARDED CUSUM - CUSUM OFF =====
+Per-seed DR gains: [14.29, 28.57, 28.57, 14.29, 28.57, 28.57, 42.86, 28.57, 14.29, 28.57, 14.29, 28.57, 28.57, 28.57, 14.29]
+Mean DR gain: 24.76
+Gain std: 8.48
+Positive gains: 15
+Negative gains: 0
+Zero gains: 0
+Sign-test one-sided p: 3.0517578125e-05
+Sign-test two-sided p: 6.103515625e-05

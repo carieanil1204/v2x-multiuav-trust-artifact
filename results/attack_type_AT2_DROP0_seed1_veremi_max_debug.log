@@ -1,0 +1,11 @@
+===== ATTACK TYPE ROBUSTNESS RUN =====
+ATTACK_TYPES=2
+DROPS=0
+SEEDS=1
+NCARS=10 ATTACK_RATE=50 SIMTIME=36
+ATTACK_X0=560 ATTACK_X1=720
+HTD_DISCOUNT=0.30 CUSUM_H=0.8 CUSUM_MIN_OBS=3 CUSUM_EDGE_MAX=0.50
+======================================
+[SKIP] AT=2 DROP=0 SEED=1 existing complete log: /home/srmap/research/projects/v2x-multiuav-trust/results/attack_type_robustness_AT2_DROP0_guarded_cusum_15seed/ON_seed1_x560_720_t36.log
+
+All attack-type robustness runs completed.
