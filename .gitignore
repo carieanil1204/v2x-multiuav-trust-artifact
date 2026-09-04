@@ -1,0 +1,39 @@
+
+# --- added while cleaning up repo drift (2026-09-04) ---
+# Ephemeral pipeline logs: fixed filenames (cloud.log, coordinator.log,
+# edge_z1.log, ...) overwritten by every single simulation run -- tracking
+# them just produces noise, never meaningful history. Locked/canonical
+# results live in paper_artifact_v1.0/results/, not here.
+logs/
+
+# Python bytecode cache -- pure build artifact, never meaningful to track.
+__pycache__/
+*.pyc
+
+# Full ns-3 build tree: compiled binaries, cmake cache, and (accidentally)
+# its own nested .git -- git was seeing this as a broken submodule. This is
+# a standard upstream download (see paper_artifact_v1.0/README.md Step 1),
+# not project source, and should never be tracked.
+ns-allinone-3.41/
+ns-allinone-3.41_GENERIC_UNUSED_backup/
+ns-allinone-3.41.tar.bz2
+
+# Redundant packaged archives -- the actual content is already tracked as
+# real files elsewhere in the repo; these are stale zipped duplicates.
+v2x-multiuav-trust-paper-artifact-v1.0.zip
+updated_handover_defense_files.zip
+
+# Another full ns-3 tree backup with its own nested .git (same broken-submodule issue).
+backups/ns-allinone-3.41_slic_backup_20260624_131039/ns-3.41/
+
+# Exploratory/scratch experiment output from iterative tuning, superseded by
+# the locked results already tracked separately -- not meaningful history.
+results/handover_tunable_2*/
+results/*_checkpoint*/
+results/*_backup/
+results/*CORRUPTED*/
+results/handover_attackrate_test/
+results/handover_fix_test/
+results/repro_check_speedtol6/
+graphify-out/
+*.bak_before_*

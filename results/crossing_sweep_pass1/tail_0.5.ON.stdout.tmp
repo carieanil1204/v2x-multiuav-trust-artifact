@@ -1,0 +1,53 @@
+PROJECT_ROOT=/home/srmap-jc205/research/projects/v2x-multiuav-trust
+MODE=ON
+SEED=1
+NCARS=10
+ATTACK_RATE=50
+ATTACK_TYPE=5
+ZONE_LENGTH=900.0
+HANDOVER_LEAD=300.0
+SIMTIME=40
+ATTACK_CROSSING_OFFSET_SEC=-1.5
+ATTACK_CROSSING_DURATION_SEC=2.0
+OUTDIR=/home/srmap-jc205/research/projects/v2x-multiuav-trust/results/crossing_sweep_pass1/tail_0.5
+Pipeline stopped.
+============================================================
+ Launching V2X Multi-UAV Handover Defense Pipeline
+ Workstation mode: local NS-3 + local Edge + local Cloud LLM
+ Ollama model: llama3:latest
+============================================================
+
+[CHECK] Ollama availability
+[OK] Ollama found and llama3:latest available
+
+[1/6] Starting local Cloud LLM on 127.0.0.1:6666
+[2/6] Starting Trust Coordinator on 127.0.0.1:9997
+[3/6] Starting Edge AI Zone 1 on 127.0.0.1:9999
+[4/6] Starting Edge AI Zone 2 on 127.0.0.1:9995
+[5/6] Starting Bridge Zone 1 on 127.0.0.1:9998
+[6/6] Starting Bridge Zone 2 on 127.0.0.1:9996
+
+============================================================
+ Pipeline started
+============================================================
+Cloud LLM       : 127.0.0.1:6666
+Coordinator     : 127.0.0.1:9997
+Edge Zone 1     : 127.0.0.1:9999
+Bridge Zone 1   : 127.0.0.1:9998
+Edge Zone 2     : 127.0.0.1:9995
+Bridge Zone 2   : 127.0.0.1:9996
+Ollama          : 127.0.0.1:11434
+Model           : llama3:latest
+
+[PORT CHECK]
+LISTEN 0      4096       127.0.0.1:11434      0.0.0.0:*                                       
+LISTEN 0      40           0.0.0.0:9995       0.0.0.0:*    users:(("python3",pid=802617,fd=3))
+LISTEN 0      150          0.0.0.0:9996       0.0.0.0:*    users:(("python3",pid=802647,fd=4))
+LISTEN 0      40           0.0.0.0:9999       0.0.0.0:*    users:(("python3",pid=802598,fd=3))
+LISTEN 0      150          0.0.0.0:9998       0.0.0.0:*    users:(("python3",pid=802631,fd=4))
+
+[LOG CHECK]
+tail -n 40 logs/cloud.log
+tail -n 40 logs/bridge_z1.log
+tail -n 40 logs/edge_z1.log
+tail -n 40 logs/edge_z2.log

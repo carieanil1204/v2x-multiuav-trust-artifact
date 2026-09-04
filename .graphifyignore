@@ -1,0 +1,13 @@
+ns-allinone-3.41/
+ns-allinone-3.41.tar.bz2
+ns-allinone-3.41_GENERIC_UNUSED_backup/
+backups/
+logs/
+logs_v24_whop_0.65/
+results/
+imported_v91/
+paper_artifact_v1.0/
+*.zip
+*.tar.bz2
+parameter_history.jsonl
+graphify-out/
