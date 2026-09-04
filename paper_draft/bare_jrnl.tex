@@ -1,0 +1,2531 @@
+%% bare_jrnl.tex
+%% V1.4b
+%% 2015/08/26
+%% by Michael Shell
+%% see http://www.michaelshell.org/
+%% for current contact information.
+%%
+%% This is a skeleton file demonstrating the use of IEEEtran.cls
+%% (requires IEEEtran.cls version 1.8b or later) with an IEEE
+%% journal paper.
+%%
+%% Support sites:
+%% http://www.michaelshell.org/tex/ieeetran/
+%% http://www.ctan.org/pkg/ieeetran
+%% and
+%% http://www.ieee.org/
+
+%%*************************************************************************
+%% Legal Notice:
+%% This code is offered as-is without any warranty either expressed or
+%% implied; without even the implied warranty of MERCHANTABILITY or
+%% FITNESS FOR A PARTICULAR PURPOSE! 
+%% User assumes all risk.
+%% In no event shall the IEEE or any contributor to this code be liable for
+%% any damages or losses, including, but not limited to, incidental,
+%% consequential, or any other damages, resulting from the use or misuse
+%% of any information contained here.
+%%
+%% All comments are the opinions of their respective authors and are not
+%% necessarily endorsed by the IEEE.
+%%
+%% This work is distributed under the LaTeX Project Public License (LPPL)
+%% ( http://www.latex-project.org/ ) version 1.3, and may be freely used,
+%% distributed and modified. A copy of the LPPL, version 1.3, is included
+%% in the base LaTeX documentation of all distributions of LaTeX released
+%% 2003/12/01 or later.
+%% Retain all contribution notices and credits.
+%% ** Modified files should be clearly indicated as such, including  **
+%% ** renaming them and changing author support contact information. **
+%%*************************************************************************
+
+
+% *** Authors should verify (and, if needed, correct) their LaTeX system  ***
+% *** with the testflow diagnostic prior to trusting their LaTeX platform ***
+% *** with production work. The IEEE's font choices and paper sizes can   ***
+% *** trigger bugs that do not appear when using other class files.       ***                          ***
+% The testflow support page is at:
+% http://www.michaelshell.org/tex/testflow/
+
+
+
+\documentclass[journal]{IEEEtran}
+\usepackage{booktabs}
+\usepackage{tabularx}
+\usepackage{array}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{placeins}
+\usepackage{algorithm}
+\usepackage{algorithmic}
+\usepackage{graphicx}
+%
+% If IEEEtran.cls has not been installed into the LaTeX system files,
+% manually specify the path to it like:
+% \documentclass[journal]{../sty/IEEEtran}
+
+
+
+
+
+% Some very useful LaTeX packages include:
+% (uncomment the ones you want to load)
+
+
+% *** MISC UTILITY PACKAGES ***
+%
+%\usepackage{ifpdf}
+% Heiko Oberdiek's ifpdf.sty is very useful if you need conditional
+% compilation based on whether the output is pdf or dvi.
+% usage:
+% \ifpdf
+%   % pdf code
+% \else
+%   % dvi code
+% \fi
+% The latest version of ifpdf.sty can be obtained from:
+% http://www.ctan.org/pkg/ifpdf
+% Also, note that IEEEtran.cls V1.7 and later provides a builtin
+% \ifCLASSINFOpdf conditional that works the same way.
+% When switching from latex to pdflatex and vice-versa, the compiler may
+% have to be run twice to clear warning/error messages.
+
+
+
+
+
+
+% *** CITATION PACKAGES ***
+%
+%\usepackage{cite}
+% cite.sty was written by Donald Arseneau
+% V1.6 and later of IEEEtran pre-defines the format of the cite.sty package
+% \cite{} output to follow that of the IEEE. Loading the cite package will
+% result in citation numbers being automatically sorted and properly
+% "compressed/ranged". e.g., [1], [9], [2], [7], [5], [6] without using
+% cite.sty will become [1], [2], [5]--[7], [9] using cite.sty. cite.sty's
+% \cite will automatically add leading space, if needed. Use cite.sty's
+% noadjust option (cite.sty V3.8 and later) if you want to turn this off
+% such as if a citation ever needs to be enclosed in parenthesis.
+% cite.sty is already installed on most LaTeX systems. Be sure and use
+% version 5.0 (2009-03-20) and later if using hyperref.sty.
+% The latest version can be obtained at:
+% http://www.ctan.org/pkg/cite
+% The documentation is contained in the cite.sty file itself.
+
+
+
+
+
+
+% *** GRAPHICS RELATED PACKAGES ***
+%
+\ifCLASSINFOpdf
+  % \usepackage[pdftex]{graphicx}
+  % declare the path(s) where your graphic files are
+  % \graphicspath{{../pdf/}{../jpeg/}}
+  % and their extensions so you won't have to specify these with
+  % every instance of \includegraphics
+  % \DeclareGraphicsExtensions{.pdf,.jpeg,.png}
+\else
+  % or other class option (dvipsone, dvipdf, if not using dvips). graphicx
+  % will default to the driver specified in the system graphics.cfg if no
+  % driver is specified.
+  % \usepackage[dvips]{graphicx}
+  % declare the path(s) where your graphic files are
+  % \graphicspath{{../eps/}}
+  % and their extensions so you won't have to specify these with
+  % every instance of \includegraphics
+  % \DeclareGraphicsExtensions{.eps}
+\fi
+% graphicx was written by David Carlisle and Sebastian Rahtz. It is
+% required if you want graphics, photos, etc. graphicx.sty is already
+% installed on most LaTeX systems. The latest version and documentation
+% can be obtained at: 
+% http://www.ctan.org/pkg/graphicx
+% Another good source of documentation is "Using Imported Graphics in
+% LaTeX2e" by Keith Reckdahl which can be found at:
+% http://www.ctan.org/pkg/epslatex
+%
+% latex, and pdflatex in dvi mode, support graphics in encapsulated
+% postscript (.eps) format. pdflatex in pdf mode supports graphics
+% in .pdf, .jpeg, .png and .mps (metapost) formats. Users should ensure
+% that all non-photo figures use a vector format (.eps, .pdf, .mps) and
+% not a bitmapped formats (.jpeg, .png). The IEEE frowns on bitmapped formats
+% which can result in "jaggedy"/blurry rendering of lines and letters as
+% well as large increases in file sizes.
+%
+% You can find documentation about the pdfTeX application at:
+% http://www.tug.org/applications/pdftex
+
+
+
+
+
+% *** MATH PACKAGES ***
+%
+%\usepackage{amsmath}
+% A popular package from the American Mathematical Society that provides
+% many useful and powerful commands for dealing with mathematics.
+%
+% Note that the amsmath package sets \interdisplaylinepenalty to 10000
+% thus preventing page breaks from occurring within multiline equations. Use:
+%\interdisplaylinepenalty=2500
+% after loading amsmath to restore such page breaks as IEEEtran.cls normally
+% does. amsmath.sty is already installed on most LaTeX systems. The latest
+% version and documentation can be obtained at:
+% http://www.ctan.org/pkg/amsmath
+
+
+
+
+
+% *** SPECIALIZED LIST PACKAGES ***
+%
+%\usepackage{algorithmic}
+% algorithmic.sty was written by Peter Williams and Rogerio Brito.
+% This package provides an algorithmic environment fo describing algorithms.
+% You can use the algorithmic environment in-text or within a figure
+% environment to provide for a floating algorithm. Do NOT use the algorithm
+% floating environment provided by algorithm.sty (by the same authors) or
+% algorithm2e.sty (by Christophe Fiorio) as the IEEE does not use dedicated
+% algorithm float types and packages that provide these will not provide
+% correct IEEE style captions. The latest version and documentation of
+% algorithmic.sty can be obtained at:
+% http://www.ctan.org/pkg/algorithms
+% Also of interest may be the (relatively newer and more customizable)
+% algorithmicx.sty package by Szasz Janos:
+% http://www.ctan.org/pkg/algorithmicx
+
+
+
+
+% *** ALIGNMENT PACKAGES ***
+%
+%\usepackage{array}
+% Frank Mittelbach's and David Carlisle's array.sty patches and improves
+% the standard LaTeX2e array and tabular environments to provide better
+% appearance and additional user controls. As the default LaTeX2e table
+% generation code is lacking to the point of almost being broken with
+% respect to the quality of the end results, all users are strongly
+% advised to use an enhanced (at the very least that provided by array.sty)
+% set of table tools. array.sty is already installed on most systems. The
+% latest version and documentation can be obtained at:
+% http://www.ctan.org/pkg/array
+
+
+% IEEEtran contains the IEEEeqnarray family of commands that can be used to
+% generate multiline equations as well as matrices, tables, etc., of high
+% quality.
+
+
+
+
+% *** SUBFIGURE PACKAGES ***
+%\ifCLASSOPTIONcompsoc
+%  \usepackage[caption=false,font=normalsize,labelfont=sf,textfont=sf]{subfig}
+%\else
+%  \usepackage[caption=false,font=footnotesize]{subfig}
+%\fi
+% subfig.sty, written by Steven Douglas Cochran, is the modern replacement
+% for subfigure.sty, the latter of which is no longer maintained and is
+% incompatible with some LaTeX packages including fixltx2e. However,
+% subfig.sty requires and automatically loads Axel Sommerfeldt's caption.sty
+% which will override IEEEtran.cls' handling of captions and this will result
+% in non-IEEE style figure/table captions. To prevent this problem, be sure
+% and invoke subfig.sty's "caption=false" package option (available since
+% subfig.sty version 1.3, 2005/06/28) as this is will preserve IEEEtran.cls
+% handling of captions.
+% Note that the Computer Society format requires a larger sans serif font
+% than the serif footnote size font used in traditional IEEE formatting
+% and thus the need to invoke different subfig.sty package options depending
+% on whether compsoc mode has been enabled.
+%
+% The latest version and documentation of subfig.sty can be obtained at:
+% http://www.ctan.org/pkg/subfig
+
+
+
+
+% *** FLOAT PACKAGES ***
+%
+%\usepackage{fixltx2e}
+% fixltx2e, the successor to the earlier fix2col.sty, was written by
+% Frank Mittelbach and David Carlisle. This package corrects a few problems
+% in the LaTeX2e kernel, the most notable of which is that in current
+% LaTeX2e releases, the ordering of single and double column floats is not
+% guaranteed to be preserved. Thus, an unpatched LaTeX2e can allow a
+% single column figure to be placed prior to an earlier double column
+% figure.
+% Be aware that LaTeX2e kernels dated 2015 and later have fixltx2e.sty's
+% corrections already built into the system in which case a warning will
+% be issued if an attempt is made to load fixltx2e.sty as it is no longer
+% needed.
+% The latest version and documentation can be found at:
+% http://www.ctan.org/pkg/fixltx2e
+
+
+%\usepackage{stfloats}
+% stfloats.sty was written by Sigitas Tolusis. This package gives LaTeX2e
+% the ability to do double column floats at the bottom of the page as well
+% as the top. (e.g., "\begin{figure*}[!b]" is not normally possible in
+% LaTeX2e). It also provides a command:
+%\fnbelowfloat
+% to enable the placement of footnotes below bottom floats (the standard
+% LaTeX2e kernel puts them above bottom floats). This is an invasive package
+% which rewrites many portions of the LaTeX2e float routines. It may not work
+% with other packages that modify the LaTeX2e float routines. The latest
+% version and documentation can be obtained at:
+% http://www.ctan.org/pkg/stfloats
+% Do not use the stfloats baselinefloat ability as the IEEE does not allow
+% \baselineskip to stretch. Authors submitting work to the IEEE should note
+% that the IEEE rarely uses double column equations and that authors should try
+% to avoid such use. Do not be tempted to use the cuted.sty or midfloat.sty
+% packages (also by Sigitas Tolusis) as the IEEE does not format its papers in
+% such ways.
+% Do not attempt to use stfloats with fixltx2e as they are incompatible.
+% Instead, use Morten Hogholm'a dblfloatfix which combines the features
+% of both fixltx2e and stfloats:
+%
+% \usepackage{dblfloatfix}
+% The latest version can be found at:
+% http://www.ctan.org/pkg/dblfloatfix
+
+
+
+
+%\ifCLASSOPTIONcaptionsoff
+%  \usepackage[nomarkers]{endfloat}
+% \let\MYoriglatexcaption\caption
+% \renewcommand{\caption}[2][\relax]{\MYoriglatexcaption[#2]{#2}}
+%\fi
+% endfloat.sty was written by James Darrell McCauley, Jeff Goldberg and 
+% Axel Sommerfeldt. This package may be useful when used in conjunction with 
+% IEEEtran.cls'  captionsoff option. Some IEEE journals/societies require that
+% submissions have lists of figures/tables at the end of the paper and that
+% figures/tables without any captions are placed on a page by themselves at
+% the end of the document. If needed, the draftcls IEEEtran class option or
+% \CLASSINPUTbaselinestretch interface can be used to increase the line
+% spacing as well. Be sure and use the nomarkers option of endfloat to
+% prevent endfloat from "marking" where the figures would have been placed
+% in the text. The two hack lines of code above are a slight modification of
+% that suggested by in the endfloat docs (section 8.4.1) to ensure that
+% the full captions always appear in the list of figures/tables - even if
+% the user used the short optional argument of \caption[]{}.
+% IEEE papers do not typically make use of \caption[]'s optional argument,
+% so this should not be an issue. A similar trick can be used to disable
+% captions of packages such as subfig.sty that lack options to turn off
+% the subcaptions:
+% For subfig.sty:
+% \let\MYorigsubfloat\subfloat
+% \renewcommand{\subfloat}[2][\relax]{\MYorigsubfloat[]{#2}}
+% However, the above trick will not work if both optional arguments of
+% the \subfloat command are used. Furthermore, there needs to be a
+% description of each subfigure *somewhere* and endfloat does not add
+% subfigure captions to its list of figures. Thus, the best approach is to
+% avoid the use of subfigure captions (many IEEE journals avoid them anyway)
+% and instead reference/explain all the subfigures within the main caption.
+% The latest version of endfloat.sty and its documentation can obtained at:
+% http://www.ctan.org/pkg/endfloat
+%
+% The IEEEtran \ifCLASSOPTIONcaptionsoff conditional can also be used
+% later in the document, say, to conditionally put the References on a 
+% page by themselves.
+
+
+
+
+% *** PDF, URL AND HYPERLINK PACKAGES ***
+%
+%\usepackage{url}
+% url.sty was written by Donald Arseneau. It provides better support for
+% handling and breaking URLs. url.sty is already installed on most LaTeX
+% systems. The latest version and documentation can be obtained at:
+% http://www.ctan.org/pkg/url
+% Basically, \url{my_url_here}.
+
+
+
+
+% *** Do not adjust lengths that control margins, column widths, etc. ***
+% *** Do not use packages that alter fonts (such as pslatex).         ***
+% There should be no need to do such things with IEEEtran.cls V1.6 and later.
+% (Unless specifically asked to do so by the journal or conference you plan
+% to submit to, of course. )
+
+
+% correct bad hyphenation here
+\hyphenation{op-tical net-works semi-conduc-tor}
+
+
+\begin{document}
+%
+% paper title
+% Titles are generally capitalized except for words such as a, an, and, as,
+% at, but, by, for, in, nor, of, on, or, the, to and up, which are usually
+% not capitalized unless they are the first or last word of the title.
+% Linebreaks \\ can be used within to get better formatting as desired.
+% Do not put math or special symbols in the title.
+\title{Mobility-Aware Multi-UAV Edge--Cloud Trust Management for Falsified Vehicular Beacon Detection under Handover and Packet Loss}
+%
+%
+\author{
+Anil Carie\\
+\IEEEauthorblockA{
+Department of Computer Science and Engineering\\
+SRM University-AP\\
+Andhra Pradesh, India
+}
+}
+
+
+
+% The paper headers
+\markboth{IEEE Journal Submission}%
+{Carie: Mobility-Aware Multi-UAV Edge--Cloud Trust Management}
+% The only time the second header will appear is for the odd numbered pages
+% after the title page when using the twoside option.
+% 
+% *** Note that you probably will NOT want to include the author's ***
+% *** name in the headers of peer review papers.                   ***
+% You can use \ifCLASSOPTIONpeerreview for conditional compilation here if
+% you desire.
+
+
+
+
+% If you want to put a publisher's ID mark on the page you can do it like
+% this:
+%\IEEEpubid{0000--0000/00\$00.00~\copyright~2015 IEEE}
+% Remember, if you use this you must call \IEEEpubidadjcol in the second
+% column for its text to clear the IEEEpubid mark.
+
+
+
+% use for special paper notices
+%\IEEEspecialpapernotice{(Invited Paper)}
+
+
+
+
+% make the title area
+\maketitle
+
+% As a general rule, do not put math, special symbols or citations
+% in the abstract or keywords.
+\begin{abstract}
+
+The increasing deployment of unmanned aerial vehicle (UAV)-assisted vehicular
+networks introduces new
+dependability challenges due to highly dynamic connectivity, fragmented
+observations, and the vulnerability of beacon-based communication to
+falsified information attacks. Existing trust-management approaches often
+evaluate observations independently and fail to preserve accumulated trust
+evidence when vehicles transition between heterogeneous monitoring regions.
+
+This paper proposes a mobility-aware multi-UAV edge--cloud trust-management
+framework that enables continuous trust assessment across UAV coverage
+boundaries. The proposed framework integrates multi-source physical evidence
+fusion, Bayesian trust evolution, guarded cumulative sum (CUSUM)-based
+temporal suspicion tracking, Bayesian conservative confirmation, and adaptive trust
+enforcement. A cross-UAV trust-state continuity mechanism preserves
+decision-relevant trust information, including Bayesian trust parameters,
+temporal suspicion statistics, and warning history, during vehicle mobility.
+
+The proposed framework is evaluated using ns-3-based simulations under
+multiple falsified-beacon attack scenarios, communication degradation
+conditions, and scalability settings. In the evaluated default attack
+configuration, the framework achieves a detection rate of 96.19\% with zero
+observed false positives over 15 independent simulation seeds, with a 70\%
+malicious vehicle ratio and 50\% beacon falsification probability. Dedicated
+component ablations demonstrate that preserving cross-UAV trust-state
+continuity closes a bounded, approximately 500\,ms detection blind
+window at the zone-boundary handover: under cold-start initialization,
+detection rate recovers from 0\% to 97.3\% as post-crossing observation
+runway grows from 1.0\,s to 1.5\,s, versus a steady 94.7--97.3\% with
+continuity enabled; integrating guarded CUSUM-based temporal
+verification separately increases detection rate from 71.43\% to
+96.19\% without increasing observed false-positive decisions.
+Under 20\% packet loss, the framework maintains 91.43\% detection performance
+with zero observed false positives within the evaluated simulations.
+Compared with a clean-safe local segment-reset
+VeReMi-style baseline, the proposed approach achieves a 12.38 percentage
+point improvement under degraded communication conditions by retaining
+historical trust evidence across UAV transitions.
+
+The results demonstrate that combining mobility-aware trust-state continuity
+with temporal evidence verification can improve dependability in simulated
+UAV-assisted vehicular network scenarios.
+
+\end{abstract}
+
+% Note that keywords are not normally used for peerreview papers.
+\begin{IEEEkeywords}
+Connected vehicles, falsified beacon detection, misbehavior detection, UAV-assisted vehicular networks, edge computing, trust management, Bayesian trust, CUSUM, handover, VeReMi, packet loss, V2X security.
+\end{IEEEkeywords}
+
+
+
+
+
+
+% For peer review papers, you can put extra information on the cover
+% page as needed:
+% \ifCLASSOPTIONpeerreview
+% \begin{center} \bfseries EDICS Category: 3-BBND \end{center}
+% \fi
+%
+% For peerreview papers, this IEEEtran command inserts a page break and
+% creates the second title. It will be ignored for other modes.
+\IEEEpeerreviewmaketitle
+
+
+
+\section{Introduction}
+\IEEEPARstart{C}{onnected} vehicular networks are increasingly expected to support safety-critical services such as cooperative awareness, collision avoidance, traffic coordination, and infrastructure-assisted autonomous driving. In these environments, vehicles periodically exchange beacon messages containing timestamp, position, speed, heading, lane, and other mobility-related information. The correctness of these messages is essential because neighboring vehicles, roadside infrastructure, UAV-assisted monitors, and edge servers may use them to make time-sensitive decisions. However, the open and wireless nature of vehicular communication makes beacon messages vulnerable to falsification attacks, including position falsification, speed manipulation, timestamp inconsistency, stealthy falsification, and adaptive misbehavior. A malicious vehicle can therefore degrade cooperative perception, mislead trust decisions, and reduce the dependability of intelligent transportation systems.
+
+Misbehavior detection in vehicular networks has been studied extensively, especially after the introduction of reproducible benchmarks such as VeReMi \cite{veremi}. Existing approaches include plausibility checks, physical-consistency validation, machine-learning-based classifiers, federated learning models, and trust-management mechanisms \cite{andradeSalazar2022VCADS,ilango2022NPFADS,campos2024FLMisbehavior,siddiqui2021SurveyTrustIoV}. Physical-consistency detectors are particularly attractive for safety-critical vehicular systems because they exploit interpretable relationships among beacon fields, such as timestamp continuity, feasible displacement, speed consistency, heading behavior, and lane-level plausibility. However, most such detectors are primarily message-centric or field-centric. They evaluate whether a received beacon is physically plausible, but they do not fully address how suspicion should persist when the monitoring authority itself changes due to mobility.
+
+This limitation becomes important in UAV-assisted vehicular edge networks. UAVs and distributed edge nodes can extend coverage, reduce latency, and support safety-critical vehicular applications in regions where fixed infrastructure is sparse or overloaded \cite{vehFogSurvey2023,hao2024UAVVehicularFRL}. Nevertheless, vehicle mobility causes a natural handover problem: a vehicle may move from the coverage of one UAV/edge node to another while its suspicious behavior is still being accumulated. Without a trust-state continuity mechanism, evidence observed before the transition is not incorporated into subsequent trust evolution at the receiving monitor. This fragmentation can weaken consistent decision making, especially when packet loss or overlap-region ambiguity further disrupts the evidence stream.
+
+The handover problem has been studied in vehicular edge and Multi-access
+Edge Computing (MEC) systems, but mainly from the perspective of service continuity, task migration, latency, packet delivery, and application-state transfer \cite{qi2021SocialHandover,monir2022SeamlessHandover,ali2024EdgeFogFederation}. Similarly, recent work on collaborative misbehavior detection considers knowledge or model transfer among infrastructure nodes \cite{sedar2024KnowledgeTransfer}. These studies demonstrate that cross-edge coordination is feasible and useful. However, transferring application state or learned model knowledge is different from transferring security-relevant trust state. A partially accumulated suspicion score can affect punitive decisions such as warning or demotion; therefore, it must be transferred cautiously. Blind transfer may amplify false punishment, while no transfer may allow attackers to evade detection after handover.
+
+Trust-management research provides another important foundation. Bayesian trust models, dynamic thresholding, adaptive trust evaluation, and temporal change-point techniques such as CUSUM have been used to improve robustness against uncertainty, on--off behavior, and non-stationary attacks \cite{siddiqui2021SurveyTrustIoV,abidi2025CAMSI,comert2021change,liu2025QART}. These approaches show that trust should not be decided from isolated observations. Instead, evidence should be accumulated over time and converted into actions only when sufficient confidence is available. However, most trust models still assume a relatively stable monitoring domain or a fixed trust authority. They do not explicitly address how Bayesian trust evidence, temporal anomaly scores, and safety guards should behave when vehicles cross UAV/edge coverage boundaries.
+
+To address these challenges, this paper proposes a mobility-aware multi-UAV
+edge--cloud trust-management framework that enables continuous trust
+assessment across UAV coverage boundaries. The proposed framework combines
+physical-consistency evidence extraction, Bayesian trust evolution, guarded
+CUSUM-based temporal suspicion accumulation, Bayesian conservative
+confirmation, and adaptive trust enforcement.
+
+Unlike approaches that independently evaluate observations at each monitoring
+node, the proposed framework introduces cross-UAV trust-state continuity,
+where decision-relevant trust information is transferred during vehicle
+mobility. This enables receiving UAV edge nodes to utilize previously
+accumulated behavioral evidence instead of initiating independent security
+decisions from fragmented observations.
+
+Existing studies have significantly advanced falsified-information detection
+in vehicular networks; however, most approaches assume continuous observation
+from a fixed monitoring entity or evaluate abnormal behavior using isolated
+decision windows. Such assumptions become unrealistic in UAV-assisted
+vehicular networks, where vehicles continuously migrate across dynamic UAV
+coverage regions. As a result, behavioral evidence collected by one UAV may
+become fragmented when the vehicle enters another UAV monitoring region,
+causing loss of historical trust information and inconsistent security
+decisions.
+
+Therefore, the remaining challenge is not only detecting anomalous vehicle
+behavior, but also maintaining trustworthy decisions under mobility-induced
+observation fragmentation. A dependable trust-management framework for
+multi-UAV vehicular networks must preserve security-relevant evidence across
+UAV boundaries, accumulate temporal suspicion reliably, and enforce decisions
+without introducing unnecessary false positives.
+
+The major contributions of this paper are summarized as follows:
+
+\begin{itemize}
+
+\item A mobility-aware multi-UAV edge--cloud trust-management architecture
+is proposed for falsified-beacon detection in dynamic vehicular networks.
+The architecture integrates distributed UAV edge intelligence with
+cloud-assisted trust analytics while maintaining lightweight edge decision
+capability, realized through per-beacon evidence extraction and Bayesian
+trust updating (Algorithm~\ref{alg:evidence_bayesian}).
+
+\item A cross-UAV trust-state continuity mechanism is introduced to preserve
+decision-relevant security evidence during vehicle mobility. Unlike
+traditional handover mechanisms that primarily maintain communication
+connectivity, the proposed approach maintains trust information required for
+consistent security decisions across UAV boundaries
+(Algorithm~\ref{alg:handover_transfer}).
+
+\item A guarded temporal verification mechanism based on CUSUM is integrated
+with Bayesian trust evolution and conservative confirmation to improve
+detection reliability while preventing premature trust degradation and false
+demotions (Algorithm~\ref{alg:cusum_confirmation}).
+
+\item A comprehensive evaluation framework is developed using ns-3-based
+simulation experiments covering attack diversity, packet-loss robustness,
+component ablations, baseline comparison, and scalability analysis. The
+results demonstrate improved robustness while maintaining zero observed
+false positives across the evaluated safety scenarios, enforced online
+through the adaptive trust enforcement procedure (Algorithm~\ref{alg:trust_decision}).
+
+\end{itemize}
+
+The evaluation investigates whether mobility-aware trust-state continuity improves decision reliability when evidence is fragmented by UAV handover and communication loss. In the primary handover ablation, the cross-UAV trust-state continuity mechanism substantially improves malicious-vehicle detection by preserving accumulated behavioral evidence during UAV transitions, without increasing observed false-positive decisions. The guarded CUSUM and confirmation mechanisms further support temporal evidence accumulation while preserving safety. Under clean honest conditions, the framework avoids false demotion, confirming that the decision logic is conservative. Packet-loss and attack-variant experiments further show that the proposed system maintains strong detection for several physical falsification attacks, while timestamp-only manipulation remains more sensitive to communication loss. This limitation is important because it suggests that timing-dominant attacks should be treated as first-class cases in future vehicular misbehavior benchmarks.
+
+The remainder of this paper is organized as follows. Section~II presents the
+related work and identifies the research gap. Section~III introduces the
+system model and problem formulation. Section~IV describes the proposed
+mobility-aware trust-management framework. Section~V presents the experimental
+methodology. Section~VI discusses the experimental results. Section~VII
+discusses limitations and future work. Section~VIII concludes the paper.
+
+
+% An example of a floating figure using the graphicx package.
+% Note that \label must occur AFTER (or within) \caption.
+% For figures, \caption should occur after the \includegraphics.
+% Note that IEEEtran v1.7 and later has special internal code that
+% is designed to preserve the operation of \label within \caption
+% even when the captionsoff option is in effect. However, because
+% of issues like this, it may be the safest practice to put all your
+% \label just after \caption rather than within \caption{}.
+%
+% Reminder: the "draftcls" or "draftclsnofoot", not "draft", class
+% option should be used if it is desired that the figures are to be
+% displayed while in draft mode.
+%
+%\begin{figure}[!t]
+%\centering
+%\includegraphics[width=2.5in]{myfigure}
+% where an .eps filename suffix will be assumed under latex, 
+% and a .pdf suffix will be assumed for pdflatex; or what has been declared
+% via \DeclareGraphicsExtensions.
+%\caption{Simulation results for the network.}
+%\label{fig_sim}
+%\end{figure}
+
+% Note that the IEEE typically puts floats only at the top, even when this
+% results in a large percentage of a column being occupied by floats.
+
+
+% An example of a double column floating figure using two subfigures.
+% (The subfig.sty package must be loaded for this to work.)
+% The subfigure \label commands are set within each subfloat command,
+% and the \label for the overall figure must come after \caption.
+% \hfil is used as a separator to get equal spacing.
+% Watch out that the combined width of all the subfigures on a 
+% line do not exceed the text width or a line break will occur.
+%
+%\begin{figure*}[!t]
+%\centering
+%\subfloat[Case I]{\includegraphics[width=2.5in]{box}%
+%\label{fig_first_case}}
+%\hfil
+%\subfloat[Case II]{\includegraphics[width=2.5in]{box}%
+%\label{fig_second_case}}
+%\caption{Simulation results for the network.}
+%\label{fig_sim}
+%\end{figure*}
+%
+% Note that often IEEE papers with subfigures do not employ subfigure
+% captions (using the optional argument to \subfloat[]), but instead will
+% reference/describe all of them (a), (b), etc., within the main caption.
+% Be aware that for subfig.sty to generate the (a), (b), etc., subfigure
+% labels, the optional argument to \subfloat must be present. If a
+% subcaption is not desired, just leave its contents blank,
+% e.g., \subfloat[].
+
+
+% An example of a floating table. Note that, for IEEE style tables, the
+% \caption command should come BEFORE the table and, given that table
+% captions serve much like titles, are usually capitalized except for words
+% such as a, an, and, as, at, but, by, for, in, nor, of, on, or, the, to
+% and up, which are usually not capitalized unless they are the first or
+% last word of the caption. Table text will default to \footnotesize as
+% the IEEE normally uses this smaller font for tables.
+% The \label must come after \caption as always.
+%
+%\begin{table}[!t]
+%% increase table row spacing, adjust to taste
+%\renewcommand{\arraystretch}{1.3}
+% if using array.sty, it might be a good idea to tweak the value of
+% \extrarowheight as needed to properly center the text within the cells
+%\caption{An Example of a Table}
+%\label{table_example}
+%\centering
+%% Some packages, such as MDW tools, offer better commands for making tables
+%% than the plain LaTeX2e tabular which is used here.
+%\begin{tabular}{|c||c|}
+%\hline
+%One & Two\\
+%\hline
+%Three & Four\\
+%\hline
+%\end{tabular}
+%\end{table}
+
+
+% Note that the IEEE does not put floats in the very first column
+% - or typically anywhere on the first page for that matter. Also,
+% in-text middle ("here") positioning is typically not used, but it
+% is allowed and encouraged for Computer Society conferences (but
+% not Computer Society journals). Most IEEE journals/conferences use
+% top floats exclusively. 
+% Note that, LaTeX2e, unlike IEEE journals/conferences, places
+% footnotes above bottom floats. This can be corrected via the
+% \fnbelowfloat command of the stfloats package.
+
+
+
+
+\section{Related Work}
+\label{sec:related_work}
+
+This section reviews prior work most relevant to the proposed mobility-aware multi-UAV edge--cloud trust-management framework. The discussion is organized around five research streams: vehicular misbehavior detection, trust accumulation and temporal anomaly detection, UAV/edge-assisted vehicular handover, collaborative and cross-edge misbehavior detection, and safety-preserving trust enforcement. The purpose is not only to list existing techniques, but to clarify the gap addressed in this work.
+
+\subsection{Vehicular Misbehavior Detection and Physical-Consistency Methods}
+\label{subsec:rw_misbehavior_detection}
+
+Misbehavior detection (MBD) in cooperative intelligent transportation
+systems has been extensively studied. Existing approaches mainly focus
+on identifying abnormal vehicle behaviour through physical consistency
+checks, statistical analysis, or learning-based models. Comprehensive
+surveys have categorized MBD approaches into data-centric and
+node-centric detection strategies while highlighting challenges related
+to evaluation consistency and reproducibility~\cite{vdh_survey}.
+
+The VeReMi dataset provides a common benchmark for evaluating
+misbehavior detection algorithms by providing attack traces and
+ground-truth labels~\cite{veremi}. Its extension further expands the
+benchmark by introducing additional attack types, sensor errors, and
+realistic evaluation conditions~\cite{veremi_ext}.
+
+A large body of work has since focused on physical-consistency and plausibility-based detection. These methods examine whether reported beacon fields are mutually consistent with the vehicle's recent motion history. For example, position, speed, heading, timestamp, and acceleration constraints can be used to identify messages that violate basic mobility feasibility. VCADS is a representative physics-based misbehavior detection system that checks whether Basic Safety Message fields are consistent with physically derivable relationships among independent beacon attributes \cite{andradeSalazar2022VCADS}. Such detectors are attractive because they are interpretable, lightweight, and well aligned with the semantics of vehicular beacons.
+
+Machine learning approaches have also been applied for detecting
+false information attacks. For example, Ercan et al. developed
+machine-learning-based detection models for position falsification
+attacks using vehicular network data, demonstrating improved
+classification capability under benchmark scenarios~\cite{ercan_ml}.
+NPFADS targets novel position-falsification attacks in the Internet of
+Vehicles and evaluates detection using standard classification metrics such
+as precision, recall, F1-score, ROC, and PR behavior
+\cite{ilango2022NPFADS}. Federated learning has also been applied to
+VeReMi-style misbehavior detection to reduce centralized data dependence and
+improve privacy preservation \cite{campos2024FLMisbehavior}. These studies
+show that stronger classifiers can improve detection performance under
+benchmarked attack settings.
+
+However, most physical-consistency and learning-based detectors remain primarily message-centric or field-centric. They answer the question: ``Is this beacon physically or statistically suspicious?'' They do not fully answer the mobility-aware trust-management question: ``How should suspicion persist, transfer, and be enforced when the observing UAV/edge monitor changes?'' In a multi-UAV vehicular edge environment, this distinction is important because the detector itself may change as vehicles move across UAV coverage regions. Therefore, strong beacon-level detection alone is not sufficient to guarantee robust trust decisions under handover and packet loss.
+
+\subsection{Trust Management, Bayesian Evidence Accumulation, and Temporal Detection}
+\label{subsec:rw_trust_temporal}
+
+Trust-management approaches aim to move beyond isolated message classification by maintaining node-level trust or reputation over time. Survey studies on Internet-of-Vehicles trust management emphasize that prior trust models often depend on manually selected weights, static thresholds, and inconsistent attack-specific evaluation \cite{siddiqui2021SurveyTrustIoV}. This motivates more adaptive and probabilistic trust models that can operate under uncertainty.
+
+The Bayesian trust model estimates vehicle reliability based on
+positive and negative observations. The formulation follows the Beta
+reputation framework, where positive and negative evidence update the
+parameters of a Beta distribution, and the posterior expectation is
+used as the trust estimate~\cite{josang2002}. Infrastructure-assisted
+trust models such as CAMSI combine multi-source information, Bayesian
+inference, dynamic weighting, and probabilistic priors to support
+cooperative ITS trust evaluation \cite{abidi2025CAMSI}. Such work reinforces
+the value of infrastructure-side trust fusion, especially when evidence is
+incomplete or noisy.
+
+CUSUM is used to accumulate suspicious evidence over time. Originally
+introduced as a sequential change detection method, CUSUM detects
+persistent deviations by accumulating small changes over consecutive
+observations~\cite{page1954}. Recent cyber-physical security studies have
+further demonstrated the effectiveness of CUSUM-based sequential anomaly
+detection under dynamic operating conditions~\cite{zhang2019cusum}.
+Change-point and sequential detection
+methods, including CUSUM, have also been used for real-time cyberattack
+detection in connected-vehicle environments \cite{comert2021change}. These
+methods are useful when individual observations are weak but persistent
+deviations reveal malicious behavior over time. Adaptive trust-threshold
+methods, including Q-learning-based schemes, also address the trade-off
+between malicious-vehicle detection and false alarms \cite{liu2025QART}.
+
+Despite these advances, existing trust and temporal-detection methods often assume a fixed monitoring authority or a stable observation domain. They accumulate evidence over time, but they do not fully specify how Bayesian trust parameters, temporal suspicion scores, warning history, or confirmation status should be transferred when a vehicle moves from one UAV/edge monitor to another. This is the gap addressed by the proposed handover-aware trust-transfer and discounting mechanism.
+
+\subsection{UAV-Assisted Vehicular Edge Computing and Handover}
+\label{subsec:rw_uav_edge_handover}
+
+UAVs have recently been considered as mobile monitoring platforms
+for vehicular networks. Kerrache et al. investigated UAV-assisted
+detection of malicious and selfish nodes in VANETs, demonstrating the
+benefit of aerial observation for infrastructure-sparse environments
+~\cite{kerrache_uav}. Recent UAV-assisted hierarchical trust-management
+frameworks have further explored aerial-assisted trust evaluation and
+cooperative security enforcement in vehicular
+environments~\cite{uavtrust2024}. However, these approaches do not explicitly
+address preservation of trust state during UAV handover transitions.
+
+UAV-assisted vehicular edge networks have received
+increasing attention because UAVs can extend coverage, provide flexible edge
+support, and improve service availability in infrastructure-limited or
+overloaded regions. Fog and edge computing surveys for vehicular networks
+emphasize the importance of low-latency computation, distributed resource
+management, heterogeneity, and quality of service \cite{vehFogSurvey2023}.
+UAV-assisted vehicular systems have also been studied for critical real-time
+communication and adaptive edge intelligence \cite{hao2024UAVVehicularFRL}.
+
+Handover is a central issue in mobile vehicular edge systems. Social prediction-based handover methods use trajectory prediction, sojourn-time estimation, signal strength, bandwidth, and cost to reduce ping-pong effects and handover failures in collaborative-edge vehicular networks \cite{qi2021SocialHandover}. MEC/SDN-based vehicular handover schemes address service continuity by coordinating task migration across neighboring RSUs or edge servers \cite{monir2022SeamlessHandover}. Edge--fog federation studies further show that authentication state and application state can be transferred across domains to reduce service interruption during mobility \cite{ali2024EdgeFogFederation}.
+
+These studies demonstrate that mobility-aware state transfer is technically feasible and important. However, their primary focus is service continuity, authentication continuity, latency, packet delivery, or task migration. Security-relevant trust state is different from ordinary application state because it may trigger punitive actions such as warning or demotion. Therefore, trust-state transfer requires conservative handling: insufficient transfer allows attackers to evade detection after handover, while overly aggressive transfer can amplify false punishment. This paper focuses specifically on this security-oriented state-transfer problem.
+
+\subsection{Collaborative and Cross-Edge Misbehavior Detection}
+\label{subsec:rw_collaborative_detection}
+
+Collaborative edge-based misbehavior detection has recently been explored to improve robustness across infrastructure nodes. Knowledge-transfer approaches for collaborative misbehavior detection among RSUs show that edge monitors can share useful model knowledge while avoiding negative transfer from untrusted sources \cite{sedar2024KnowledgeTransfer}. This is an important development because it recognizes that detector knowledge should not be transferred blindly across infrastructure nodes.
+
+Nevertheless, transferring learned model knowledge is different from transferring real-time vehicle-level suspicion state. Model transfer improves detector training or adaptation, whereas operational trust transfer affects immediate decisions about a specific vehicle. In the proposed setting, a partially suspicious vehicle may cross from one UAV zone to another before any individual UAV has enough evidence to demote it. Therefore, the central challenge is not only collaborative learning, but safe continuation of vehicle-specific trust evaluation across monitor boundaries.
+
+\subsection{Safety-Preserving Trust Enforcement}
+\label{subsec:rw_safety_enforcement}
+
+False positive control is important in safety-critical vehicular
+applications because incorrect vehicle isolation can affect system
+reliability. This requirement is also reflected in ETSI ITS security
+recommendations for misbehavior detection and reporting mechanisms and IEEE
+1609.2 security specifications for vehicular communication
+systems~\cite{etsi2020,ieee1609}. Aggressive thresholds may increase detection but can also
+falsely punish honest vehicles, especially under packet loss, overlap-region
+ambiguity, or short observation windows. False demotion of honest vehicles
+can reduce cooperation, degrade system dependability, and undermine trust in
+the defense mechanism itself.
+
+The literature increasingly recognizes this trade-off through adaptive thresholds, probabilistic trust fusion, and conservative confirmation strategies \cite{siddiqui2021SurveyTrustIoV,abidi2025CAMSI,liu2025QART}. However, overlap-region safety remains less developed. In UAV or RSU overlap areas, partial observations from multiple monitors can create inconsistent or weakly supported decisions. A BAN decision made from such weak evidence can create false punishment. The proposed overlap BAN guard addresses this issue by downgrading weak overlap-region BAN decisions to WARN unless they are supported by sufficiently strong physical or trust evidence.
+
+\subsection{Summary of Research Gap}
+\label{subsec:rw_gap}
+
+Table~\ref{tab:related_work_gap} summarizes how the proposed framework differs from prior research streams.
+
+\begin{table*}[!t]
+\centering
+\caption{Positioning of the proposed framework with respect to related work.}
+\label{tab:related_work_gap}
+\begin{tabularx}{\textwidth}{l X X X}
+\toprule
+\textbf{Research stream} & \textbf{Representative focus} & \textbf{Strength} & \textbf{Remaining gap addressed in this paper} \\
+\midrule
+VeReMi-style misbehavior detection
+& Beacon plausibility, physical consistency, and benchmark-based evaluation
+& Provides reproducible falsified-message detection and interpretable physical evidence
+& Does not fully address monitor mobility, trust-state persistence, or overlap-region safety under handover \\
+
+Physics-based detection
+& Consistency among timestamp, speed, position, heading, and other beacon fields
+& Lightweight and interpretable detection of infeasible mobility claims
+& Mainly detects suspicious messages; does not specify how suspicion should transfer across UAV/edge monitors \\
+
+Machine-learning and federated detection
+& Supervised, semi-supervised, or federated classification of misbehavior
+& Improves classification capability and can reduce centralized data dependence
+& Often remains benchmark-centric and does not directly address operational trust handover or false demotion control \\
+
+Bayesian and adaptive trust management
+& Probabilistic trust update, adaptive thresholds, and multi-source trust fusion
+& Accumulates evidence under uncertainty and supports dynamic trust decisions
+& Usually assumes fixed monitoring domains and lacks explicit cross-UAV trust transfer with discounting \\
+
+CUSUM and sequential detection
+& Persistent anomaly accumulation and change-point detection
+& Detects weak but sustained deviations with low training requirements
+& Needs safety guards and handover-aware continuity when observations are fragmented \\
+
+Vehicular edge/UAV handover
+& Service continuity, task migration, latency, packet delivery, and application-state transfer
+& Demonstrates feasibility of mobility-aware edge coordination
+& Transfers service or application state rather than punitive trust/suspicion state \\
+
+Collaborative edge detection
+& Knowledge transfer and collaborative misbehavior detection among infrastructure nodes
+& Supports cross-edge learning and detector adaptation
+& Transfers model knowledge rather than real-time vehicle-level trust state \\
+
+\textbf{Proposed framework}
+& Physical evidence, Bayesian trust, guarded CUSUM, trust handover, trust discounting, and overlap BAN guard
+& Preserves suspicious evidence across UAV handover while enforcing conservative demotion
+& Targets safe mobility-aware trust management under handover, packet loss, and overlap ambiguity \\
+\bottomrule
+\end{tabularx}
+\end{table*}
+
+Existing approaches primarily focus on malicious message detection,
+trust computation, or UAV-assisted communication independently. However,
+they do not explicitly address preservation of security-relevant trust
+evidence during UAV handover under communication degradation. This motivates
+the proposed continuity-aware Bayesian trust framework with guarded temporal
+verification.
+
+\section{System Model and Problem Formulation}
+\label{sec:system_model}
+
+\subsection{Network Model}
+\label{subsec:network_model}
+
+We consider a UAV-assisted vehicular edge network in which connected vehicles travel along a road segment monitored by multiple UAV edge nodes. Let
+\(\mathcal{V}=\{v_1,v_2,\ldots,v_N\}\) denote the set of vehicles and
+\(\mathcal{U}=\{u_1,u_2,\ldots,u_M\}\) denote the set of UAV edge nodes. Each UAV is responsible for receiving vehicular beacons within its coverage zone and performing local trust evaluation. In the default configuration, two UAV edge zones are used to model a handover scenario in which vehicles transition from one monitoring region to another.
+
+Each UAV edge node is connected to an edge--cloud coordination layer. The edge nodes perform local evidence extraction and trust updates, while the coordinator supports cross-zone trust-state transfer when a vehicle moves from one UAV coverage region to another. This architecture reflects a distributed vehicular trust-management setting in which decisions cannot rely only on a single static observer.
+
+\subsection{Vehicle Beacon Model}
+\label{subsec:beacon_model}
+
+Each vehicle periodically broadcasts a mobility beacon containing its reported state. The beacon generated by vehicle \(v_i\) at time \(t\) is represented as
+
+\begin{equation}
+\mathcal{B}_i(t)=\{i, \tau_i(t), x_i(t), y_i(t), s_i(t), \theta_i(t), \ell_i(t), b_i(t)\},
+\label{eq:beacon_model}
+\end{equation}
+
+where \(i\) is the vehicle identifier, \(\tau_i(t)\) is the reported timestamp, \(x_i(t)\) and \(y_i(t)\) are the reported position coordinates, \(s_i(t)\) is the reported speed, \(\theta_i(t)\) is the reported heading, \(\ell_i(t)\) is the reported lane, and \(b_i(t)\) denotes braking status. The braking indicator is defined as
+
+\begin{equation}
+b_i(t)=
+\begin{cases}
+1, & \text{vehicle braking},\\
+0, & \text{otherwise}.
+\end{cases}
+\label{eq:braking_status}
+\end{equation}
+
+The UAV that receives \(\mathcal{B}_i(t)\) compares the current beacon with previously observed beacons from the same vehicle. This comparison produces physical and temporal consistency evidence. For example, large position displacement over a short time interval, mismatch between speed and displacement, abnormal timestamp progression, or inconsistent lane behavior can indicate falsification.
+
+\subsection{Multi-UAV Edge Observation Model}
+\label{subsec:multi_uav_observation}
+
+Let \(z_i(t)\in\mathcal{U}\) denote the UAV zone observing vehicle \(v_i\) at time \(t\). As vehicles move along the road, \(z_i(t)\) may change. Therefore, the observation sequence of a vehicle may be split across multiple UAVs:
+
+\begin{equation}
+\mathcal{B}_i = \mathcal{B}_i^{u_1} \cup \mathcal{B}_i^{u_2} \cup \cdots \cup \mathcal{B}_i^{u_M},
+\label{eq:fragmented_observation}
+\end{equation}
+
+where \(\mathcal{B}_i^{u_j}\) is the set of beacons from vehicle \(v_i\) observed by UAV \(u_j\). A purely local detector that does not share state across UAVs can only use \(\mathcal{B}_i^{u_j}\) within its own segment. This causes evidence fragmentation because suspicious behavior may be distributed across UAV zones.
+
+This fragmentation is central to the problem studied in this work. When distributed UAV monitors operate without trust-state continuity, observations collected across handover boundaries are evaluated as disconnected evidence segments. The proposed framework addresses this limitation through mobility-aware trust-state transfer.
+
+\subsection{Handover Model}
+\label{subsec:handover_model}
+
+A handover event occurs when a vehicle moves from the coverage region of one UAV edge node to another. Let \(u_a\) be the source UAV and \(u_b\) be the target UAV. A handover event for vehicle \(v_i\) is represented as
+
+\begin{equation}
+h_i: u_a \rightarrow u_b.
+\label{eq:handover_event}
+\end{equation}
+
+During handover, the source UAV may have accumulated trust evidence about \(v_i\). If this evidence is discarded, the target UAV must restart observation from an uninformed state. To avoid this, the proposed framework transfers the vehicle trust state from \(u_a\) to \(u_b\). However, the transferred state is discounted to reduce over-dependence on stale or context-specific evidence.
+
+Let \(T_i^{u_a}(t)\) denote the trust state of vehicle \(v_i\) at the source UAV before handover. The target UAV initializes its trust state using a discounted version of the source state:
+
+\begin{equation}
+T_i^{u_b}(t^+) = \mathcal{D}_{\delta}\left(T_i^{u_a}(t^-)\right),
+\label{eq:handover_discount}
+\end{equation}
+
+where \(\mathcal{D}_{\delta}(\cdot)\) is the handover trust-discounting function and \(\delta\) is the discount factor. In this work, \(\delta=0.30\) is used as the final conservative setting based on sensitivity analysis.
+
+\subsection{Threat Model}
+\label{subsec:threat_model}
+
+The network contains both honest and malicious vehicles. Honest vehicles report their mobility state consistently, subject only to normal communication effects such as packet loss or reception variation. Malicious vehicles falsify one or more beacon fields to mislead the trust system. The attacker may manipulate timestamp, position, speed, or other mobility-related attributes.
+
+The attacker is assumed to control only its own transmitted beacon content. It does not compromise the UAV edge nodes, the edge--cloud coordinator, or the trust-management software. The attacker also does not directly alter the raw observations received from honest vehicles. This threat model focuses on falsified-information attacks at the vehicular message level rather than infrastructure compromise.
+
+Let \(\mathcal{M}\subset\mathcal{V}\) denote the set of malicious vehicles and \(\mathcal{H}=\mathcal{V}\setminus\mathcal{M}\) denote the set of honest vehicles. The trust framework must demote vehicles in \(\mathcal{M}\) while preserving vehicles in \(\mathcal{H}\).
+
+\subsection{Trust State and Decision Model}
+\label{subsec:trust_decision_model}
+
+For each vehicle \(v_i\), the system maintains a trust state \(T_i(t)\). This state summarizes accumulated evidence, Bayesian trust parameters, warning history, CUSUM suspicion score, handover status, and confirmation information. Based on this state, the framework outputs one of three trust actions:
+
+\begin{equation}
+a_i(t) \in \{\text{SAFE}, \text{WARN}, \text{BAN}\}.
+\label{eq:trust_action}
+\end{equation}
+
+A \(\text{SAFE}\) decision indicates normal behavior. A \(\text{WARN}\) decision indicates suspicious behavior that requires continued monitoring. A \(\text{BAN}\) decision indicates sufficiently confirmed malicious behavior. In this work, BAN corresponds to the final demotion action recorded as \texttt{demoted=YES} in the evaluation logs.
+
+The use of WARN before BAN is intentional. It prevents isolated or weak evidence from immediately causing punishment and allows the system to accumulate stronger evidence before final demotion.
+
+\subsection{Problem Definition}
+\label{subsec:problem_definition}
+
+The objective is to design a mobility-aware multi-UAV trust-management framework that detects malicious vehicles while minimizing false demotion of honest vehicles under handover and packet-loss conditions.
+
+The detection objective is to maximize the detection rate
+
+\begin{equation}
+DR = \frac{TP}{TP+FN}\times 100,
+\label{eq:problem_dr}
+\end{equation}
+
+where \(TP\) is the number of malicious vehicles correctly demoted and \(FN\) is the number of malicious vehicles that remain undemoted.
+
+The safety objective is to minimize the false-positive rate
+
+\begin{equation}
+FPR = \frac{FP}{FP+TN}\times 100,
+\label{eq:problem_fpr}
+\end{equation}
+
+where \(FP\) is the number of honest vehicles falsely demoted and \(TN\) is the number of honest vehicles correctly preserved.
+
+Thus, the problem can be stated as follows:
+
+\begin{equation}
+\max DR \quad \text{subject to} \quad FPR \approx 0,
+\label{eq:objective}
+\end{equation}
+
+under mobility-induced evidence fragmentation, UAV handover, packet loss, and heterogeneous falsification attacks.
+
+This formulation emphasizes that the proposed system is not merely a local physical anomaly detector. It is a distributed trust-management framework that must accumulate evidence over time, transfer trust across UAV zones, confirm suspicious behavior conservatively, and avoid unsafe demotion of honest vehicles.
+
+\section{Proposed Mobility-Aware Trust Management Framework}
+\label{sec:proposed_framework}
+
+\IfFileExists{figures/fig1_architecture.png}{%
+\begin{figure*}[t]
+\centering
+\includegraphics[width=\linewidth]{figures/fig1_architecture.png}
+\caption{Mobility-aware multi-UAV edge--cloud trust-management architecture.
+The cloud layer passively aggregates UAV and edge outputs for long-term
+analysis and model updates; active per-vehicle trust decisions are handled by
+edge and coordinator layers.}
+\label{fig:architecture}
+\end{figure*}%
+}{}
+
+\subsection{Overview}
+\label{subsec:framework_overview}
+
+The proposed framework is designed to detect falsified vehicular beacons in a mobile multi-UAV edge environment while avoiding unsafe demotion of honest vehicles. The framework differs from a conventional physical-consistency detector in two ways. First, it does not make final decisions from isolated beacon-level violations. Instead, it accumulates evidence over time using Bayesian trust updates and guarded CUSUM-based suspicion tracking. Second, it preserves trust-state continuity across UAV handover events by transferring discounted trust state from the source UAV to the target UAV.
+
+For each received beacon, the UAV edge node performs five operations: physical-consistency evidence extraction, Bayesian trust update, guarded temporal accumulation, confirmation-based decision making, and handover-aware trust transfer. The final action for a vehicle is selected from \(\{\text{SAFE}, \text{WARN}, \text{BAN}\}\). A WARN action represents suspicious but not yet sufficiently confirmed behavior, while a BAN action represents confirmed malicious behavior.
+
+Let \(T_i(t)\) denote the trust state of vehicle \(v_i\) at time \(t\). The trust state is represented as
+
+\begin{equation}
+T_i(t)=\{\alpha_i(t),\beta_i(t),C_i(t),n_i(t),w_i(t),z_i(t)\},
+\label{eq:trust_state}
+\end{equation}
+
+where \(\alpha_i(t)\) and \(\beta_i(t)\) denote benign and suspicious Bayesian evidence supports, respectively, \(C_i(t)\) is the guarded CUSUM score, \(n_i(t)\) is the number of valid observations, \(w_i(t)\) is the warning history, and \(z_i(t)\) is the current UAV zone.
+
+\subsection{Cloud Intelligence Layer}
+\label{subsec:cloud_intelligence}
+
+The proposed multi-UAV edge--cloud trust-management framework includes a
+cloud-based intelligence layer that functions as a \emph{global aggregator
+and policy repository}. In the current experiments, the cloud passively
+collects UAV-local trust states, historical observations, and aggregated
+metrics from multiple edge nodes. It disseminates global policies and
+situational awareness information but \textbf{does not directly influence
+per-UAV real-time trust computations}.
+
+This design ensures that all measured detection rates, false-positive rates,
+and ablation outcomes reflect UAV-edge intelligence. The cloud layer is
+designed to support future extensions, where it may actively adjust trust
+policies, perform global anomaly detection, or optimize cross-UAV handover
+decisions in real-time.
+
+\textbf{Note:} In all experimental results reported in this paper, the cloud
+operates as a passive aggregator. Its potential active role is reserved for
+future work and not included in the quantitative evaluations.
+
+\subsection{Physical-Consistency Evidence Extraction}
+\label{subsec:physical_evidence}
+
+For each received beacon \(\mathcal{B}_i(t)\), the edge node extracts physical and temporal consistency evidence by comparing the reported state with the previously observed state of the same vehicle. The evidence vector is defined as
+
+\begin{equation}
+\mathbf{e}_i(t)=
+[e_i^{\tau}(t), e_i^{p}(t), e_i^{s}(t), e_i^{\theta}(t), e_i^{\ell}(t)],
+\label{eq:evidence_vector}
+\end{equation}
+
+where \(e_i^{\tau}(t)\), \(e_i^{p}(t)\), \(e_i^{s}(t)\), \(e_i^{\theta}(t)\), and \(e_i^{\ell}(t)\) represent timestamp, position, speed, heading, and lane-consistency evidence, respectively.
+
+The position residual is computed by comparing the reported displacement with the displacement expected from the reported speed and elapsed time. Let \(\Delta t=\tau_i(t)-\tau_i(t-1)\) and
+
+\begin{equation}
+d_i(t)=\sqrt{(x_i(t)-x_i(t-1))^2+(y_i(t)-y_i(t-1))^2}.
+\label{eq:observed_displacement}
+\end{equation}
+
+A position-consistency residual can be expressed as
+
+\begin{equation}
+r_i^{p}(t)=\left|d_i(t)-s_i(t)\Delta t\right|.
+\label{eq:position_residual}
+\end{equation}
+
+Similarly, a speed-consistency residual is obtained by comparing the reported speed with the speed implied by successive positions:
+
+\begin{equation}
+r_i^{s}(t)=\left|s_i(t)-\frac{d_i(t)}{\Delta t}\right|.
+\label{eq:speed_residual}
+\end{equation}
+
+A beacon is considered suspicious when one or more residuals exceed their corresponding tolerance thresholds. The resulting evidence is not directly converted into a final BAN decision. Instead, it is passed to the Bayesian and CUSUM modules for guarded accumulation.
+
+\subsection{Bayesian Trust Update}
+\label{subsec:bayesian_update}
+
+The Bayesian trust module accumulates benign and suspicious evidence for each
+vehicle. The trust state is modeled using two evidence counters:
+\(\alpha_i(t)\) for benign support and \(\beta_i(t)\) for suspicious support,
+following Bayesian reputation-based trust modeling
+principles~\cite{josang2002}. Given the extracted evidence vector
+\(\mathbf{e}_i(t)\), the edge node computes a suspicious-evidence score
+\(q_i(t)\in[0,1]\). A larger value of \(q_i(t)\) indicates stronger evidence
+of falsification.
+
+The Bayesian evidence update is defined as
+
+\begin{equation}
+\alpha_i(t)=\alpha_i(t-1)+\left(1-q_i(t)\right),
+\label{eq:alpha_update}
+\end{equation}
+
+\begin{equation}
+\beta_i(t)=\beta_i(t-1)+q_i(t).
+\label{eq:beta_update}
+\end{equation}
+
+The posterior maliciousness estimate is then computed as
+
+\begin{equation}
+P_i^{m}(t)=\frac{\beta_i(t)}{\alpha_i(t)+\beta_i(t)}.
+\label{eq:malicious_probability}
+\end{equation}
+
+This formulation allows the framework to avoid overreacting to a single suspicious beacon. A vehicle becomes increasingly suspicious only when suspicious evidence accumulates over time.
+
+Algorithm~\ref{alg:evidence_bayesian} summarizes the per-beacon evidence extraction and Bayesian trust update.
+
+\begin{algorithm}[!t]
+\caption{Physical-Consistency Evidence Extraction and Bayesian Trust Update}
+\label{alg:evidence_bayesian}
+\begin{algorithmic}[1]
+\REQUIRE Beacon $\mathcal{B}_i(t)$, previous state $(x_i(t-1),y_i(t-1),s_i(t-1))$, trust state $(\alpha_i(t-1),\beta_i(t-1))$
+\STATE Compute $\Delta t \leftarrow \tau_i(t)-\tau_i(t-1)$
+\STATE Compute observed displacement $d_i(t)$ \COMMENT{Eq.~\eqref{eq:observed_displacement}}
+\STATE Compute position residual $r_i^{p}(t)$ \COMMENT{Eq.~\eqref{eq:position_residual}}
+\STATE Compute speed residual $r_i^{s}(t)$ \COMMENT{Eq.~\eqref{eq:speed_residual}}
+\STATE Assemble evidence vector $\mathbf{e}_i(t) \leftarrow [e_i^{\tau}(t),e_i^{p}(t),e_i^{s}(t),e_i^{\theta}(t),e_i^{\ell}(t)]$
+\STATE Derive suspicious-evidence score $q_i(t)\in[0,1]$ from $\mathbf{e}_i(t)$
+\STATE Update $\alpha_i(t) \leftarrow \alpha_i(t-1)+(1-q_i(t))$ \COMMENT{Eq.~\eqref{eq:alpha_update}}
+\STATE Update $\beta_i(t) \leftarrow \beta_i(t-1)+q_i(t)$ \COMMENT{Eq.~\eqref{eq:beta_update}}
+\STATE Compute $P_i^{m}(t) \leftarrow \beta_i(t)/(\alpha_i(t)+\beta_i(t))$
+\RETURN $q_i(t)$, $P_i^{m}(t)$
+\end{algorithmic}
+\end{algorithm}
+
+\subsection{Guarded CUSUM-Based Suspicion Accumulation}
+\label{subsec:cusum_accumulation}
+
+To address the limitation of isolated beacon decisions, the proposed
+framework incorporates guarded CUSUM-based temporal evidence accumulation.
+Instead of immediately classifying a vehicle based on a single suspicious
+beacon, the mechanism accumulates consecutive suspicious observations over
+time.
+
+For vehicle \(v_i\), the guarded CUSUM score is updated as
+
+\begin{equation}
+C_i(t)=\max\left(0, C_i(t-1)+q_i(t)-\nu\right),
+\label{eq:cusum_update}
+\end{equation}
+
+where \(\nu\) is a drift parameter that prevents normal small variations from accumulating indefinitely. A CUSUM alert is generated when
+
+\begin{equation}
+C_i(t)\geq H,
+\label{eq:cusum_alert}
+\end{equation}
+
+where \(H\) is the CUSUM threshold.
+
+Fig.~\ref{fig:cusum} illustrates the guarded CUSUM temporal evidence
+accumulation mechanism. Consecutive suspicious observations progressively
+increase the cumulative suspicion score until the adaptive threshold is
+reached.
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=\linewidth]{figures/fig5_cusum_ablation.pdf}
+\caption{Conceptual representation of guarded CUSUM temporal evidence
+accumulation. The figure explains how consecutive suspicious observations
+increase cumulative suspicion until the adaptive decision threshold is
+reached.}
+\label{fig:cusum}
+\end{figure}
+
+The CUSUM module is guarded by minimum-observation and evidence-strength constraints. Therefore, a high CUSUM score alone is not sufficient for final demotion. It must be supported by sufficient observations and confirmation evidence. This design allows the framework to benefit from temporal accumulation while maintaining safety against false positives.
+
+\subsection{Bayesian Conservative Confirmation Gate}
+\label{subsec:bayesian_conservative_gate}
+
+The Bayesian conservative confirmation gate combines probabilistic trust
+estimation with safety-oriented decision rules to prevent premature trust
+enforcement. The gate requires sufficient accumulated evidence before a
+vehicle is classified as malicious.
+
+The conservative confirmation variable $G_i(t)$ represents additional safety
+validation before final trust enforcement. It verifies whether sufficient
+observation history and decision consistency exist for a potential BAN
+action.
+
+Let $h_i(t)\in\{0,1\}$ denote the handover consistency indicator, where
+$h_i(t)=1$ indicates that the transferred trust state satisfies the required
+continuity validation conditions.
+
+\begin{equation}
+G_i(t)=
+\mathbb{I}\left[
+n_i(t)\geq n_{\min}
+\land w_i(t)\geq w_{\min}
+\land h_i(t)=1
+\right]
+\label{eq:conservative_confirmation}
+\end{equation}
+
+where $w_i(t)$ represents accumulated warning history, $w_{\min}$ is the
+minimum warning-history threshold, and $h_i(t)$ represents the handover
+consistency indicator.
+
+A vehicle is considered eligible for BAN only when multiple confirmation
+conditions are satisfied. Let \(\Gamma_i(t)\) denote the confirmation
+function:
+
+\begin{equation}
+\begin{aligned}
+\Gamma_i(t)=\mathbb{I}\bigl[{}
+&P_i^{m}(t)\geq \theta_B \land C_i(t)\geq H\\
+&\land\ G_i(t)=1
+\bigr],
+\end{aligned}
+\label{eq:confirmation_gate}
+\end{equation}
+
+where \(\theta_B\) is the Bayesian BAN threshold and \(G_i(t)\) denotes the
+Bayesian conservative confirmation outcome incorporating observation-count,
+warning-history, and handover-consistency validation. The indicator function
+\(\mathbb{I}[\cdot]\) returns 1 only when all required conditions are
+satisfied.
+
+The role of \(G_i(t)\) is to represent conservative confirmation before final punishment. In practice, this means that a BAN decision must be supported not only by local suspicion but also by stronger decision consistency. If the evidence is suspicious but not sufficiently confirmed, the vehicle is assigned WARN rather than BAN.
+
+Algorithm~\ref{alg:cusum_confirmation} summarizes guarded temporal accumulation and conservative confirmation.
+
+\begin{algorithm}[!t]
+\caption{Guarded CUSUM Accumulation and Conservative Confirmation}
+\label{alg:cusum_confirmation}
+\begin{algorithmic}[1]
+\REQUIRE $q_i(t)$, $P_i^{m}(t)$, $C_i(t-1)$, observation count $n_i(t)$, warning history $w_i(t)$, handover indicator $h_i(t)$
+\STATE Update $C_i(t) \leftarrow \max(0,\, C_i(t-1)+q_i(t)-\nu)$ \COMMENT{Eq.~\eqref{eq:cusum_update}}
+\IF{$C_i(t) \geq H$}
+    \STATE Mark CUSUM alert active
+\ENDIF
+\STATE Compute $G_i(t) \leftarrow \mathbb{I}[n_i(t)\geq n_{\min} \land w_i(t)\geq w_{\min} \land h_i(t)=1]$ \COMMENT{Eq.~\eqref{eq:conservative_confirmation}}
+\STATE Compute $\Gamma_i(t) \leftarrow \mathbb{I}[P_i^{m}(t)\geq\theta_B \land C_i(t)\geq H \land G_i(t)=1]$ \COMMENT{Eq.~\eqref{eq:confirmation_gate}}
+\RETURN $C_i(t)$, $\Gamma_i(t)$
+\end{algorithmic}
+\end{algorithm}
+
+\subsection{Cross-UAV Trust Handover}
+\label{subsec:trust_handover}
+
+When a vehicle moves from one UAV zone to another, the trust evidence accumulated by the source UAV may become unavailable to the target UAV unless explicitly transferred. To prevent this loss of evidence, the proposed framework performs cross-UAV trust handover.
+
+Let \(T_i^{u_a}(t^-)\) be the trust state of vehicle \(v_i\) at the source UAV \(u_a\) immediately before handover, and let \(T_i^{u_b}(t^+)\) be the initialized trust state at the target UAV \(u_b\) immediately after handover. The trust handover operation is defined as
+
+\begin{equation}
+T_i^{u_b}(t^+)=\mathcal{H}\left(T_i^{u_a}(t^-),\delta\right),
+\label{eq:trust_handover}
+\end{equation}
+
+where \(\mathcal{H}(\cdot)\) is the handover function and \(\delta\) is the handover trust-discount parameter.
+
+This mechanism allows the target UAV to continue trust evaluation with awareness of prior suspicious behavior rather than treating post-transition observations as disconnected evidence. This continuity provides substantial benefits when malicious evidence is distributed across UAV zones.
+
+\subsection{Handover Trust Discounting}
+\label{subsec:handover_discounting}
+
+Directly transferring the full trust state may be unsafe because evidence collected in one zone may become stale or context-dependent after handover. Therefore, the proposed framework uses handover trust discounting. The discounted Bayesian evidence is computed as
+
+\begin{equation}
+\alpha_i^{u_b}(t^+) = 1 + \delta\left(\alpha_i^{u_a}(t^-)-1\right),
+\label{eq:discount_alpha}
+\end{equation}
+
+\begin{equation}
+\beta_i^{u_b}(t^+) = 1 + \delta\left(\beta_i^{u_a}(t^-)-1\right),
+\label{eq:discount_beta}
+\end{equation}
+
+where \(\delta\in[0,1]\). A smaller \(\delta\) reduces the influence of previous evidence, while a larger \(\delta\) transfers more history. This discounting prevents stale trust state from dominating future decisions while still preserving useful evidence across UAV boundaries.
+
+The same principle is applied to warning and temporal suspicion history. Therefore, after handover, the target UAV starts with a cautious but informed trust state.
+
+Algorithm~\ref{alg:handover_transfer} summarizes cross-UAV trust handover with discounting.
+
+\begin{algorithm}[!t]
+\caption{Cross-UAV Trust Handover with Discounting}
+\label{alg:handover_transfer}
+\begin{algorithmic}[1]
+\REQUIRE Source trust state $T_i^{u_a}(t^-)=(\alpha_i^{u_a},\beta_i^{u_a},w_i,C_i)$, discount factor $\delta$
+\STATE Detect zone transition $u_a \rightarrow u_b$ for vehicle $v_i$
+\STATE $\alpha_i^{u_b}(t^+) \leftarrow 1+\delta(\alpha_i^{u_a}(t^-)-1)$ \COMMENT{Eq.~\eqref{eq:discount_alpha}}
+\STATE $\beta_i^{u_b}(t^+) \leftarrow 1+\delta(\beta_i^{u_a}(t^-)-1)$ \COMMENT{Eq.~\eqref{eq:discount_beta}}
+\STATE Apply same discount $\delta$ to warning history $w_i$ and CUSUM state $C_i$
+\STATE Set handover consistency indicator $h_i(t) \leftarrow 1$
+\RETURN $T_i^{u_b}(t^+)=(\alpha_i^{u_b},\beta_i^{u_b},w_i^{u_b},C_i^{u_b})$, $h_i(t)$
+\end{algorithmic}
+\end{algorithm}
+
+\subsection{Impact of Handover-Aware Trust-State Continuity}
+
+In highly dynamic UAV-assisted vehicular networks, a vehicle may transition between multiple UAV coverage regions during its communication lifetime. A conventional handover mechanism that initializes trust estimation independently at the newly associated UAV can result in loss of accumulated behavioral evidence and delayed suspicion confirmation. To address this limitation, the proposed framework performs handover-aware trust-state transfer, where decision-relevant trust variables, including Bayesian trust parameters $(\alpha,\beta)$, sequential suspicion statistics $(g^{+},g^{-})$, warning history, and confirmation status, are transferred through the cross-UAV trust-state manager.
+
+Unlike a simple vehicle re-association mechanism, the proposed approach maintains the temporal continuity of trust evaluation while applying a controlled discount factor $\delta$ to accommodate possible changes in observation conditions. This allows the receiving UAV edge node to inherit previously accumulated evidence while preventing excessive confidence propagation from outdated observations.
+
+The effectiveness of trust-state continuity was evaluated using a controlled handover-sensitive ablation experiment. The comparison was performed between the handover-enabled configuration and a configuration where trust-state continuity mechanisms were disabled. The results demonstrate that disabling trust-state continuity significantly reduces the ability of the system to maintain consistent detection decisions after UAV transitions, whereas the proposed cross-UAV trust-state continuity mechanism preserves detection capability without introducing additional false positives.
+
+To further verify that the handover control mechanism remains operational
+after the final implementation updates, an additional five-seed diagnostic
+smoke test was conducted under an ablation-sensitive configuration. Its
+quantitative outcome is reported together with the primary handover
+ablation results in Section~\ref{subsec:handover_results}, rather than
+here, since the methodology and evaluation scale for interpreting it are
+introduced in Section~\ref{sec:experimental_methodology}.
+
+This diagnostic experiment is not used as the primary quantitative evaluation
+of the handover contribution. Instead, its purpose is to confirm that the
+handover control path remains active and that the absence of detection
+differences observed in the final hard-evidence configuration is caused by
+detector saturation rather than an inactive ablation mechanism. The primary
+handover contribution is evaluated using the dedicated 15-seed handover
+ablation experiment reported in Section~\ref{subsec:handover_results}, where cross-UAV trust-state
+continuity is shown to close a bounded, approximately 500\,ms detection
+blind window at the zone-boundary handover without increasing false
+positives.
+
+Furthermore, in the complete robustness evaluation using the final patched configuration, all experiments maintained zero fallback events and zero observed false positives, demonstrating that trust-state transfer operates conservatively and does not compromise safety during mobility-induced UAV transitions.
+
+\subsection{Overlap BAN Guard}
+\label{subsec:overlap_ban_guard}
+
+During UAV overlap or handover regions, a vehicle may be observed under partial or ambiguous context. Weak BAN decisions in such regions can create false demotions, especially when evidence is inherited from another UAV or when packet loss reduces observation continuity. To address this issue, the proposed framework introduces an overlap BAN guard.
+
+Let \(O_i(t)\in\{0,1\}\) indicate whether vehicle \(v_i\) is in an overlap or handover-sensitive region. Let \(P_i^{E}(t)\) denote the edge confidence score and \(P_i^{V}(t)\) denote the hard physical-evidence score. A weak overlap BAN is guarded when
+
+\begin{equation}
+O_i(t)=1
+\land
+P_i^{V}(t)<\theta_V
+\land
+P_i^{E}(t)<\theta_E,
+\label{eq:overlap_guard_condition}
+\end{equation}
+
+where \(\theta_V\) and \(\theta_E\) are the hard-evidence and edge-confidence thresholds, respectively.
+
+When this condition is satisfied, the decision is downgraded from BAN to WARN:
+
+\begin{equation}
+a_i(t)=\text{WARN} \quad \text{instead of} \quad \text{BAN}.
+\label{eq:overlap_guard_action}
+\end{equation}
+
+This mechanism preserves safety by preventing weak overlap-region evidence from causing final demotion. It does not suppress strongly supported BAN decisions, because BAN remains possible when hard physical evidence or sufficient edge confidence is available.
+
+\subsection{Decision Logic}
+\label{subsec:decision_logic}
+
+The final decision combines Bayesian suspicion, guarded CUSUM, confirmation, handover state, and overlap safety. The decision rule is
+
+\begin{equation}
+a_i(t)=
+\begin{cases}
+\text{BAN}, &
+\begin{gathered}
+\text{if } \Gamma_i(t)=1 \text{ and the}\\
+\text{overlap guard is not triggered},
+\end{gathered}\\
+\text{WARN}, &
+\begin{gathered}
+\text{if } P_i^{m}(t)\geq \theta_W\\
+\text{or } C_i(t)>0,
+\end{gathered}\\
+\text{SAFE}, & \text{otherwise},
+\end{cases}
+\label{eq:decision_rule}
+\end{equation}
+
+where \(\theta_W\) is the warning threshold. This rule ensures that suspicious vehicles are monitored early through WARN decisions, but final demotion requires stronger confirmation.
+
+Algorithm~\ref{alg:trust_decision} summarizes the final trust-decision logic.
+
+\begin{algorithm}[!t]
+\caption{Adaptive Trust Enforcement Procedure}
+\label{alg:trust_decision}
+\begin{algorithmic}[1]
+\REQUIRE Beacon evidence $\mathcal{B}_i(t)$
+\FOR{each vehicle $i$}
+    \STATE Evaluate confirmation gate $\Gamma_i(t)$
+    \IF{$\Gamma_i(t) = 1$}
+        \IF{$O_i(t)=1 \land P^V_i(t)<\theta_V \land P^E_i(t)<\theta_E$}
+            \STATE $a_i(t) \leftarrow \text{\text{WARN}}$ \COMMENT{overlap BAN guard}
+        \ELSE
+            \STATE $a_i(t) \leftarrow \text{\text{BAN}}$
+        \ENDIF
+    \ELSIF{$P^m_i(t) \ge \theta_W \lor C_i(t) > 0$}
+        \STATE $a_i(t) \leftarrow \text{\text{WARN}}$
+    \ELSE
+        \STATE $a_i(t) \leftarrow \text{\text{SAFE}}$
+    \ENDIF
+\ENDFOR
+\end{algorithmic}
+\end{algorithm}
+
+\subsection{Design Rationale}
+\label{subsec:design_rationale}
+
+The proposed framework is designed around two constraints: detection effectiveness and safety preservation. Physical-consistency evidence provides immediate indicators of falsified mobility information, but it can be fragmented by handover and packet loss. Bayesian accumulation and guarded CUSUM address this limitation by integrating evidence over time. Cross-UAV trust handover prevents malicious vehicles from escaping suspicion by moving between UAV zones. Handover trust discounting prevents transferred evidence from becoming overly dominant. Finally, the overlap BAN guard protects honest vehicles from weak handover-region decisions.
+
+Together, these mechanisms form a conservative but effective trust-management pipeline. The framework intentionally separates suspicion from punishment: suspicious evidence first produces WARN, while final BAN requires stronger confirmation. This design is particularly important for safety-critical vehicular systems, where false demotion of honest vehicles can reduce system reliability and trustworthiness.
+
+\section{Experimental Methodology}
+\label{sec:experimental_methodology}
+
+\subsection{Experimental Objectives}
+\label{subsec:experimental_objectives}
+
+The experimental evaluation was designed to assess whether the proposed multi-UAV edge--cloud trust framework can detect falsified vehicular messages while maintaining a low false-demotion rate for honest vehicles. The evaluation focuses on four questions. First, it examines whether preserving cross-UAV trust-state continuity improves detection when vehicles move across UAV coverage regions. Second, it evaluates whether guarded temporal evidence accumulation and Bayesian conservative confirmation improve malicious-vehicle demotion without increasing observed false-positive decisions. Third, it tests the robustness of the framework under packet loss, different beacon falsification probabilities, heterogeneous attack types, and increasing vehicle density. Finally, it compares the proposed framework against VeReMi-style physical-consistency baselines to determine whether mobility-aware trust-state continuity provides benefits when evidence is fragmented by handover and communication loss.
+
+Unlike a standalone physical anomaly detector, the proposed framework addresses the broader trust-management problem in a mobile edge environment. Therefore, the evaluation reports not only detection rate, but also false-positive rate, clean-safety behavior, robustness, scalability, runtime overhead, and component-level ablation behavior.
+
+\subsection{Simulation Environment}
+\label{subsec:simulation_environment}
+
+The experiments were conducted using an ns-3.41-based vehicular network simulation environment. The simulated scenario consists of connected vehicles moving through a road segment monitored by UAV-assisted edge nodes. Each vehicle periodically broadcasts mobility and status beacons containing timestamp, position, speed, heading, lane, and braking information. UAV edge nodes receive these beacons and evaluate their consistency using local evidence, trust history, and cloud/coordinator-assisted state transfer.
+
+The system consists of four functional layers: a vehicle layer containing honest and malicious vehicles, a UAV edge layer that performs local trust evaluation, an edge--cloud bridge/coordinator layer that supports inter-zone state exchange, and a cloud layer that assists higher-level trust coordination. The UAV edge nodes generate trust decisions such as \textit{safe}, \textit{warn}, and \textit{ban}.
+
+\subsection{Mobility, Handover, and Communication Model}
+\label{subsec:mobility_handover_model}
+
+The default scenario uses two UAV/edge zones covering adjacent road regions. As vehicles move along the road, they may transition from one UAV coverage zone to another. This transition creates a handover condition in which evidence collected by the previous UAV may be lost if trust state is not transferred. This property is central to the evaluation because a malicious vehicle can exploit zone transitions by spreading suspicious observations across multiple UAV segments.
+
+The proposed framework addresses this issue using cross-UAV trust-state transfer. When a vehicle approaches or enters a new UAV zone, its trust evidence is transferred to the next edge node with handover trust discounting. The discounting mechanism avoids blindly carrying over stale evidence while still preserving useful suspicion history. Packet loss is emulated by dropping a controlled percentage of received telemetry packets. Communication reliability degradation is a critical factor in vehicular networks because packet loss can affect cooperative awareness and safety decisions~\cite{karagiannis2011vehicular}. This allows the evaluation to study the combined effect of handover and incomplete observations.
+
+\subsection{Attack Model}
+\label{subsec:attack_model}
+
+Malicious vehicles falsify one or more fields in their transmitted beacons.
+The complete set of attack-variant experiments is summarized in
+Table~\ref{tab:attack_variants} (Table II). Six attack variants were considered
+to evaluate different evidence channels and adversarial behaviors. These
+attacks include direct falsification of mobility attributes as well as
+stealthier and adaptive behaviors.
+
+The beacon falsification probability was varied to evaluate robustness under
+increasing attack intensity while maintaining the same malicious vehicle
+ratio. A maximum malicious ratio of 70\% was
+selected as a stress-test condition representing a severe compromise
+scenario rather than a normal traffic distribution. This configuration
+intentionally evaluates the resilience of the proposed trust-management
+framework under highly adversarial conditions where maintaining
+safe decisions becomes more challenging.
+
+\begin{table}[!t]
+\centering
+\caption{Attack variants used in the experimental evaluation.}
+\label{tab:attack_variants}
+\begin{tabularx}{\columnwidth}{c l X}
+\toprule
+\textbf{Attack ID} & \textbf{Attack type} & \textbf{Description} \\
+\midrule
+AT0 & Composite & Simultaneous falsification of multiple mobility-related fields. \\
+AT1 & Timestamp-only & Manipulation of temporal information while other fields remain comparatively consistent. \\
+AT2 & GPS-only & Falsification of reported position information. \\
+AT3 & Speed-only & Manipulation of reported vehicle speed. \\
+AT4 & Stealthy & Lower-visibility falsification intended to reduce immediate detectability. \\
+AT5 & Adaptive & Adaptive falsification designed to challenge multi-stage trust confirmation. \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+The attack model is intentionally diverse. Position and speed falsification test physical consistency, timestamp attacks test temporal consistency, while stealthy and adaptive attacks test whether the trust framework can detect malicious behavior that is distributed, delayed, or less directly observable.
+
+\subsection{Proposed Framework Configuration}
+\label{subsec:framework_configuration}
+
+The proposed framework combines physical-consistency evidence, Bayesian trust accumulation, guarded CUSUM, Bayesian conservative confirmation, handover trust transfer, handover trust discounting, and an overlap-region BAN guard. Each incoming beacon is checked for consistency with previous observations. Suspicious evidence first contributes to warning and trust degradation, while final demotion requires stronger confirmation. This conservative design is intended to reduce false demotions caused by transient noise, packet loss, or handover uncertainty.
+
+The main components of the proposed framework are summarized in Table~\ref{tab:framework_components}.
+
+\begin{table}[!t]
+\centering
+\caption{Major components of the proposed trust-management framework.}
+\label{tab:framework_components}
+\begin{tabularx}{\columnwidth}{l X}
+\toprule
+\textbf{Component} & \textbf{Function} \\
+\midrule
+Physical-consistency evidence & Detects infeasible timestamp, speed, position, heading, and lane behavior. \\
+Bayesian trust update & Accumulates evidence over time to update vehicle-level trust state. \\
+Guarded CUSUM & Detects persistent suspicious behavior while enforcing safety constraints. \\
+Bayesian conservative confirmation & Prevents weak or isolated evidence from directly causing demotion. \\
+Trust handover & Transfers vehicle trust state across UAV zones. \\
+Handover trust discounting & Carries prior evidence cautiously after zone transition. \\
+Overlap BAN guard & Prevents weak overlap-region BAN decisions from becoming false demotions. \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+The final patched configuration uses hard physical-evidence support, a tuned speed-consistency tolerance, guarded confirmation, and the overlap BAN guard. This configuration is used for the final attack-variant robustness experiments and safety validation.
+
+\subsection{Simulation Parameters}
+\label{subsec:simulation_parameters}
+
+Table~\ref{tab:parameters} summarizes the principal simulation parameters used
+in the primary evaluation. For scalability experiments, only the vehicle
+population was varied while maintaining the remaining parameters unchanged. The
+default configuration uses 10 vehicles, including seven malicious vehicles
+(70\% malicious vehicle ratio), two UAV edge nodes, and a 50\% beacon
+falsification probability applied to malicious beacon generation. Additional
+experiments vary the beacon falsification probability, packet-loss rate, and
+the number of vehicles.
+
+\begin{table}[!t]
+\caption{Default Primary Evaluation Parameters}
+\label{tab:parameters}
+\centering
+\begin{tabular}{ll}
+\toprule
+Parameter & Value\\
+\midrule
+Default number of vehicles & 10\\
+Number of UAV edge nodes & 2\\
+Simulation duration & 36 s\\
+Malicious vehicle ratio & 70\% (7 of 10 vehicles)\\
+Beacon falsification probability & 50\%\\
+Packet loss range & 0--20\%\\
+Minimum observation threshold ($n_{\min}$) & 3\\
+Minimum warning history threshold ($w_{\min}$) & 2\\
+Bayesian BAN threshold ($\theta_B$) & 0.8\\
+Warning threshold ($\theta_W$) & 0.5\\
+Physical evidence threshold ($\theta_V$) & 0.7\\
+Edge confidence threshold ($\theta_E$) & 0.7\\
+CUSUM drift parameter ($\nu$) & 0.1\\
+CUSUM threshold ($H$) & 0.8\\
+Trust discount factor ($\delta$) & 0.3\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+The default configuration used for the primary evaluation consists of
+10 vehicles, including 7 malicious vehicles and 3 honest vehicles,
+monitored by two UAV edge nodes. This configuration is used for the
+main attack detection, handover ablation, CUSUM ablation, packet-loss,
+and attack-variant experiments.
+
+For the scalability evaluation, the default 10-vehicle configuration was
+used as the reference point, and additional experiments with 20, 30, and
+50 vehicles were conducted while keeping the remaining system parameters
+unchanged. Thus, the complete scalability sweep was
+$N=\{10,20,30,50\}$. These configurations evaluate the impact of increasing
+network density on detection performance and computational overhead.
+
+The evaluation distinguishes between malicious vehicle ratio and beacon
+falsification probability. The malicious vehicle ratio represents the
+fraction of vehicles controlled by attackers, whereas the falsification
+probability represents the likelihood that a malicious vehicle generates
+manipulated beacon messages. Therefore, a 50\% falsification probability
+does not imply that only 50\% of vehicles are malicious. In the default
+scenario, seven out of ten vehicles are malicious, and each malicious
+vehicle falsifies beacon messages with a probability of 50\%.
+
+\subsection{Baseline and Fair Comparison Protocol}
+\label{subsec:baseline_protocol}
+
+The proposed framework is compared with VeReMi-style
+physical-consistency baselines because the objective of this work
+is mobility-aware trust-state continuity rather than standalone message
+classification. Learning-based misbehavior detectors provide
+complementary classification capability but do not directly address
+trust-state preservation during UAV handover. These baselines evaluate
+whether received beacons violate mobility-consistency constraints, such as
+timestamp continuity, position feasibility, speed consistency, and heading
+behavior. The baseline is not treated as a complete trust-management
+architecture. Rather, it represents the physical-evidence component commonly
+used for falsified-message detection.
+
+Two baseline forms are considered. The first is a centralized physical-consistency detector that has access to global vehicle history. This represents an upper-bound physical detector because it does not suffer from local UAV memory fragmentation. The second is a local segment-reset detector, where evidence is reset across contiguous UAV reception segments. This baseline is more relevant to the proposed problem because it reflects a practical UAV-local detector whose evidence can be fragmented by handover.
+
+To ensure fairness, baseline thresholds are selected using clean-safety testing. An aggressive low threshold that produces false positives under clean honest conditions is excluded. The final comparison therefore uses the best clean-safe local segment-reset baseline. This prevents an unfair comparison in which a baseline achieves high detection only by falsely demoting honest vehicles.
+
+\subsection{Experimental Matrix}
+\label{subsec:experimental_matrix}
+
+The experimental campaign is organized into complementary experiment groups, each targeting a different property of the framework. Table~\ref{tab:experimental_matrix} summarizes the purpose of each group.
+
+\begin{table*}[!t]
+\centering
+\caption{Experimental matrix and evaluation purpose.}
+\label{tab:experimental_matrix}
+\begin{tabularx}{\textwidth}{l X}
+\toprule
+\textbf{Experiment group} & \textbf{Purpose} \\
+\midrule
+Clean-safety evaluation & Verifies that honest vehicles are not falsely demoted under benign conditions. \\
+Handover ON/OFF ablation & Isolates the contribution of cross-UAV trust-state transfer. \\
+Guarded CUSUM ON/OFF ablation & Isolates the contribution of temporal anomaly accumulation. \\
+HTD sensitivity & Evaluates the effect of different handover trust-discount values. \\
+Beacon falsification robustness & Tests performance under different beacon falsification probabilities and adversarial intensities. \\
+Packet-loss robustness & Tests robustness under incomplete communication. \\
+Scalability evaluation & Studies detection and safety as the number of vehicles increases. Vehicle densities evaluated: $N=\{10,20,30,50\}$. \\
+Runtime overhead & Measures computational growth with network density. \\
+VeReMi-style baseline comparison & Compares the proposed framework with centralized and local physical-consistency baselines. \\
+Attack-variant robustness & Evaluates six attack types under multiple packet-loss settings. \\
+Overlap BAN guard ablation & Tests whether the overlap guard reduces false demotion without reducing detection. \\
+Final-code consistency rerun & Confirms that the final patched implementation runs stably across core scenarios. \\
+Patched-code diagnostic smoke test & Confirms that ablation controls remain active under an ablation-sensitive configuration. \\
+\bottomrule
+\end{tabularx}
+\end{table*}
+
+The main experiments use 15 seeds. The diagnostic smoke test uses five seeds and is not used as a primary performance result. Its purpose is limited to confirming that the patched implementation still produces ON/OFF separation when the scenario is not saturated by hard physical evidence.
+
+\subsection{Experimental Repetition and Evaluation Scale}
+\label{subsec:experiment_scale}
+
+To ensure statistical reliability and reduce the influence of stochastic
+mobility, communication, and attack-generation variations, all primary
+experiments were executed using 15 independent random seeds. Each seed
+corresponds to a complete simulation run with independently generated
+vehicle behaviors, communication events, and attacker activities.
+
+The evaluation campaign consisted of multiple experiment groups including
+baseline comparison, handover continuity ablation, guarded CUSUM ablation,
+packet-loss robustness analysis, attack-variant evaluation, scalability
+assessment, and overlap-region protection analysis. Therefore, the
+reported results are obtained from repeated long-duration simulations
+rather than single-run observations.
+
+All simulation outputs were automatically collected from execution logs,
+validated, and converted into locked CSV summaries. These locked result
+files serve as the single source of truth for all quantitative tables
+and figures reported in this paper.
+
+The experiment groups and validation coverage are detailed in
+Table~\ref{tab:experiment_summary} (Table VI).
+
+\begin{table}[!t]
+\caption{Summary of Experimental Campaign}
+\label{tab:experiment_summary}
+\centering
+\begin{tabularx}{\columnwidth}{@{}>{\raggedright\arraybackslash}p{0.31\columnwidth} c X@{}}
+\toprule
+\textbf{Experiment Group} & \textbf{Seeds} & \textbf{Purpose}\\
+\midrule
+Primary detection evaluation & 15 & Overall detection performance\\
+Handover ablation & 15 & Trust-state continuity impact\\
+CUSUM ablation & 15 & Temporal verification contribution\\
+Packet-loss evaluation & 15 & Communication robustness\\
+Attack variants & 15 & Attack resilience analysis\\
+Scalability study & 15 & Density and runtime evaluation\\
+Overlap protection & 15 & False-positive safety validation\\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\subsection{Evaluation Metrics}
+\label{subsec:evaluation_metrics}
+
+The primary detection metric is detection rate (DR), defined as
+
+\begin{equation}
+DR = \frac{TP}{TP+FN} \times 100,
+\label{eq:dr}
+\end{equation}
+
+where $TP$ is the number of malicious vehicles correctly demoted and $FN$ is the number of malicious vehicles not demoted.
+
+The primary safety metric is false-positive rate (FPR), defined as
+
+\begin{equation}
+FPR = \frac{FP}{FP+TN} \times 100,
+\label{eq:fpr}
+\end{equation}
+
+where $FP$ is the number of honest vehicles falsely demoted and $TN$ is the number of honest vehicles correctly preserved.
+
+A malicious vehicle is counted as detected when its final evaluation log
+reports \texttt{demoted=YES}. An honest vehicle with \texttt{demoted=YES} is
+counted as a false positive. In addition to DR and FPR, the evaluation reports
+pooled counts, per-seed mean and standard deviation, confidence intervals where
+applicable, fallback count, and runtime overhead. False-positive behavior is
+treated as a first-class metric because false demotion of honest vehicles can
+degrade the safety and reliability of cooperative vehicular systems.
+
+\subsection{Statistical Analysis and Reproducibility}
+\label{subsec:statistical_analysis}
+
+For primary experiments, results are aggregated over 15 independent random seeds. Both pooled statistics and per-seed statistics are reported. Pooled statistics reflect the total number of detected malicious vehicles and falsely demoted honest vehicles across all seeds. Per-seed statistics capture variability across randomized simulation runs.
+
+For baseline comparison, paired statistical tests and confidence intervals are used where appropriate. In particular, paired detection differences are analyzed using seed-level comparisons, and detection disagreements between the proposed framework and the local segment-reset baseline are assessed using exact paired tests. This allows the comparison to distinguish between numerical improvement and statistically supported improvement.
+
+All final experiment outputs reported in this paper are generated from locked structured CSV files and are associated with raw logs and checksum records. Each reported table is traceable to a locked result file. This locking procedure reduces ambiguity between exploratory runs, diagnostic runs, and final reported results.
+
+\subsection{Treatment of Ablations and Final-Code Consistency}
+\label{subsec:ablation_treatment}
+
+The evaluation distinguishes between dedicated component ablations and final-code consistency checks. Dedicated handover and CUSUM ablations are used to isolate the contribution of each mechanism. These ablations are performed under configurations that expose the effect of removing the component under study.
+
+To verify that the ablation isolates trust-state continuity rather than
+vehicle mobility, simulation traces were inspected after execution. The
+handover-disabled configuration produced explicit Z1-to-Z2 cold-start
+events while preserving vehicle transitions. Across the evaluated runs,
+145 cold-start transition events were recorded, confirming that the
+ablation removes inherited trust information rather than suppressing UAV
+association changes.
+
+The final patched implementation introduces stronger hard-evidence support and the overlap BAN guard. Under this final hard-evidence configuration, the base adaptive scenario can exhibit a ceiling effect: physical evidence alone may be sufficient to detect nearly all malicious vehicles, so disabling handover or CUSUM may not reduce detection. Therefore, the final-code consistency rerun is not used as the main handover or CUSUM ablation. Instead, it is used to verify implementation stability, clean safety, and absence of fallback behavior.
+
+To confirm that the ON/OFF controls remain active in the patched code, an additional five-seed diagnostic smoke test is conducted under an ablation-sensitive configuration. This smoke test restores the expected ON/OFF separation and confirms that the no-difference behavior in the final hard-evidence rerun is due to detector saturation rather than inactive ablation controls.
+
+\subsection{Evaluation Logic}
+\label{subsec:evaluation_logic}
+
+The evaluation follows a layered methodology. First, clean-safety experiments verify that the system does not demote honest vehicles in benign conditions. Second, dedicated ablation experiments isolate the effects of handover and guarded CUSUM. Third, packet-loss, beacon-falsification-probability, attack-variant, and scalability experiments evaluate robustness under increasingly challenging conditions. Fourth, the proposed framework is compared against a clean-safe local segment-reset VeReMi-style baseline to determine the value of mobility-aware trust-state continuity. Finally, overlap-guard and final-code smoke tests verify that the final patched implementation improves safety and remains operationally stable.
+
+This methodology supports the central claim that the proposed framework is not merely a physical anomaly detector. It is a mobility-aware multi-UAV trust-management system that accumulates, transfers, confirms, and enforces trust decisions under fragmented and lossy observations.
+
+\FloatBarrier
+\section{Experimental Results and Discussion}
+\label{sec:results}
+
+\subsection{Experimental Evaluation Overview}
+
+To comprehensively evaluate the proposed multi-UAV trust management
+framework, experiments were conducted across multiple dimensions including
+trust-state handover continuity, temporal evidence accumulation, adversarial
+robustness, communication degradation, scalability, and baseline comparison.
+All major evaluations were performed using 15 independent random seeds to
+capture stochastic variations.
+
+Fig.~\ref{fig:validation_matrix} summarizes the experimental
+coverage considered in this study. The evaluation includes controlled
+ablations to isolate individual framework components, robustness analysis
+under varying attack and communication conditions, scalability analysis with
+increasing vehicle density, and comparison against the VeReMi baseline.
+
+This comprehensive evaluation design ensures that the effectiveness of the
+proposed framework is assessed not only under ideal operating conditions but
+also under realistic mobility, attack, and communication challenges.
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=\linewidth]{figures/fig3_experimental_validation_matrix.pdf}
+\caption{Experimental validation coverage of the proposed framework.
+The evaluation includes component ablations, attack robustness analysis,
+communication degradation scenarios, scalability assessment, and baseline
+comparison.}
+\label{fig:validation_matrix}
+\end{figure}
+
+%==========================================================
+\subsection{Clean Safety Validation}
+\label{subsec:safety_results}
+
+The clean-safety evaluation was performed using an all-honest network
+configuration to verify that legitimate vehicles are not incorrectly demoted.
+The clean scenario contains ten honest vehicles evaluated over 15 independent
+simulation seeds, resulting in
+$N_h^{\mathrm{clean}}=150$ honest vehicle decisions.
+
+This differs from the attack scenarios, where the default 70\% malicious
+vehicle ratio leaves three honest vehicles per simulation run. Therefore,
+attack experiments contain
+$N_h^{\mathrm{cfg}}=45$ honest vehicle decisions per configuration
+($3\times15$).
+
+The proposed framework produced zero observed false positives in the
+clean-safety evaluation. No trust-state fallback events were observed,
+demonstrating that the proposed evidence accumulation and enforcement
+mechanisms do not introduce unnecessary penalties during normal operation.
+
+Considering the three packet-loss robustness configurations
+(0\%, 10\%, and 20\%), a total of
+$N_h^{\mathrm{pool}}=135$ honest vehicle decisions were analyzed
+(3 honest vehicles $\times$ 15 seeds $\times$ 3 packet-loss
+conditions).
+
+For individual experimental configurations, the number of evaluated
+honest vehicle decisions is denoted as $N_h^{\mathrm{cfg}}=45$,
+corresponding to 3 honest vehicles evaluated over 15 independent
+simulation seeds. The notation $N_h^{\mathrm{pool}}$ is used for pooled
+multi-configuration safety analysis, whereas $N_h^{\mathrm{cfg}}$ is used
+for configuration-specific false-positive calculations.
+
+With zero observed false positives across the pooled sample, the
+approximate 95\% upper confidence bound is estimated using the
+rule-of-three approximation:
+
+\begin{equation}
+FPR_{\mathrm{upper}}
+\approx
+\frac{3}{N_h^{\mathrm{pool}}}
+=
+\frac{3}{135}
+\approx 2.22\%.
+\label{eq:fpr_upper_rule_three}
+\end{equation}
+
+Although no false positives were observed in the evaluated samples, the
+approximate 95\% upper confidence bound for the false-positive rate is 2.22\%
+for the pooled sample $N_h^{\mathrm{pool}}=135$. For an individual
+configuration with $N_h^{\mathrm{cfg}}=45$, the corresponding rule-of-three
+upper bound is approximately 6.67\%.
+
+This result is particularly important because aggressive anomaly detectors
+often achieve high detection rates by sacrificing legitimate vehicle
+availability. In contrast, the proposed approach maintains conservative
+decision-making by requiring accumulated evidence before trust degradation
+and enforcement actions.
+
+%==========================================================
+\subsection{Impact of Trust-State Handover Continuity}
+\label{subsec:handover_results}
+
+The effectiveness of trust-state continuity during UAV handover was
+evaluated by comparing the proposed handover-enabled configuration with a
+cold-start configuration where the receiving UAV initializes trust
+estimation without inherited evidence. The original evaluation used a
+fixed global attack window ($\mathrm{AttackStartX}{=}560$--$640\,\mathrm{m}$)
+whose alignment with individual vehicles' handover-boundary crossings was
+not controlled, so it reported a single pooled contrast rather than
+characterizing the ablation as a function of observation time. We replace
+that evaluation with a crossing-relative construction in which each
+malicious vehicle's attack window is anchored to its own predicted
+zone-boundary crossing instant
+($\mathrm{AttackCrossingOffsetSec}{=}{-}1.5\,\mathrm{s}$), which guarantees
+non-trivial, unconfirmed evidence at the crossing instant by construction
+rather than by chance, and sweeps the post-crossing observation runway
+$\tau$ available to the detector before a verdict is read. The evaluation
+was performed using 15 independent simulation seeds per $\tau$ while
+maintaining identical mobility and attack conditions ($n{=}75$
+malicious-vehicle observations per cell: 15 seeds $\times$ 5 malicious
+vehicles).
+
+The detailed numerical results are reported in Table~\ref{tab:handover},
+while Fig.~\ref{fig:handover_continuity} plots detection rate against
+runway $\tau$ for both configurations. The continuity-enabled configuration
+is essentially insensitive to $\tau$, remaining at $94.7$--$97.3\%$
+throughout the swept range. The cold-start configuration, by contrast,
+rises monotonically from $0.0\%$ at $\tau{=}1.0\,\mathrm{s}$ to $97.3\%$ at
+$\tau{=}1.5\,\mathrm{s}$ -- statistically indistinguishable from the
+continuity-enabled configuration once $1.5\,\mathrm{s}$ of runway is
+available ($0/15$ seeds continuity-enabled $>$ cold-start, all 15 tied).
+
+\begin{table}[!t]
+\caption{Detection Rate vs.\ Post-Crossing Observation Runway $\tau$:
+Trust-State Continuity On vs.\ Off ($n=75$/cell, 15 seeds)}
+\label{tab:handover}
+\centering
+\footnotesize
+\begin{tabular}{lccc}
+\toprule
+\textbf{Runway $\tau$ (s)} & \textbf{Continuity On DR (\%)} & \textbf{Continuity Off DR (\%)} & \textbf{Gap (pts)} \\
+\midrule
+1.0 & 94.7 & 0.0  & 94.7 \\
+1.1 & 94.7 & 24.0 & 70.7 \\
+1.2 & 94.7 & 32.0 & 62.7 \\
+1.3 & 94.7 & 48.0 & 46.7 \\
+1.4 & 94.7 & 69.3 & 25.3 \\
+1.5 & 97.3 & 97.3 & 0.0  \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=\linewidth]{figures/fig4_handover_continuity.pdf}
+\caption{Detection rate as a function of post-crossing observation runway
+$\tau$, trust-state continuity on vs.\ off. Continuity closes a bounded,
+approximately 500\,ms vulnerability window at the zone-boundary reset; the
+two configurations converge once $\tau \gtrsim 1.5\,\mathrm{s}$.}
+\label{fig:handover_continuity}
+\end{figure}
+
+Across all six $	au$ values, both configurations maintain a /usr/bin/bash.00\%$
+false-positive rate (0/75 honest vehicles falsely demoted per cell, 15
+seeds), consistent with the zero-FPR behavior reported throughout the
+evaluation; this column is omitted from Table~
+ef{tab:handover} since
+it does not vary across $	au$ or configuration.
+
+\paragraph{This is not a universal detection-rate claim.} The
+continuity mechanism closes a \emph{bounded, approximately 500\,ms}
+vulnerability window immediately following a zone-boundary handover; it
+does not confer an unconditional detection advantage. A car-level
+diagnostic, $\mathrm{mid\_det\_frac}$ -- the fraction of malicious vehicles
+carrying non-trivial, unconfirmed ban evidence
+($\mathrm{banStreak}_{\text{at crossing}} \geq 1$) at the instant of their
+own crossing -- separates two effects the pooled DR curve alone conflates.
+This fraction is saturated and \emph{constant} across every $\tau$ tested:
+$2.7\%$ under continuity, $97.3\%$ under cold-start, identically at
+$\tau = 1.0, 1.1, \ldots, 1.5\,\mathrm{s}$. That is, whether a vehicle is
+caught with partial, unconfirmed evidence pending at the crossing boundary
+is fixed by the continuity/cold-start branch alone and does not depend on
+runway length. What does depend on runway length -- and what produces the
+entire detection-rate ramp in Table~\ref{tab:handover} -- is how long the
+confirmation gate takes to convict from that pending evidence once runway
+is available: the cold-start reset discards accumulated trust state at the
+zone boundary ($\beta:4.0\rightarrow1.0$,
+$\mathrm{obsCount}\rightarrow0$), and the detector must re-accumulate
+sufficient fresh evidence, post-reset, to cross the confirmation threshold
+again. Evidence \emph{presence} at the boundary is fixed by mode;
+conviction \emph{latency} from that evidence is what continuity buys, and
+it is bounded rather than unlimited -- worth approximately one second of
+head start rather than a permanent detection deficit for the cold-start
+condition.
+
+Furthermore, in the complete robustness evaluation using the final patched
+configuration, all experiments maintained zero fallback events and zero
+observed false positives, demonstrating that trust-state transfer operates
+conservatively and does not compromise safety during mobility-induced UAV
+transitions.
+
+A separate five-seed diagnostic smoke test, run under the final patched
+(hard-evidence) configuration specifically to confirm that the ablation
+control path itself remains active post-patch, corroborates this:
+continuity-enabled achieved $37.14\%$ detection versus $0\%$ with
+continuity disabled, both at $0\%$ FPR. This diagnostic is not the
+primary quantitative result for this ablation -- Table~\ref{tab:handover}
+above is -- because under the final hard-evidence configuration, detector
+saturation can otherwise mask real ON/OFF differences; the smoke test's
+non-zero gap confirms the control path is genuinely active rather than
+silently disabled.
+
+The sensitivity analysis in Table~\ref{tab:htd} evaluates how the handover
+trust-discount factor $\delta$ affects evidence retention and safety. Under
+the final hard-evidence configuration, detection rate is insensitive to
+$\delta$ across the full zero-FPR range: $\delta \in [0.1, 0.7]$ all achieve
+the same $96.19\%$ detection rate with zero false positives. $\delta=1.0$
+achieves the same detection rate but introduces one false demotion
+($\mathrm{FPR}=2.22\%$). The selected value, $\delta=0.3$, was retained as a
+balanced mid-range setting among the equally-performing zero-FPR
+configurations, rather than for a detection-rate advantage.
+
+\begin{table}[!t]
+\caption{Sensitivity analysis of handover trust discount factor $\delta$.
+FPR values are computed using $N_h^{\mathrm{cfg}}=45$ honest vehicle decisions
+per configuration (3 honest vehicles $\times$ 15 simulation seeds).}
+\label{tab:htd}
+\centering
+\renewcommand{\arraystretch}{1.15}
+\begin{tabular}{ccc}
+\toprule
+\textbf{$\delta$} & \textbf{Detection Rate (\%)} & \textbf{FPR (\%)} \\
+\midrule
+0.1 & 96.19 & 0.00 \\
+0.3 & 96.19 & 0.00 \\
+0.5 & 96.19 & 0.00 \\
+0.7 & 96.19 & 0.00 \\
+1.0 & 96.19 & 2.22 \\
+\bottomrule
+\end{tabular}
+\par\smallskip
+\begin{tabular}{@{}p{\columnwidth}@{}}
+\footnotesize
+$N_h^{\mathrm{cfg}}=45$ honest vehicle decisions are evaluated for each
+discount-factor configuration. The observed FPR of 2.22\% corresponds
+to one false demotion ($1/45$).
+\end{tabular}
+\end{table}
+
+%==========================================================
+\subsection{Guarded CUSUM Contribution}
+\label{subsec:cusum_results}
+
+The contribution of guarded CUSUM is quantitatively evaluated through an
+ablation study by disabling temporal evidence accumulation while keeping all
+other trust components unchanged.
+
+As shown in Table~\ref{tab:cusum_ablation}, removing the guarded CUSUM
+mechanism reduces the detection rate from 96.19\% to 71.43\%. This degradation
+demonstrates that sequential evidence accumulation is essential for
+distinguishing persistent malicious behavior from transient abnormal
+observations.
+
+\begin{table}[!t]
+\caption{Effect of guarded CUSUM temporal verification on detection
+performance.}
+\label{tab:cusum_ablation}
+\centering
+\footnotesize
+\begin{tabular}{lccc}
+\toprule
+\textbf{Configuration} & \textbf{Detected/Total} & \textbf{DR (\%)} & \textbf{FPR (\%)} \\
+\midrule
+CUSUM Enabled  & 101/105 & 96.19 & 0.00 \\
+CUSUM Disabled & 75/105  & 71.43 & 0.00 \\
+\bottomrule
+\end{tabular}
+\par\smallskip
+\begin{tabular}{@{}p{\columnwidth}@{}}
+\footnotesize FPR values represent observed false positives over the evaluated honest vehicle decisions.
+\end{tabular}
+\end{table}
+
+%==========================================================
+\subsection{Attack Variant Robustness}
+\label{subsec:attack_results}
+
+The robustness of the proposed framework was evaluated against six different
+attack behaviors, including composite attacks, timestamp manipulation, GPS
+manipulation, speed falsification, stealthy attacks, and adaptive attacks.
+Each attack type was evaluated under different packet-loss conditions (0\%,
+10\%, and 20\%) using 15 independent simulation seeds, yielding
+$N_h^{\mathrm{att}}=135$ honest vehicle decisions analyzed across the three
+packet-loss conditions.
+
+The results demonstrate that the proposed framework maintains reliable
+detection capability across heterogeneous attack patterns while preserving
+safe operation. The proposed framework produces zero observed false positives
+for each evaluated attack-variant configuration. Each individual
+configuration contains 45 honest vehicle decisions (3 honest vehicles
+$\times$ 15 simulation seeds). Therefore, the reported finding of zero observed
+false positives represents zero observed false demotions within each evaluated
+configuration rather than a universal guarantee that the false-positive
+probability is zero.
+
+Detection performance ranged from 49.52\% to 96.19\%, depending on the attack
+type and communication condition. The lowest detection rate was observed for
+timestamp-only falsification under 20\% packet loss, where missing temporal
+observations reduced the evidence available for confirmation. Speed-only
+falsification under the same loss condition achieved 82.86\% detection. In
+both cases, the system continued to identify malicious vehicles without
+incorrectly isolating legitimate vehicles.
+
+These results indicate that the proposed framework is not dependent on a
+single attack signature. Instead, the combination of heterogeneous evidence
+fusion, Bayesian trust evolution, temporal suspicion accumulation, and
+conservative decision enforcement provides resilience against diverse
+misbehavior strategies. For composite, GPS-only, stealthy, and adaptive
+attacks, detection rate is pinned at $96.19\%$ regardless of packet loss:
+under the final hard-evidence configuration, the physical-consistency
+evidence these attacks disturb remains available even when beacons are
+dropped, so communication loss does not create an exploitable gap for
+them. Timestamp-only and speed-only falsification remain loss-sensitive
+because they rely more heavily on timing continuity across successive
+beacons, which packet loss directly degrades.
+
+Table~\ref{tab:attack_variant} reports the detection rate for each attack and
+packet-loss condition. The timestamp-only results show the greatest
+sensitivity to increasing packet loss.
+
+\begin{table}[!t]
+\caption{Attack-Variant Robustness Under Different Packet-Loss Conditions}
+\label{tab:attack_variant}
+\centering
+\renewcommand{\arraystretch}{1.15}
+\footnotesize
+\begin{tabular}{lccc}
+\toprule
+\textbf{Attack Type} & \textbf{0\% Loss} & \textbf{10\% Loss} & \textbf{20\% Loss} \\
+\midrule
+Composite (AT0)      & 96.19 & 96.19 & 96.19 \\
+Timestamp-only (AT1) & 92.38 & 80.00 & 49.52 \\
+GPS-only (AT2)       & 96.19 & 96.19 & 96.19 \\
+Speed-only (AT3)     & 87.62 & 86.67 & 82.86 \\
+Stealthy (AT4)       & 96.19 & 96.19 & 96.19 \\
+Adaptive (AT5)       & 96.19 & 96.19 & 96.19 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{Robustness Against Attack Intensity}
+\label{subsec:attack_rate}
+
+The robustness of the proposed trust framework was evaluated by varying the
+beacon falsification probability from 20\% to 80\% while maintaining the same
+network configuration and performing experiments over 15 independent random
+seeds. The detailed numerical results are reported in
+Table~\ref{tab:attack_rate}.
+
+\begin{table}[!t]
+\caption{Robustness evaluation under different beacon falsification probabilities}
+\label{tab:attack_rate}
+\centering
+\renewcommand{\arraystretch}{1.15}
+\begin{tabular}{cc}
+\toprule
+\textbf{Beacon Falsification Probability} & \textbf{DR (\%)} \\
+\midrule
+20\% & 95.56 \\
+50\% & 96.19 \\
+70\% & 96.30 \\
+80\% & 96.67 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=\linewidth]{figures/fig6_attack_rate_robustness.pdf}
+\caption{Robustness of the proposed framework against increasing beacon
+falsification probability. Detection performance remains stable across
+different attack intensities using multiple independent simulation seeds.}
+\label{fig:attack_rate_robustness}
+\end{figure}
+
+The robustness against increasing beacon falsification probability is shown
+in Fig.~\ref{fig:attack_rate_robustness}. The proposed framework maintains detection
+rates above 95\% across all evaluated attack intensities. The detection rate
+increases slightly from 95.56\% at 20\%
+attack probability to 96.67\% at 80\% attack probability, indicating that the
+temporal evidence accumulation and trust update mechanisms remain effective
+even when the frequency of malicious beacon modifications increases.
+
+The narrow 1.11 percentage-point range across the evaluated configurations
+demonstrates that the proposed framework is not dependent on a specific attack
+intensity and maintains reliable detection performance under varying levels
+of adversarial behavior. This trend should not be interpreted as increased
+attack severity improving system security; rather, more frequent malicious
+observations provide additional evidence for trust updating and temporal
+suspicion accumulation.
+
+It is important to distinguish beacon falsification probability from
+malicious vehicle ratio. The former represents the probability that an
+attacker generates manipulated beacon messages, whereas the latter
+represents the fraction of vehicles controlled by attackers. Therefore,
+an increase in falsification probability does not imply a change in the
+number of malicious vehicles in the evaluated scenario.
+
+%==========================================================
+\subsection{Robustness Against Packet Loss}
+\label{subsec:packet_loss}
+
+Wireless communication loss can fragment vehicle observations and reduce the
+availability of behavioral evidence. Therefore, the proposed framework was
+evaluated under packet-loss rates of 0\%, 5\%, 10\%, and 20\%.
+
+Table~\ref{tab:packet_loss} shows that the proposed framework maintains
+stable detection performance under degraded communication conditions. Even at
+20\% packet loss, the framework achieves a 91.43\% detection rate while
+maintaining zero observed false positives. This indicates that the proposed
+trust-state continuity mechanism and temporal evidence accumulation reduce
+the impact of incomplete observations.
+
+\begin{table}[!t]
+\caption{Packet-Loss Robustness Evaluation}
+\label{tab:packet_loss}
+\centering
+\renewcommand{\arraystretch}{1.15}
+\begin{tabular}{cccc}
+\toprule
+\textbf{Packet Loss} & \textbf{Detected} & \textbf{DR (\%)} & \textbf{FPR (\%)} \\
+\midrule
+0\%  & 101/105 & 96.19 & 0.00 \\
+5\%  & 99/105  & 94.29 & 0.00 \\
+10\% & 96/105  & 91.43 & 0.00 \\
+20\% & 96/105  & 91.43 & 0.00 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+%==========================================================
+\subsection{Comparison with VeReMi Baseline Under Packet Loss}
+\label{subsec:baseline}
+
+The effectiveness of the proposed trust-state continuity mechanism was further
+evaluated by comparing it with the VeReMi-based local segment-reset baseline
+under different packet loss conditions. The comparison was performed under
+identical attack and network settings to ensure a fair evaluation. The
+numerical results are summarized in Table~\ref{tab:baseline_packetloss}, while
+Fig.~\ref{fig:packet_loss_baseline} illustrates the detection performance
+variation with increasing communication degradation.
+
+As shown in Fig.~\ref{fig:packet_loss_baseline}, both approaches experience
+performance degradation as packet loss increases; however, the proposed
+framework maintains superior detection capability by preserving trust history
+across communication interruptions and UAV transitions. At 20\% packet loss,
+the proposed framework achieves 91.43\% detection rate compared with 79.05\%
+for the VeReMi segment-reset baseline, resulting in a gain of 12.38 percentage
+points.
+
+The increasing performance gap under severe packet loss demonstrates the
+advantage of maintaining continuous Bayesian trust evidence rather than
+reinitializing trust estimation after fragmented communication segments.
+The advantage of preserving historical trust information under communication
+degradation is illustrated in Fig.~\ref{fig:packet_loss_baseline}.
+
+\begin{table}[!t]
+\caption{Comparison With Local Segment-Reset VeReMi-Style Baseline}
+\label{tab:baseline_packetloss}
+\centering
+\renewcommand{\arraystretch}{1.15}
+\setlength{\tabcolsep}{2.5pt}
+\scriptsize
+\begin{tabular}{ccccc}
+\toprule
+\textbf{Packet Loss} &
+\multicolumn{2}{c}{\textbf{Proposed}} &
+\multicolumn{2}{c}{\textbf{Baseline}} \\
+\cmidrule(lr){2-3}\cmidrule(lr){4-5}
+& \textbf{DR (\%)} & \textbf{FPR (\%)} & \textbf{DR (\%)} & \textbf{FPR (\%)} \\
+\midrule
+0\%  & 96.19 & 0.00 & 96.19 & 0.00 \\
+5\%  & 94.29 & 0.00 & 89.52 & 0.00 \\
+10\% & 91.43 & 0.00 & 84.76 & 2.22 \\
+20\% & 91.43 & 0.00 & 79.05 & 6.67 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=\linewidth]{figures/fig7_packet_loss_baseline.pdf}
+\caption{Comparison of the proposed framework with the VeReMi baseline under
+increasing packet-loss conditions. The proposed approach maintains higher
+detection performance by preserving trust-state continuity and temporal
+evidence.}
+\label{fig:packet_loss_baseline}
+\end{figure}
+
+%==========================================================
+\subsection{Scalability Evaluation}
+\label{subsec:scalability}
+
+The proposed framework remains operational under the evaluated simulation
+range while exhibiting accuracy and runtime trade-offs.
+Detection performance decreases as network size increases because
+each vehicle receives fewer effective observations for trust evolution
+and temporal evidence accumulation under the fixed simulation duration.
+The evaluation increased
+the vehicle density from 10 to 50 vehicles while maintaining identical
+simulation conditions across 15 independent random seeds.
+Table~\ref{tab:scalability} summarizes the detection performance and
+computational overhead, while Fig.~\ref{fig:scalability} illustrates
+the relationship between network density, detection capability, and execution
+time.
+
+As shown in Fig.~\ref{fig:scalability}, the proposed framework
+achieves a detection rate of 96.19\% for 10 vehicles and maintains effective
+detection capability as the network size increases. Although the detection
+rate decreases to 52.29\% at 50 vehicles due to increased trust evaluation
+load and reduced observation availability per vehicle, the framework
+continues to preserve safety by maintaining zero observed false positives.
+This result highlights the trade-off between detection sensitivity
+and evidence availability under dense vehicular conditions. The execution time increases
+from 86.73~s for 10 vehicles to 1189.40~s for 50 vehicles, reflecting the
+additional computational requirements associated with processing a larger
+number of trust updates, handover events, and temporal evidence evaluations.
+
+These results demonstrate that the proposed framework remains operational
+as network size increases while revealing the trade-off between detection
+accuracy and observation availability under fixed simulation duration. The
+detailed numerical results are provided in Table~\ref{tab:scalability}, while
+Fig.~\ref{fig:scalability} provides a visual analysis of the
+detection-performance and computational trade-off.
+
+\begin{table}[!t]
+\caption{Scalability and Computational Performance}
+\label{tab:scalability}
+\centering
+\begin{tabular}{cccc}
+\toprule
+\textbf{Vehicles} & \textbf{DR (\%)} & \textbf{FPR (\%)} & \textbf{Runtime (s)} \\
+\midrule
+10 & 96.19 & 0.00 & 86.73 \\
+20 & 83.08 & 0.00 & 218.53 \\
+30 & 72.28 & 0.00 & 438.60 \\
+50 & 52.29 & 0.00 & 1189.40 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=\linewidth]{figures/fig8_scalability_runtime.pdf}
+\caption{Scalability analysis of the proposed framework under increasing
+vehicle density. Detection performance and execution time are evaluated for
+different network sizes using multiple simulation seeds.}
+\label{fig:scalability}
+\end{figure}
+
+The scalability behaviour of the proposed framework is evaluated in
+Fig.~\ref{fig:scalability}. Increasing vehicle density introduces additional
+trust-state processing overhead and reduces the observations available to
+each vehicle for trust evolution.
+
+%==========================================================
+\subsection{Overlap Guard Evaluation}
+\label{subsec:overlap_guard}
+
+The overlap BAN guard was evaluated to determine its effect on safety
+preservation during trust enforcement. The guard prevents premature BAN
+decisions when multiple overlapping observations are required for reliable
+confirmation.
+
+The ablation experiment shows that enabling the overlap guard preserves the
+same detection capability while reducing false-positive decisions from one
+case to zero, as reported in Table~\ref{tab:overlap_guard}. For this
+configuration-level evaluation, the safety statistics are computed over
+$N_h^{\mathrm{cfg}}=45$ honest vehicle decisions.
+
+\begin{table}[!t]
+\caption{Effect of overlap BAN guard.
+The FPR values are computed using $N_h^{\mathrm{cfg}}=45$ honest vehicle
+decisions per configuration (3 honest vehicles $\times$ 15 simulation seeds).}
+\label{tab:overlap_guard}
+\centering
+\renewcommand{\arraystretch}{1.15}
+\footnotesize
+\begin{tabular}{lccc}
+\toprule
+\textbf{Configuration} & \textbf{DR (\%)} & \textbf{FPR (\%)} & \textbf{False Demotions} \\
+\midrule
+Guard Disabled & 96.19 & 2.22 & 1/45 \\
+Guard Enabled  & 96.19 & 0.00 & 0/45 \\
+\bottomrule
+\end{tabular}
+\par\smallskip
+\begin{tabular}{@{}p{\columnwidth}@{}}
+\footnotesize
+Each overlap-guard configuration contains
+$N_h^{\mathrm{cfg}}=45$ honest vehicle decisions.
+The disabled guard produces one false demotion,
+whereas the enabled guard produces zero observed false demotions.
+\end{tabular}
+\end{table}
+
+%==========================================================
+\subsection{Overall Discussion}
+\label{subsec:overall_discussion}
+
+The experimental results collectively demonstrate that reliable falsified
+vehicle-beacon detection in multi-UAV environments requires more than
+instantaneous anomaly identification. The proposed framework combines
+physical-consistency evidence, Bayesian trust evolution, temporal suspicion
+accumulation, conservative confirmation, and cross-UAV trust-state continuity
+to address the challenges introduced by vehicle mobility and fragmented
+observations.
+
+The ablation studies provide direct evidence regarding the contribution of
+individual design components. The handover evaluation shows that preserving
+trust-state continuity across UAV boundaries substantially improves detection
+capability by allowing the receiving UAV to exploit previously accumulated
+behavioral evidence. Without trust-state transfer, detection performance
+degrades significantly because fragmented observations are evaluated
+independently.
+
+Similarly, the guarded CUSUM analysis demonstrates that temporal evidence
+accumulation improves decision reliability compared with relying only on
+instantaneous trust estimation. By requiring persistent suspicious behavior
+before enforcement, the framework improves detection sensitivity while
+maintaining zero observed false positives.
+
+The robustness experiments further indicate that the proposed framework
+remains effective under simulated communication degradation and adversarial conditions.
+The framework maintains high detection performance under packet-loss
+conditions up to 20\% and preserves zero observed false positives across the evaluated
+beacon falsification probabilities. This behavior is attributed to the complementary
+interaction between Bayesian trust updating and sequential suspicion
+tracking, which reduces the dependence on any single observation.
+
+Comparison with the local segment-reset VeReMi-style baseline highlights the
+importance of maintaining historical trust information in mobile UAV
+environments. While both approaches perform similarly under ideal
+communication conditions, the proposed framework provides improved robustness
+under degraded communication conditions because historical trust evidence
+remains available across UAV transitions.
+
+Finally, scalability evaluation reveals the inherent trade-off between
+network size and detection performance. Increasing vehicle density introduces
+more concurrent evidence streams and reduces individual observation
+opportunities, resulting in reduced detection rate and increased runtime.
+Nevertheless, the framework maintains conservative safety behavior with zero
+observed false positives across the evaluated network sizes.
+
+Overall, the results support the hypothesis that mobility-aware trust
+continuity combined with temporal evidence verification provides a practical
+approach for improving dependability of distributed UAV-assisted
+vehicular networks.
+
+Considering all experiment categories, vehicle-density settings,
+packet-loss configurations, attack variants, and ablation studies,
+the evaluation represents a systematic multi-scenario simulation campaign rather
+than isolated executions. Each configuration was independently
+executed across 15 seeds, producing reproducible performance
+statistics from multiple long-duration ns-3 simulation runs.
+
+\subsection{Result Traceability and Reproducibility}
+
+All quantitative results reported in this section were generated from
+the locked final experiment outputs. Each evaluation table corresponds
+to structured CSV summaries generated from raw ns-3 simulation logs,
+ensuring traceability between experimental configurations, simulation
+runs, and reported metrics.
+
+\section{Limitations and Future Work}
+\label{sec:limitations_future_work}
+
+\textit{Limitations:}
+Although the proposed framework demonstrates strong performance in the
+evaluated scenarios, the current study relies on simulation-based validation.
+The impact of environmental uncertainty, UAV positioning errors, hardware
+limitations, and large-scale communication interference requires further
+investigation through field deployment studies.
+
+Although the proposed framework includes a cloud-based intelligence layer for
+global aggregation and policy dissemination, the current experimental
+evaluation focuses on edge-level UAV computations. The active role of the
+cloud in real-time decision-making is left for future exploration.
+
+First, detection performance decreases as vehicle density increases. In the scalability experiment, the framework preserves zero observed false positives across all tested densities, but the detection rate decreases from 96.19\% at 10 vehicles to 52.29\% at 50 vehicles. This indicates that the current implementation is conservative under dense traffic and that each vehicle receives fewer effective observations as the monitoring load increases. Future work should investigate density-aware UAV watcher allocation, adaptive evidence scheduling, and dynamic load balancing across UAV edge nodes.
+
+Second, runtime increases super-linearly with vehicle count. The mean runtime increases from 86.73 s at 10 vehicles to 1189.40 s at 50 vehicles. Although the framework remains safety-preserving, this runtime behavior limits scalability for larger deployments. Future implementations should optimize trust-state storage, reduce redundant edge--cloud communication, and explore parallelized or event-triggered evidence processing.
+
+Third, timestamp-only falsification remains more difficult under packet loss than position- or speed-dominant falsification. In the attack-variant evaluation, timestamp-only detection decreases from 92.38\% under no packet loss to 49.52\% under 20\% packet loss, while the framework still preserves zero observed false positives. This suggests that temporal-only attacks require stronger timing-specific evidence models, such as clock-drift profiling, inter-arrival-time consistency, or multi-observer temporal correlation.
+
+Furthermore, highly intermittent attackers that strategically alternate
+between benign and malicious transmissions may reduce the effectiveness of
+sequential evidence accumulation by preventing sustained suspicion growth.
+Reputation-then-defect behaviors and adaptive pacing strategies represent
+important adversarial cases that will be investigated in future work through
+adaptive attack modeling and learning-assisted defense mechanisms.
+
+Fourth, the primary evaluation uses a two-UAV handover scenario to isolate the effect of trust-state transfer. This design is suitable for controlled analysis, but larger deployments may involve multiple UAVs, non-uniform coverage, overlapping handover regions, UAV mobility constraints, and dynamic UAV repositioning. Future work should extend the framework to multi-hop UAV handover, heterogeneous UAV coverage, and cooperative UAV placement.
+
+Fifth, the attacker model focuses on falsified vehicular beacon content and assumes that UAV edge nodes, the edge--cloud coordinator, and the trust-management software are not compromised. This is appropriate for studying message-level falsification attacks, but future work should consider stronger adversaries, including colluding vehicles, compromised edge nodes, Sybil attacks, coordinated replay, and adaptive attackers that learn the trust thresholds over time.
+
+Finally, the current framework is validated using ns-3-based simulation. Although simulation enables controlled ablation, repeatability, and stress testing, field trials or hardware-in-the-loop validation would provide stronger evidence for deployment readiness. Future studies should therefore evaluate the framework with real V2X traces, UAV-assisted testbeds, and mixed simulation--emulation environments.
+
+Although learning-based misbehavior detectors have demonstrated
+high classification accuracy, they primarily optimize message-level
+classification performance. The objective of this work is different:
+maintaining trust-state continuity across UAV handover under
+fragmented observations. Therefore, direct comparison with ML
+classifiers is outside the scope of this study. Future work will
+investigate hybrid trust-learning approaches that combine temporal
+trust evolution with data-driven classifiers.
+
+These limitations do not weaken the main contribution of this work. Rather, they identify the next research steps required to move from a controlled mobility-aware trust-management framework toward a scalable and deployment-ready UAV-assisted vehicular security system.
+
+\section{Conclusion}
+\label{sec:conclusion}
+
+This paper presented a mobility-aware multi-UAV edge--cloud trust-management
+framework for improving the dependability of vehicular communication under
+falsified-beacon attacks. Unlike conventional detection approaches that
+operate on isolated observations, the proposed framework integrates
+multi-source evidence fusion, Bayesian trust evolution, guarded temporal
+suspicion tracking, conservative trust confirmation, and cross-UAV
+trust-state continuity to maintain consistent security decisions during
+vehicle mobility.
+
+The experimental evaluation demonstrated that the proposed
+framework achieves a detection rate of 96.19\% with zero observed
+false positives across the evaluated ns-3 simulation scenarios.
+The ablation analysis confirmed the contribution of individual design
+components. Preserving cross-UAV trust-state continuity closed a bounded,
+approximately 500\,ms detection blind window at the zone-boundary
+handover: under cold-start initialization, detection rate rose from 0\%
+to 97.3\% as post-crossing observation runway increased from 1.0\,s to
+1.5\,s, whereas continuity-enabled performance remained steady at
+94.7--97.3\% throughout, demonstrating that the mechanism closes a
+bounded post-handover vulnerability window -- most valuable within
+roughly the first second after a UAV transition -- rather than providing
+an unconditional detection improvement. Similarly, integrating guarded CUSUM-based temporal
+verification increased detection capability from 71.43\% to 96.19\% while
+maintaining zero observed false positives.
+
+The robustness evaluation further showed that the proposed framework remains
+effective under realistic communication degradation. Under 20\% packet loss,
+the framework maintained 91.43\% detection performance with zero observed
+false positives. Compared with a clean-safe local segment-reset VeReMi-style
+baseline, the proposed approach provided improved resilience under degraded
+communication conditions, achieving a 12.38 percentage-point detection
+advantage at 20\% packet loss by preserving historical trust information
+across UAV transitions.
+
+The scalability evaluation revealed the expected trade-off between network
+density and detection performance. While increasing the number of vehicles
+from 10 to 50 introduced higher computational overhead and reduced detection
+capability due to increased evidence contention, the framework maintained
+zero observed false positives throughout the evaluated scenarios. This
+highlights the importance of balancing detection sensitivity, computational
+cost, and conservative trust enforcement in large-scale UAV-assisted
+vehicular networks.
+
+Despite these advantages, the current evaluation is limited to simulation
+experiments with predefined mobility and attack models. Future work will
+focus on real-world UAV--vehicle deployment validation, adaptive trust
+parameter optimization, larger-scale heterogeneous UAV networks, and
+learning-assisted mechanisms for improving scalability while preserving
+interpretability and safety-preserving behavior.
+
+Overall, the results demonstrate that mobility-aware trust-state continuity
+combined with temporal evidence verification provides a promising approach
+for enhancing the dependability of distributed UAV-assisted vehicular
+networks against falsified information attacks.
+
+
+
+
+
+% if have a single appendix:
+%\appendix[Proof of the Zonklar Equations]
+% or
+%\appendix  % for no appendix heading
+% do not use \section anymore after \appendix, only \section*
+% is possibly needed
+
+% use appendices with more than one appendix
+% then use \section to start each appendix
+% you must declare a \section before using any
+% \subsection or using \label (\appendices by itself
+% starts a section numbered zero.)
+%
+
+
+% Can use something like this to put references on a page
+% by themselves when using endfloat and the captionsoff option.
+\ifCLASSOPTIONcaptionsoff
+  \newpage
+\fi
+
+
+
+% trigger a \newpage just before the given reference
+% number - used to balance the columns on the last page
+% adjust value as needed - may need to be readjusted if
+% the document is modified later
+%\IEEEtriggeratref{8}
+% The "triggered" command can be changed if desired:
+%\IEEEtriggercmd{\enlargethispage{-5in}}
+
+% references section
+
+% can use a bibliography generated by BibTeX as a .bbl file
+% BibTeX documentation can be easily obtained at:
+% http://mirror.ctan.org/biblio/bibtex/contrib/doc/
+% The IEEEtran BibTeX style support page is at:
+% http://www.michaelshell.org/tex/ieeetran/bibtex/
+%\bibliographystyle{IEEEtran}
+% argument is your BibTeX string definitions and bibliography database(s)
+%\bibliography{IEEEabrv,../bib/paper}
+%
+% <OR> manually copy in the resultant .bbl file
+% set second argument of \begin to the number of references
+% (used to reserve space for the reference number labels box)
+\bibliographystyle{IEEEtran}
+\bibliography{references}
+
+
+
+\bibliographystyle{IEEEtran}
+\bibliography{references}
+
+% that's all folks
+\end{document}

@@ -1,5 +1,5 @@
 Paper Table,Experiment,CSV Source
-Table VII,Handover Ablation,handover_onoff_aggregate_summary.csv
+Table VII,Handover Ablation (DR vs. runway),handover_runway_sweep_aggregate_summary.csv
 Table VIII,HTD Sensitivity,htd_sensitivity_aggregate_summary.csv
 Table IX,CUSUM Ablation,guarded_cusum_onoff_aggregate_summary.csv
 Table X,Attack Variants,attack_variants_patched_final_aggregate_summary.csv

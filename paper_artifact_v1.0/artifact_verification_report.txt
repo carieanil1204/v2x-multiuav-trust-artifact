@@ -2,9 +2,20 @@
 V2X MULTI-UAV TRUST ARTIFACT VERIFICATION
 ============================================================
 
-Table VII: Handover Ablation
-Handover ON DR 96.19: PASS ✓
-Handover OFF DR 41.90: PASS ✓
+Table VII: Handover Ablation (DR vs. post-crossing runway tau)
+Handover ON tau=1.0s DR 94.7: PASS ✓
+Handover ON tau=1.1s DR 94.7: PASS ✓
+Handover ON tau=1.2s DR 94.7: PASS ✓
+Handover ON tau=1.3s DR 94.7: PASS ✓
+Handover ON tau=1.4s DR 94.7: PASS ✓
+Handover ON tau=1.5s DR 97.3: PASS ✓
+Handover OFF tau=1.0s DR 0.0: PASS ✓
+Handover OFF tau=1.1s DR 24.0: PASS ✓
+Handover OFF tau=1.2s DR 32.0: PASS ✓
+Handover OFF tau=1.3s DR 48.0: PASS ✓
+Handover OFF tau=1.4s DR 69.3: PASS ✓
+Handover OFF tau=1.5s DR 97.3: PASS ✓
+Handover FPR 0.00 for all tau, both conditions: PASS ✓
 
 Table IX: Guarded CUSUM Ablation
 CUSUM ON DR 96.19: PASS ✓
