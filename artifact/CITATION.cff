@@ -1,0 +1,32 @@
+cff-version: 1.2.0
+title: "Experimental Artifact for Mobility-Aware Multi-UAV Edge-Cloud Trust Management for Falsified Vehicular Beacon Detection under Handover and Packet Loss"
+
+message: "If you use this artifact, please cite the associated research paper."
+
+type: software
+
+version: "v1.0-final"
+
+authors:
+  - family-names: Carie
+    given-names: Anil
+
+keywords:
+  - Multi-UAV networks
+  - Edge-cloud computing
+  - Trust management
+  - Vehicular networks
+  - Falsified beacon detection
+  - ns-3 simulation
+  - Reproducible research
+
+repository-code: "https://github.com/<username>/<repository>"
+
+license: "MIT"
+
+abstract: >
+  This artifact contains the locked experimental results,
+  configuration files, verification scripts, and supporting
+  simulation outputs for the evaluation of a mobility-aware
+  multi-UAV edge-cloud trust management framework for falsified
+  vehicular beacon detection under UAV handover and packet loss.

@@ -1,0 +1,5 @@
+nCars,runtime_mean_sec,runtime_std_sec,runtime_per_vehicle_sec,runtime_increase_vs_N10,linear_expected_runtime_sec,extra_overhead_vs_linear
+10,86.73,2.15,8.67,1.0,86.73,1.0
+20,218.53,6.94,10.93,2.52,173.46,1.26
+30,438.6,8.21,14.62,5.06,260.19,1.69
+50,1189.4,108.95,23.79,13.71,433.65,2.74

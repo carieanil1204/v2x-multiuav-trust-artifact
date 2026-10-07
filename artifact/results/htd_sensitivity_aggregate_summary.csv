@@ -1,0 +1,6 @@
+experiment,condition,valid_seeds,caught,pooled_DR_percent,DR_mean_percent,DR_std,false_positive,pooled_FPR_percent,FPR_mean_percent,FPR_std,CUSUM_BAN_total,CUSUM_HOLD_total,PKT_DROP_LOGS_total,source_summary_path
+htd_sensitivity,HTD_0.10,15,101/105,96.19,96.19,6.54,0/45,0.0,0.0,0.0,25,7,0,/home/srmap/research/projects/v2x-multiuav-trust/results/HTD_SENSITIVITY_GUARDED_CUSUM_15SEED_SUMMARY.txt
+htd_sensitivity,HTD_0.30,15,101/105,96.19,96.19,6.54,0/45,0.0,0.0,0.0,25,7,0,/home/srmap/research/projects/v2x-multiuav-trust/results/HTD_SENSITIVITY_GUARDED_CUSUM_15SEED_SUMMARY.txt
+htd_sensitivity,HTD_0.50,15,101/105,96.19,96.19,6.54,0/45,0.0,0.0,0.0,25,7,0,/home/srmap/research/projects/v2x-multiuav-trust/results/HTD_SENSITIVITY_GUARDED_CUSUM_15SEED_SUMMARY.txt
+htd_sensitivity,HTD_0.70,15,101/105,96.19,96.19,6.54,0/45,0.0,0.0,0.0,26,7,0,/home/srmap/research/projects/v2x-multiuav-trust/results/HTD_SENSITIVITY_GUARDED_CUSUM_15SEED_SUMMARY.txt
+htd_sensitivity,HTD_1.00,15,101/105,96.19,96.19,6.54,1/45,2.22,2.22,8.61,25,0,0,/home/srmap/research/projects/v2x-multiuav-trust/results/HTD_SENSITIVITY_GUARDED_CUSUM_15SEED_SUMMARY.txt

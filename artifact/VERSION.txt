@@ -1,0 +1,17 @@
+Artifact Version: v1.0-final
+
+Paper:
+Mobility-Aware Multi-UAV Edge–Cloud Trust Management for
+Falsified Vehicular Beacon Detection under Handover and Packet Loss
+
+Status:
+Final locked experimental artifact
+
+Simulation:
+ns-3 based evaluation
+
+Random Seeds:
+15 independent seeds per experiment
+
+Results:
+All numerical results verified against locked CSV files

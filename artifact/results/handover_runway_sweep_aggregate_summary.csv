@@ -1,0 +1,13 @@
+experiment,condition,tau_sec,valid_seeds,caught,pooled_DR_percent,pooled_FPR_percent,source_summary_path
+handover_runway_sweep,ON,1.0,15,71/75,94.7,0.0,/home/srmap-jc205/research/projects/v2x-multiuav-trust/results/crossing_sweep_pass2/tail_1.0
+handover_runway_sweep,OFF,1.0,15,0/75,0.0,0.0,/home/srmap-jc205/research/projects/v2x-multiuav-trust/results/crossing_sweep_pass2/tail_1.0
+handover_runway_sweep,ON,1.1,15,71/75,94.7,0.0,/home/srmap-jc205/research/projects/v2x-multiuav-trust/results/crossing_sweep_bisect2_15seed/tail_1.1
+handover_runway_sweep,OFF,1.1,15,18/75,24.0,0.0,/home/srmap-jc205/research/projects/v2x-multiuav-trust/results/crossing_sweep_bisect2_15seed/tail_1.1
+handover_runway_sweep,ON,1.2,15,71/75,94.7,0.0,/home/srmap-jc205/research/projects/v2x-multiuav-trust/results/crossing_sweep_bisect2_15seed/tail_1.2
+handover_runway_sweep,OFF,1.2,15,24/75,32.0,0.0,/home/srmap-jc205/research/projects/v2x-multiuav-trust/results/crossing_sweep_bisect2_15seed/tail_1.2
+handover_runway_sweep,ON,1.3,15,71/75,94.7,0.0,/home/srmap-jc205/research/projects/v2x-multiuav-trust/results/crossing_sweep_bisect2_15seed/tail_1.3
+handover_runway_sweep,OFF,1.3,15,36/75,48.0,0.0,/home/srmap-jc205/research/projects/v2x-multiuav-trust/results/crossing_sweep_bisect2_15seed/tail_1.3
+handover_runway_sweep,ON,1.4,15,71/75,94.7,0.0,/home/srmap-jc205/research/projects/v2x-multiuav-trust/results/crossing_sweep_bisect2_15seed/tail_1.4
+handover_runway_sweep,OFF,1.4,15,52/75,69.3,0.0,/home/srmap-jc205/research/projects/v2x-multiuav-trust/results/crossing_sweep_bisect2_15seed/tail_1.4
+handover_runway_sweep,ON,1.5,15,73/75,97.3,0.0,/home/srmap-jc205/research/projects/v2x-multiuav-trust/results/crossing_sweep_pass2/tail_1.5
+handover_runway_sweep,OFF,1.5,15,73/75,97.3,0.0,/home/srmap-jc205/research/projects/v2x-multiuav-trust/results/crossing_sweep_pass2/tail_1.5

@@ -1,0 +1,10 @@
+Experiment,Paper Table,Primary CSV,Per Seed CSV,Seeds,Status
+Handover Ablation (DR vs. runway),Table VII,handover_runway_sweep_aggregate_summary.csv,handover_onoff_per_seed_raw.csv (superseded -- see runway sweep dir),15 x 6 tau,LOCKED
+Guarded CUSUM Ablation,Table IX,guarded_cusum_onoff_aggregate_summary.csv,guarded_cusum_onoff_per_seed_raw.csv,15,LOCKED
+HTD Sensitivity,Table VIII,htd_sensitivity_aggregate_summary.csv,htd_sensitivity_per_seed_raw.csv,15,LOCKED
+Beacon Falsification Probability,Table XI,attack_rate_robustness_extended_aggregate_summary.csv,attack_rate_robustness_extended_per_seed_raw.csv,15,LOCKED
+Packet Loss Robustness,Table XII,packet_loss_robustness_aggregate_summary.csv,packet_loss_robustness_per_seed_raw.csv,15,LOCKED
+Attack Variants,Table X,attack_variants_patched_final_aggregate_summary.csv,attack_variants_patched_final_per_vehicle_raw.csv,15,LOCKED
+Scalability,Table XIV,scalability_aggregate_summary.csv,scalability_per_seed_raw.csv,15,LOCKED
+Baseline Comparison,Table XIII,reviewer_ready_baseline_master_summary.csv,multiple baseline CSV files,15,LOCKED
+Overlap Guard,Table XV,overlap_guard_ablation_summary.csv,overlap_guard_ablation_per_seed_raw.csv,15,LOCKED
